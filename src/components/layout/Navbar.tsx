@@ -8,30 +8,67 @@ const megaDropdownCategories = [
   {
     title: "Cards",
     items: [
-      "Business Cards", "Postcards", "Greeting Cards", "Thank You Cards",
-      "Bookmarks", "Christmas Cards", "Discount Cards", "Appointment Cards",
-      "Loyalty Cards", "Birth Announcement Cards", "Invitations",
+      { label: "Business Cards", slug: "business-cards" },
+      { label: "Postcards", slug: "postcards" },
+      { label: "Greeting Cards", slug: "greeting-cards" },
+      { label: "Thank You Cards", slug: "thank-you-cards" },
+      { label: "Bookmarks", slug: "bookmarks" },
+      { label: "Christmas Cards", slug: "christmas-cards" },
+      { label: "Discount Cards", slug: "discount-cards" },
+      { label: "Appointment Cards", slug: "appointment-cards" },
+      { label: "Loyalty Cards", slug: "loyalty-cards" },
+      { label: "Birth Announcement Cards", slug: "birth-announcement-cards" },
+      { label: "Invitations", slug: "invitations" },
     ],
   },
+
   {
     title: "Stationery",
-    items: ["Brochures", "Letterhead", "Compliment Slips", "Wrapping Paper"],
+    items: [
+      { label: "Brochures", slug: "brochures" },
+      { label: "Letterhead", slug: "letterhead" },
+      { label: "Compliment Slips", slug: "compliment-slips" },
+      { label: "Wrapping Paper", slug: "wrapping-paper" },
+    ],
   },
+
   {
     title: "Marketing",
-    items: ["Flyers", "Posters", "Swing Tags"],
+    items: [
+      { label: "Flyers", slug: "flyers" },
+      { label: "Posters", slug: "posters" },
+      { label: "Swing Tags", slug: "swing-tags" },
+    ],
   },
+
   {
     title: "Stickers",
-    items: ["Adhesive Labels", "Circle Stickers", "Square Stickers", "Rectangle Stickers"],
+    items: [
+      { label: "Adhesive Labels", slug: "adhesive-labels" },
+      { label: "Circle Stickers", slug: "circle-stickers" },
+      { label: "Square Stickers", slug: "square-stickers" },
+      { label: "Rectangle Stickers", slug: "rectangle-stickers" },
+    ],
   },
+
   {
     title: "Books",
-    items: ["Books", "Booklets", "Reports", "Calendars", "Annual Reports"],
+    items: [
+      { label: "Books", slug: "books" },
+      { label: "Booklets", slug: "booklets" },
+      { label: "Reports", slug: "reports" },
+      { label: "Calendars", slug: "calendars" },
+      { label: "Annual Reports", slug: "annual-reports" },
+    ],
   },
+
   {
     title: "Event Stationery",
-    items: ["Save The Date Cards", "Thank You Cards", "Invitations"],
+    items: [
+      { label: "Save The Date Cards", slug: "save-the-date-cards" },
+      { label: "Thank You Cards", slug: "thank-you-cards" },
+      { label: "Invitations", slug: "invitations" },
+    ],
   },
 ];
 
@@ -44,15 +81,24 @@ const navLinks = [
     dropdownType: "simple" as const,
     hasMobileChevron: true,
     dropdownItems: [
-      "Why Sustainable", "Vegetable Based Inks", "Environmentally Friendly",
-      "Reducing Waste", "Green Power", "Recycled Paper",
+      { label: "Why Sustainable", href: "/why-we-print-sustainably" },
+      { label: "Vegetable Based Inks", href: "/environmentally-friendly-inks-toner" },
+      { label: "Environmentally Friendly", href: "/environmentally-friendly-inks-toner" },
+      { label: "Reducing Waste", href: "/reducing-waste" },
+      { label: "Green Power", href: "/greenpower" },
+      { label: "Recycled Paper", href: "/recycled-paper" },
     ],
   },
   {
     label: "Help & Contact",
     dropdownType: "simple" as const,
     hasMobileChevron: true,
-    dropdownItems: ["FAQ", "Artwork Specification Guide", "Contact Us", "Blogs"],
+    dropdownItems: [
+      { label: "FAQ", href: "#" },
+      { label: "Artwork Specification Guide", href: "#" },
+      { label: "Contact Us", href: "#" },
+      { label: "Blogs", href: "#" },
+    ],
   },
 ];
 
@@ -153,8 +199,8 @@ export default function Navbar() {
                 <button
                   ref={(el) => { btnRefs.current[label] = el; }}
                   className={`text-[14px] font-medium transition-colors duration-150 pb-[2px] cursor-pointer border-b-2 whitespace-nowrap ${activeDropdown === label
-                      ? "text-[#3d9e5f] border-[#3d9e5f]"
-                      : "text-gray-800 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f]"
+                    ? "text-[#3d9e5f] border-[#3d9e5f]"
+                    : "text-gray-800 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f]"
                     }`}
                 >
                   {label}
@@ -202,10 +248,12 @@ export default function Navbar() {
                   <p className="font-semibold text-gray-900 text-[13px] mb-3">{title}</p>
                   <ul className="space-y-[10px]">
                     {items.map((item) => (
-                      <Link key={item}
-                        href="#" className="text-[13px] text-gray-600 hover:text-[#3d9e5f] transition-colors duration-150 block"
+                      <Link
+                        key={item.slug}
+                        href={`/${item.slug}`}
+                        className="text-[13px] text-gray-600 hover:text-[#3d9e5f] transition-colors duration-150 block"
                       >
-                        {item}
+                        {item.label}
                       </Link>
                     ))}
                   </ul>
@@ -225,11 +273,11 @@ export default function Navbar() {
           onMouseLeave={scheduleClose}
         >
           {activeLink.dropdownItems.map((item) => (
-            <Link key={item}
-              href="#"
+            <Link key={item.label}
+              href={item.href}
               className="block px-5 py-[10px] text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
             >
-              {item}
+              {item.label}
             </Link>
           ))}
         </ul>
@@ -270,9 +318,13 @@ export default function Navbar() {
                             {openCategory === title && (
                               <ul>
                                 {items.map((item) => (
-                                  <Link key={item}
-                                    href="#" className="border-t border-gray-200 block px-10 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150">
-                                    {item}
+                                  <Link
+                                    key={item.slug}
+                                    href={`/${item.slug}`}
+                                    className="border-t border-gray-200 block px-10 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150"
+                                    onClick={() => setMobileOpen(false)}
+                                  >
+                                    {item.label}
                                   </Link>
                                 ))}
                               </ul>
@@ -285,9 +337,12 @@ export default function Navbar() {
                     {openSection === label && dropdownType === "simple" && dropdownItems && (
                       <ul>
                         {dropdownItems.map((item) => (
-                          <Link key={item}
-                            href="#" className=" border-t border-gray-200block px-8 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150">
-                            {item}
+                          <Link key={item.label}
+                            href={item.href}
+                            className="border-t border-gray-200 block px-8 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {item.label}
                           </Link>
                         ))}
                       </ul>

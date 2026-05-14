@@ -41,7 +41,7 @@ const products: Product[] = [
     description:
       "Great for any business wanting to share their message with the world. These folded brochures are available in 100% recycled, post consumer waste papers, with a uncoated or a silk finish.",
     shopLabel: "Shop Brochures",
-    shopHref: "/products/folded-brochure",
+    shopHref: "/products/brochures",
   },
   {
     id: 5,
