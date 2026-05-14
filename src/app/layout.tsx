@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 
 
@@ -23,6 +24,7 @@ export default function RootLayout({
     >
 
       <body className="min-h-screen flex flex-col">
+        <Navbar />
         <main>
           {children}
         </main>
