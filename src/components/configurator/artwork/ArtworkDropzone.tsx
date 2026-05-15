@@ -1,20 +1,30 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { ConfiguratorAction } from "@/src/types/configurator.types";
+
+interface Props {
+  dispatch: React.Dispatch<ConfiguratorAction>;
+  artworkFileName: string;
+  artworkFileSize: number;
+}
 
 const ACCEPTED = ".pdf,.jpg,.jpeg,.png,.ai,.psd";
 
-export default function ArtworkDropzone() {
+export default function ArtworkDropzone({ dispatch, artworkFileName, artworkFileSize }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
-  const [file, setFile] = useState<File | null>(null);
 
-  function openPicker() {
-    inputRef.current?.click();
-  }
+  const hasFile = artworkFileName !== "";
 
   function handleFile(f: File) {
-    setFile(f);
+    dispatch({ type: "SET_ARTWORK_FILE", fileName: f.name, fileSize: f.size });
+  }
+
+  function removeFile(e: React.MouseEvent) {
+    e.stopPropagation();
+    dispatch({ type: "SET_ARTWORK_FILE", fileName: "", fileSize: 0 });
+    if (inputRef.current) inputRef.current.value = "";
   }
 
   function onInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -39,12 +49,6 @@ export default function ArtworkDropzone() {
     if (f) handleFile(f);
   }
 
-  function removeFile(e: React.MouseEvent) {
-    e.stopPropagation();
-    setFile(null);
-    if (inputRef.current) inputRef.current.value = "";
-  }
-
   return (
     <>
       <input
@@ -56,21 +60,21 @@ export default function ArtworkDropzone() {
       />
 
       <div
-        onClick={openPicker}
+        onClick={() => inputRef.current?.click()}
         onDragOver={onDragOver}
         onDragLeave={onDragLeave}
         onDrop={onDrop}
         className={`border-2 border-dashed rounded-lg px-6 py-10 flex flex-col items-center text-center cursor-pointer transition-colors duration-150 ${
           dragging
             ? "border-[#3d9e5f] bg-[#f0faf5]"
-            : file
+            : hasFile
             ? "border-[#3d9e5f] bg-[#f0faf5]"
             : "border-gray-300 bg-[#fafbf9] hover:border-[#3d9e5f] hover:bg-[#f3f7f4]"
         }`}
       >
-        {/* Upload icon */}
+        {/* Icon */}
         <div className="w-14 h-14 rounded-xl bg-white border border-gray-200 shadow-sm flex items-center justify-center mb-4">
-          {file ? (
+          {hasFile ? (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M5 13l4 4L19 7" stroke="#3d9e5f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -82,11 +86,11 @@ export default function ArtworkDropzone() {
           )}
         </div>
 
-        {file ? (
+        {hasFile ? (
           <>
-            <p className="text-[14px] font-bold text-[#292560] mb-1 break-all px-2">{file.name}</p>
+            <p className="text-[14px] font-bold text-[#292560] mb-1 break-all px-2">{artworkFileName}</p>
             <p className="text-[12px] text-gray-400 mb-2">
-              {(file.size / 1024 / 1024).toFixed(2)} MB
+              {(artworkFileSize / 1024 / 1024).toFixed(2)} MB
             </p>
             <button
               type="button"

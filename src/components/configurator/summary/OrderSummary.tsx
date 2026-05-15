@@ -39,11 +39,15 @@ export default function OrderSummary({ state, dispatch, priceBreakdown, config }
 
         <PricingBreakdown priceBreakdown={priceBreakdown} state={state} dispatch={dispatch} />
 
-        <ArtworkSection />
+        <ArtworkSection
+          artworkFileName={state.artworkFileName}
+          artworkFileSize={state.artworkFileSize}
+          dispatch={dispatch}
+        />
 
-        <hr className="border-1 border-gray-300" />
+        <hr className="border border-gray-300" />
 
-        <DeliveryDetails />
+        <DeliveryDetails state={state} />
 
         <ThankyouCard />
       </div>

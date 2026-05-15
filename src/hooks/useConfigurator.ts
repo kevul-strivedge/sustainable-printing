@@ -36,6 +36,10 @@ function configuratorReducer(
       return { ...state, currentStep: Math.max(state.currentStep - 1, 1) as 1 | 2 | 3 | 4 };
     case "SET_ARTWORK_METHOD":
       return { ...state, artworkMethod: action.id };
+    case "SET_ARTWORK_FILE":
+      return { ...state, artworkFileName: action.fileName, artworkFileSize: action.fileSize };
+    case "SET_DELIVERY_FIELD":
+      return { ...state, [action.field]: action.value };
     case "SET_DELIVERY_METHOD":
       return { ...state, deliveryMethodId: action.id };
     case "SET_PAYMENT_METHOD":
@@ -84,6 +88,17 @@ export function useConfigurator(config: ProductConfiguratorData) {
     printingTypeId: config.printingTypes[0].id,
     selectedExtras: [],
     artworkMethod: config.artworkOptions[0].id,
+    artworkFileName: "",
+    artworkFileSize: 0,
+    deliveryFirstName: "",
+    deliveryLastName: "",
+    deliveryCompany: "",
+    deliveryStreet: "",
+    deliverySuburb: "",
+    deliveryState: "",
+    deliveryPostcode: "",
+    deliveryPhone: "",
+    deliveryEmail: "",
     deliveryMethodId: config.deliveryMethods[0].id,
     paymentMethodId: config.paymentMethods[0].id,
   };

@@ -43,7 +43,13 @@ export default function ArtworkStep({ state, dispatch, config }: Props) {
       />
 
       {/* Context area — changes based on selected method */}
-      {state.artworkMethod === "upload-pdf" && <ArtworkDropzone />}
+      {state.artworkMethod === "upload-pdf" && (
+        <ArtworkDropzone
+          dispatch={dispatch}
+          artworkFileName={state.artworkFileName}
+          artworkFileSize={state.artworkFileSize}
+        />
+      )}
 
       {selectedOption?.contextMessage && state.artworkMethod !== "upload-pdf" && (
         <div className="flex items-start gap-3 bg-[#f0faf5] border border-[#c8e6d4] rounded-lg px-4 py-3.5">

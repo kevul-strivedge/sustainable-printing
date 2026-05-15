@@ -110,6 +110,17 @@ export interface ConfiguratorState {
   printingTypeId: string;
   selectedExtras: string[];
   artworkMethod: string;
+  artworkFileName: string;
+  artworkFileSize: number;
+  deliveryFirstName: string;
+  deliveryLastName: string;
+  deliveryCompany: string;
+  deliveryStreet: string;
+  deliverySuburb: string;
+  deliveryState: string;
+  deliveryPostcode: string;
+  deliveryPhone: string;
+  deliveryEmail: string;
   deliveryMethodId: string;
   paymentMethodId: string;
 }
@@ -132,5 +143,7 @@ export type ConfiguratorAction =
   | { type: "NEXT_STEP" }
   | { type: "PREV_STEP" }
   | { type: "SET_ARTWORK_METHOD"; id: string }
+  | { type: "SET_ARTWORK_FILE"; fileName: string; fileSize: number }
+  | { type: "SET_DELIVERY_FIELD"; field: "deliveryFirstName" | "deliveryLastName" | "deliveryCompany" | "deliveryStreet" | "deliverySuburb" | "deliveryState" | "deliveryPostcode" | "deliveryPhone" | "deliveryEmail"; value: string }
   | { type: "SET_DELIVERY_METHOD"; id: string }
   | { type: "SET_PAYMENT_METHOD"; id: string };

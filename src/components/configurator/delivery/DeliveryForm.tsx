@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { ConfiguratorAction, ConfiguratorState } from "@/src/types/configurator.types";
 
 function Label({ children, required }: { children: React.ReactNode; required?: boolean }) {
   return (
@@ -34,16 +34,17 @@ function Input({
 
 const AU_STATES = ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"];
 
-export default function DeliveryForm() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [company, setCompany] = useState("");
-  const [street, setStreet] = useState("");
-  const [suburb, setSuburb] = useState("");
-  const [state, setState] = useState("");
-  const [postcode, setPostcode] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+interface Props {
+  state: ConfiguratorState;
+  dispatch: React.Dispatch<ConfiguratorAction>;
+}
+
+type DeliveryField = "deliveryFirstName" | "deliveryLastName" | "deliveryCompany" | "deliveryStreet" | "deliverySuburb" | "deliveryState" | "deliveryPostcode" | "deliveryPhone" | "deliveryEmail";
+
+export default function DeliveryForm({ state, dispatch }: Props) {
+  function set(field: DeliveryField) {
+    return (value: string) => dispatch({ type: "SET_DELIVERY_FIELD", field, value });
+  }
 
   return (
     <div className="flex flex-col gap-3.5">
@@ -51,38 +52,38 @@ export default function DeliveryForm() {
       <div className="grid grid-cols-2 gap-3">
         <div>
           <Label required>First Name</Label>
-          <Input placeholder="First name" value={firstName} onChange={setFirstName} />
+          <Input placeholder="First name" value={state.deliveryFirstName} onChange={set("deliveryFirstName")} />
         </div>
         <div>
           <Label required>Last Name</Label>
-          <Input placeholder="Last name" value={lastName} onChange={setLastName} />
+          <Input placeholder="Last name" value={state.deliveryLastName} onChange={set("deliveryLastName")} />
         </div>
       </div>
 
       {/* Company Name */}
       <div>
         <Label>Company Name</Label>
-        <Input placeholder="Your company name" value={company} onChange={setCompany} />
+        <Input placeholder="Your company name" value={state.deliveryCompany} onChange={set("deliveryCompany")} />
       </div>
 
       {/* Street Address */}
       <div>
         <Label required>Street Address</Label>
-        <Input placeholder="Your company name" value={street} onChange={setStreet} />
+        <Input placeholder="Street address" value={state.deliveryStreet} onChange={set("deliveryStreet")} />
       </div>
 
       {/* Suburb + State + Postcode */}
       <div className="grid grid-cols-3 gap-3">
         <div>
           <Label required>Suburb</Label>
-          <Input placeholder="" value={suburb} onChange={setSuburb} />
+          <Input placeholder="" value={state.deliverySuburb} onChange={set("deliverySuburb")} />
         </div>
         <div>
           <Label required>State</Label>
           <div className="relative">
             <select
-              value={state}
-              onChange={(e) => setState(e.target.value)}
+              value={state.deliveryState}
+              onChange={(e) => dispatch({ type: "SET_DELIVERY_FIELD", field: "deliveryState", value: e.target.value })}
               className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-[13px] text-[#292560] bg-white outline-none focus:border-[#3d9e5f] appearance-none cursor-pointer transition-colors"
             >
               <option value="">Select</option>
@@ -97,7 +98,7 @@ export default function DeliveryForm() {
         </div>
         <div>
           <Label required>Postcode</Label>
-          <Input placeholder="" value={postcode} onChange={setPostcode} />
+          <Input placeholder="" value={state.deliveryPostcode} onChange={set("deliveryPostcode")} />
         </div>
       </div>
 
@@ -105,11 +106,11 @@ export default function DeliveryForm() {
       <div className="grid grid-cols-2 gap-3">
         <div>
           <Label required>Phone</Label>
-          <Input placeholder="0123456789" value={phone} onChange={setPhone} type="tel" />
+          <Input placeholder="0123456789" value={state.deliveryPhone} onChange={set("deliveryPhone")} type="tel" />
         </div>
         <div>
           <Label required>Email</Label>
-          <Input placeholder="email@gmail.com" value={email} onChange={setEmail} type="email" />
+          <Input placeholder="email@gmail.com" value={state.deliveryEmail} onChange={set("deliveryEmail")} type="email" />
         </div>
       </div>
     </div>

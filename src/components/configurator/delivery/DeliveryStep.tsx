@@ -15,7 +15,7 @@ export default function DeliveryStep({ state, dispatch, config }: Props) {
       <h2 className="text-[20px] font-bold text-[#292560]">Delivery Details</h2>
 
       {/* Address form */}
-      <DeliveryForm />
+      <DeliveryForm state={state} dispatch={dispatch} />
 
       {/* Delivery note */}
       {config.deliveryNote && (
