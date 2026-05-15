@@ -29,10 +29,11 @@ export default function SizeSelector({ state, dispatch, sizes }: Props) {
               key={size.id}
               type="button"
               onClick={() => dispatch({ type: "SET_SIZE", id: size.id })}
+              style={{ background: selected ? "linear-gradient(to bottom, #FFFFFF, #FEFAF3)" : "#FFFFFF" }}
               className={`relative flex flex-col items-start text-left border-2 rounded-lg p-2.5 pt-2 transition-all duration-150 cursor-pointer ${
                 selected
-                  ? "border-[#3d9e5f] bg-white"
-                  : "border-gray-200 bg-white hover:border-gray-300"
+                  ? "border-[#3d9e5f]"
+                  : "border-gray-200 hover:border-gray-300"
               }`}
             >
               {selected && <CheckBadge />}

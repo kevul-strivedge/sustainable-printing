@@ -38,6 +38,41 @@ export interface FAQ {
   answer: string;
 }
 
+export interface PaymentMethod {
+  id: string;
+  label: string;
+  description: string;
+  icon: "bank" | "card";
+  type: "bank" | "card";
+}
+
+export interface BankDetails {
+  accountName: string;
+  bank: string;
+  bsb: string;
+  accountNumber: string;
+  paymentTerms: string;
+}
+
+export interface DeliveryMethod {
+  id: string;
+  label: string;
+  description: string;
+  price: number;
+  badge?: string;
+  icon: "standard" | "express" | "pickup";
+}
+
+export interface ArtworkOption {
+  id: string;
+  label: string;
+  description: string;
+  badge?: "RECOMMENDED" | "NEW";
+  icon: "upload-pdf" | "upload-later" | "online-designer";
+  contextMessage?: string;
+  contextIcon?: "info" | "lightning";
+}
+
 export interface ProductConfiguratorData {
   slug: string;
   title: string;
@@ -47,6 +82,13 @@ export interface ProductConfiguratorData {
   aboutParagraphs?: string[];
   features: string[];
   faqs: FAQ[];
+  artworkOptions: ArtworkOption[];
+  artworkGuidelines: string[];
+  deliveryMethods: DeliveryMethod[];
+  deliveryNote?: string;
+  paymentMethods: PaymentMethod[];
+  bankDetails?: BankDetails;
+  paymentNote?: string;
   designOptions: QuantityOption[];
   quantityOptions: QuantityOption[];
   papers: PaperOption[];
@@ -67,6 +109,9 @@ export interface ConfiguratorState {
   sizeId: string;
   printingTypeId: string;
   selectedExtras: string[];
+  artworkMethod: string;
+  deliveryMethodId: string;
+  paymentMethodId: string;
 }
 
 export interface PriceBreakdown {
@@ -84,4 +129,8 @@ export type ConfiguratorAction =
   | { type: "SET_SIZE"; id: string }
   | { type: "SET_PRINTING_TYPE"; id: string }
   | { type: "TOGGLE_EXTRA"; id: string }
-  | { type: "NEXT_STEP" };
+  | { type: "NEXT_STEP" }
+  | { type: "PREV_STEP" }
+  | { type: "SET_ARTWORK_METHOD"; id: string }
+  | { type: "SET_DELIVERY_METHOD"; id: string }
+  | { type: "SET_PAYMENT_METHOD"; id: string };

@@ -79,7 +79,7 @@ export default function QuantitySelector({ state, dispatch, designOptions, quant
         <span className="text-gray-400 text-[14px] font-medium shrink-0">=</span>
 
         {/* Total quantity display */}
-        <div className="flex-1 border-2 border-[#3d9e5f] rounded-lg px-3 pt-1.5 pb-1.5">
+        <div className="flex-1 border-2 border-[#3d9e5f] rounded-lg px-3 pt-1.5 pb-1.5 bg-linear-to-t from-[#FFF2DA] to-white">
           <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#3d9e5f] leading-none mb-1">
             Total quantity
           </span>

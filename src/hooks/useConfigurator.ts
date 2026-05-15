@@ -31,10 +31,15 @@ function configuratorReducer(
           : [...state.selectedExtras, action.id],
       };
     case "NEXT_STEP":
-      return {
-        ...state,
-        currentStep: Math.min(state.currentStep + 1, 4) as 1 | 2 | 3 | 4,
-      };
+      return { ...state, currentStep: Math.min(state.currentStep + 1, 4) as 1 | 2 | 3 | 4 };
+    case "PREV_STEP":
+      return { ...state, currentStep: Math.max(state.currentStep - 1, 1) as 1 | 2 | 3 | 4 };
+    case "SET_ARTWORK_METHOD":
+      return { ...state, artworkMethod: action.id };
+    case "SET_DELIVERY_METHOD":
+      return { ...state, deliveryMethodId: action.id };
+    case "SET_PAYMENT_METHOD":
+      return { ...state, paymentMethodId: action.id };
     default:
       return state;
   }
@@ -60,7 +65,8 @@ export function calculatePrice(
   }, 0);
 
   const subtotal = basePerUnit * totalQty + extrasTotal;
-  const delivery = config.deliveryPrice;
+  const selectedMethod = config.deliveryMethods.find((m) => m.id === state.deliveryMethodId);
+  const delivery = selectedMethod ? selectedMethod.price : config.deliveryPrice;
   const gst = (subtotal + delivery) * config.gstRate;
   const total = subtotal + delivery + gst;
   const perUnit = totalQty > 0 ? subtotal / totalQty : 0;
@@ -77,6 +83,9 @@ export function useConfigurator(config: ProductConfiguratorData) {
     sizeId: config.sizes[0].id,
     printingTypeId: config.printingTypes[0].id,
     selectedExtras: [],
+    artworkMethod: config.artworkOptions[0].id,
+    deliveryMethodId: config.deliveryMethods[0].id,
+    paymentMethodId: config.paymentMethods[0].id,
   };
 
   const [state, dispatch] = useReducer(configuratorReducer, initialState);

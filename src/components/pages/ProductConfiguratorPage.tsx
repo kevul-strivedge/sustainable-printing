@@ -11,6 +11,9 @@ import SizeSelector from "@/src/components/configurator/form/SizeSelector";
 import PrintingTypeSelector from "@/src/components/configurator/form/PrintingTypeSelector";
 import ExtrasSelector from "@/src/components/configurator/form/ExtrasSelector";
 import StepFooter from "@/src/components/configurator/form/StepFooter";
+import ArtworkStep from "@/src/components/configurator/artwork/ArtworkStep";
+import DeliveryStep from "@/src/components/configurator/delivery/DeliveryStep";
+import PaymentStep from "@/src/components/configurator/payment/PaymentStep";
 import ProductDescription from "@/src/components/configurator/ProductDescription";
 import FAQAccordion from "@/src/components/configurator/FAQAccordion";
 import RelatedProductsSection from "@/src/components/configurator/RelatedProductsSection";
@@ -36,30 +39,51 @@ export default function ProductConfiguratorPage({ config }: Props) {
         {/* Two-column configurator */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
 
-          {/* LEFT — Configuration form + description */}
+          {/* LEFT — step-dependent form + description */}
           <div className="flex flex-col gap-0">
-            <div className="border border-gray-200 rounded bg-white p-6 flex flex-col gap-7">
-              <QuantitySelector
-                state={state}
-                dispatch={dispatch}
-                designOptions={config.designOptions}
-                quantityOptions={config.quantityOptions}
-              />
+            {state.currentStep === 1 && (
+              <div className="border border-gray-200 rounded bg-white p-6 flex flex-col gap-7">
+                <QuantitySelector
+                  state={state}
+                  dispatch={dispatch}
+                  designOptions={config.designOptions}
+                  quantityOptions={config.quantityOptions}
+                />
 
-              <PaperSelector state={state} dispatch={dispatch} papers={config.papers} />
+                <PaperSelector state={state} dispatch={dispatch} papers={config.papers} />
 
-              <SizeSelector state={state} dispatch={dispatch} sizes={config.sizes} />
+                <SizeSelector state={state} dispatch={dispatch} sizes={config.sizes} />
 
-              <PrintingTypeSelector
-                state={state}
-                dispatch={dispatch}
-                printingTypes={config.printingTypes}
-              />
+                <PrintingTypeSelector
+                  state={state}
+                  dispatch={dispatch}
+                  printingTypes={config.printingTypes}
+                />
 
-              <ExtrasSelector state={state} dispatch={dispatch} extras={config.extras} />
+                <ExtrasSelector state={state} dispatch={dispatch} extras={config.extras} />
 
-              <StepFooter priceBreakdown={priceBreakdown} state={state} dispatch={dispatch} />
-            </div>
+                <StepFooter priceBreakdown={priceBreakdown} state={state} dispatch={dispatch} />
+              </div>
+            )}
+
+            {state.currentStep === 2 && (
+              <div className="border border-gray-200 rounded bg-white p-6">
+                <ArtworkStep state={state} dispatch={dispatch} config={config} />
+              </div>
+            )}
+
+            {state.currentStep === 3 && (
+              <div className="border border-gray-200 rounded bg-white p-6">
+                <DeliveryStep state={state} dispatch={dispatch} config={config} />
+              </div>
+            )}
+
+            {state.currentStep === 4 && (
+              <div className="border border-gray-200 rounded bg-white p-6">
+                <PaymentStep state={state} dispatch={dispatch} config={config} priceBreakdown={priceBreakdown} />
+
+              </div>
+            )}
 
             <ProductDescription
               title={config.descriptionTitle ?? `Premium ${config.title}`}
