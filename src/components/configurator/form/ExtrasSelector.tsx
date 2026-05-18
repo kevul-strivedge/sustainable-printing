@@ -40,7 +40,11 @@ export default function ExtrasSelector({ state, dispatch, extras }: Props) {
               <span className="text-[13px] text-gray-700">
                 {extra.label}{" "}
                 <span className="text-gray-500">
-                  — ${extra.pricePerHundred.toFixed(2)} for 100
+                  {(() => {
+                    const tier = extra.priceTiers.find((t) => t.quantity === state.quantityPerDesign);
+                    const price = tier?.price ?? 0;
+                    return price > 0 ? `— +$${price.toFixed(2)}` : "— included";
+                  })()}
                 </span>
               </span>
             </label>

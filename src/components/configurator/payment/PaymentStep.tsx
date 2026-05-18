@@ -12,9 +12,12 @@ interface Props {
   dispatch: React.Dispatch<ConfiguratorAction>;
   config: ProductConfiguratorData;
   priceBreakdown: PriceBreakdown;
+  onSubmit: () => void;
+  submitting: boolean;
+  submitError: string;
 }
 
-export default function PaymentStep({ state, dispatch, config }: Props) {
+export default function PaymentStep({ state, dispatch, config, onSubmit, submitting, submitError }: Props) {
   const [promoCode, setPromoCode] = useState("");
   const selectedMethod = config.paymentMethods.find((m) => m.id === state.paymentMethodId);
 
@@ -72,8 +75,13 @@ export default function PaymentStep({ state, dispatch, config }: Props) {
         </div>
       )}
 
+      {/* Submit error */}
+      {submitError && (
+        <p className="text-[13px] text-red-500 bg-red-50 border border-red-200 rounded-lg px-4 py-3">{submitError}</p>
+      )}
+
       {/* Footer */}
-      <PaymentStepFooter dispatch={dispatch} />
+      <PaymentStepFooter dispatch={dispatch} onSubmit={onSubmit} submitting={submitting} />
     </div>
   );
 }

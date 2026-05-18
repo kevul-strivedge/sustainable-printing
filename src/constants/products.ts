@@ -5,6 +5,8 @@ export interface ProductSpec {
 
 export interface ProductData {
   slug: string;
+  /** Numeric ID from pt_products in the backend DB — used to fetch live config */
+  dbId?: number;
   title: string;
   shortDescription: string;
   description: string;
@@ -18,6 +20,7 @@ export const products: ProductData[] = [
   // ── Cards ────────────────────────────────────────────────────────────────
   {
     slug: "business-cards",
+    dbId: 15,
     title: "Business Cards",
     shortDescription: "Eco-friendly business cards printed on 100% recycled paper.",
     description:
@@ -42,6 +45,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "postcards",
+    dbId: 18,
     title: "Postcards",
     shortDescription: "Premium recycled postcards for marketing and personal use.",
     description:
@@ -65,6 +69,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "greeting-cards",
+    dbId: 20,
     title: "Greeting Cards",
     shortDescription: "Beautiful recycled greeting cards for every occasion.",
     description:
@@ -88,6 +93,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "thank-you-cards",
+    dbId: 42,
     title: "Thank You Cards",
     shortDescription: "Eco-friendly thank you cards that make a lasting impression.",
     description:
@@ -111,6 +117,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "bookmarks",
+    dbId: 41,
     title: "Bookmarks",
     shortDescription: "Recycled bookmarks for books, events, and promotions.",
     description:
@@ -134,6 +141,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "christmas-cards",
+    dbId: 43,
     title: "Christmas Cards",
     shortDescription: "Sustainable Christmas cards for your festive season.",
     description:
@@ -157,6 +165,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "discount-cards",
+    dbId: 47,
     title: "Discount Cards",
     shortDescription: "Eco-friendly discount cards to reward your customers.",
     description:
@@ -180,6 +189,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "appointment-cards",
+    dbId: 45,
     title: "Appointment Cards",
     shortDescription: "Recycled appointment reminder cards for your practice or business.",
     description:
@@ -203,6 +213,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "loyalty-cards",
+    dbId: 46,
     title: "Loyalty Cards",
     shortDescription: "Eco-friendly loyalty cards to build lasting customer relationships.",
     description:
@@ -226,6 +237,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "birth-announcement-cards",
+    dbId: 50,
     title: "Birth Announcement Cards",
     shortDescription: "Beautiful recycled cards to announce your new arrival.",
     description:
@@ -249,6 +261,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "invitations",
+    dbId: 49,
     title: "Invitations",
     shortDescription: "Eco-friendly invitations for weddings, events, and celebrations.",
     description:
@@ -274,6 +287,7 @@ export const products: ProductData[] = [
   // ── Stationery ────────────────────────────────────────────────────────────
   {
     slug: "brochures",
+    dbId: 11,
     title: "Brochures",
     shortDescription: "Eco-friendly folded brochures on 100% recycled paper.",
     description:
@@ -297,6 +311,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "letterhead",
+    dbId: 37,
     title: "Letterhead",
     shortDescription: "Sustainable letterheads that reflect your eco values.",
     description:
@@ -320,6 +335,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "compliment-slips",
+    dbId: 38,
     title: "Compliment Slips",
     shortDescription: "Eco-friendly compliment slips for a professional touch.",
     description:
@@ -368,6 +384,7 @@ export const products: ProductData[] = [
   // ── Marketing ────────────────────────────────────────────────────────────
   {
     slug: "flyers",
+    dbId: 34,
     title: "Flyers",
     shortDescription: "Eye-catching eco-friendly flyers for your campaigns.",
     description:
@@ -391,6 +408,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "posters",
+    dbId: 35,
     title: "Posters",
     shortDescription: "Large format eco-friendly posters for maximum impact.",
     description:
@@ -414,6 +432,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "swing-tags",
+    dbId: 23,
     title: "Swing Tags",
     shortDescription: "100% recycled swing tags for sustainable product packaging.",
     description:
@@ -462,6 +481,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "circle-stickers",
+    dbId: 25,
     title: "Circle Stickers",
     shortDescription: "Perfectly round eco-friendly stickers for any use.",
     description:
@@ -485,6 +505,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "square-stickers",
+    dbId: 26,
     title: "Square Stickers",
     shortDescription: "Eco-friendly square stickers for a clean modern look.",
     description:
@@ -508,6 +529,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "rectangle-stickers",
+    dbId: 28,
     title: "Rectangle Stickers",
     shortDescription: "Eco-friendly rectangle stickers for labelling and branding.",
     description:
@@ -533,6 +555,7 @@ export const products: ProductData[] = [
   // ── Books ─────────────────────────────────────────────────────────────────
   {
     slug: "books",
+    dbId: 29,
     title: "Books",
     shortDescription: "Sustainable books, magazines, and annual reports.",
     description:
@@ -556,6 +579,7 @@ export const products: ProductData[] = [
   },
   {
     slug: "booklets",
+    dbId: 12,
     title: "Booklets",
     shortDescription: "Eco-friendly booklets for catalogues, menus, and more.",
     description:
@@ -650,6 +674,7 @@ export const products: ProductData[] = [
   // ── Event Stationery ──────────────────────────────────────────────────────
   {
     slug: "save-the-date-cards",
+    dbId: 48,
     title: "Save The Date Cards",
     shortDescription: "Eco-friendly save the date cards for your special day.",
     description:

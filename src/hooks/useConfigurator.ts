@@ -37,11 +37,9 @@ function configuratorReducer(
     case "SET_ARTWORK_METHOD":
       return { ...state, artworkMethod: action.id };
     case "SET_ARTWORK_FILE":
-      return { ...state, artworkFileName: action.fileName, artworkFileSize: action.fileSize };
+      return { ...state, artworkFileName: action.fileName, artworkFileSize: action.fileSize, artworkFileUrl: action.fileUrl };
     case "SET_DELIVERY_FIELD":
       return { ...state, [action.field]: action.value };
-    case "SET_DELIVERY_METHOD":
-      return { ...state, deliveryMethodId: action.id };
     case "SET_PAYMENT_METHOD":
       return { ...state, paymentMethodId: action.id };
     default:
@@ -56,21 +54,38 @@ export function calculatePrice(
 ): PriceBreakdown {
   const totalQty = state.numDesigns * state.quantityPerDesign;
 
-  const tier = config.pricingTiers.find(
-    (t) => totalQty >= t.minQty && totalQty <= t.maxQty
-  );
-  const paper = config.papers.find((p) => p.id === state.paperId);
-
-  const basePerUnit = (tier?.pricePerUnit ?? 0) * (paper?.basePriceMultiplier ?? 1);
+  let baseSubtotal = 0;
+  if (config.pricingTable.length > 0) {
+    // Use real DB prices — find the cheapest matching row for selected kind+qty+format+paper
+    const matches = config.pricingTable.filter(
+      (r) =>
+        r.kind === state.numDesigns &&
+        r.quantity === state.quantityPerDesign &&
+        (state.sizeId === '' || r.formatId === state.sizeId) &&
+        (state.paperId === '' || r.stockId === state.paperId)
+    );
+    if (matches.length > 0) {
+      baseSubtotal = Math.min(...matches.map((r) => r.price));
+    }
+  } else {
+    // Fallback: hardcoded tier calculation for products without DB pricing
+    const tier = config.pricingTiers.find(
+      (t) => totalQty >= t.minQty && totalQty <= t.maxQty
+    );
+    const paper = config.papers.find((p) => p.id === state.paperId);
+    const basePerUnit = (tier?.pricePerUnit ?? 0) * (paper?.basePriceMultiplier ?? 1);
+    baseSubtotal = basePerUnit * totalQty;
+  }
 
   const extrasTotal = state.selectedExtras.reduce((sum, id) => {
     const extra = config.extras.find((e) => e.id === id);
-    return sum + ((extra?.pricePerHundred ?? 0) / 100) * totalQty;
+    if (!extra) return sum;
+    const tier = extra.priceTiers.find((t) => t.quantity === state.quantityPerDesign);
+    return sum + (tier?.price ?? 0) * state.numDesigns;
   }, 0);
 
-  const subtotal = basePerUnit * totalQty + extrasTotal;
-  const selectedMethod = config.deliveryMethods.find((m) => m.id === state.deliveryMethodId);
-  const delivery = selectedMethod ? selectedMethod.price : config.deliveryPrice;
+  const subtotal = baseSubtotal + extrasTotal;
+  const delivery = config.deliveryPrice;
   const gst = (subtotal + delivery) * config.gstRate;
   const total = subtotal + delivery + gst;
   const perUnit = totalQty > 0 ? subtotal / totalQty : 0;
@@ -83,13 +98,14 @@ export function useConfigurator(config: ProductConfiguratorData) {
     currentStep: 1,
     numDesigns: config.designOptions[0].value,
     quantityPerDesign: config.quantityOptions[0].value,
-    paperId: config.papers[0].id,
-    sizeId: config.sizes[0].id,
-    printingTypeId: config.printingTypes[0].id,
+    paperId: config.papers[0]?.id ?? '',
+    sizeId: config.sizes[0]?.id ?? '',
+    printingTypeId: config.printingTypes[0]?.id ?? '',
     selectedExtras: [],
     artworkMethod: config.artworkOptions[0].id,
     artworkFileName: "",
     artworkFileSize: 0,
+    artworkFileUrl: "",
     deliveryFirstName: "",
     deliveryLastName: "",
     deliveryCompany: "",
@@ -99,7 +115,6 @@ export function useConfigurator(config: ProductConfiguratorData) {
     deliveryPostcode: "",
     deliveryPhone: "",
     deliveryEmail: "",
-    deliveryMethodId: config.deliveryMethods[0].id,
     paymentMethodId: config.paymentMethods[0].id,
   };
 

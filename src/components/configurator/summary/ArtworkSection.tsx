@@ -35,7 +35,7 @@ export default function ArtworkSection({ artworkFileName, artworkFileSize, dispa
           <button
             type="button"
             aria-label="Remove file"
-            onClick={() => dispatch({ type: "SET_ARTWORK_FILE", fileName: "", fileSize: 0 })}
+            onClick={() => dispatch({ type: "SET_ARTWORK_FILE", fileName: "", fileSize: 0, fileUrl: "" })}
             className="shrink-0 w-5 h-5 flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors"
           >
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">

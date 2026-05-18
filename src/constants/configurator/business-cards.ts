@@ -93,7 +93,7 @@ export const businessCardsConfig: ProductConfiguratorData = {
     { id: "single-sided", label: "Single sided", description: "Full colour front only" },
   ],
   extras: [
-    { id: "round-corners", label: "Round corners", pricePerHundred: 12.0 },
+    { id: "round-corners", label: "Round corners", priceTiers: [] },
   ],
   // Price per unit at each quantity bracket (ex. GST & delivery)
   pricingTiers: [
@@ -104,6 +104,7 @@ export const businessCardsConfig: ProductConfiguratorData = {
     { minQty: 2500, maxQty: 4999, pricePerUnit: 0.036 },
     { minQty: 5000, maxQty: 99999,pricePerUnit: 0.031 },
   ],
+  pricingTable: [],
   deliveryPrice: 9.90,
   gstRate: 0.10,
   relatedProductSlugs: ["adhesive-labels", "greeting-cards", "swing-tags", "brochures"],
@@ -136,30 +137,6 @@ export const businessCardsConfig: ProductConfiguratorData = {
     paymentTerms:  "Payment Required prior to dispatch.",
   },
   paymentNote: "Note: Delivery times are estimates and begin once artwork has been approved. Rural and remote areas may require additional time.",
-  deliveryMethods: [
-    {
-      id: "standard",
-      label: "Standard Delivery",
-      description: "4-6 working days from artwork sign-off",
-      price: 9.90,
-      icon: "standard" as const,
-    },
-    {
-      id: "express",
-      label: "Express Delivery",
-      description: "2-3 working days from artwork sign-off",
-      price: 18.90,
-      badge: "FASTEST",
-      icon: "express" as const,
-    },
-    {
-      id: "pickup",
-      label: "Local Pickup",
-      description: "Collect from our Melbourne warehouse",
-      price: 0,
-      icon: "pickup" as const,
-    },
-  ],
   deliveryNote: "Delivery times are estimates and begin once artwork has been approved. Rural and remote areas may require additional time.",
   artworkGuidelines: [
     "PDF format preferred (300dpi minimum resolution)",

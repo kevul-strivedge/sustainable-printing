@@ -24,13 +24,21 @@ export interface PrintingType {
 export interface ExtraOption {
   id: string;
   label: string;
-  pricePerHundred: number;
+  priceTiers: { quantity: number; price: number }[];
 }
 
 export interface PricingTier {
   minQty: number;
   maxQty: number;
   pricePerUnit: number;
+}
+
+export interface PricingTableRow {
+  kind: number;
+  quantity: number;
+  formatId: string;
+  stockId: string;
+  price: number;
 }
 
 export interface FAQ {
@@ -54,14 +62,6 @@ export interface BankDetails {
   paymentTerms: string;
 }
 
-export interface DeliveryMethod {
-  id: string;
-  label: string;
-  description: string;
-  price: number;
-  badge?: string;
-  icon: "standard" | "express" | "pickup";
-}
 
 export interface ArtworkOption {
   id: string;
@@ -75,6 +75,7 @@ export interface ArtworkOption {
 
 export interface ProductConfiguratorData {
   slug: string;
+  dbId?: number;
   title: string;
   subtitle: string;
   description: string;
@@ -84,7 +85,6 @@ export interface ProductConfiguratorData {
   faqs: FAQ[];
   artworkOptions: ArtworkOption[];
   artworkGuidelines: string[];
-  deliveryMethods: DeliveryMethod[];
   deliveryNote?: string;
   paymentMethods: PaymentMethod[];
   bankDetails?: BankDetails;
@@ -96,6 +96,7 @@ export interface ProductConfiguratorData {
   printingTypes: PrintingType[];
   extras: ExtraOption[];
   pricingTiers: PricingTier[];
+  pricingTable: PricingTableRow[];
   deliveryPrice: number;
   gstRate: number;
   relatedProductSlugs: string[];
@@ -112,6 +113,7 @@ export interface ConfiguratorState {
   artworkMethod: string;
   artworkFileName: string;
   artworkFileSize: number;
+  artworkFileUrl: string;
   deliveryFirstName: string;
   deliveryLastName: string;
   deliveryCompany: string;
@@ -121,7 +123,6 @@ export interface ConfiguratorState {
   deliveryPostcode: string;
   deliveryPhone: string;
   deliveryEmail: string;
-  deliveryMethodId: string;
   paymentMethodId: string;
 }
 
@@ -143,7 +144,6 @@ export type ConfiguratorAction =
   | { type: "NEXT_STEP" }
   | { type: "PREV_STEP" }
   | { type: "SET_ARTWORK_METHOD"; id: string }
-  | { type: "SET_ARTWORK_FILE"; fileName: string; fileSize: number }
+  | { type: "SET_ARTWORK_FILE"; fileName: string; fileSize: number; fileUrl: string }
   | { type: "SET_DELIVERY_FIELD"; field: "deliveryFirstName" | "deliveryLastName" | "deliveryCompany" | "deliveryStreet" | "deliverySuburb" | "deliveryState" | "deliveryPostcode" | "deliveryPhone" | "deliveryEmail"; value: string }
-  | { type: "SET_DELIVERY_METHOD"; id: string }
   | { type: "SET_PAYMENT_METHOD"; id: string };
