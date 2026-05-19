@@ -29,14 +29,14 @@ export default function PrintingDetails({ state, papers, sizes, printingTypes, e
   const printType = printingTypes.find((pt) => pt.id === state.printingTypeId);
   const totalQty = state.numDesigns * state.quantityPerDesign;
 
-  const selectedExtraLabels = state.selectedExtras
-    .map((id) => extras.find((e) => e.id === id)?.label)
-    .filter(Boolean)
-    .join(", ");
-
   const paperShort = paper?.label
     ? paper.label.replace(" (White)", "").replace("100% Recycled ", "")
     : "—";
+
+  const selectedCorner = extras
+    .filter((e) => !e.label.toLowerCase().includes("straight"))
+    .find((e) => state.selectedExtras.includes(e.id));
+  const cornerLabel = selectedCorner?.label ?? "Trim straight edges";
 
   return (
     <div>
@@ -44,9 +44,8 @@ export default function PrintingDetails({ state, papers, sizes, printingTypes, e
       <Row label="Quantity" value={totalQty.toLocaleString()} />
       <Row label="Paper" value={paperShort} />
       <Row label="Size" value={size ? size.dimensions : "—"} />
-      <Row label="Corners" value={state.selectedExtras.includes("round-corners") ? "Round corners" : "Trim straight edges"} />
       <Row label="Printing" value={printType?.label ?? "—"} />
-      <Row label="Extras" value={selectedExtraLabels || "—"} />
+      <Row label="Corners" value={cornerLabel} />
     </div>
   );
 }

@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { useAuth } from "@/src/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 const megaDropdownCategories = [
   {
@@ -127,11 +129,19 @@ function CloseIcon() {
 }
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
+  const router = useRouter();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [simpleDropdownLeft, setSimpleDropdownLeft] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [openCategory, setOpenCategory] = useState<string | null>(null);
+
+  function handleLogout() {
+    logout();
+    router.push("/");
+    setMobileOpen(false);
+  }
 
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const headerRef = useRef<HTMLElement>(null);
@@ -210,7 +220,7 @@ export default function Navbar() {
               <a
                 key={label}
                 href="#"
-                className="text-[14px] font-medium text-gray-800 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 whitespace-nowrap pb-[2px]"
+                className="text-[14px] font-medium text-gray-800 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 whitespace-nowrap pb-0.5"
               >
                 {label}
               </a>
@@ -220,8 +230,22 @@ export default function Navbar() {
 
         {/* Desktop auth */}
         <div className="hidden lg:flex items-center gap-5 ml-auto shrink-0">
-          <a href="#" className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-[2px]">Login</a>
-          <a href="#" className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-[2px]">Account</a>
+          {user ? (
+            <>
+              <span className="text-[14px] text-[#292560] font-semibold">Hi, {user.firstName}</span>
+              <button
+                onClick={handleLogout}
+                className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-0.5"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-0.5">Login</Link>
+              <Link href="/register" className="text-[14px] font-semibold text-white bg-[#004E24] hover:bg-[#003a1b] px-4 py-1.5 rounded-full transition-colors duration-150">Register</Link>
+            </>
+          )}
         </div>
 
         {/* Hamburger toggle */}
@@ -237,7 +261,7 @@ export default function Navbar() {
       {/* Desktop mega dropdown — centered */}
       {activeDropdown && activeLink?.dropdownType === "mega" && (
         <div
-          className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-full bg-white border-t border-gray-100 shadow-lg z-50 w-[90vw] max-w-[900px]"
+          className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-full bg-white border-t border-gray-100 shadow-lg z-50 w-[90vw] max-w-225"
           onMouseEnter={() => handleMouseEnter(activeDropdown, "mega")}
           onMouseLeave={scheduleClose}
         >
@@ -246,7 +270,7 @@ export default function Navbar() {
               {megaDropdownCategories.map(({ title, items }) => (
                 <div key={title}>
                   <p className="font-semibold text-gray-900 text-[13px] mb-3">{title}</p>
-                  <ul className="space-y-[10px]">
+                  <ul className="space-y-2.5">
                     {items.map((item) => (
                       <Link
                         key={item.slug}
@@ -267,7 +291,7 @@ export default function Navbar() {
       {/* Desktop simple dropdown — aligned under its nav button */}
       {activeDropdown && activeLink?.dropdownType === "simple" && activeLink.dropdownItems && (
         <ul
-          className="hidden lg:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-[220px] py-2"
+          className="hidden lg:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-55 py-2"
           style={{ left: simpleDropdownLeft }}
           onMouseEnter={() => handleMouseEnter(activeDropdown, "simple")}
           onMouseLeave={scheduleClose}
@@ -275,7 +299,7 @@ export default function Navbar() {
           {activeLink.dropdownItems.map((item) => (
             <Link key={item.label}
               href={item.href}
-              className="block px-5 py-[10px] text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
+              className="block px-5 py-2.5 text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
             >
               {item.label}
             </Link>
@@ -287,10 +311,10 @@ export default function Navbar() {
       {mobileOpen && (
         <>
           <div
-            className="lg:hidden fixed inset-0 top-[70px] z-30 bg-black/40"
+            className="lg:hidden fixed inset-0 top-17.5 z-30 bg-black/40"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="lg:hidden fixed left-0 top-[70px] bottom-0 z-40 w-1/2 min-w-[280px] overflow-y-auto bg-[#faf6f0]">
+          <div className="lg:hidden fixed left-0 top-17.5 bottom-0 z-40 w-1/2 min-w-70 overflow-y-auto bg-[#faf6f0]">
 
             {navLinks.map(({ label, hasMobileChevron, dropdownItems, dropdownType }) => (
               <div key={label} className="border-b border-gray-200">
@@ -356,12 +380,26 @@ export default function Navbar() {
               </div>
             ))}
 
-            <div className="border-b border-gray-200">
-              <a href="#" className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Login</a>
-            </div>
-            <div className="border-b border-gray-200">
-              <a href="#" className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Account</a>
-            </div>
+            {user ? (
+              <>
+                <div className="border-b border-gray-200 px-5 py-4">
+                  <p className="text-[13px] text-gray-500">Signed in as</p>
+                  <p className="text-[15px] font-semibold text-[#292560]">{user.firstName} {user.lastName}</p>
+                </div>
+                <div className="border-b border-gray-200">
+                  <button onClick={handleLogout} className="block w-full text-left px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Logout</button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="border-b border-gray-200">
+                  <Link href="/login" onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Login</Link>
+                </div>
+                <div className="border-b border-gray-200">
+                  <Link href="/register" onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Register</Link>
+                </div>
+              </>
+            )}
           </div>
         </>
       )}

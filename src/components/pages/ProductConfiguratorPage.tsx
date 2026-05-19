@@ -21,6 +21,7 @@ import FAQAccordion from "@/src/components/configurator/FAQAccordion";
 import RelatedProductsSection from "@/src/components/configurator/RelatedProductsSection";
 import BannerComponent from "@/src/components/pages/BannerComponent";
 import QuantitySelector from "../configurator/form/QuantitySelector";
+import OrderConfirmationPage from "@/src/components/pages/OrderConfirmationPage";
 
 interface Props {
   config: ProductConfiguratorData;
@@ -77,26 +78,12 @@ export default function ProductConfiguratorPage({ config }: Props) {
 
   if (quoteId) {
     return (
-      <div className="max-w-[600px] mx-auto px-6 py-20 text-center">
-        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <path d="M6 16l7 7L26 9" stroke="#3d9e5f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <h1 className="text-[26px] font-bold text-[#292560] mb-3">Order Placed!</h1>
-        <p className="text-[15px] text-gray-600 mb-2">
-          Your order reference is <span className="font-bold text-[#292560]">#{quoteId}</span>.
-        </p>
-        <p className="text-[14px] text-gray-500 mb-8">
-          We&apos;ll send a confirmation to <span className="font-semibold">{state.deliveryEmail}</span>. Our team will be in touch once your artwork is reviewed.
-        </p>
-        <a
-          href="/products"
-          className="inline-block px-8 py-3 bg-[#004E24] text-white text-[14px] font-semibold rounded-lg hover:bg-[#003a1b] transition-colors"
-        >
-          Back to Products
-        </a>
-      </div>
+      <OrderConfirmationPage
+        quoteId={quoteId}
+        state={state}
+        config={config}
+        priceBreakdown={priceBreakdown}
+      />
     );
   }
 

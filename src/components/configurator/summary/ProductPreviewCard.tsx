@@ -1,8 +1,9 @@
-import { ConfiguratorState, PaperOption } from "@/src/types/configurator.types";
+import { ConfiguratorState, ExtraOption, PaperOption } from "@/src/types/configurator.types";
 
 interface Props {
   state: ConfiguratorState;
   papers: PaperOption[];
+  extras: ExtraOption[];
 }
 
 function PlusSquareIcon() {
@@ -23,9 +24,12 @@ function DiamondSquareIcon() {
   );
 }
 
-export default function ProductPreviewCard({ state, papers }: Props) {
+export default function ProductPreviewCard({ state, papers, extras }: Props) {
   const paper = papers.find((p) => p.id === state.paperId);
-  const hasRoundCorners = state.selectedExtras.includes("round-corners");
+  const selectedCorner = extras
+    .filter((e) => !e.label.toLowerCase().includes("straight"))
+    .find((e) => state.selectedExtras.includes(e.id));
+  const cornerLabel = selectedCorner?.label ?? "Trim straight edges";
 
   return (
     <div className="flex items-center gap-3 bg-gray-100 rounded-lg p-3">
@@ -42,7 +46,7 @@ export default function ProductPreviewCard({ state, papers }: Props) {
         <div className="flex items-center gap-2 mb-1">
           <PlusSquareIcon />
           <span className="text-[12px] text-[#292560]">
-            {hasRoundCorners ? "Round corners" : "Trim straight edges"}
+            {cornerLabel}
           </span>
         </div>
         <div className="flex items-center gap-2">

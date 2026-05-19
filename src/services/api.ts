@@ -150,6 +150,44 @@ export async function uploadArtwork(file: File): Promise<ArtworkUploadResult> {
   return json as ArtworkUploadResult;
 }
 
+// ─── Auth ────────────────────────────────────────────────────────────────────
+
+export interface AuthUser {
+  token: string;
+  name: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
+export async function loginUser(payload: { email: string; password: string }): Promise<AuthUser> {
+  const res = await fetch(`${BASE}/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Login failed. Please try again.');
+  return json.data as AuthUser;
+}
+
+export async function registerUser(payload: {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+}): Promise<void> {
+  const res = await fetch(`${BASE}/auth/register`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Registration failed. Please try again.');
+}
+
+// ─── Products ────────────────────────────────────────────────────────────────
+
 export function getProductConfig(productId: number) {
   return apiFetch<ApiConfiguratorConfig>(`/configurator/${productId}/config`);
 }
