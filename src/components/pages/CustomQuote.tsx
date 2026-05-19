@@ -16,7 +16,7 @@ const BusinessCardsIcon = () => (
     viewBox="0 0 80 60"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <rect
       x="5"
@@ -62,7 +62,7 @@ const FoldedBrochuresIcon = () => (
     viewBox="0 0 80 70"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <path
       d="M20 10 L40 16 L40 60 L20 54 Z"
@@ -84,7 +84,7 @@ const NotebooksIcon = () => (
     viewBox="0 0 80 70"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <rect
       x="20"
@@ -136,7 +136,7 @@ const InvitationsIcon = () => (
     viewBox="0 0 80 70"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <rect
       x="12"
@@ -162,7 +162,7 @@ const PostersIcon = () => (
     viewBox="0 0 80 70"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <rect
       x="18"
@@ -214,7 +214,7 @@ const PresentationFoldersIcon = () => (
     viewBox="0 0 80 70"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <path
       d="M10 20 L10 60 L70 60 L70 28 L40 28 L34 20 Z"
@@ -230,7 +230,7 @@ const LetterheadsIcon = () => (
     viewBox="0 0 80 70"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <rect
       x="16"
@@ -282,7 +282,7 @@ const CalendarsIcon = () => (
     viewBox="0 0 80 70"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <rect
       x="10"
@@ -374,7 +374,7 @@ const FlyersIcon = () => (
     viewBox="0 0 80 70"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+    className="w-12 h-12 sm:w-20 sm:h-20"
   >
     <rect
       x="20"
@@ -495,7 +495,7 @@ const CustomQuote = () => {
     <>
       <PageHeader title="Custom Quote" titleClassName="text-3xl max-w-6xl" />
 
-      <div className="max-w-6xl mx-auto px-6 py-10">
+      <div className="max-w-6xl mx-auto px-6 sm:py-18 py-10">
         {/* ── Category Selector ── */}
         <h2 className="text-[#292560] text-xl font-semibold mb-6">
           What would you like a quote for?
@@ -541,7 +541,7 @@ const CustomQuote = () => {
               placeholder="For example, a brochure for an event"
               value={formData.nameOfItem}
               onChange={handleChange}
-              inputClassName="w-full !py-8 !bg-[#c4c4c41a]"
+              inputClassName="w-full !py-8 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
             />
             <Input
               label="Describe your item"
@@ -550,7 +550,7 @@ const CustomQuote = () => {
               placeholder="Do you need rounded edges, scoring, folding, binding etc."
               value={formData.describeItem}
               onChange={handleChange}
-              inputClassName="w-full !py-8 !bg-[#c4c4c41a]"
+              inputClassName="w-full !py-8 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
             />
           </div>
 
@@ -565,7 +565,7 @@ const CustomQuote = () => {
               placeholder="For example;DL folded brochure'or A4 Brochure"
               value={formData.size}
               onChange={handleChange}
-              inputClassName="w-full !py-5 !bg-[#c4c4c41a]"
+              inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
             />
             <Select
               label="How many designs/kinds"
@@ -593,7 +593,7 @@ const CustomQuote = () => {
                 placeholder="Business Name"
                 value={formData.businessName}
                 onChange={handleChange}
-                inputClassName="w-full !py-5 !bg-[#c4c4c41a]"
+                inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
               />
               <Input
                 name="name"
@@ -601,7 +601,7 @@ const CustomQuote = () => {
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
-                inputClassName="w-full !py-5 !bg-[#c4c4c41a]"
+                inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
               />
               <Input
                 name="email"
@@ -610,7 +610,7 @@ const CustomQuote = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                inputClassName="w-full !py-5 !bg-[#c4c4c41a]"
+                inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
               />
               <Input
                 name="phone"
@@ -619,24 +619,25 @@ const CustomQuote = () => {
                 required
                 value={formData.phone}
                 onChange={handleChange}
-                inputClassName="w-full !py-5 !bg-[#c4c4c41a]"
+                inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
               />
             </div>
 
             {/* Artwork Upload */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-5">
               <FileInput
                 label="Artwork Upload"
                 name="artwork"
                 accept=".pdf,.ai,.eps,.png,.jpg,.jpeg"
                 onChange={handleFile}
+                inputClassName="!py-[20px] mt-1"
               />
-              <p className="text-xs text-[#292560]">
+              <p className="text-md text-[#292560] font-medium">
                 Optional file upload for our reference. (Max file size is 20Mb)
               </p>
               <button
                 type="button"
-                className="w-fit border border-[#292560] text-[#292560] text-sm px-4 py-2 rounded hover:bg-[#292560] hover:text-white transition"
+                className="w-fit border border-[#292560] text-[#292560] text-md px-4 py-2 rounded hover:bg-[#292560] hover:text-white transition"
               >
                 View our Design Guidelines
               </button>
@@ -644,12 +645,12 @@ const CustomQuote = () => {
           </div>
 
           {/* Submit */}
-          <div className="flex justify-center pt-4">
+          <div className="flex justify-center sm:pt-20 pt-6">
             <button
               type="submit"
-              className="bg-[#292560] hover:bg-[#1e1a4a] text-white font-semibold px-12 py-3 rounded-lg transition-colors duration-200"
+              className="bg-[#292560] hover:bg-[#1e1a4a] text-white font-medium px-16 py-5 rounded-md transition-colors duration-200"
             >
-              Request Quote
+              Submit Quote
             </button>
           </div>
         </form>

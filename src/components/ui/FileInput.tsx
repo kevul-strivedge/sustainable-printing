@@ -63,12 +63,12 @@ const FileInput = ({
 
         {/* Hidden real input */}
         <input
+          {...rest}
           ref={inputRef}
           type="file"
           required={required}
           className="hidden"
           onChange={handleChange}
-          {...rest}
         />
       </div>
     </div>
