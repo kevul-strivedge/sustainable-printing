@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ConfiguratorAction, ConfiguratorState, PriceBreakdown, ProductConfiguratorData } from "@/src/types/configurator.types";
 import PaymentMethodSelector from "./PaymentMethodSelector";
-import PaymentCardForm from "./PaymentCardForm";
+import PaymentCardForm, { CardDetails } from "./PaymentCardForm";
 import BankTransferDetails from "./BankTransferDetails";
 import PaymentStepFooter from "./PaymentStepFooter";
 
@@ -12,14 +12,31 @@ interface Props {
   dispatch: React.Dispatch<ConfiguratorAction>;
   config: ProductConfiguratorData;
   priceBreakdown: PriceBreakdown;
-  onSubmit: () => void;
+  onSubmit: (cardDetails?: CardDetails) => void;
   submitting: boolean;
   submitError: string;
 }
 
 export default function PaymentStep({ state, dispatch, config, onSubmit, submitting, submitError }: Props) {
   const [promoCode, setPromoCode] = useState("");
+
+  // Card state lives here so it can be passed to onSubmit
+  const [cardType,   setCardType]   = useState("Visa");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiry,     setExpiry]     = useState("");
+  const [cvv,        setCvv]        = useState("");
+  const [cardOwner,  setCardOwner]  = useState("");
+
   const selectedMethod = config.paymentMethods.find((m) => m.id === state.paymentMethodId);
+  const isCard = selectedMethod?.type === "card";
+
+  function handlePlaceOrder() {
+    if (isCard) {
+      onSubmit({ cardType, cardNumber, expiry, cvv, cardOwner });
+    } else {
+      onSubmit(undefined);
+    }
+  }
 
   return (
     <div className="flex flex-col gap-6">
@@ -66,7 +83,15 @@ export default function PaymentStep({ state, dispatch, config, onSubmit, submitt
         <BankTransferDetails bankDetails={config.bankDetails} />
       )}
 
-      {selectedMethod?.type === "card" && <PaymentCardForm />}
+      {isCard && (
+        <PaymentCardForm
+          cardType={cardType}   setCardType={setCardType}
+          cardNumber={cardNumber} setCardNumber={setCardNumber}
+          expiry={expiry}       setExpiry={setExpiry}
+          cvv={cvv}             setCvv={setCvv}
+          cardOwner={cardOwner} setCardOwner={setCardOwner}
+        />
+      )}
 
       {/* Note */}
       {config.paymentNote && (
@@ -81,7 +106,7 @@ export default function PaymentStep({ state, dispatch, config, onSubmit, submitt
       )}
 
       {/* Footer */}
-      <PaymentStepFooter dispatch={dispatch} onSubmit={onSubmit} submitting={submitting} />
+      <PaymentStepFooter dispatch={dispatch} onSubmit={handlePlaceOrder} submitting={submitting} />
     </div>
   );
 }

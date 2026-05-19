@@ -262,6 +262,24 @@ export async function sendQuoteEmail(
   if (!res.ok || !json.success) throw new Error(json.message ?? 'Failed to send email.');
 }
 
+export async function processPayment(
+  quoteId: number,
+  card: { cardNumber: string; cardType: string; cvv: string; expiryMonth: string; expiryYear: string; cardOwner: string },
+  token?: string
+): Promise<void> {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+  const res = await fetch(`${BASE}/payments/${quoteId}/pay`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(card),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) {
+    throw new Error(json.message ?? 'Payment declined. Please check your card details and try again.');
+  }
+}
+
 export async function reQuoteOrder(quoteId: number, token: string): Promise<{ quoteId: number }> {
   const res = await fetch(`${BASE}/quotes/${quoteId}/requote`, {
     method: 'POST',

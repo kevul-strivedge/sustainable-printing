@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { ProductConfiguratorData } from "@/src/types/configurator.types";
 import { useConfigurator } from "@/src/hooks/useConfigurator";
-import { submitQuote } from "@/src/services/api";
+import { submitQuote, processPayment } from "@/src/services/api";
+import type { CardDetails } from "@/src/components/configurator/payment/PaymentCardForm";
 import { useAuth } from "@/src/context/AuthContext";
 import type { InitialDelivery, InitialArtwork, InitialOrder } from "@/src/types/configurator.types";
 
@@ -40,7 +41,7 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
   const [submitError, setSubmitError] = useState("");
   const [quoteId, setQuoteId] = useState<number | null>(null);
 
-  async function handleSubmit() {
+  async function handleSubmit(cardDetails?: CardDetails) {
     setSubmitting(true);
     setSubmitError("");
     try {
@@ -87,6 +88,20 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
         email: state.deliveryEmail,
         paymentMethod: state.paymentMethodId,
       }, user?.token);
+
+      // Process credit card payment if card details were provided
+      if (cardDetails) {
+        const [expiryMonth, expiryYear] = cardDetails.expiry.split('/');
+        await processPayment(result.quoteId, {
+          cardNumber: cardDetails.cardNumber.replace(/\s/g, ''),
+          cardType:   cardDetails.cardType,
+          cvv:        cardDetails.cvv,
+          expiryMonth: expiryMonth ?? '',
+          expiryYear:  expiryYear  ? `20${expiryYear}` : '',
+          cardOwner:  cardDetails.cardOwner,
+        }, user?.token);
+      }
+
       setQuoteId(result.quoteId);
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : "Failed to submit order. Please try again.");

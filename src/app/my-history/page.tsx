@@ -174,7 +174,8 @@ function Pagination({
   } else {
     pages.push(1, 2, 3, 4, 5, 6, 7);
     if (totalPages > 8) pages.push("...");
-    if (totalPages > 7) pages.push(totalPages - 1, totalPages);
+    if (totalPages - 1 > 7) pages.push(totalPages - 1);
+    pages.push(totalPages);
   }
 
   return (
