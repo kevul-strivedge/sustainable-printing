@@ -15,6 +15,7 @@ export default function BannerComponent({
   buttons,
   className = "",
   contentClassName = "",
+  headingFont
 }: BannerProps) {
   return (
     <section className={`relative w-full overflow-hidden ${className}`}>
@@ -28,14 +29,14 @@ export default function BannerComponent({
 
       <div className={`absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 ${contentClassName}`}>
         <h2
-          className="text-3xl sm:text-4xl font-bold leading-snug mb-8 max-w-xl"
+          className={`text-3xl sm:text-4xl font-bold leading-snug mb-8 max-w-xl ${headingFont}`}
           style={{ color: headingColor }}
         >
           {heading}
         </h2>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
-          {buttons.map((btn) => (
+          {buttons?.map((btn) => (
             <a
               key={btn.label}
               href={btn.href ?? "#"}

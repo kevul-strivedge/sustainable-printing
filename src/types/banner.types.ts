@@ -8,7 +8,8 @@ export interface BannerProps {
   image: string;
   heading: string;
   headingColor?: string;
-  buttons: BannerButton[];
+  buttons?: BannerButton[];
   className?: string;
   contentClassName?: string;
+  headingFont?:string;
 }

@@ -76,8 +76,8 @@ const megaDropdownCategories = [
 
 const navLinks = [
   { label: "Products & Prices", dropdownType: "mega" as const, hasMobileChevron: true },
-  { label: "Free Sample Pack", dropdownType: null, hasMobileChevron: false },
-  { label: "Request A Custom Quote", dropdownType: null, hasMobileChevron: false },
+  { label: "Free Sample Pack", href: "/requestsample",  dropdownType: null, hasMobileChevron: false },
+  { label: "Request A Custom Quote", href: "/custom-quote", dropdownType: null, hasMobileChevron: false },
   {
     label: "Sustainability",
     dropdownType: "simple" as const,
@@ -96,10 +96,10 @@ const navLinks = [
     dropdownType: "simple" as const,
     hasMobileChevron: true,
     dropdownItems: [
-      { label: "FAQ", href: "#" },
+      { label: "FAQ", href: "/faq" },
       { label: "Artwork Specification Guide", href: "#" },
-      { label: "Contact Us", href: "#" },
-      { label: "Blogs", href: "#" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Blogs", href: "/blogs" },
     ],
   },
 ];
@@ -198,7 +198,7 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7 ml-10">
-          {navLinks.map(({ label, dropdownType }) =>
+          {navLinks.map(({ label, dropdownType,href }) =>
             dropdownType ? (
               <div
                 key={label}
@@ -219,8 +219,8 @@ export default function Navbar() {
             ) : (
               <a
                 key={label}
-                href="#"
-                className="text-[14px] font-medium text-gray-800 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 whitespace-nowrap pb-0.5"
+                href={href || "/"}
+                className="text-[14px] font-medium text-gray-800 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 whitespace-nowrap pb-[2px]"
               >
                 {label}
               </a>
