@@ -27,7 +27,8 @@ export default function PrintingDetails({ state, papers, sizes, printingTypes, e
   const paper = papers.find((p) => p.id === state.paperId);
   const size = sizes.find((s) => s.id === state.sizeId);
   const printType = printingTypes.find((pt) => pt.id === state.printingTypeId);
-  const totalQty = state.numDesigns * state.quantityPerDesign;
+  const allRows = [{ numDesigns: state.numDesigns, qty: state.quantityPerDesign }, ...state.splitRows];
+  const totalQty = allRows.reduce((sum, r) => sum + r.numDesigns * r.qty, 0);
 
   const paperShort = paper?.label
     ? paper.label.replace(" (White)", "").replace("100% Recycled ", "")

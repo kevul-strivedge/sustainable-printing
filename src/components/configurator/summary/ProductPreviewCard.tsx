@@ -31,6 +31,9 @@ export default function ProductPreviewCard({ state, papers, extras }: Props) {
     .find((e) => state.selectedExtras.includes(e.id));
   const cornerLabel = selectedCorner?.label ?? "Trim straight edges";
 
+  const allRows = [{ numDesigns: state.numDesigns }, ...state.splitRows];
+  const maxDesigns = Math.max(...allRows.map((r) => r.numDesigns));
+
   return (
     <div className="flex items-center gap-3 bg-gray-100 rounded-lg p-3">
       {/* Green thumbnail square with white card preview inside */}
@@ -52,7 +55,7 @@ export default function ProductPreviewCard({ state, papers, extras }: Props) {
         <div className="flex items-center gap-2">
           <DiamondSquareIcon />
           <span className="text-[12px] text-[#292560]">
-            {state.numDesigns} design{state.numDesigns > 1 ? "s" : ""}
+            {maxDesigns} design{maxDesigns > 1 ? "s" : ""}
           </span>
         </div>
       </div>

@@ -232,13 +232,29 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-5 ml-auto shrink-0">
           {user ? (
             <>
-              <span className="text-[14px] text-[#292560] font-semibold">Hi, {user.firstName}</span>
               <button
                 onClick={handleLogout}
                 className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-0.5"
               >
                 Logout
               </button>
+              {/* User name — hover triggers account dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter("__user__", "simple")}
+                onMouseLeave={scheduleClose}
+              >
+                <button
+                  ref={(el) => { btnRefs.current["__user__"] = el; }}
+                  className={`text-[14px] font-semibold transition-colors duration-150 pb-0.5 border-b-2 whitespace-nowrap cursor-pointer ${
+                    activeDropdown === "__user__"
+                      ? "text-[#3d9e5f] border-[#3d9e5f]"
+                      : "text-[#292560] border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f]"
+                  }`}
+                >
+                  {user.firstName} {user.lastName}
+                </button>
+              </div>
             </>
           ) : (
             <>
@@ -304,6 +320,38 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+        </ul>
+      )}
+
+      {/* Desktop user account dropdown */}
+      {activeDropdown === "__user__" && (
+        <ul
+          className="hidden lg:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-55 py-2"
+          style={{ left: simpleDropdownLeft }}
+          onMouseEnter={() => handleMouseEnter("__user__", "simple")}
+          onMouseLeave={scheduleClose}
+        >
+          {[
+            { label: "My History", href: "/my-history" },
+            { label: "My Details", href: "#" },
+            { label: "Request New Quote", href: "#" },
+            { label: "Request Free Sample", href: "#" },
+          ].map((item) => (
+            <Link key={item.label}
+              href={item.href}
+              className="block px-5 py-2.5 text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <li className="border-t border-gray-100 mt-1 pt-1">
+            <button
+              onClick={handleLogout}
+              className="w-full text-left block px-5 py-2.5 text-[14px] text-gray-500 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
+            >
+              Logout
+            </button>
+          </li>
         </ul>
       )}
 
@@ -381,15 +429,39 @@ export default function Navbar() {
             ))}
 
             {user ? (
-              <>
-                <div className="border-b border-gray-200 px-5 py-4">
-                  <p className="text-[13px] text-gray-500">Signed in as</p>
-                  <p className="text-[15px] font-semibold text-[#292560]">{user.firstName} {user.lastName}</p>
-                </div>
-                <div className="border-b border-gray-200">
-                  <button onClick={handleLogout} className="block w-full text-left px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Logout</button>
-                </div>
-              </>
+              <div className="border-b border-gray-200">
+                <button
+                  className="w-full flex items-center justify-between px-5 py-4 text-[15px] font-semibold text-[#292560] text-left"
+                  onClick={() => toggleSection("__user__")}
+                >
+                  {user.firstName} {user.lastName}
+                  <ChevronDown className={`transition-transform duration-200 ${openSection === "__user__" ? "rotate-180" : ""}`} />
+                </button>
+                {openSection === "__user__" && (
+                  <ul>
+                    {[
+                      { label: "My History", href: "/my-history" },
+                      { label: "My Details", href: "#" },
+                      { label: "Request New Quote", href: "#" },
+                      { label: "Request Free Sample", href: "#" },
+                    ].map((item) => (
+                      <Link key={item.label}
+                        href={item.href}
+                        className="border-t border-gray-200 block px-8 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                    <button
+                      onClick={handleLogout}
+                      className="border-t border-gray-200 w-full text-left block px-8 py-3 text-[13px] text-[#3d9e5f] hover:text-[#2d7a47] bg-[#f5f0e8] transition-colors duration-150"
+                    >
+                      Logout
+                    </button>
+                  </ul>
+                )}
+              </div>
             ) : (
               <>
                 <div className="border-b border-gray-200">

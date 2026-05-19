@@ -5,7 +5,9 @@ import {
   ConfiguratorState,
   ConfiguratorAction,
   PriceBreakdown,
+  SplitBreakdown,
   ProductConfiguratorData,
+  InitialOrder,
 } from "@/src/types/configurator.types";
 
 function configuratorReducer(
@@ -42,9 +44,57 @@ function configuratorReducer(
       return { ...state, [action.field]: action.value };
     case "SET_PAYMENT_METHOD":
       return { ...state, paymentMethodId: action.id };
+    case "ADD_SPLIT_ROW":
+      return { ...state, splitRows: [...state.splitRows, { numDesigns: action.numDesigns, qty: action.qty }] };
+    case "SET_SPLIT_ROW": {
+      const updated = state.splitRows.map((r, i) =>
+        i === action.index ? { numDesigns: action.numDesigns, qty: action.qty } : r
+      );
+      return { ...state, splitRows: updated };
+    }
+    case "REMOVE_SPLIT_ROW":
+      return { ...state, splitRows: state.splitRows.filter((_, i) => i !== action.index) };
     default:
       return state;
   }
+}
+
+// Price for a single quantity split (no delivery/GST — just the print subtotal).
+function calcSplitSubtotal(
+  numDesigns: number,
+  qty: number,
+  paperId: string,
+  sizeId: string,
+  selectedExtras: string[],
+  config: ProductConfiguratorData
+): number {
+  let base = 0;
+  if (config.pricingTable.length > 0) {
+    const byKindQty = config.pricingTable.filter(
+      (r) => r.kind === numDesigns && r.quantity === qty
+    );
+
+    // Try most-specific match first, relax constraints if nothing found
+    const exact = byKindQty.filter(
+      (r) => (sizeId === '' || r.formatId === sizeId) && (paperId === '' || r.stockId === paperId)
+    );
+    const bySize  = exact.length  ? exact  : byKindQty.filter((r) => sizeId === '' || r.formatId === sizeId);
+    const matches = bySize.length ? bySize : byKindQty;
+
+    if (matches.length > 0) base = Math.min(...matches.map((r) => r.price));
+  } else {
+    const totalQty = numDesigns * qty;
+    const tier = config.pricingTiers.find((t) => totalQty >= t.minQty && totalQty <= t.maxQty);
+    const paper = config.papers.find((p) => p.id === paperId);
+    base = (tier?.pricePerUnit ?? 0) * (paper?.basePriceMultiplier ?? 1) * totalQty;
+  }
+  const extras = selectedExtras.reduce((sum, id) => {
+    const extra = config.extras.find((e) => e.id === id);
+    if (!extra) return sum;
+    const tier = extra.priceTiers.find((t) => t.quantity === qty);
+    return sum + (tier?.price ?? 0) * numDesigns;
+  }, 0);
+  return base + extras;
 }
 
 // Pure price calculator — swap this for an API call in the future without touching components.
@@ -52,78 +102,84 @@ export function calculatePrice(
   state: ConfiguratorState,
   config: ProductConfiguratorData
 ): PriceBreakdown {
-  const totalQty = state.numDesigns * state.quantityPerDesign;
-
-  let baseSubtotal = 0;
-  if (config.pricingTable.length > 0) {
-    // Use real DB prices — find the cheapest matching row for selected kind+qty+format+paper
-    const matches = config.pricingTable.filter(
-      (r) =>
-        r.kind === state.numDesigns &&
-        r.quantity === state.quantityPerDesign &&
-        (state.sizeId === '' || r.formatId === state.sizeId) &&
-        (state.paperId === '' || r.stockId === state.paperId)
-    );
-    if (matches.length > 0) {
-      baseSubtotal = Math.min(...matches.map((r) => r.price));
-    }
-  } else {
-    // Fallback: hardcoded tier calculation for products without DB pricing
-    const tier = config.pricingTiers.find(
-      (t) => totalQty >= t.minQty && totalQty <= t.maxQty
-    );
-    const paper = config.papers.find((p) => p.id === state.paperId);
-    const basePerUnit = (tier?.pricePerUnit ?? 0) * (paper?.basePriceMultiplier ?? 1);
-    baseSubtotal = basePerUnit * totalQty;
-  }
-
-  const extrasTotal = state.selectedExtras.reduce((sum, id) => {
-    const extra = config.extras.find((e) => e.id === id);
-    if (!extra) return sum;
-    const tier = extra.priceTiers.find((t) => t.quantity === state.quantityPerDesign);
-    return sum + (tier?.price ?? 0) * state.numDesigns;
-  }, 0);
-
-  const subtotal = baseSubtotal + extrasTotal;
+  const allRows = [
+    { numDesigns: state.numDesigns, qty: state.quantityPerDesign },
+    ...state.splitRows,
+  ];
+  const totalSubtotal = allRows.reduce(
+    (sum, r) => sum + calcSplitSubtotal(r.numDesigns, r.qty, state.paperId, state.sizeId, state.selectedExtras, config),
+    0
+  );
+  const totalUnits = allRows.reduce((s, r) => s + r.numDesigns * r.qty, 0);
   const delivery = config.deliveryPrice;
-  const gst = (subtotal + delivery) * config.gstRate;
-  const total = subtotal + delivery + gst;
-  const perUnit = totalQty > 0 ? subtotal / totalQty : 0;
-
-  return { subtotal, delivery, gst, total, perUnit };
+  const gst = (totalSubtotal + delivery) * config.gstRate;
+  const total = totalSubtotal + delivery + gst;
+  const perUnit = totalUnits > 0 ? totalSubtotal / totalUnits : 0;
+  return { subtotal: totalSubtotal, delivery, gst, total, perUnit };
 }
 
-export function useConfigurator(config: ProductConfiguratorData) {
+export function calculateSplitBreakdowns(
+  state: ConfiguratorState,
+  config: ProductConfiguratorData
+): SplitBreakdown[] {
+  return [
+    { numDesigns: state.numDesigns, qty: state.quantityPerDesign },
+    ...state.splitRows,
+  ].map((r) => ({
+    numDesigns: r.numDesigns,
+    qty:        r.qty,
+    subtotal:   calcSplitSubtotal(r.numDesigns, r.qty, state.paperId, state.sizeId, state.selectedExtras, config),
+  }));
+}
+
+export function useConfigurator(
+  config: ProductConfiguratorData,
+  initialStep?: number,
+  initialDelivery?: { firstName: string; lastName: string; email: string; company: string; street: string; suburb: string; state: string; postcode: string; phone: string },
+  initialArtwork?: { fileUrl: string; fileName: string },
+  initialOrder?: InitialOrder,
+) {
+  const uploadMethod = config.artworkOptions.find(o => o.id === 'upload-pdf')?.id ?? config.artworkOptions[0].id;
+
+  // Resolve step-1 values from a prior order by matching stored labels/IDs back to config entries
+  const initPaper    = initialOrder ? (config.papers.find(p => p.label === initialOrder.stock) ?? config.papers[0]) : config.papers[0];
+  const initSize     = initialOrder ? (config.sizes.find(s => s.label === initialOrder.format) ?? config.sizes[0]) : config.sizes[0];
+  const initPrinting = initialOrder ? (config.printingTypes.find(pt => pt.id === initialOrder.ink) ?? config.printingTypes[0]) : config.printingTypes[0];
+  const initExtras   = initialOrder?.finish && !initialOrder.finish.toLowerCase().includes("straight")
+    ? [config.extras.find(e => e.label === initialOrder.finish)?.id].filter((id): id is string => !!id)
+    : [];
+  const initDesigns  = initialOrder ? (config.designOptions.find(d => d.value === initialOrder.kind)?.value ?? config.designOptions[0].value) : config.designOptions[0].value;
+  const initQty      = initialOrder ? (config.quantityOptions.find(q => q.value === initialOrder.quantity)?.value ?? config.quantityOptions[0].value) : config.quantityOptions[0].value;
+
   const initialState: ConfiguratorState = {
-    currentStep: 1,
-    numDesigns: config.designOptions[0].value,
-    quantityPerDesign: config.quantityOptions[0].value,
-    paperId: config.papers[0]?.id ?? '',
-    sizeId: config.sizes[0]?.id ?? '',
-    printingTypeId: config.printingTypes[0]?.id ?? '',
-    selectedExtras: [],
-    artworkMethod: config.artworkOptions[0].id,
-    artworkFileName: "",
+    currentStep: (initialStep as ConfiguratorState["currentStep"]) ?? 1,
+    numDesigns:        initDesigns,
+    quantityPerDesign: initQty,
+    splitRows:         initialOrder?.splits ?? [],
+    paperId:        initPaper?.id    ?? '',
+    sizeId:         initSize?.id     ?? '',
+    printingTypeId: initPrinting?.id ?? '',
+    selectedExtras: initExtras,
+    artworkMethod:   initialArtwork ? uploadMethod : config.artworkOptions[0].id,
+    artworkFileName: initialArtwork?.fileName ?? "",
     artworkFileSize: 0,
-    artworkFileUrl: "",
-    deliveryFirstName: "",
-    deliveryLastName: "",
-    deliveryCompany: "",
-    deliveryStreet: "",
-    deliverySuburb: "",
-    deliveryState: "",
-    deliveryPostcode: "",
-    deliveryPhone: "",
-    deliveryEmail: "",
+    artworkFileUrl:  initialArtwork?.fileUrl  ?? "",
+    deliveryFirstName: initialDelivery?.firstName ?? "",
+    deliveryLastName:  initialDelivery?.lastName  ?? "",
+    deliveryCompany:   initialDelivery?.company   ?? "",
+    deliveryStreet:    initialDelivery?.street    ?? "",
+    deliverySuburb:    initialDelivery?.suburb    ?? "",
+    deliveryState:     initialDelivery?.state     ?? "",
+    deliveryPostcode:  initialDelivery?.postcode  ?? "",
+    deliveryPhone:     initialDelivery?.phone     ?? "",
+    deliveryEmail:     initialDelivery?.email     ?? "",
     paymentMethodId: config.paymentMethods[0].id,
   };
 
   const [state, dispatch] = useReducer(configuratorReducer, initialState);
 
-  const priceBreakdown = useMemo(
-    () => calculatePrice(state, config),
-    [state, config]
-  );
+  const priceBreakdown = useMemo(() => calculatePrice(state, config), [state, config]);
+  const splitBreakdowns = useMemo(() => calculateSplitBreakdowns(state, config), [state, config]);
 
-  return { state, dispatch, priceBreakdown };
+  return { state, dispatch, priceBreakdown, splitBreakdowns };
 }

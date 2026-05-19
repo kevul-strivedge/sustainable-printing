@@ -106,6 +106,7 @@ export interface ConfiguratorState {
   currentStep: 1 | 2 | 3 | 4;
   numDesigns: number;
   quantityPerDesign: number;
+  splitRows: { numDesigns: number; qty: number }[];
   paperId: string;
   sizeId: string;
   printingTypeId: string;
@@ -134,6 +135,12 @@ export interface PriceBreakdown {
   perUnit: number;
 }
 
+export interface SplitBreakdown {
+  numDesigns: number;
+  qty: number;
+  subtotal: number;
+}
+
 export type ConfiguratorAction =
   | { type: "SET_DESIGNS"; value: number }
   | { type: "SET_QTY_PER_DESIGN"; value: number }
@@ -146,4 +153,34 @@ export type ConfiguratorAction =
   | { type: "SET_ARTWORK_METHOD"; id: string }
   | { type: "SET_ARTWORK_FILE"; fileName: string; fileSize: number; fileUrl: string }
   | { type: "SET_DELIVERY_FIELD"; field: "deliveryFirstName" | "deliveryLastName" | "deliveryCompany" | "deliveryStreet" | "deliverySuburb" | "deliveryState" | "deliveryPostcode" | "deliveryPhone" | "deliveryEmail"; value: string }
-  | { type: "SET_PAYMENT_METHOD"; id: string };
+  | { type: "SET_PAYMENT_METHOD"; id: string }
+  | { type: "ADD_SPLIT_ROW"; numDesigns: number; qty: number }
+  | { type: "SET_SPLIT_ROW"; index: number; numDesigns: number; qty: number }
+  | { type: "REMOVE_SPLIT_ROW"; index: number };
+
+export interface InitialDelivery {
+  firstName: string;
+  lastName: string;
+  email: string;
+  company: string;
+  street: string;
+  suburb: string;
+  state: string;
+  postcode: string;
+  phone: string;
+}
+
+export interface InitialArtwork {
+  fileUrl: string;
+  fileName: string;
+}
+
+export interface InitialOrder {
+  stock: string;
+  format: string;
+  ink: string;
+  finish: string;
+  kind: number;
+  quantity: number;
+  splits?: { numDesigns: number; qty: number }[];
+}

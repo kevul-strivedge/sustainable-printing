@@ -4,6 +4,8 @@ import { useState } from "react";
 import { ProductConfiguratorData } from "@/src/types/configurator.types";
 import { useConfigurator } from "@/src/hooks/useConfigurator";
 import { submitQuote } from "@/src/services/api";
+import { useAuth } from "@/src/context/AuthContext";
+import type { InitialDelivery, InitialArtwork, InitialOrder } from "@/src/types/configurator.types";
 
 import ProductPageHeader from "@/src/components/configurator/ProductPageHeader";
 import StepProgressBar from "@/src/components/configurator/StepProgressBar";
@@ -25,10 +27,15 @@ import OrderConfirmationPage from "@/src/components/pages/OrderConfirmationPage"
 
 interface Props {
   config: ProductConfiguratorData;
+  initialStep?: number;
+  initialDelivery?: InitialDelivery;
+  initialArtwork?: InitialArtwork;
+  initialOrder?: InitialOrder;
 }
 
-export default function ProductConfiguratorPage({ config }: Props) {
-  const { state, dispatch, priceBreakdown } = useConfigurator(config);
+export default function ProductConfiguratorPage({ config, initialStep, initialDelivery, initialArtwork, initialOrder }: Props) {
+  const { state, dispatch, priceBreakdown, splitBreakdowns } = useConfigurator(config, initialStep, initialDelivery, initialArtwork, initialOrder);
+  const { user } = useAuth();
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [quoteId, setQuoteId] = useState<number | null>(null);
@@ -39,14 +46,26 @@ export default function ProductConfiguratorPage({ config }: Props) {
     try {
       const sizeLabel = config.sizes.find((s) => s.id === state.sizeId)?.label ?? state.sizeId;
       const paperLabel = config.papers.find((p) => p.id === state.paperId)?.label ?? state.paperId;
-      const extrasLabel = state.selectedExtras
-        .map((id) => config.extras.find((e) => e.id === id)?.label ?? id)
-        .join(", ");
+
+      // Extras section shows "Trim straight edges" as the synthetic default (no extra stored).
+      // If the section is visible but nothing was toggled, explicitly record the default.
+      const hasExtrasSection = config.extras.some(
+        (e) => !e.label.toLowerCase().includes("straight")
+      );
+      const extrasLabel =
+        state.selectedExtras.length > 0
+          ? state.selectedExtras
+              .map((id) => config.extras.find((e) => e.id === id)?.label ?? id)
+              .join(", ")
+          : hasExtrasSection
+          ? "Trim straight edges"
+          : "";
 
       const result = await submitQuote({
         productDbId: config.dbId,
         kind: state.numDesigns,
         quantity: state.quantityPerDesign,
+        splits: splitBreakdowns.map((s) => ({ numDesigns: s.numDesigns, qty: s.qty, price: s.subtotal })),
         formatLabel: sizeLabel,
         stockLabel: paperLabel,
         printingType: state.printingTypeId,
@@ -67,7 +86,7 @@ export default function ProductConfiguratorPage({ config }: Props) {
         phone: state.deliveryPhone,
         email: state.deliveryEmail,
         paymentMethod: state.paymentMethodId,
-      });
+      }, user?.token);
       setQuoteId(result.quoteId);
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : "Failed to submit order. Please try again.");
@@ -89,7 +108,7 @@ export default function ProductConfiguratorPage({ config }: Props) {
 
   return (
     <>
-      <div className="max-w-[1100px] mx-auto px-6 py-10">
+      <div className="max-w-275 mx-auto px-6 py-10">
         {/* Header */}
         <ProductPageHeader title={config.title} subtitle={config.subtitle} />
 
@@ -184,7 +203,7 @@ export default function ProductConfiguratorPage({ config }: Props) {
       <BannerComponent
         image="/images/bannerImage2.png"
         heading="Want to see your options?"
-        className="h-[300px]"
+        className="h-75"
         buttons={[{ label: "Order a Sample Pack", href: "/sample-pack", variant: "primary" }]}
       />
     </>
