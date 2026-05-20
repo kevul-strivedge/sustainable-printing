@@ -104,6 +104,7 @@ export interface QuoteSubmitPayload {
   productDbId?: number;
   kind: number;
   quantity: number;
+  splits?: { numDesigns: number; qty: number; price: number }[];
   formatLabel: string;
   stockLabel: string;
   printingType: string;
@@ -126,10 +127,12 @@ export interface QuoteSubmitPayload {
   paymentMethod: string;
 }
 
-export async function submitQuote(payload: QuoteSubmitPayload): Promise<{ success: boolean; quoteId: number }> {
+export async function submitQuote(payload: QuoteSubmitPayload, token?: string): Promise<{ success: boolean; quoteId: number }> {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
   const res = await fetch(`${BASE}/quotes/submit`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify(payload),
   });
   const json = await res.json();
@@ -150,6 +153,87 @@ export async function uploadArtwork(file: File): Promise<ArtworkUploadResult> {
   return json as ArtworkUploadResult;
 }
 
+// ─── Orders ──────────────────────────────────────────────────────────────────
+
+export interface OrderDetail {
+  id: number;
+  quantity: number;
+  kind: number;
+  format: string;
+  stock: string;
+  ink: string;
+  finish: string;
+  printingPrice: number;
+  deliveryPrice: number;
+  paymentAmount: number;
+  paymentMethod: string;
+  paymentStatus: string;
+  created: string;
+  artworkUrl: string | null;
+  deliveryDetails?: string | null;
+  summary?: string | null;
+  member: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    businessname: string;
+    address: string;
+    suburb: string;
+    state: string;
+    postcode: string;
+    phone: string;
+  } | null;
+}
+
+export async function fetchOrderById(quoteId: number): Promise<OrderDetail | null> {
+  try {
+    const res = await fetch(`${BASE}/quotes/${quoteId}`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    const json = await res.json();
+    return json.data as OrderDetail ?? null;
+  } catch {
+    return null;
+  }
+}
+
+// ─── Auth ────────────────────────────────────────────────────────────────────
+
+export interface AuthUser {
+  token: string;
+  name: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
+export async function loginUser(payload: { email: string; password: string }): Promise<AuthUser> {
+  const res = await fetch(`${BASE}/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Login failed. Please try again.');
+  return json.data as AuthUser;
+}
+
+export async function registerUser(payload: {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+}): Promise<void> {
+  const res = await fetch(`${BASE}/auth/register`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Registration failed. Please try again.');
+}
+
+// ─── Products ────────────────────────────────────────────────────────────────
+
 export function getProductConfig(productId: number) {
   return apiFetch<ApiConfiguratorConfig>(`/configurator/${productId}/config`);
 }
@@ -162,4 +246,132 @@ export function getProductPrice(
     Object.entries(params).map(([k, v]) => [k, String(v)])
   ).toString();
   return apiFetch<ApiPricingRow[]>(`/configurator/${productId}/price?${qs}`);
+}
+
+export async function sendQuoteEmail(
+  quoteId: number,
+  payload: { subject: string; message: string },
+  token: string
+): Promise<void> {
+  const res = await fetch(`${BASE}/quotes/${quoteId}/send-email`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Failed to send email.');
+}
+
+export async function processPayment(
+  quoteId: number,
+  card: { cardNumber: string; cardType: string; cvv: string; expiryMonth: string; expiryYear: string; cardOwner: string },
+  token?: string
+): Promise<void> {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+  const res = await fetch(`${BASE}/payments/${quoteId}/pay`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(card),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) {
+    throw new Error(json.message ?? 'Payment declined. Please check your card details and try again.');
+  }
+}
+
+export async function reQuoteOrder(quoteId: number, token: string): Promise<{ quoteId: number }> {
+  const res = await fetch(`${BASE}/quotes/${quoteId}/requote`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Failed to re-quote order.');
+  return json.data as { quoteId: number };
+}
+
+export async function attachArtworkToQuote(
+  quoteId: number,
+  payload: { artworkFileUrl: string; artworkFileName: string },
+  token: string
+): Promise<void> {
+  const res = await fetch(`${BASE}/quotes/${quoteId}/artwork`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Failed to attach artwork.');
+}
+
+// ─── My Orders ───────────────────────────────────────────────────────────────
+
+export interface MyOrder {
+  id: number;
+  created: string;
+  status: string;
+  quantity: number;
+  details: string;
+  productType: number | null;
+  paymentAmount: number;
+  paymentStatus: string;
+}
+
+export interface MyOrdersResponse {
+  orders: MyOrder[];
+  pagination: { page: number; limit: number; total: number; totalPages: number };
+}
+
+// ─── Sample Pack ─────────────────────────────────────────────────────────────
+
+export interface SamplePackPayload {
+  businessName?: string;
+  firstName: string;
+  surname: string;
+  email: string;
+  address: string;
+  phone: string;
+  townCity: string;
+  state: string;
+  postcode: string;
+  sampleOf?: string;
+}
+
+export async function submitSamplePack(payload: SamplePackPayload): Promise<void> {
+  const res = await fetch(`${BASE}/sample-pack`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) {
+    throw new Error(json.message ?? 'Failed to send your request. Please try again.');
+  }
+}
+
+// ─── Custom Quote ─────────────────────────────────────────────────────────────
+
+export async function submitCustomQuote(formData: FormData): Promise<void> {
+  const res = await fetch(`${BASE}/custom-quotes`, {
+    method: 'POST',
+    body: formData,
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) {
+    throw new Error(json.message ?? 'Failed to send your request. Please try again.');
+  }
+}
+
+export async function fetchMyOrders(token: string, page = 1): Promise<MyOrdersResponse | null> {
+  try {
+    const res = await fetch(`${BASE}/quotes/my-orders?page=${page}&limit=5`, {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: 'no-store',
+    });
+    if (!res.ok) return null;
+    const json = await res.json();
+    return (json.data as MyOrdersResponse) ?? null;
+  } catch {
+    return null;
+  }
 }

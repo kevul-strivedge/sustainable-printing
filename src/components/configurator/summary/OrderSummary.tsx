@@ -27,7 +27,7 @@ export default function OrderSummary({ state, dispatch, priceBreakdown, config }
       </div>
 
       <div className="px-5 py-4 flex flex-col gap-5">
-        <ProductPreviewCard state={state} papers={config.papers} />
+        <ProductPreviewCard state={state} papers={config.papers} extras={config.extras} />
 
         <PrintingDetails
           state={state}

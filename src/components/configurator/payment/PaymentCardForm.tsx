@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 function InlineField({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (
     <div className="bg-white rounded-lg px-3 pt-2 pb-2.5 border border-gray-200">
@@ -15,12 +13,45 @@ function InlineField({ label, required, children }: { label: string; required?: 
 
 const CARD_TYPES = ["Visa", "Mastercard", "Amex", "Discover"];
 
-export default function PaymentCardForm() {
-  const [cardType, setCardType] = useState("Visa");
-  const [cardNumber, setCardNumber] = useState("");
-  const [expiry, setExpiry] = useState("");
-  const [cvv, setCvv] = useState("");
-  const [cardOwner, setCardOwner] = useState("");
+export interface CardDetails {
+  cardType: string;
+  cardNumber: string;
+  expiry: string;
+  cvv: string;
+  cardOwner: string;
+}
+
+interface Props {
+  cardType: string;
+  setCardType: (v: string) => void;
+  cardNumber: string;
+  setCardNumber: (v: string) => void;
+  expiry: string;
+  setExpiry: (v: string) => void;
+  cvv: string;
+  setCvv: (v: string) => void;
+  cardOwner: string;
+  setCardOwner: (v: string) => void;
+}
+
+export default function PaymentCardForm({
+  cardType, setCardType,
+  cardNumber, setCardNumber,
+  expiry, setExpiry,
+  cvv, setCvv,
+  cardOwner, setCardOwner,
+}: Props) {
+  function handleCardNumberChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const raw = e.target.value.replace(/\D/g, '').slice(0, 16);
+    const formatted = raw.replace(/(.{4})/g, '$1 ').trim();
+    setCardNumber(formatted);
+  }
+
+  function handleExpiryChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const raw = e.target.value.replace(/\D/g, '').slice(0, 4);
+    const formatted = raw.length > 2 ? `${raw.slice(0, 2)}/${raw.slice(2)}` : raw;
+    setExpiry(formatted);
+  }
 
   return (
     <div className="bg-[#eef5f1] rounded-xl p-4">
@@ -50,9 +81,10 @@ export default function PaymentCardForm() {
             <input
               type="text"
               value={cardNumber}
-              onChange={(e) => setCardNumber(e.target.value)}
+              onChange={handleCardNumberChange}
               placeholder="0000 0000 0000 0000"
               maxLength={19}
+              inputMode="numeric"
               className="w-full text-[13px] font-semibold text-[#292560] placeholder-gray-300 bg-transparent border-none outline-none tracking-widest"
             />
           </InlineField>
@@ -60,22 +92,23 @@ export default function PaymentCardForm() {
 
         {/* Expiry Date + CVV */}
         <div className="grid grid-cols-2 gap-2">
-          <InlineField label="Expiry Date">
+          <InlineField label="Expiry Date" required>
             <input
               type="text"
               value={expiry}
-              onChange={(e) => setExpiry(e.target.value)}
+              onChange={handleExpiryChange}
               placeholder="MM/YY"
               maxLength={5}
+              inputMode="numeric"
               className="w-full text-[13px] font-semibold text-[#292560] placeholder-gray-300 bg-transparent border-none outline-none"
             />
           </InlineField>
 
-          <InlineField label="CVV">
+          <InlineField label="CVV" required>
             <input
               type="password"
               value={cvv}
-              onChange={(e) => setCvv(e.target.value)}
+              onChange={(e) => setCvv(e.target.value.replace(/\D/g, '').slice(0, 4))}
               placeholder="••••"
               maxLength={4}
               className="w-full text-[13px] font-semibold text-[#292560] placeholder-gray-300 bg-transparent border-none outline-none"
@@ -89,7 +122,7 @@ export default function PaymentCardForm() {
             type="text"
             value={cardOwner}
             onChange={(e) => setCardOwner(e.target.value)}
-            placeholder="Sumer Pal"
+            placeholder="Name on card"
             className="w-full text-[13px] font-semibold text-[#292560] placeholder-gray-300 bg-transparent border-none outline-none"
           />
         </InlineField>

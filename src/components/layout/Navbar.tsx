@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { useAuth } from "@/src/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 const megaDropdownCategories = [
   {
@@ -73,9 +75,9 @@ const megaDropdownCategories = [
 ];
 
 const navLinks = [
-  { label: "Products & Prices", dropdownType: "mega" as const, hasMobileChevron: true },
-  { label: "Free Sample Pack", dropdownType: null, hasMobileChevron: false },
-  { label: "Request A Custom Quote", dropdownType: null, hasMobileChevron: false },
+  { label: "Products & Prices", href: "/products", dropdownType: "mega" as const, hasMobileChevron: true },
+  { label: "Free Sample Pack", href: "/requestsample",  dropdownType: null, hasMobileChevron: false },
+  { label: "Request A Custom Quote", href: "/custom-quote", dropdownType: null, hasMobileChevron: false },
   {
     label: "Sustainability",
     dropdownType: "simple" as const,
@@ -94,10 +96,10 @@ const navLinks = [
     dropdownType: "simple" as const,
     hasMobileChevron: true,
     dropdownItems: [
-      { label: "FAQ", href: "#" },
-      { label: "Artwork Specification Guide", href: "#" },
-      { label: "Contact Us", href: "#" },
-      { label: "Blogs", href: "#" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Artwork Specification Guide", href: "/docs/artwork-specification-guide.pdf" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Blogs", href: "/blogs" },
     ],
   },
 ];
@@ -127,11 +129,19 @@ function CloseIcon() {
 }
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
+  const router = useRouter();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [simpleDropdownLeft, setSimpleDropdownLeft] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [openCategory, setOpenCategory] = useState<string | null>(null);
+
+  function handleLogout() {
+    logout();
+    router.push("/");
+    setMobileOpen(false);
+  }
 
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const headerRef = useRef<HTMLElement>(null);
@@ -188,7 +198,7 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7 ml-10">
-          {navLinks.map(({ label, dropdownType }) =>
+          {navLinks.map(({ label, dropdownType,href }) =>
             dropdownType ? (
               <div
                 key={label}
@@ -209,7 +219,7 @@ export default function Navbar() {
             ) : (
               <a
                 key={label}
-                href="#"
+                href={href || "/"}
                 className="text-[14px] font-medium text-gray-800 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 whitespace-nowrap pb-[2px]"
               >
                 {label}
@@ -220,8 +230,38 @@ export default function Navbar() {
 
         {/* Desktop auth */}
         <div className="hidden lg:flex items-center gap-5 ml-auto shrink-0">
-          <a href="#" className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-[2px]">Login</a>
-          <a href="#" className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-[2px]">Account</a>
+          {user ? (
+            <>
+              <button
+                onClick={handleLogout}
+                className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-0.5"
+              >
+                Logout
+              </button>
+              {/* User name — hover triggers account dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => handleMouseEnter("__user__", "simple")}
+                onMouseLeave={scheduleClose}
+              >
+                <button
+                  ref={(el) => { btnRefs.current["__user__"] = el; }}
+                  className={`text-[14px] font-semibold transition-colors duration-150 pb-0.5 border-b-2 whitespace-nowrap cursor-pointer ${
+                    activeDropdown === "__user__"
+                      ? "text-[#3d9e5f] border-[#3d9e5f]"
+                      : "text-[#292560] border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f]"
+                  }`}
+                >
+                  {user.firstName} {user.lastName}
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-0.5">Login</Link>
+              <Link href="/register" className="text-[14px] font-semibold text-white bg-[#004E24] hover:bg-[#003a1b] px-4 py-1.5 rounded-full transition-colors duration-150">Register</Link>
+            </>
+          )}
         </div>
 
         {/* Hamburger toggle */}
@@ -237,7 +277,7 @@ export default function Navbar() {
       {/* Desktop mega dropdown — centered */}
       {activeDropdown && activeLink?.dropdownType === "mega" && (
         <div
-          className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-full bg-white border-t border-gray-100 shadow-lg z-50 w-[90vw] max-w-[900px]"
+          className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-full bg-white border-t border-gray-100 shadow-lg z-50 w-[90vw] max-w-225"
           onMouseEnter={() => handleMouseEnter(activeDropdown, "mega")}
           onMouseLeave={scheduleClose}
         >
@@ -246,7 +286,7 @@ export default function Navbar() {
               {megaDropdownCategories.map(({ title, items }) => (
                 <div key={title}>
                   <p className="font-semibold text-gray-900 text-[13px] mb-3">{title}</p>
-                  <ul className="space-y-[10px]">
+                  <ul className="space-y-2.5">
                     {items.map((item) => (
                       <Link
                         key={item.slug}
@@ -267,19 +307,56 @@ export default function Navbar() {
       {/* Desktop simple dropdown — aligned under its nav button */}
       {activeDropdown && activeLink?.dropdownType === "simple" && activeLink.dropdownItems && (
         <ul
-          className="hidden lg:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-[220px] py-2"
+          className="hidden lg:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-55 py-2"
           style={{ left: simpleDropdownLeft }}
           onMouseEnter={() => handleMouseEnter(activeDropdown, "simple")}
           onMouseLeave={scheduleClose}
         >
-          {activeLink.dropdownItems.map((item) => (
+          {activeLink.dropdownItems.map((item) => {
+            const isPdf = item.href.endsWith(".pdf");
+            const className = "block px-5 py-2.5 text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap";
+            return isPdf ? (
+              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className={className}>
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.label} href={item.href} className={className}>
+                {item.label}
+              </Link>
+            );
+          })}
+        </ul>
+      )}
+
+      {/* Desktop user account dropdown */}
+      {activeDropdown === "__user__" && (
+        <ul
+          className="hidden lg:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-55 py-2"
+          style={{ left: simpleDropdownLeft }}
+          onMouseEnter={() => handleMouseEnter("__user__", "simple")}
+          onMouseLeave={scheduleClose}
+        >
+          {[
+            { label: "My History", href: "/my-history" },
+            { label: "My Details", href: "#" },
+            { label: "Request New Quote", href: "#" },
+            { label: "Request Free Sample", href: "#" },
+          ].map((item) => (
             <Link key={item.label}
               href={item.href}
-              className="block px-5 py-[10px] text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
+              className="block px-5 py-2.5 text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
             >
               {item.label}
             </Link>
           ))}
+          <li className="border-t border-gray-100 mt-1 pt-1">
+            <button
+              onClick={handleLogout}
+              className="w-full text-left block px-5 py-2.5 text-[14px] text-gray-500 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
+            >
+              Logout
+            </button>
+          </li>
         </ul>
       )}
 
@@ -287,12 +364,12 @@ export default function Navbar() {
       {mobileOpen && (
         <>
           <div
-            className="lg:hidden fixed inset-0 top-[70px] z-30 bg-black/40"
+            className="lg:hidden fixed inset-0 top-17.5 z-30 bg-black/40"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="lg:hidden fixed left-0 top-[70px] bottom-0 z-40 w-1/2 min-w-[280px] overflow-y-auto bg-[#faf6f0]">
+          <div className="lg:hidden fixed left-0 top-17.5 bottom-0 z-40 w-1/2 min-w-70 overflow-y-auto bg-[#faf6f0]">
 
-            {navLinks.map(({ label, hasMobileChevron, dropdownItems, dropdownType }) => (
+            {navLinks.map(({ label, href, hasMobileChevron, dropdownItems, dropdownType }) => (
               <div key={label} className="border-b border-gray-200">
                 {hasMobileChevron ? (
                   <>
@@ -336,32 +413,74 @@ export default function Navbar() {
 
                     {openSection === label && dropdownType === "simple" && dropdownItems && (
                       <ul>
-                        {dropdownItems.map((item) => (
-                          <Link key={item.label}
-                            href={item.href}
-                            className="border-t border-gray-200 block px-8 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150"
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
+                        {dropdownItems.map((item) => {
+                          const isPdf = item.href.endsWith(".pdf");
+                          const className = "border-t border-gray-200 block px-8 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150";
+                          return isPdf ? (
+                            <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className={className} onClick={() => setMobileOpen(false)}>
+                              {item.label}
+                            </a>
+                          ) : (
+                            <Link key={item.label} href={item.href} className={className} onClick={() => setMobileOpen(false)}>
+                              {item.label}
+                            </Link>
+                          );
+                        })}
                       </ul>
                     )}
                   </>
                 ) : (
-                  <a href="#" className="block px-5 py-4 text-[15px] font-semibold text-gray-800 hover:text-[#3d9e5f] transition-colors duration-150">
+                  <Link href={href} onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-gray-800 hover:text-[#3d9e5f] transition-colors duration-150">
                     {label}
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}
 
-            <div className="border-b border-gray-200">
-              <a href="#" className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Login</a>
-            </div>
-            <div className="border-b border-gray-200">
-              <a href="#" className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Account</a>
-            </div>
+            {user ? (
+              <div className="border-b border-gray-200">
+                <button
+                  className="w-full flex items-center justify-between px-5 py-4 text-[15px] font-semibold text-[#292560] text-left"
+                  onClick={() => toggleSection("__user__")}
+                >
+                  {user.firstName} {user.lastName}
+                  <ChevronDown className={`transition-transform duration-200 ${openSection === "__user__" ? "rotate-180" : ""}`} />
+                </button>
+                {openSection === "__user__" && (
+                  <ul>
+                    {[
+                      { label: "My History", href: "/my-history" },
+                      { label: "My Details", href: "#" },
+                      { label: "Request New Quote", href: "#" },
+                      { label: "Request Free Sample", href: "#" },
+                    ].map((item) => (
+                      <Link key={item.label}
+                        href={item.href}
+                        className="border-t border-gray-200 block px-8 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                    <button
+                      onClick={handleLogout}
+                      className="border-t border-gray-200 w-full text-left block px-8 py-3 text-[13px] text-[#3d9e5f] hover:text-[#2d7a47] bg-[#f5f0e8] transition-colors duration-150"
+                    >
+                      Logout
+                    </button>
+                  </ul>
+                )}
+              </div>
+            ) : (
+              <>
+                <div className="border-b border-gray-200">
+                  <Link href="/login" onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Login</Link>
+                </div>
+                <div className="border-b border-gray-200">
+                  <Link href="/register" onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Register</Link>
+                </div>
+              </>
+            )}
           </div>
         </>
       )}

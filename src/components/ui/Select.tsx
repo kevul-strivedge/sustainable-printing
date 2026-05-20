@@ -28,14 +28,10 @@ const Select = ({
       <div className="relative">
         <select
           required={required}
-          className={`w-full appearance-none text-[#292560] border-2 border-[#c4c4c41a] rounded-lg px-6 py-4 text-md font-medium outline-none focus:border-5 focus:border-[#4CCC88] transition bg-[#c4c4c41a] ${selectClassName || ""}`}
+          className={`w-full appearance-none text-[#292560] border-2 border-[#c4c4c41a] rounded-md px-6 py-4 text-md font-medium outline-none focus:border-5 focus:border-[#4CCC88] transition bg-[#c4c4c41a] ${selectClassName || ""}`}
           {...rest}
         >
-          {placeholder && (
-            <option value="" selected>
-              {placeholder}
-            </option>
-          )}
+          {placeholder && <option value="">{placeholder}</option>}
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

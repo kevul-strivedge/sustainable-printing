@@ -15,7 +15,7 @@ const PageHeader = ({ title, className, titleClassName }: PageHeaderProps) => {
       style={{ backgroundImage: "url('/images/page-header-img.png')" }}
     >
       <h1
-        className={`text-white font-bold text-center px-4 sm:text-5xl text-[32px] leading-tight ${titleClassName || ""}`}
+        className={`text-white font-semibold text-center px-4 sm:text-5xl text-[32px] leading-tight ${titleClassName || ""}`}
       >
         {title}
       </h1>

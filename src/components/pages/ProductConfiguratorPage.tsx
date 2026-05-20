@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { ProductConfiguratorData } from "@/src/types/configurator.types";
 import { useConfigurator } from "@/src/hooks/useConfigurator";
-import { submitQuote } from "@/src/services/api";
+import { submitQuote, processPayment } from "@/src/services/api";
+import type { CardDetails } from "@/src/components/configurator/payment/PaymentCardForm";
+import { useAuth } from "@/src/context/AuthContext";
+import type { InitialDelivery, InitialArtwork, InitialOrder } from "@/src/types/configurator.types";
 
 import ProductPageHeader from "@/src/components/configurator/ProductPageHeader";
 import StepProgressBar from "@/src/components/configurator/StepProgressBar";
@@ -21,31 +24,52 @@ import FAQAccordion from "@/src/components/configurator/FAQAccordion";
 import RelatedProductsSection from "@/src/components/configurator/RelatedProductsSection";
 import BannerComponent from "@/src/components/pages/BannerComponent";
 import QuantitySelector from "../configurator/form/QuantitySelector";
+import OrderConfirmationPage from "@/src/components/pages/OrderConfirmationPage";
 
 interface Props {
   config: ProductConfiguratorData;
+  initialStep?: number;
+  initialDelivery?: InitialDelivery;
+  initialArtwork?: InitialArtwork;
+  initialOrder?: InitialOrder;
 }
 
-export default function ProductConfiguratorPage({ config }: Props) {
-  const { state, dispatch, priceBreakdown } = useConfigurator(config);
+export default function ProductConfiguratorPage({ config, initialStep, initialDelivery, initialArtwork, initialOrder }: Props) {
+  const { state, dispatch, priceBreakdown, splitBreakdowns } = useConfigurator(config, initialStep, initialDelivery, initialArtwork, initialOrder);
+  const { user } = useAuth();
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [quoteId, setQuoteId] = useState<number | null>(null);
 
-  async function handleSubmit() {
+  async function handleSubmit(cardDetails?: CardDetails) {
     setSubmitting(true);
     setSubmitError("");
     try {
       const sizeLabel = config.sizes.find((s) => s.id === state.sizeId)?.label ?? state.sizeId;
       const paperLabel = config.papers.find((p) => p.id === state.paperId)?.label ?? state.paperId;
-      const extrasLabel = state.selectedExtras
-        .map((id) => config.extras.find((e) => e.id === id)?.label ?? id)
-        .join(", ");
+
+      // Extras section shows "Trim straight edges" as the synthetic default (no extra stored).
+      // If the section is visible but nothing was toggled, explicitly record the default.
+      const hasExtrasSection = config.extras.some(
+        (e) => !e.label.toLowerCase().includes("straight")
+      );
+      const extrasLabel =
+        state.selectedExtras.length > 0
+          ? state.selectedExtras
+              .map((id) => config.extras.find((e) => e.id === id)?.label ?? id)
+              .join(", ")
+          : hasExtrasSection
+          ? "Trim straight edges"
+          : "";
+
+      console.log('[Submit] qty:', state.quantityPerDesign, '| numDesigns:', state.numDesigns, '| paperId:', state.paperId, '| sizeId:', state.sizeId);
+      console.log('[Submit] subtotal:', priceBreakdown.subtotal, '| delivery:', priceBreakdown.delivery, '| total:', priceBreakdown.total);
 
       const result = await submitQuote({
         productDbId: config.dbId,
         kind: state.numDesigns,
         quantity: state.quantityPerDesign,
+        splits: splitBreakdowns.map((s) => ({ numDesigns: s.numDesigns, qty: s.qty, price: s.subtotal })),
         formatLabel: sizeLabel,
         stockLabel: paperLabel,
         printingType: state.printingTypeId,
@@ -66,7 +90,21 @@ export default function ProductConfiguratorPage({ config }: Props) {
         phone: state.deliveryPhone,
         email: state.deliveryEmail,
         paymentMethod: state.paymentMethodId,
-      });
+      }, user?.token);
+
+      // Process credit card payment if card details were provided
+      if (cardDetails) {
+        const [expiryMonth, expiryYear] = cardDetails.expiry.split('/');
+        await processPayment(result.quoteId, {
+          cardNumber: cardDetails.cardNumber.replace(/\s/g, ''),
+          cardType:   cardDetails.cardType,
+          cvv:        cardDetails.cvv,
+          expiryMonth: expiryMonth ?? '',
+          expiryYear:  expiryYear  ? `20${expiryYear}` : '',
+          cardOwner:  cardDetails.cardOwner,
+        }, user?.token);
+      }
+
       setQuoteId(result.quoteId);
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : "Failed to submit order. Please try again.");
@@ -77,32 +115,18 @@ export default function ProductConfiguratorPage({ config }: Props) {
 
   if (quoteId) {
     return (
-      <div className="max-w-[600px] mx-auto px-6 py-20 text-center">
-        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <path d="M6 16l7 7L26 9" stroke="#3d9e5f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <h1 className="text-[26px] font-bold text-[#292560] mb-3">Order Placed!</h1>
-        <p className="text-[15px] text-gray-600 mb-2">
-          Your order reference is <span className="font-bold text-[#292560]">#{quoteId}</span>.
-        </p>
-        <p className="text-[14px] text-gray-500 mb-8">
-          We&apos;ll send a confirmation to <span className="font-semibold">{state.deliveryEmail}</span>. Our team will be in touch once your artwork is reviewed.
-        </p>
-        <a
-          href="/products"
-          className="inline-block px-8 py-3 bg-[#004E24] text-white text-[14px] font-semibold rounded-lg hover:bg-[#003a1b] transition-colors"
-        >
-          Back to Products
-        </a>
-      </div>
+      <OrderConfirmationPage
+        quoteId={quoteId}
+        state={state}
+        config={config}
+        priceBreakdown={priceBreakdown}
+      />
     );
   }
 
   return (
     <>
-      <div className="max-w-[1100px] mx-auto px-6 py-10">
+      <div className="max-w-275 mx-auto px-6 py-10">
         {/* Header */}
         <ProductPageHeader title={config.title} subtitle={config.subtitle} />
 
@@ -121,6 +145,7 @@ export default function ProductConfiguratorPage({ config }: Props) {
                   dispatch={dispatch}
                   designOptions={config.designOptions}
                   quantityOptions={config.quantityOptions}
+                  pricingTable={config.pricingTable}
                 />
 
                 {config.papers.length > 0 && (
@@ -197,7 +222,7 @@ export default function ProductConfiguratorPage({ config }: Props) {
       <BannerComponent
         image="/images/bannerImage2.png"
         heading="Want to see your options?"
-        className="h-[300px]"
+        className="h-75"
         buttons={[{ label: "Order a Sample Pack", href: "/sample-pack", variant: "primary" }]}
       />
     </>

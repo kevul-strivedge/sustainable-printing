@@ -3,7 +3,10 @@ export interface Product {
   image: string;
   imageAlt: string;
   title: string;
-  description: string;
+  description?: string;
   shopLabel: string;
   shopHref: string;
+  imgClassName?:string
+  titleClassName?:string
+  containerClassName?: string;
 }

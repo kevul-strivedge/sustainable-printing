@@ -23,7 +23,7 @@ const Input = ({
       )}
       <input
         required={required}
-        className={`border border-[#C4C4C4] rounded-lg px-3 py-4 text-sm outline-none focus:border-5 focus:border-[#4CCC88] transition ${inputClassName || ""}`}
+        className={`border border-[#C4C4C4] rounded-md px-3 py-4 text-md outline-none focus:border-5 focus:border-[#4CCC88] transition ${inputClassName || ""}`}
         {...rest}
       />
     </div>

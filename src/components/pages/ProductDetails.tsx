@@ -1,17 +1,21 @@
 import { ProductData } from "@/src/constants/products";
-import { ProductConfiguratorData } from "@/src/types/configurator.types";
+import { ProductConfiguratorData, InitialDelivery, InitialArtwork, InitialOrder } from "@/src/types/configurator.types";
 import ProductConfiguratorPage from "./ProductConfiguratorPage";
 
 interface Props {
   product: ProductData;
   configuratorConfig?: ProductConfiguratorData;
+  initialStep?: number;
+  initialDelivery?: InitialDelivery;
+  initialArtwork?: InitialArtwork;
+  initialOrder?: InitialOrder;
 }
 
-export default function ProductDetails({ product, configuratorConfig }: Props) {
+export default function ProductDetails({ product, configuratorConfig, initialStep, initialDelivery, initialArtwork, initialOrder }: Props) {
   // If a full configurator config exists for this product, render the rich configurator.
   // Otherwise fall back to a simple info page (for products not yet fully configured).
   if (configuratorConfig) {
-    return <ProductConfiguratorPage config={configuratorConfig} />;
+    return <ProductConfiguratorPage config={configuratorConfig} initialStep={initialStep} initialDelivery={initialDelivery} initialArtwork={initialArtwork} initialOrder={initialOrder} />;
   }
 
   // Simple fallback for products without a configurator yet
