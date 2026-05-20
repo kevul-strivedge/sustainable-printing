@@ -6,6 +6,7 @@ import Input from "../ui/Input";
 import Select from "../ui/Select";
 import FileInput from "../ui/FileInput";
 import PageHeader from "../ui/PageHeader";
+import { submitCustomQuote } from "@/src/services/api";
 
 // ─── SVG Icons ───────────────────────────────────────────────────────────────
 // To swap any icon with an image, replace the SVG component with:
@@ -473,22 +474,67 @@ const CustomQuote = () => {
     phone: "",
     artwork: null as File | null,
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const selectedCategory = CATEGORIES.find((c) => c.id === selected);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, artwork: e.target.files?.[0] ?? null });
+    setFormData((prev) => ({ ...prev, artwork: e.target.files?.[0] ?? null }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function validate() {
+    const next: Record<string, string> = {};
+    if (!formData.name.trim()) next.name = "Name is required.";
+    if (!formData.email.trim()) next.email = "Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      next.email = "Please enter a valid email address.";
+    if (!formData.phone.trim()) next.phone = "Phone is required.";
+    return next;
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ category: selected, ...formData });
+    const fieldErrors = validate();
+    if (Object.keys(fieldErrors).length) {
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const payload = new FormData();
+      const categoryLabel = CATEGORIES.find((c) => c.id === selected)?.label ?? selected;
+      payload.append("category", categoryLabel);
+      payload.append("nameOfItem", formData.nameOfItem);
+      payload.append("describeItem", formData.describeItem);
+      payload.append("size", formData.size);
+      payload.append("designs", formData.designs);
+      payload.append("businessName", formData.businessName);
+      payload.append("name", formData.name);
+      payload.append("email", formData.email);
+      payload.append("phone", formData.phone);
+      if (formData.artwork) payload.append("artwork", formData.artwork);
+
+      await submitCustomQuote(payload);
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Failed to send your request. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -496,8 +542,19 @@ const CustomQuote = () => {
       <PageHeader title="Custom Quote" titleClassName="text-3xl max-w-6xl" />
 
       <div className="max-w-6xl mx-auto px-6 sm:py-18 py-10">
+         {submitted && (
+            <div className="rounded-md border border-green-300 bg-green-50 px-4 py-3 text-sm text-green-800 font-medium">
+              Request sent successfully — thank you! We&apos;ve received your custom quote request and will be in touch shortly.
+            </div>
+          )}
+
+          {submitError && (
+            <div className="rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700">
+              {submitError}
+            </div>
+          )}
         {/* ── Category Selector ── */}
-        <h2 className="text-[#292560] text-xl font-semibold mb-6">
+        <h2 className="text-[#292560] text-xl font-semibold my-6">
           What would you like a quote for?
         </h2>
 
@@ -526,7 +583,7 @@ const CustomQuote = () => {
         <hr className="border-[#e0e0e0] my-10" />
 
         {/* ── Form ── */}
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8" noValidate>
           {/* Category title */}
           <h3 className="text-[#292560] text-xl font-semibold">
             {selectedCategory?.label}
@@ -580,6 +637,9 @@ const CustomQuote = () => {
 
           <hr className="border-[#e0e0e0]" />
 
+          {/* Success / error banners */}
+         
+
           {/* Row 3: Your Details + Artwork Upload */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Your Details */}
@@ -595,32 +655,39 @@ const CustomQuote = () => {
                 onChange={handleChange}
                 inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
               />
-              <Input
-                name="name"
-                type="text"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
-              />
-              <Input
-                name="email"
-                type="email"
-                placeholder="Email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
-              />
-              <Input
-                name="phone"
-                type="tel"
-                placeholder="Phone"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
-              />
+              <div>
+                <Input
+                  name="name"
+                  type="text"
+                  placeholder="Name *"
+                  value={formData.name}
+                  onChange={handleChange}
+                  inputClassName={`w-full !py-5 !bg-[#c4c4c41a] ${errors.name ? "!border-red-400" : "!border-[#c4c4c41a]"}`}
+                />
+                {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
+              </div>
+              <div>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="Email *"
+                  value={formData.email}
+                  onChange={handleChange}
+                  inputClassName={`w-full !py-5 !bg-[#c4c4c41a] ${errors.email ? "!border-red-400" : "!border-[#c4c4c41a]"}`}
+                />
+                {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+              </div>
+              <div>
+                <Input
+                  name="phone"
+                  type="tel"
+                  placeholder="Phone *"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  inputClassName={`w-full !py-5 !bg-[#c4c4c41a] ${errors.phone ? "!border-red-400" : "!border-[#c4c4c41a]"}`}
+                />
+                {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
+              </div>
             </div>
 
             {/* Artwork Upload */}
@@ -635,12 +702,14 @@ const CustomQuote = () => {
               <p className="text-md text-[#292560] font-medium">
                 Optional file upload for our reference. (Max file size is 20Mb)
               </p>
-              <button
-                type="button"
+              <a
+                href="/docs/artwork-specification-guide.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-fit border border-[#292560] text-[#292560] text-md px-4 py-2 rounded hover:bg-[#292560] hover:text-white transition"
               >
                 View our Design Guidelines
-              </button>
+              </a>
             </div>
           </div>
 
@@ -648,9 +717,10 @@ const CustomQuote = () => {
           <div className="flex justify-center sm:pt-20 pt-6">
             <button
               type="submit"
-              className="bg-[#292560] hover:bg-[#1e1a4a] text-white font-medium px-16 py-5 rounded-md transition-colors duration-200"
+              disabled={submitting}
+              className="bg-[#292560] hover:bg-[#1e1a4a] text-white font-medium px-16 py-5 rounded-md transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Submit Quote
+              {submitting ? "Sending..." : "Submit Quote"}
             </button>
           </div>
         </form>

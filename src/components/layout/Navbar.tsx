@@ -75,7 +75,7 @@ const megaDropdownCategories = [
 ];
 
 const navLinks = [
-  { label: "Products & Prices", dropdownType: "mega" as const, hasMobileChevron: true },
+  { label: "Products & Prices", href: "/products", dropdownType: "mega" as const, hasMobileChevron: true },
   { label: "Free Sample Pack", href: "/requestsample",  dropdownType: null, hasMobileChevron: false },
   { label: "Request A Custom Quote", href: "/custom-quote", dropdownType: null, hasMobileChevron: false },
   {
@@ -97,7 +97,7 @@ const navLinks = [
     hasMobileChevron: true,
     dropdownItems: [
       { label: "FAQ", href: "/faq" },
-      { label: "Artwork Specification Guide", href: "#" },
+      { label: "Artwork Specification Guide", href: "/docs/artwork-specification-guide.pdf" },
       { label: "Contact Us", href: "/contact" },
       { label: "Blogs", href: "/blogs" },
     ],
@@ -312,14 +312,19 @@ export default function Navbar() {
           onMouseEnter={() => handleMouseEnter(activeDropdown, "simple")}
           onMouseLeave={scheduleClose}
         >
-          {activeLink.dropdownItems.map((item) => (
-            <Link key={item.label}
-              href={item.href}
-              className="block px-5 py-2.5 text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {activeLink.dropdownItems.map((item) => {
+            const isPdf = item.href.endsWith(".pdf");
+            const className = "block px-5 py-2.5 text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap";
+            return isPdf ? (
+              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className={className}>
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.label} href={item.href} className={className}>
+                {item.label}
+              </Link>
+            );
+          })}
         </ul>
       )}
 
@@ -364,7 +369,7 @@ export default function Navbar() {
           />
           <div className="lg:hidden fixed left-0 top-17.5 bottom-0 z-40 w-1/2 min-w-70 overflow-y-auto bg-[#faf6f0]">
 
-            {navLinks.map(({ label, hasMobileChevron, dropdownItems, dropdownType }) => (
+            {navLinks.map(({ label, href, hasMobileChevron, dropdownItems, dropdownType }) => (
               <div key={label} className="border-b border-gray-200">
                 {hasMobileChevron ? (
                   <>
@@ -408,22 +413,26 @@ export default function Navbar() {
 
                     {openSection === label && dropdownType === "simple" && dropdownItems && (
                       <ul>
-                        {dropdownItems.map((item) => (
-                          <Link key={item.label}
-                            href={item.href}
-                            className="border-t border-gray-200 block px-8 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150"
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
+                        {dropdownItems.map((item) => {
+                          const isPdf = item.href.endsWith(".pdf");
+                          const className = "border-t border-gray-200 block px-8 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150";
+                          return isPdf ? (
+                            <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className={className} onClick={() => setMobileOpen(false)}>
+                              {item.label}
+                            </a>
+                          ) : (
+                            <Link key={item.label} href={item.href} className={className} onClick={() => setMobileOpen(false)}>
+                              {item.label}
+                            </Link>
+                          );
+                        })}
                       </ul>
                     )}
                   </>
                 ) : (
-                  <a href="#" className="block px-5 py-4 text-[15px] font-semibold text-gray-800 hover:text-[#3d9e5f] transition-colors duration-150">
+                  <Link href={href} onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-gray-800 hover:text-[#3d9e5f] transition-colors duration-150">
                     {label}
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}

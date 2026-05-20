@@ -40,17 +40,20 @@ const BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000/api/v1';
 function ActionDropdown({
   orderId,
   productType,
+  paymentStatus,
   token,
   onReQuoteSuccess,
 }: {
   orderId: number;
   productType: number | null;
+  paymentStatus: string;
   token: string;
   onReQuoteSuccess: (msg: string) => void;
 }) {
   const [open, setOpen] = useState(false);
   const [requoting, setRequoting] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [downloadingInvoice, setDownloadingInvoice] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -62,7 +65,10 @@ function ActionDropdown({
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  const actions = ["Order Now", "Pay Now", "Download Quote", "Upload Artwork", "Re-Quote", "Send Email"];
+  const isPaid = paymentStatus === "Paid";
+  const actions = isPaid
+    ? ["Download Invoice", "Upload Artwork", "Re-Quote", "Send Email"]
+    : ["Order Now", "Pay Now", "Download Quote", "Upload Artwork", "Re-Quote", "Send Email"];
 
   async function handleAction(action: string) {
     setOpen(false);
@@ -104,6 +110,29 @@ function ActionDropdown({
       }
       return;
     }
+    if (action === "Download Invoice") {
+      setDownloadingInvoice(true);
+      try {
+        const res = await fetch(`${BASE}/quotes/${orderId}/invoice`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) throw new Error("Failed to download");
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `Invoice-${orderId}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } catch {
+        // silent — browser will show nothing if it fails
+      } finally {
+        setDownloadingInvoice(false);
+      }
+      return;
+    }
     if (action === "Re-Quote") {
       setRequoting(true);
       try {
@@ -134,11 +163,13 @@ function ActionDropdown({
         <ul className="absolute left-1/2 -translate-x-1/2 top-full mt-1 bg-white border border-gray-200 rounded shadow-xl z-50 min-w-44 py-1">
           {actions.map((a) => {
             const busy =
-              (a === "Re-Quote"       && requoting)  ||
-              (a === "Download Quote" && downloading);
+              (a === "Re-Quote"        && requoting)         ||
+              (a === "Download Quote"  && downloading)       ||
+              (a === "Download Invoice" && downloadingInvoice);
             const label =
-              a === "Re-Quote"       && requoting   ? "Re-Quoting…"   :
-              a === "Download Quote" && downloading  ? "Downloading…"  : a;
+              a === "Re-Quote"         && requoting          ? "Re-Quoting…"   :
+              a === "Download Quote"   && downloading        ? "Downloading…"  :
+              a === "Download Invoice" && downloadingInvoice ? "Downloading…"  : a;
             return (
               <li key={a}>
                 <button
@@ -330,6 +361,7 @@ export default function MyHistoryPage() {
                   <ActionDropdown
                     orderId={order.id}
                     productType={order.productType}
+                    paymentStatus={order.paymentStatus}
                     token={user.token}
                     onReQuoteSuccess={(msg) => {
                       setBanner(msg);

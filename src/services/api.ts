@@ -322,6 +322,46 @@ export interface MyOrdersResponse {
   pagination: { page: number; limit: number; total: number; totalPages: number };
 }
 
+// ─── Sample Pack ─────────────────────────────────────────────────────────────
+
+export interface SamplePackPayload {
+  businessName?: string;
+  firstName: string;
+  surname: string;
+  email: string;
+  address: string;
+  phone: string;
+  townCity: string;
+  state: string;
+  postcode: string;
+  sampleOf?: string;
+}
+
+export async function submitSamplePack(payload: SamplePackPayload): Promise<void> {
+  const res = await fetch(`${BASE}/sample-pack`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) {
+    throw new Error(json.message ?? 'Failed to send your request. Please try again.');
+  }
+}
+
+// ─── Custom Quote ─────────────────────────────────────────────────────────────
+
+export async function submitCustomQuote(formData: FormData): Promise<void> {
+  const res = await fetch(`${BASE}/custom-quotes`, {
+    method: 'POST',
+    body: formData,
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) {
+    throw new Error(json.message ?? 'Failed to send your request. Please try again.');
+  }
+}
+
 export async function fetchMyOrders(token: string, page = 1): Promise<MyOrdersResponse | null> {
   try {
     const res = await fetch(`${BASE}/quotes/my-orders?page=${page}&limit=5`, {

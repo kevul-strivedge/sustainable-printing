@@ -1,10 +1,11 @@
-import { ConfiguratorAction, ConfiguratorState, QuantityOption } from "@/src/types/configurator.types";
+import { ConfiguratorAction, ConfiguratorState, QuantityOption, PricingTableRow } from "@/src/types/configurator.types";
 
 interface Props {
   state: ConfiguratorState;
   dispatch: React.Dispatch<ConfiguratorAction>;
   designOptions: QuantityOption[];
   quantityOptions: QuantityOption[];
+  pricingTable: PricingTableRow[];
 }
 
 function InlineSelect({
@@ -44,11 +45,42 @@ function InlineSelect({
   );
 }
 
-export default function QuantitySelector({ state, dispatch, designOptions, quantityOptions }: Props) {
-  const primaryTotal = state.numDesigns * state.quantityPerDesign;
+export default function QuantitySelector({ state, dispatch, designOptions, quantityOptions, pricingTable }: Props) {
+  // Return the qty options that actually have a pricing row for the given numDesigns.
+  // Falls back to the full list if pricingTable hasn't loaded yet.
+  function validQtyOptionsFor(numDesigns: number): QuantityOption[] {
+    if (!pricingTable.length) return quantityOptions;
+    const valid = new Set(pricingTable.filter((r) => r.kind === numDesigns).map((r) => r.quantity));
+    const filtered = quantityOptions.filter((o) => valid.has(o.value));
+    return filtered.length ? filtered : quantityOptions;
+  }
+
+  // If the current qty isn't valid for the new design count, snap to the largest valid one.
+  function snapQty(numDesigns: number, currentQty: number): number {
+    const valid = validQtyOptionsFor(numDesigns);
+    if (valid.some((o) => o.value === currentQty)) return currentQty;
+    return valid[valid.length - 1]?.value ?? currentQty;
+  }
+
+  function handlePrimaryDesignsChange(newDesigns: number) {
+    dispatch({ type: "SET_DESIGNS", value: newDesigns });
+    const snapped = snapQty(newDesigns, state.quantityPerDesign);
+    if (snapped !== state.quantityPerDesign) {
+      dispatch({ type: "SET_QTY_PER_DESIGN", value: snapped });
+    }
+  }
+
+  function handleSplitDesignsChange(index: number, newDesigns: number, currentQty: number) {
+    const snapped = snapQty(newDesigns, currentQty);
+    dispatch({ type: "SET_SPLIT_ROW", index, numDesigns: newDesigns, qty: snapped });
+  }
+
+  const primaryTotal     = state.numDesigns * state.quantityPerDesign;
+  const primaryQtyOptions = validQtyOptionsFor(state.numDesigns);
 
   function addSplit() {
-    dispatch({ type: "ADD_SPLIT_ROW", numDesigns: state.numDesigns, qty: quantityOptions[0].value });
+    const firstQty = primaryQtyOptions[0]?.value ?? quantityOptions[0].value;
+    dispatch({ type: "ADD_SPLIT_ROW", numDesigns: state.numDesigns, qty: firstQty });
   }
 
   return (
@@ -64,13 +96,13 @@ export default function QuantitySelector({ state, dispatch, designOptions, quant
           innerLabel="Designs"
           value={state.numDesigns}
           options={designOptions}
-          onChange={(val) => dispatch({ type: "SET_DESIGNS", value: val })}
+          onChange={handlePrimaryDesignsChange}
         />
         <span className="text-gray-400 text-[14px] font-medium shrink-0">×</span>
         <InlineSelect
           innerLabel="Quantity per design"
           value={state.quantityPerDesign}
-          options={quantityOptions}
+          options={primaryQtyOptions}
           onChange={(val) => dispatch({ type: "SET_QTY_PER_DESIGN", value: val })}
         />
         <span className="text-gray-400 text-[14px] font-medium shrink-0">=</span>
@@ -84,16 +116,15 @@ export default function QuantitySelector({ state, dispatch, designOptions, quant
 
       {/* Split rows — fully independent designs × qty */}
       {state.splitRows.map((row, i) => {
-        const splitTotal = row.numDesigns * row.qty;
+        const splitTotal      = row.numDesigns * row.qty;
+        const splitQtyOptions = validQtyOptionsFor(row.numDesigns);
         return (
           <div key={i} className="flex items-center gap-2 mt-2">
             <InlineSelect
               innerLabel="Designs"
               value={row.numDesigns}
               options={designOptions}
-              onChange={(val) =>
-                dispatch({ type: "SET_SPLIT_ROW", index: i, numDesigns: val, qty: row.qty })
-              }
+              onChange={(val) => handleSplitDesignsChange(i, val, row.qty)}
             />
 
             <span className="text-gray-400 text-[14px] font-medium shrink-0">×</span>
@@ -101,7 +132,7 @@ export default function QuantitySelector({ state, dispatch, designOptions, quant
             <InlineSelect
               innerLabel="Quantity per design"
               value={row.qty}
-              options={quantityOptions}
+              options={splitQtyOptions}
               onChange={(val) =>
                 dispatch({ type: "SET_SPLIT_ROW", index: i, numDesigns: row.numDesigns, qty: val })
               }

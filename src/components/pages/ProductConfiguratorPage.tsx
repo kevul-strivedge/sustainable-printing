@@ -145,6 +145,7 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
                   dispatch={dispatch}
                   designOptions={config.designOptions}
                   quantityOptions={config.quantityOptions}
+                  pricingTable={config.pricingTable}
                 />
 
                 {config.papers.length > 0 && (

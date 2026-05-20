@@ -32,7 +32,7 @@ export default function OrderConfirmationPage({ quoteId, state, config, priceBre
   const member = order?.member;
   const firstName   = member?.firstName   ?? state.deliveryFirstName;
   const lastName    = member?.lastName    ?? state.deliveryLastName;
-  const email       = member?.email       ?? state.deliveryEmail;
+  const email       = state.deliveryEmail  || member?.email || "—";
   const company     = member?.businessname ?? state.deliveryCompany;
   const address     = member?.address     ?? state.deliveryStreet;
   const suburb      = member?.suburb      ?? state.deliverySuburb;
