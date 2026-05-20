@@ -62,6 +62,9 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
           ? "Trim straight edges"
           : "";
 
+      console.log('[Submit] qty:', state.quantityPerDesign, '| numDesigns:', state.numDesigns, '| paperId:', state.paperId, '| sizeId:', state.sizeId);
+      console.log('[Submit] subtotal:', priceBreakdown.subtotal, '| delivery:', priceBreakdown.delivery, '| total:', priceBreakdown.total);
+
       const result = await submitQuote({
         productDbId: config.dbId,
         kind: state.numDesigns,
