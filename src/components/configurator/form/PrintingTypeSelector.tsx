@@ -32,7 +32,7 @@ function TickBadge() {
 export default function PrintingTypeSelector({ state, dispatch, printingTypes }: Props) {
   return (
     <div>
-      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-3">Printing type</p>
+      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-1">Printing type</p>
       <div className="grid grid-cols-2 gap-3">
         {printingTypes.map((pt) => {
           const selected = state.printingTypeId === pt.id;
@@ -41,7 +41,7 @@ export default function PrintingTypeSelector({ state, dispatch, printingTypes }:
               key={pt.id}
               type="button"
               onClick={() => dispatch({ type: "SET_PRINTING_TYPE", id: pt.id })}
-              style={{ background: selected ? "linear-gradient(to bottom, #FFFFFF, #FEFAF3)" : "#FFFFFF" }}
+              style={{ background: selected ? "linear-gradient(to bottom, #FFFFFF, #F4F0E9)" : "#FFFFFF" }}
               className={`relative flex items-start gap-3 text-left rounded-lg px-4 py-3 transition-all duration-150 cursor-pointer ${
                 selected
                   ? "border border-[#00883D]"
@@ -55,12 +55,13 @@ export default function PrintingTypeSelector({ state, dispatch, printingTypes }:
                 </span>
               )}
 
-              <PrintIcon selected={selected} />
-
-              <span className="flex flex-col">
-                <span className="text-[13px] font-semibold text-[#292560]">{pt.label}</span>
-                <span className="text-[11px] text-gray-500 mt-0.5">{pt.description}</span>
-              </span>
+              <div className="flex flex-col gap-1 w-full">
+                <div className="flex items-center gap-3">
+                  <PrintIcon selected={selected} />
+                  <span className="text-[13px] font-semibold text-[#292560]">{pt.label}</span>
+                </div>
+                <span className="text-[11px] text-gray-500">{pt.description}</span>
+              </div>
             </button>
           );
         })}

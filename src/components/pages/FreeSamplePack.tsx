@@ -2,7 +2,7 @@
 
 import PageHeader from "../ui/PageHeader";
 import Input from "../ui/Input";
-import Select from "../ui/Select";
+import CustomSelect from "../ui/CustomSelect";
 import { useState } from "react";
 import { submitSamplePack } from "@/src/services/api";
 
@@ -199,14 +199,16 @@ const FreeSamplePack = () => {
               {errors.townCity && <p className="mt-1 text-xs text-red-500">{errors.townCity}</p>}
             </div>
             <div>
-              <Select
-                label="State *"
-                name="state"
-                placeholder="-- Select One --"
-                options={AUSTRALIAN_STATES}
+              <p className="text-[#292560] font-medium text-lg mb-2">State *</p>
+              <CustomSelect
                 value={formData.state}
-                onChange={handleChange}
-                selectClassName={`!border !border-[#C4C4C4] focus:!border-5 focus:!border-[#4CCC88] !rounded-lg !px-3 !py-[14px] !text-md !bg-white !text-[#292560]${errors.state ? " !border-red-400" : ""}`}
+                options={AUSTRALIAN_STATES}
+                onChange={(v) => {
+                  setFormData((prev) => ({ ...prev, state: v }));
+                  if (errors.state) setErrors((prev) => ({ ...prev, state: "" }));
+                }}
+                placeholder="-- Select One --"
+                hasError={!!errors.state}
               />
               {errors.state && <p className="mt-1 text-xs text-red-500">{errors.state}</p>}
             </div>

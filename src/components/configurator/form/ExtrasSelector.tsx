@@ -55,7 +55,7 @@ export default function ExtrasSelector({ state, dispatch, extras }: Props) {
 
   return (
     <div>
-      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-3">Corners</p>
+      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-1">Corners</p>
       <div className="flex flex-col gap-3">
         {/* Synthetic default option — no extra selected */}
         <RadioOption

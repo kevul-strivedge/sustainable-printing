@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:dev": "next build && rm -rf build && mkdir -p build && cp -r .next/standalone/. build/ && cp -r .next/static build/.next/ && cp -r public build/"
+
   },
   "dependencies": {
     "lucide-react": "^1.16.0",

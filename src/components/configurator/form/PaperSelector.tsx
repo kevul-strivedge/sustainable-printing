@@ -1,4 +1,5 @@
 import { ConfiguratorAction, ConfiguratorState, PaperOption } from "@/src/types/configurator.types";
+import CustomSelect from "@/src/components/ui/CustomSelect";
 
 interface Props {
   state: ConfiguratorState;
@@ -9,16 +10,12 @@ interface Props {
 export default function PaperSelector({ state, dispatch, papers }: Props) {
   return (
     <div>
-      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-3">Paper</p>
-      <select
+      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-1">Paper</p>
+      <CustomSelect
         value={state.paperId}
-        onChange={(e) => dispatch({ type: "SET_PAPER", id: e.target.value })}
-        className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-[13px] text-[#1D1A52] bg-white focus:outline-none focus:border-[#3d9e5f] transition-colors duration-150 cursor-pointer"
-      >
-        {papers.map((p) => (
-          <option key={p.id} value={p.id}>{p.label}</option>
-        ))}
-      </select>
+        options={papers.map((p) => ({ value: p.id, label: p.label }))}
+        onChange={(v) => dispatch({ type: "SET_PAPER", id: v })}
+      />
     </div>
   );
 }

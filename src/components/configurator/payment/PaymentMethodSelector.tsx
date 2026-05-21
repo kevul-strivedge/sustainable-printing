@@ -46,8 +46,8 @@ export default function PaymentMethodSelector({ paymentMethods, selected, onChan
             key={method.id}
             type="button"
             onClick={() => onChange(method.id)}
-            style={{ background: isSelected ? "linear-gradient(to bottom, #FFFFFF, #FEFAF3)" : "#FFFFFF" }}
-            className={`flex items-center gap-3.5 w-full text-left border-2 rounded-lg px-4 py-3.5 transition-all duration-150 ${
+            style={{ background: isSelected ? "linear-gradient(to bottom, #FFFFFF, #F4F0E9)" : "#FFFFFF" }}
+            className={`flex items-center gap-3.5 w-full text-left border rounded-lg px-4 py-3.5 transition-all duration-150 ${
               isSelected
                 ? "border-[#3d9e5f]"
                 : "border-gray-200 hover:border-gray-300"

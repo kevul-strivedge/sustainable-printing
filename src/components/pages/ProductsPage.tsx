@@ -214,7 +214,7 @@ function CustomQuoteCard() {
 function ProductSection({ title, products, showCustomCard }: { title: string; products: Product[]; showCustomCard?: boolean }) {
   return (
     <section className="w-full">
-      <div className="max-w-275 mx-auto px-6 py-10">
+      <div className="max-w-275 mx-auto px-6 py-5">
         <h2 className="text-[#292560] text-2xl font-bold mb-8 pb-3 border-b border-gray-200">
           {title}
         </h2>
