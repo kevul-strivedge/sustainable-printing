@@ -1,6 +1,7 @@
 import { ProductData } from "@/src/constants/products";
 import { ProductConfiguratorData, InitialDelivery, InitialArtwork, InitialOrder } from "@/src/types/configurator.types";
 import ProductConfiguratorPage from "./ProductConfiguratorPage";
+import Link from "next/link";
 
 interface Props {
   product: ProductData;
@@ -22,9 +23,9 @@ export default function ProductDetails({ product, configuratorConfig, initialSte
   return (
     <div className="max-w-[1100px] mx-auto px-6 py-14">
       <nav className="text-[13px] text-gray-500 mb-8 flex items-center gap-2">
-        <a href="/" className="hover:text-[#3d9e5f] transition-colors">Home</a>
+        <Link href="/" className="hover:text-[#3d9e5f] transition-colors">Home</Link>
         <span>/</span>
-        <a href="/products" className="hover:text-[#3d9e5f] transition-colors">Products</a>
+        <Link href="/products" className="hover:text-[#3d9e5f] transition-colors">Products</Link>
         <span>/</span>
         <span className="text-gray-800">{product.title}</span>
       </nav>

@@ -50,12 +50,12 @@ const latestBlogs = [
 function FooterLink({ label,href = "#"  }: { label: string,href?: string }) {
     return (
         <li>
-            <a
+            <Link
                 href={href}
                 className="text-white hover:text-green-600 text-sm leading-relaxed transition-colors duration-150"
             >
                 {label}
-            </a>
+            </Link>
         </li>
     );
 }
@@ -116,14 +116,14 @@ export default function Footer() {
             <div className="max-w-[1100px] mx-auto px-6 pt-14 pb-10">
                 {/* Logo */}
                 <div className="mb-12">
-                    <a href="#" className="inline-block">
+                    <Link href="#" className="inline-block">
                         <span className="text-white font-bold text-3xl leading-tight block">
                             Sustainable
                         </span>
                         <span className="text-white font-bold text-3xl leading-tight block">
                             Printing Co.
                         </span>
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Columns grid */}
@@ -174,12 +174,12 @@ export default function Footer() {
                         <ul className="space-y-4 mb-8">
                             {latestBlogs.map((blog) => (
                                 <li key={blog.label}>
-                                    <a
+                                    <Link
                                         href={blog.href}
                                         className="text-white/80 hover:text-white text-sm leading-snug transition-colors duration-150 block"
                                     >
                                          {blog.label}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -225,20 +225,20 @@ export default function Footer() {
 
                 {/* Social icons */}
                 <div className="flex items-center gap-5">
-                    <a
+                    <Link
                         href="#"
                         aria-label="Instagram"
                         className="text-white/80 hover:text-white transition-colors duration-150"
                     >
                         <InstagramIcon />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="#"
                         aria-label="Facebook"
                         className="text-white/80 hover:text-white transition-colors duration-150"
                     >
                         <FacebookIcon />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </footer>

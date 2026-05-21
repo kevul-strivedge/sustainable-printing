@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { BannerProps } from "@/src/types/banner.types";
+import Link from "next/link";
 
 const buttonStyles = {
   primary:
@@ -37,7 +38,7 @@ export default function BannerComponent({
 
         <div className="flex flex-wrap items-center justify-center gap-4">
           {buttons?.map((btn) => (
-            <a
+            <Link
               key={btn.label}
               href={btn.href ?? "#"}
               className={`inline-block px-8 py-3 text-[15px] font-medium transition-colors duration-150 ${
@@ -45,7 +46,7 @@ export default function BannerComponent({
               }`}
             >
               {btn.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
