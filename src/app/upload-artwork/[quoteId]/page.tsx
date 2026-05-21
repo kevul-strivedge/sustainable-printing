@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/src/context/AuthContext";
 import { fetchOrderById, uploadArtwork, attachArtworkToQuote } from "@/src/services/api";
+import { Spinner } from "@/src/components/ui/Spinner";
 
 const ACCEPTED = ".pdf,.jpg,.jpeg,.png,.ai,.psd";
 
@@ -188,7 +189,12 @@ export default function UploadArtworkPage() {
                   disabled={!file || uploading}
                   className="mt-6 w-full bg-[#004E24] text-white text-[14px] font-semibold rounded-full py-3 hover:bg-[#003a1b] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                  {uploading ? "Uploading…" : "Confirm & Upload Artwork"}
+                  {uploading ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <Spinner size={16} />
+                      Uploading…
+                    </span>
+                  ) : "Confirm & Upload Artwork"}
                 </button>
               </>
             )}

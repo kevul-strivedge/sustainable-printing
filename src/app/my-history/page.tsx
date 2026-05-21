@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/src/context/AuthContext";
 import { fetchMyOrders, reQuoteOrder, MyOrder } from "@/src/services/api";
 import { products } from "@/src/constants/products";
+import { PageLoader } from "@/src/components/ui/Spinner";
 
 const STATUS_STYLES: Record<string, string> = {
   quotedOnline:  "text-[#3d9e5f]",
@@ -319,7 +320,7 @@ function MyHistoryPageContent() {
           </div>
 
           {loading ? (
-            <div className="py-16 text-center text-[14px] text-gray-400">Loading orders…</div>
+            <PageLoader label="Loading orders…" />
           ) : error ? (
             <div className="py-16 text-center text-[14px] text-red-500">{error}</div>
           ) : orders.length === 0 ? (
@@ -386,7 +387,7 @@ function MyHistoryPageContent() {
 
 export default function MyHistoryPage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<PageLoader />}>
       <MyHistoryPageContent />
     </Suspense>
   );

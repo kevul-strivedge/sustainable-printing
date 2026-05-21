@@ -1,6 +1,7 @@
 // components/ui/ContactInfoCard.tsx
 
 import { ContactInfoItemType } from "@/src/types/contactInfo.types";
+import Link from "next/link";
 
 const ContactInfoCard = ({
   icon: Icon,
@@ -22,13 +23,13 @@ const ContactInfoCard = ({
 
       {/* Value */}
       {href ? (
-        <a href={href} className="text-[#292560] text-md hover:underline">
+        <Link href={href} className="text-[#292560] text-md hover:underline">
           {valueLines.map((line, i) => (
             <span key={i} className="block">
               {line}
             </span>
           ))}
-        </a>
+        </Link>
       ) : (
         <div className="text-[#292560] text-md">
           {valueLines.map((line, i) => (

@@ -186,7 +186,7 @@ export default function Navbar() {
       <div className="max-w-[1200px] mx-auto px-5 md:px-12 h-[70px] lg:h-[120px] flex items-center justify-between gap-4">
 
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
             height={90}
             alt="Sustainable Printing Co."
@@ -194,7 +194,7 @@ export default function Navbar() {
             src={'/images/logo.png'}
             className="w-[120px] lg:w-[180px] h-auto"
           />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-7 ml-10">
@@ -217,13 +217,13 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <a
+              <Link
                 key={label}
                 href={href || "/"}
                 className="text-[14px] font-medium text-gray-800 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 whitespace-nowrap pb-[2px]"
               >
                 {label}
-              </a>
+              </Link>
             )
           )}
         </nav>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ConfiguratorState, PriceBreakdown, ProductConfiguratorData } from "@/src/types/configurator.types";
 import { fetchOrderById, OrderDetail } from "@/src/services/api";
+import { PageLoader } from "@/src/components/ui/Spinner";
 
 interface Props {
   quoteId: number;
@@ -23,10 +24,18 @@ function Row({ label, value }: { label: string; value: string }) {
 
 export default function OrderConfirmationPage({ quoteId, state, config, priceBreakdown }: Props) {
   const [order, setOrder] = useState<OrderDetail | null>(null);
+  const [loadingOrder, setLoadingOrder] = useState(true);
 
   useEffect(() => {
-    fetchOrderById(quoteId).then(setOrder);
+    fetchOrderById(quoteId).then((data) => {
+      setOrder(data);
+      setLoadingOrder(false);
+    });
   }, [quoteId]);
+
+  if (loadingOrder) {
+    return <PageLoader label="Loading order details…" />;
+  }
 
   // Derived values — prefer DB data, fall back to local state
   const member = order?.member;

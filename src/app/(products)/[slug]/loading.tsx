@@ -1,11 +1,9 @@
-import React from 'react'
+import { PageLoader } from "@/src/components/ui/Spinner";
 
-const loading = () => {
+export default function Loading() {
   return (
-    <div>
-      
+    <div className="min-h-screen flex items-center justify-center">
+      <PageLoader label="Loading product…" />
     </div>
-  )
+  );
 }
-
-export default loading
