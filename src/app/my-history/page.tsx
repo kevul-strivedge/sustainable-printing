@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { Suspense, useEffect, useState, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/src/context/AuthContext";
 import { fetchMyOrders, reQuoteOrder, MyOrder } from "@/src/services/api";
@@ -246,7 +246,7 @@ function Pagination({
   );
 }
 
-export default function MyHistoryPage() {
+function MyHistoryPageContent() {
   const { user, hydrated } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -381,5 +381,13 @@ export default function MyHistoryPage() {
         />
       </div>
     </main>
+  );
+}
+
+export default function MyHistoryPage() {
+  return (
+    <Suspense fallback={null}>
+      <MyHistoryPageContent />
+    </Suspense>
   );
 }

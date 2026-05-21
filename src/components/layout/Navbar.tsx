@@ -430,7 +430,7 @@ export default function Navbar() {
                     )}
                   </>
                 ) : (
-                  <Link href={href} onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-gray-800 hover:text-[#3d9e5f] transition-colors duration-150">
+                  <Link href={href ?? "/"} onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-gray-800 hover:text-[#3d9e5f] transition-colors duration-150">
                     {label}
                   </Link>
                 )}
