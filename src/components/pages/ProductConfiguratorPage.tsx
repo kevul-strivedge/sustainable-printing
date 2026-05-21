@@ -25,6 +25,7 @@ import RelatedProductsSection from "@/src/components/configurator/RelatedProduct
 import BannerComponent from "@/src/components/pages/BannerComponent";
 import QuantitySelector from "../configurator/form/QuantitySelector";
 import OrderConfirmationPage from "@/src/components/pages/OrderConfirmationPage";
+import { Spinner } from "@/src/components/ui/Spinner";
 
 interface Props {
   config: ProductConfiguratorData;
@@ -126,6 +127,12 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
 
   return (
     <>
+      {submitting && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-3 bg-white/70 backdrop-blur-sm">
+          <Spinner size={40} />
+          <p className="text-[13px] text-gray-500 font-medium">Placing your order…</p>
+        </div>
+      )}
       <div className="max-w-275 mx-auto px-6 py-5">
         {/* Header */}
         <ProductPageHeader title={config.title} subtitle={config.subtitle} />

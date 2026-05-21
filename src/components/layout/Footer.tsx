@@ -116,7 +116,7 @@ export default function Footer() {
             <div className="max-w-[1100px] mx-auto px-6 pt-14 pb-10">
                 {/* Logo */}
                 <div className="mb-12">
-                    <Link href="#" className="inline-block">
+                    <Link href="/" className="inline-block">
                         <span className="text-white font-bold text-3xl leading-tight block">
                             Sustainable
                         </span>
