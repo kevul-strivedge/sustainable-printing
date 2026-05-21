@@ -55,7 +55,7 @@ export default function PaymentStep({ state, dispatch, config, onSubmit, submitt
             value={promoCode}
             onChange={(e) => setPromoCode(e.target.value)}
             placeholder="Discount Code"
-            className="flex-1 border border-gray-200 rounded-lg px-3 py-2.5 text-[13px] text-[#292560] placeholder-gray-400 outline-none focus:border-[#3d9e5f] transition-colors"
+            className="flex-1 min-w-0  border border-gray-200 rounded-lg px-3 py-2.5 text-[13px] text-[#292560] placeholder-gray-400 outline-none focus:border-[#3d9e5f] transition-colors"
           />
           <button
             type="button"
