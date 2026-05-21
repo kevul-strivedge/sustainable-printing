@@ -1,55 +1,57 @@
+import Link from "next/link";
 import React from "react";
 
 // Footer options
 const productsCol1 = [
-    "All Products",
-    "Business Cards",
-    "Postcards",
-    "Flyers",
-    "Posters",
-    "Stickers",
-    "Adhesive Labels",
+  { label: "All Products", href: "/products" },
+  { label: "Business Cards", href: "/business-cards" },
+  { label: "Postcards", href: "/postcards" },
+  { label: "Flyers", href: "/flyers" },
+  { label: "Posters", href: "/posters" },
+  { label: "Stickers", href: "/circle-stickers" },
+  { label: "Adhesive Labels", href: "/adhesive-labels" },
 ];
 
 const productsCol2 = [
-    "Brochures",
-    "Wrapping Paper",
-    "Booklets",
-    "Books",
-    "Greeting Cards",
-    "Bookmarks",
+  { label: "Brochures", href: "/brochures" },
+  { label: "Wrapping Paper", href: "/wrapping-paper" },
+  { label: "Booklets", href: "/booklets" },
+  { label: "Books", href: "/books" },
+  { label: "Greeting Cards", href: "/greeting-cards" },
+  { label: "Bookmarks", href: "/bookmarks" },
 ];
 
 const aboutLinks = [
-    "Why Sustainable",
-    "Vegetable Based Inks",
-    "Environmentally Friendly",
-    "Reducing Waste",
-    "Green Power",
-    "Recycled Paper",
-    "Melbourne Printers",
+  { label: "Why Sustainable", href: "/why-we-print-sustainably" },
+  { label: "Vegetable Based Inks", href: "/environmentally-friendly-inks-toner" },
+  { label: "Environmentally Friendly", href: "/environmentally-friendly-inks-toner" },
+  { label: "Reducing Waste", href: "/reducing-waste" },
+  { label: "Green Power", href: "/greenpower" },
+  { label: "Recycled Paper", href: "/recycled-paper" },
+  { label: "Melbourne Printers", href: "/contact" },
 ];
 
 const helpLinks = [
-    "Artwork Setup Instructions",
-    "Urgent Printing",
-    "Quote Questions",
-    "Production",
-    "Blogs",
+  { label: "Artwork Setup Instructions", href: "/docs/artwork-specification-guide.pdf" },
+  { label: "Urgent Printing", href: "/contact" },
+  { label: "Quote Questions", href: "/faq" },
+  { label: "Production", href: "/reducing-waste" },
+  { label: "Blogs", href: "/blogs" },
 ];
 
+
 const latestBlogs = [
-    "Why Eco Friendly Printing Is the Smartest Branding Move Today",
-    "How Recycled Business Cards Improve Brand Perception",
-    "Sustainable Printing for E Commerce Brands A Complete Guide",
+  { label: "Why Eco Friendly Printing Is the Smartest Branding Move Today", href: "/blogs/eco-friendly-printing-smart-branding-choice-today" },
+  { label: "How Recycled Business Cards Improve Brand Perception", href: "/blogs/recycled-business-cards-that-elevate-brand-perception" },
+  { label: "Sustainable Printing for E Commerce Brands A Complete Guide", href: "/blogs/sustainable-printing-guid-for-ecommerce-brands" },
 ];
 
 //Footer-components
-function FooterLink({ label }: { label: string }) {
+function FooterLink({ label,href = "#"  }: { label: string,href?: string }) {
     return (
         <li>
             <a
-                href="#"
+                href={href}
                 className="text-white hover:text-green-600 text-sm leading-relaxed transition-colors duration-150"
             >
                 {label}
@@ -134,13 +136,13 @@ export default function Footer() {
                             {/* Column 1 */}
                             <ul className="space-y-[6px]">
                                 {productsCol1.map((item) => (
-                                    <FooterLink key={item} label={item} />
+                                    <FooterLink key={item.label} label={item.label} href={item.href}  />
                                 ))}
                             </ul>
                             {/* Column 2 */}
                             <ul className="space-y-[6px]">
                                 {productsCol2.map((item) => (
-                                    <FooterLink key={item} label={item} />
+                                    <FooterLink key={item.label} label={item.label} href={item.href}  />
                                 ))}
                             </ul>
                         </div>
@@ -151,7 +153,7 @@ export default function Footer() {
                         <FooterHeading>About us</FooterHeading>
                         <ul className="space-y-[6px]">
                             {aboutLinks.map((item) => (
-                                <FooterLink key={item} label={item} />
+                                <FooterLink key={item.label} label={item.label} href={item.href}  />
                             ))}
                         </ul>
                     </div>
@@ -161,7 +163,7 @@ export default function Footer() {
                         <FooterHeading>Help/Useful Links</FooterHeading>
                         <ul className="space-y-[6px]">
                             {helpLinks.map((item) => (
-                                <FooterLink key={item} label={item} />
+                                <FooterLink key={item.label} label={item.label} href={item.href}  />
                             ))}
                         </ul>
                     </div>
@@ -171,20 +173,20 @@ export default function Footer() {
                         <FooterHeading>Latest Blogs</FooterHeading>
                         <ul className="space-y-4 mb-8">
                             {latestBlogs.map((blog) => (
-                                <li key={blog}>
+                                <li key={blog.label}>
                                     <a
-                                        href="#"
+                                        href={blog.href}
                                         className="text-white/80 hover:text-white text-sm leading-snug transition-colors duration-150 block"
                                     >
-                                        {blog}
+                                         {blog.label}
                                     </a>
                                 </li>
                             ))}
                         </ul>
 
                         {/* Contact button */}
-                        <a
-                            href="#"
+                        <Link
+                          href="/contact"
                             className="
                 inline-block border border-white text-white text-md font-medium
                 px-8 py-3 rounded
@@ -195,7 +197,7 @@ export default function Footer() {
               "
                         >
                             Contact us
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

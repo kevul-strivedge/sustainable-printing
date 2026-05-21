@@ -32,8 +32,8 @@ function TickBadge() {
 export default function PrintingTypeSelector({ state, dispatch, printingTypes }: Props) {
   return (
     <div>
-      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-1">Printing type</p>
-      <div className="grid grid-cols-2 gap-3">
+      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-3">Printing type</p>
+      <div className="grid sm:grid-cols-2 gap-3">
         {printingTypes.map((pt) => {
           const selected = state.printingTypeId === pt.id;
           return (

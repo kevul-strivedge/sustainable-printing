@@ -118,7 +118,7 @@ export default function OrderConfirmationPage({ quoteId, state, config, priceBre
           </p>
 
           {/* Info chips */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 text-left">
             <div className="border border-gray-200 rounded-xl p-2 flex items-center gap-2">
               <div className="text-[#3d9e5f] shrink-0">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">

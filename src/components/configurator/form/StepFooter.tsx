@@ -31,7 +31,7 @@ export default function StepFooter({ priceBreakdown, state, dispatch }: Props) {
       <button
         type="button"
         onClick={() => dispatch({ type: "NEXT_STEP" })}
-        className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#1e4620] text-white text-[14px] font-semibold rounded-lg hover:bg-[#163318] transition-colors duration-150 whitespace-nowrap"
+        className="inline-flex items-center gap-2.5 sm:px-7 px-3 py-3.5 bg-[#1e4620] text-white text-[14px] font-semibold rounded-lg hover:bg-[#163318] transition-colors duration-150 whitespace-nowrap"
       >
         Continue to Artwork
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

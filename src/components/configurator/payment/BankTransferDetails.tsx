@@ -19,7 +19,7 @@ function BankIcon() {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-start justify-between gap-6 py-2">
+    <div className="flex flex-wrap items-start justify-between sm:gap-6 gap-2 py-2">
       <span className="text-[12px] text-gray-400 shrink-0 w-32">{label}</span>
       <span className="text-[12px] font-bold text-[#292560] text-right">{value}</span>
     </div>
