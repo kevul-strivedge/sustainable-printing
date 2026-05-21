@@ -20,13 +20,13 @@ interface Props {
 
 export default function OrderSummary({ state, dispatch, priceBreakdown, config }: Props) {
   return (
-    <div className="sticky top-[130px] border border-gray-200 rounded bg-white overflow-hidden shadow-sm">
+    <div className="sticky top-[130px] border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-gray-200">
-        <p className="text-[15px] font-bold text-[#292560]">Your Order Summary</p>
+      <div className="px-5 pt-4">
+        <p className="text-[16px] font-bold text-[#292560]">Your Order Summary</p>
       </div>
 
-      <div className="px-5 py-4 flex flex-col gap-5">
+      <div className="px-5 py-4 flex flex-col gap-4">
         <ProductPreviewCard state={state} papers={config.papers} extras={config.extras} />
 
         <PrintingDetails

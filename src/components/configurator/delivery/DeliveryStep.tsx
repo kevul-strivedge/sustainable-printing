@@ -78,8 +78,8 @@ export default function DeliveryStep({ state, dispatch, config }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-5">
-      <h2 className="text-[20px] font-bold text-[#292560]">Delivery Details</h2>
+    <div className="flex flex-col gap-4">
+      <h2 className="text-[16px] font-bold text-[#292560]">Delivery Details</h2>
 
       <DeliveryForm state={state} dispatch={dispatch} errors={errors} />
 

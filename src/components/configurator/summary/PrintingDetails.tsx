@@ -16,7 +16,7 @@ interface Props {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-start justify-between gap-4 py-1">
+    <div className="flex items-start justify-between gap-4 py-0.5">
       <span className="text-[12px] text-[#676C80] font-semibold shrink-0">{label}</span>
       <span className="text-[12px] text-[#292560] font-semibold text-right">{value}</span>
     </div>
@@ -41,7 +41,7 @@ export default function PrintingDetails({ state, papers, sizes, printingTypes, e
 
   return (
     <div>
-      <p className="text-[11px] font-bold text-[#292560] uppercase tracking-widest mb-2">Printing</p>
+      <p className="text-[11px] font-bold text-[#292560] uppercase tracking-widest mb-1">Printing</p>
       <Row label="Quantity" value={totalQty.toLocaleString()} />
       <Row label="Paper" value={paperShort} />
       <Row label="Size" value={size ? size.dimensions : "—"} />

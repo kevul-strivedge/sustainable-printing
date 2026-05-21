@@ -1,6 +1,7 @@
 "use client";
 
 import { ConfiguratorAction, ConfiguratorState } from "@/src/types/configurator.types";
+import CustomSelect from "@/src/components/ui/CustomSelect";
 import type { DeliveryErrors } from "./DeliveryStep";
 
 function Label({ children, required }: { children: React.ReactNode; required?: boolean }) {
@@ -133,25 +134,13 @@ export default function DeliveryForm({ state, dispatch, errors = {} }: Props) {
         </div>
         <div>
           <Label required>State</Label>
-          <div className="relative">
-            <select
-              value={state.deliveryState}
-              onChange={(e) => dispatch({ type: "SET_DELIVERY_FIELD", field: "deliveryState", value: e.target.value })}
-              className={`w-full border rounded-lg px-3 py-2.5 text-[13px] text-[#292560] bg-white outline-none appearance-none cursor-pointer transition-colors ${
-                errors.deliveryState
-                  ? "border-red-400 focus:border-red-500"
-                  : "border-gray-200 focus:border-[#3d9e5f]"
-              }`}
-            >
-              <option value="">Select</option>
-              {AU_STATES.map((s) => (
-                <option key={s} value={s}>{s}</option>
-              ))}
-            </select>
-            <svg className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" width="13" height="13" viewBox="0 0 13 13" fill="none">
-              <path d="M3 5l3.5 3.5L10 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
+          <CustomSelect
+            value={state.deliveryState}
+            options={AU_STATES.map((s) => ({ value: s, label: s }))}
+            onChange={(v) => dispatch({ type: "SET_DELIVERY_FIELD", field: "deliveryState", value: v })}
+            placeholder="Select"
+            hasError={!!errors.deliveryState}
+          />
           <FieldError message={errors.deliveryState} />
         </div>
         <div>

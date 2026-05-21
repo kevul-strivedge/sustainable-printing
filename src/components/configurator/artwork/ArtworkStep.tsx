@@ -31,9 +31,9 @@ export default function ArtworkStep({ state, dispatch, config }: Props) {
   const selectedOption = config.artworkOptions.find((o) => o.id === state.artworkMethod);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-4">
       {/* Heading */}
-      <h2 className="text-[20px] font-bold text-[#292560]">Upload Your Artwork</h2>
+      <h2 className="text-[16px] font-bold text-[#292560]">Upload Your Artwork</h2>
 
       {/* Artwork method radio cards */}
       <ArtworkMethodSelector

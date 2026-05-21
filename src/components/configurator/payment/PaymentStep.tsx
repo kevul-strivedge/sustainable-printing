@@ -39,13 +39,11 @@ export default function PaymentStep({ state, dispatch, config, onSubmit, submitt
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       {/* Heading row with step label */}
       <div className="flex items-start justify-between gap-4">
-        <h2 className="text-[20px] font-bold text-[#292560]">Payment Details</h2>
-        <span className="shrink-0 text-[11px] font-bold text-[#3d9e5f] bg-green-100 px-2 py-1 rounded-md uppercase tracking-wide mt-1">
-          Step {state.currentStep} of 4
-        </span>
+        <h2 className="text-[16px] font-bold text-[#292560]">Payment Details</h2>
+        
       </div>
 
       {/* Discount code */}
@@ -61,7 +59,7 @@ export default function PaymentStep({ state, dispatch, config, onSubmit, submitt
           />
           <button
             type="button"
-            className="px-5 py-2.5 bg-[#1e4620] text-white rounded-lg text-[13px] font-semibold hover:bg-[#163318] transition-colors whitespace-nowrap"
+            className="px-9 py-2.5 bg-[#004E24] text-white rounded-lg text-[13px] font-semibold hover:bg-[#163318] transition-colors whitespace-nowrap"
           >
             Apply
           </button>

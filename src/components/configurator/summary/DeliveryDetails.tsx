@@ -19,7 +19,7 @@ export default function DeliveryDetails({ state }: Props) {
 
   return (
     <div>
-      <p className="text-[11px] font-bold text-[#292560] uppercase tracking-widest mb-2">Delivery Details</p>
+      <p className="text-[11px] font-bold text-[#292560] uppercase tracking-widest mb-1">Delivery Details</p>
 
       {hasInfo ? (
         <div className="border border-gray-200 rounded-xl bg-gray-50 overflow-hidden">
