@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FAQ } from "@/src/types/configurator.types";
+import Link from "next/link";
 
 interface Props {
   faqs: FAQ[];
@@ -70,7 +71,7 @@ export default function FAQAccordion({ faqs }: Props) {
                                       s,
 
                                       href ? (
-                                        <a
+                                        <Link
                                           key={`${word}-${i}`}
                                           href={href}
                                           target="_blank"
@@ -78,7 +79,7 @@ export default function FAQAccordion({ faqs }: Props) {
                                           className="underline font-bold text-[#292560]"
                                         >
                                           {word}
-                                        </a>
+                                        </Link>
                                       ) : (
                                         <strong key={`${word}-${i}`}>
                                           {word}

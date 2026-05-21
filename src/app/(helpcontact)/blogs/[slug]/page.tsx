@@ -3,6 +3,7 @@
 import PageHeader from "@/src/components/ui/PageHeader";
 import { blogData } from "@/src/constants/blog.data";
 import { BlogContentBlock } from "@/src/types/blog.types";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const renderBlock = (block: BlogContentBlock, i: number) => {
@@ -20,13 +21,13 @@ const renderBlock = (block: BlogContentBlock, i: number) => {
                 ? [
                     s,
                     href ? (
-                      <a
+                      <Link
                         key={`${word}-${i}`}
                         href={href}
                         className="font-bold hover:underline text-[#292560]"
                       >
                         {word}
-                      </a>
+                      </Link>
                     ) : (
                       <strong key={`${word}-${i}`}>{word}</strong>
                     ),
@@ -65,13 +66,13 @@ const renderBlock = (block: BlogContentBlock, i: number) => {
       );
     case "link":
       return (
-        <a
+        <Link
           key={i}
           href={block.href}
           className="text-[#292560] font-bold hover:underline"
         >
           {block.text}
-        </a>
+        </Link>
       );
 
     case "richList":
@@ -114,13 +115,13 @@ const renderBlock = (block: BlogContentBlock, i: number) => {
                                 s,
 
                                 href ? (
-                                  <a
+                                  <Link
                                     key={`${word}-${i}`}
                                     href={href}
                                     className="font-bold hover:underline text-[#292560]"
                                   >
                                     {word}
-                                  </a>
+                                  </Link>
                                 ) : (
                                   <strong key={`${word}-${i}`}>{word}</strong>
                                 ),
@@ -141,7 +142,7 @@ const renderBlock = (block: BlogContentBlock, i: number) => {
               {/* Link Text */}
               {item.linkText &&
                 (item.href ? (
-                  <a
+                  <Link
                     href={item.href}
                     className={`text-[#292560] hover:underline ${
                       item.boldLink ? "font-bold" : ""
@@ -149,7 +150,7 @@ const renderBlock = (block: BlogContentBlock, i: number) => {
                   >
                     {" "}
                     {item.linkText}
-                  </a>
+                  </Link>
                 ) : (
                   <span className={`${item.boldLink ? "font-bold" : ""}`}>
                     {" "}
@@ -177,13 +178,13 @@ const renderBlock = (block: BlogContentBlock, i: number) => {
                     ? [
                         s,
                         href ? (
-                          <a
+                          <Link
                             key={`${word}-${i}`}
                             href={href}
                             className="font-bold hover:underline text-[#292560]"
                           >
                             {word}
-                          </a>
+                          </Link>
                         ) : (
                           <strong key={`${word}-${i}`}>{word}</strong>
                         ),

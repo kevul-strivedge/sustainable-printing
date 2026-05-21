@@ -5,6 +5,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
+    <Link href={product.shopHref}>
     <article className="flex flex-col group">
       {/* Image */}
       <div className={`relative w-full aspect-[4/3] overflow-hidden rounded-sm mb-5 ${product.containerClassName} `}>
@@ -28,8 +29,7 @@ export default function ProductCard({ product }: { product: Product }) {
       </p>
 
       {/* Shop link */}
-      <Link
-        href={product.shopHref}
+      <div
         className="
           inline-flex items-center gap-1.5
           text-[#4CCC88] hover:underline
@@ -42,7 +42,8 @@ export default function ProductCard({ product }: { product: Product }) {
         <span className="transition-transform duration-150 group-hover:translate-x-0.5">
             <ChevronRight size={20} strokeWidth={2.5} />
         </span>
-      </Link>
-    </article>
+      </div>
+     </article>
+    </Link>
   );
 }
