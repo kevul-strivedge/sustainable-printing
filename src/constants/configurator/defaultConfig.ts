@@ -12,7 +12,7 @@ export function createDefaultConfig(product: ProductData): ProductConfiguratorDa
     description: product.description,
     descriptionTitle: `Premium Recycled ${product.title}`,
     features: product.features,
-    faqs: [],
+    faqs: product.faqs ?? [],
     papers: [],
     sizes: [],
     extras: [],

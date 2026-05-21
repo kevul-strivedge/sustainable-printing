@@ -77,7 +77,7 @@ export default function QuantitySelector({ state, dispatch, designOptions, quant
       </div>
 
       {/* Primary row */}
-      <div className="flex items-center gap-2">
+      <div className="sm:flex sm:flex-wrap items-center gap-2">
         <InlineSelect
           innerLabel="Designs"
           value={state.numDesigns}

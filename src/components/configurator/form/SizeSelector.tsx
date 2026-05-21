@@ -20,8 +20,8 @@ function CheckBadge() {
 export default function SizeSelector({ state, dispatch, sizes }: Props) {
   return (
     <div>
-      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-1">Size</p>
-      <div className="grid grid-cols-4 gap-2">
+      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-3">Size</p>
+      <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-2">
         {sizes.map((size) => {
           const selected = state.sizeId === size.id;
           return (

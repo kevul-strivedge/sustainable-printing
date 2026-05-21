@@ -28,24 +28,72 @@ export default function FAQAccordion({ faqs }: Props) {
   return (
     <div className="mt-10">
       <h2 className="text-[20px] font-bold text-[#292560] mb-5">Frequently Asked Questions</h2>
-      <div className="border border-gray-200 rounded-lg overflow-hidden divide-y divide-gray-200">
+      <div className="overflow-hidden">
         {faqs.map((faq, i) => {
           const isOpen = openIndex === i;
           return (
-            <div key={i}>
+            <div
+              key={i}
+              className={`${isOpen ? "bg-gray-50" : "hover:bg-white"}`}
+            >
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-50 transition-colors duration-150"
+                className={`w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-150`}
               >
-                <span className="text-[14px] font-semibold text-[#292560]">
+                <span
+                  className={`text-[18px] font-semibold text-[#292560] ${
+                    !isOpen ? "hover:underline" : ""
+                  }`}
+                >
                   {faq.question}
                 </span>
-                <ChevronDown open={isOpen} />
+                {/* <ChevronDown open={isOpen} /> */}
               </button>
               {isOpen && (
                 <div className="px-5 pb-4">
-                  <p className="text-[13px] text-[#292560] leading-relaxed">{faq.answer}</p>
+                  <p className="text-[16px] text-[#292560] leading-relaxed">
+                    {(() => {
+                      let parts: (string | React.ReactElement)[] = [faq.answer];
+
+                      faq.boldWords?.forEach(({ word, href }) => {
+                        parts = parts.flatMap(
+                          (part): (string | React.ReactElement)[] => {
+                            if (typeof part !== "string") return [part];
+
+                            const split = part.split(word);
+
+                            return split.flatMap(
+                              (s, i): (string | React.ReactElement)[] =>
+                                i < split.length - 1
+                                  ? [
+                                      s,
+
+                                      href ? (
+                                        <a
+                                          key={`${word}-${i}`}
+                                          href={href}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="underline font-bold text-[#292560]"
+                                        >
+                                          {word}
+                                        </a>
+                                      ) : (
+                                        <strong key={`${word}-${i}`}>
+                                          {word}
+                                        </strong>
+                                      ),
+                                    ]
+                                  : [s],
+                            );
+                          },
+                        );
+                      });
+
+                      return parts;
+                    })()}
+                  </p>
                 </div>
               )}
             </div>

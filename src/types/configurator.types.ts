@@ -44,6 +44,11 @@ export interface PricingTableRow {
 export interface FAQ {
   question: string;
   answer: string;
+
+ boldWords?: {
+  word: string;
+  href?: string;
+}[];
 }
 
 export interface PaymentMethod {

@@ -13,7 +13,7 @@ const MainContent = () => {
                 className="h-[520px]"
                 buttons={[
                     { label: "Shop all Products", href: "/products", variant: "outline" },
-                    { label: "Order a Sample Pack", href: "/sample-pack", variant: "primary" },
+                    { label: "Order a Sample Pack", href: "/requestsample", variant: "primary" },
                 ]}
             />
             <FeaturesCardsStrip />
@@ -24,7 +24,7 @@ const MainContent = () => {
                 heading="Want to see your options?"
                 className="h-[350px]"
                 buttons={[
-                    { label: "Order a Sample Pack", href: "/sample-pack" },
+                    { label: "Order a Sample Pack", href: "/requestsample" },
                 ]}
             />
 

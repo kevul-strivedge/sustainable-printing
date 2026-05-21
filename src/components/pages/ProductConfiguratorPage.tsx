@@ -223,7 +223,7 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
         image="/images/bannerImage2.png"
         heading="Want to see your options?"
         className="h-75"
-        buttons={[{ label: "Order a Sample Pack", href: "/sample-pack", variant: "primary" }]}
+        buttons={[{ label: "Order a Sample Pack", href: "/requestsample", variant: "primary" }]}
       />
     </>
   );
