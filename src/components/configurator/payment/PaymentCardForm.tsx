@@ -1,12 +1,16 @@
 "use client";
 
+import CustomSelect from "@/src/components/ui/CustomSelect";
+
 function InlineField({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-lg px-3 pt-2 pb-2.5 border border-gray-200">
+    <div className="bg-white rounded-lg px-3 pt-2 pb-1.5 border border-gray-200 flex flex-col min-h-[54px]">
       <span className="block text-[10px] font-semibold uppercase tracking-wider text-gray-400 leading-none mb-1">
         {label}{required && <span className="text-red-400 ml-0.5">*</span>}
       </span>
-      {children}
+      <div className="flex-1 flex items-center">
+        {children}
+      </div>
     </div>
   );
 }
@@ -61,20 +65,13 @@ export default function PaymentCardForm({
         {/* Card Type + Card Number */}
         <div className="grid grid-cols-[1fr_2fr] gap-2">
           <InlineField label="Card Type" required>
-            <div className="relative flex items-center">
-              <select
-                value={cardType}
-                onChange={(e) => setCardType(e.target.value)}
-                className="flex-1 text-[13px] font-semibold text-[#292560] bg-transparent border-none outline-none appearance-none cursor-pointer pr-5"
-              >
-                {CARD_TYPES.map((t) => (
-                  <option key={t} value={t}>{t}</option>
-                ))}
-              </select>
-              <svg className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
+            <CustomSelect
+              value={cardType}
+              options={CARD_TYPES.map((t) => ({ value: t, label: t }))}
+              onChange={setCardType}
+              noBorder
+              className="flex-1"
+            />
           </InlineField>
 
           <InlineField label="Card Number" required>

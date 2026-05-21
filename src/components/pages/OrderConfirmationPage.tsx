@@ -78,7 +78,7 @@ export default function OrderConfirmationPage({ quoteId, state, config, priceBre
       {/* ── Header card (unchanged) ── */}
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden mb-6">
         <div className="h-1 bg-[#3d9e5f]" />
-        <div className="px-8 py-8 text-center">
+        <div className="px-4 py-4 text-center">
 
           <div className="relative w-28 h-28 mx-auto mb-6">
             <div className="absolute inset-0 rounded-full bg-[#e6f5ec]" />
@@ -119,7 +119,7 @@ export default function OrderConfirmationPage({ quoteId, state, config, priceBre
 
           {/* Info chips */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
-            <div className="border border-gray-200 rounded-xl p-3 flex items-center gap-3">
+            <div className="border border-gray-200 rounded-xl p-2 flex items-center gap-2">
               <div className="text-[#3d9e5f] shrink-0">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
                   <rect x="3" y="2" width="16" height="18" rx="2.5" stroke="currentColor" strokeWidth="1.5"/>
@@ -131,7 +131,7 @@ export default function OrderConfirmationPage({ quoteId, state, config, priceBre
                 <p className="text-[13px] font-bold text-[#3d9e5f]">#SPC-{quoteId}</p>
               </div>
             </div>
-            <div className="border border-gray-200 rounded-xl p-3 flex items-center gap-3">
+            <div className="border border-gray-200 rounded-xl p-2 flex items-center gap-2">
               <div className="text-[#3d9e5f] shrink-0">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
                   <rect x="2" y="4" width="18" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.5"/>
@@ -145,7 +145,7 @@ export default function OrderConfirmationPage({ quoteId, state, config, priceBre
                 <p className="text-[13px] font-bold text-[#292560]">{orderDate}</p>
               </div>
             </div>
-            <div className="border border-gray-200 rounded-xl p-3 flex items-center gap-3">
+            <div className="border border-gray-200 rounded-xl p-2 flex items-center gap-2">
               <div className="text-[#3d9e5f] shrink-0">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
                   <rect x="2" y="5" width="18" height="13" rx="2.5" stroke="currentColor" strokeWidth="1.5"/>
@@ -157,7 +157,7 @@ export default function OrderConfirmationPage({ quoteId, state, config, priceBre
                 <p className="text-[13px] font-bold text-[#292560] truncate">{email}</p>
               </div>
             </div>
-            <div className="border border-gray-200 rounded-xl p-3 flex items-center gap-3">
+            <div className="border border-gray-200 rounded-xl p-2 flex items-center gap-2">
               <div className="text-[#3d9e5f] shrink-0">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
                   <path d="M6 8V3h10v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>

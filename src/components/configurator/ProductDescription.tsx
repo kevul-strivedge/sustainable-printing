@@ -16,7 +16,7 @@ function LeafCheckIcon() {
 
 export default function ProductDescription({ title, description, features, aboutParagraphs }: Props) {
   return (
-    <div className="border border-gray-200 rounded bg-white p-6 shadow-lg mt-6">
+    <div className="border border-gray-200 rounded-lg bg-white p-4 shadow-lg mt-5">
       <h2 className="text-[20px] font-bold text-[#1D1A52] mb-3">{title}</h2>
       <p className="text-[14px] text-[#292560] leading-relaxed mb-1 max-w-3xl">{description}</p>
       <p className="text-[14px] text-[#292560] leading-relaxed mb-5">

@@ -10,7 +10,7 @@ export default function StepFooter({ priceBreakdown, state, dispatch }: Props) {
   const totalQty = state.numDesigns * state.quantityPerDesign;
 
   return (
-    <div className="bg-[#ECE6D3] rounded-lg px-5 py-4 flex items-center justify-between gap-6 flex-wrap">
+    <div className="rounded-lg px-5 py-4 flex items-center justify-between gap-6 flex-wrap" style={{ background: "linear-gradient(to bottom, #F4F0E9, #EBE9E2)" }}>
       {/* Left: price info */}
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-widest text-[#676C80] mb-1">

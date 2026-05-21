@@ -20,7 +20,7 @@ function CheckBadge() {
 export default function SizeSelector({ state, dispatch, sizes }: Props) {
   return (
     <div>
-      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-3">Size</p>
+      <p className="text-[13px] font-semibold text-[#292560] uppercase tracking-wide mb-1">Size</p>
       <div className="grid grid-cols-4 gap-2">
         {sizes.map((size) => {
           const selected = state.sizeId === size.id;
@@ -29,8 +29,8 @@ export default function SizeSelector({ state, dispatch, sizes }: Props) {
               key={size.id}
               type="button"
               onClick={() => dispatch({ type: "SET_SIZE", id: size.id })}
-              style={{ background: selected ? "linear-gradient(to bottom, #FFFFFF, #FEFAF3)" : "#FFFFFF" }}
-              className={`relative flex flex-col items-start text-left border-2 rounded-lg p-2.5 pt-2 transition-all duration-150 cursor-pointer ${
+              style={{ background: selected ? "linear-gradient(to bottom, #FFFFFF, #F4F0E9)" : "#FFFFFF" }}
+              className={`relative flex flex-col items-start text-left border-1 rounded-lg p-2.5 pt-2 transition-all duration-150 cursor-pointer ${
                 selected
                   ? "border-[#3d9e5f]"
                   : "border-gray-200 hover:border-gray-300"
@@ -40,7 +40,7 @@ export default function SizeSelector({ state, dispatch, sizes }: Props) {
 
               {/* Mini card rectangle preview */}
               <div
-                className={`w-[70%] h-8 rounded-sm mb-2.5 ${
+                className={`w-[40%] h-7 rounded-sm mb-2.5 border border-[#A6D3BB] ${
                   selected ? "bg-[#c8e6d4]" : "bg-gray-200"
                 }`}
               />

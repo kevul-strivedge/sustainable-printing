@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Input from "../ui/Input";
-import Select from "../ui/Select";
+import CustomSelect from "../ui/CustomSelect";
 import FileInput from "../ui/FileInput";
 import PageHeader from "../ui/PageHeader";
 import { submitCustomQuote } from "@/src/services/api";
@@ -624,14 +624,12 @@ const CustomQuote = () => {
               onChange={handleChange}
               inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
             />
-            <Select
-              label="How many designs/kinds"
-              name="designs"
-              placeholder="How many designs/kinds"
-              options={DESIGNS_OPTIONS}
+            <p className="text-[#292560] font-medium text-lg mb-2">How many designs/kinds</p>
+            <CustomSelect
               value={formData.designs}
-              onChange={handleChange}
-              selectClassName="!py-5 !bg-[#c4c4c41a]"
+              options={DESIGNS_OPTIONS}
+              onChange={(v) => setFormData((prev) => ({ ...prev, designs: v }))}
+              placeholder="How many designs/kinds"
             />
           </div>
 
@@ -691,7 +689,7 @@ const CustomQuote = () => {
             </div>
 
             {/* Artwork Upload */}
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4">
               <FileInput
                 label="Artwork Upload"
                 name="artwork"

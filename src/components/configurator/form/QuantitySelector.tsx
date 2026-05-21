@@ -1,4 +1,5 @@
 import { ConfiguratorAction, ConfiguratorState, QuantityOption, PricingTableRow } from "@/src/types/configurator.types";
+import CustomSelect from "@/src/components/ui/CustomSelect";
 
 interface Props {
   state: ConfiguratorState;
@@ -20,28 +21,13 @@ function InlineSelect({
   onChange: (val: number) => void;
 }) {
   return (
-    <div className="relative flex-1 border border-gray-300 rounded-lg px-3 pt-1.5 pb-1.5">
-      <span className="block text-[10px] font-semibold uppercase tracking-wider text-gray-400 leading-none mb-1">
-        {innerLabel}
-      </span>
-      <div className="flex items-center">
-        <select
-          value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
-          className="flex-1 text-[13px] font-semibold text-[#292560] bg-transparent border-none outline-none appearance-none cursor-pointer pr-4"
-        >
-          {options.map((o) => (
-            <option key={o.value} value={o.value}>{o.label}</option>
-          ))}
-        </select>
-        <svg
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400"
-          width="14" height="14" viewBox="0 0 14 14" fill="none"
-        >
-          <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-    </div>
+    <CustomSelect
+      label={innerLabel}
+      value={value}
+      options={options}
+      onChange={(v) => onChange(Number(v))}
+      className="flex-1"
+    />
   );
 }
 
@@ -85,7 +71,7 @@ export default function QuantitySelector({ state, dispatch, designOptions, quant
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-1">
         <p className="text-[14px] font-bold text-[#292560]">Quantity</p>
         <p className="text-[14px] font-bold text-[#292560]">Total quantity</p>
       </div>
@@ -106,7 +92,7 @@ export default function QuantitySelector({ state, dispatch, designOptions, quant
           onChange={(val) => dispatch({ type: "SET_QTY_PER_DESIGN", value: val })}
         />
         <span className="text-gray-400 text-[14px] font-medium shrink-0">=</span>
-        <div className="flex-1 border-2 border-[#3d9e5f] rounded-lg px-3 pt-1.5 pb-1.5 bg-linear-to-t from-[#FFF2DA] to-white">
+        <div className="flex-1 border-1 border-[#3d9e5f] rounded-lg px-3 pt-1.5 pb-1.5 bg-linear-to-t from-[#FFF2DA] to-white">
           <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#3d9e5f] leading-none mb-1">
             Total quantity
           </span>
@@ -140,7 +126,7 @@ export default function QuantitySelector({ state, dispatch, designOptions, quant
 
             <span className="text-gray-400 text-[14px] font-medium shrink-0">=</span>
 
-            <div className="flex-1 border-2 border-[#3d9e5f] rounded-lg px-3 pt-1.5 pb-1.5 bg-linear-to-t from-[#FFF2DA] to-white">
+            <div className="flex-1 border-1 border-[#3d9e5f] rounded-lg px-3 pt-1.5 pb-1.5 bg-linear-to-t from-[#FFF2DA] to-white">
               <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#3d9e5f] leading-none mb-1">
                 Total quantity
               </span>

@@ -126,7 +126,7 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
 
   return (
     <>
-      <div className="max-w-275 mx-auto px-6 py-10">
+      <div className="max-w-275 mx-auto px-6 py-5">
         {/* Header */}
         <ProductPageHeader title={config.title} subtitle={config.subtitle} />
 
@@ -134,12 +134,12 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
         <StepProgressBar currentStep={state.currentStep} />
 
         {/* Two-column configurator */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 items-start">
 
           {/* LEFT — step-dependent form + description */}
           <div className="flex flex-col gap-0">
             {state.currentStep === 1 && (
-              <div className="border border-gray-200 rounded bg-white p-6 flex flex-col gap-7">
+              <div className="border border-gray-200 rounded-lg shadow-md bg-white p-4 flex flex-col gap-4">
                 <QuantitySelector
                   state={state}
                   dispatch={dispatch}
@@ -171,19 +171,19 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
             )}
 
             {state.currentStep === 2 && (
-              <div className="border border-gray-200 rounded bg-white p-6">
+              <div className="border border-gray-200 rounded-lg shadow-sm bg-white p-4">
                 <ArtworkStep state={state} dispatch={dispatch} config={config} />
               </div>
             )}
 
             {state.currentStep === 3 && (
-              <div className="border border-gray-200 rounded bg-white p-6">
+              <div className="border border-gray-200 rounded-lg shadow-sm bg-white p-4">
                 <DeliveryStep state={state} dispatch={dispatch} config={config} />
               </div>
             )}
 
             {state.currentStep === 4 && (
-              <div className="border border-gray-200 rounded bg-white p-6">
+              <div className="border border-gray-200 rounded-lg shadow-sm bg-white p-4">
                 <PaymentStep
                   state={state}
                   dispatch={dispatch}

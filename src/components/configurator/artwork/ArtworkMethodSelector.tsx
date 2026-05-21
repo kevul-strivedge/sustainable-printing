@@ -19,7 +19,7 @@ function UploadLaterIcon() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
       <rect x="1.5" y="4.5" width="19" height="14" rx="3" stroke="#3d9e5f" strokeWidth="1.4" />
-      <path d="M1.5 8.5l9.5 6 9.5-6" stroke="#9ca3af" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M1.5 8.5l9.5 6 9.5-6" stroke="#3d9e5f" strokeWidth="1.4" strokeLinecap="round" />
     </svg>
   );
 }
@@ -49,8 +49,8 @@ export default function ArtworkMethodSelector({ artworkOptions, selected, onChan
             key={option.id}
             type="button"
             onClick={() => onChange(option.id)}
-            style={{ background: isSelected ? "linear-gradient(to bottom, #FFFFFF, #FEFAF3)" : "#FFFFFF" }}
-            className={`flex items-center gap-3.5 w-full text-left border-2 rounded-lg px-4 py-3.5 transition-all duration-150 ${
+            style={{ background: isSelected ? "linear-gradient(to bottom, #FFFFFF, #F4F0E9)" : "#FFFFFF" }}
+            className={`flex items-center gap-3.5 w-full text-left border rounded-lg px-4 py-3.5 transition-all duration-150 ${
               isSelected
                 ? "border-[#3d9e5f]"
                 : "border-gray-200 hover:border-gray-300"

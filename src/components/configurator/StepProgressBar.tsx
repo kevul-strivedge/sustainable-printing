@@ -11,7 +11,7 @@ interface Props {
 
 export default function StepProgressBar({ currentStep }: Props) {
   return (
-    <div className="flex w-full border border-gray-200 shadow-sm rounded-sm mb-8 overflow-hidden">
+    <div className="flex w-full border border-gray-200 shadow-sm rounded-sm mb-5 overflow-hidden">
       {STEPS.map((step) => {
         const isActive = step.number === currentStep;
         const isDone   = step.number < currentStep;
