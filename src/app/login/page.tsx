@@ -14,10 +14,18 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
+
+    const fieldErrors = validate();
+
+    if (Object.keys(fieldErrors).length) {
+      setErrors(fieldErrors);
+      return;
+    }
     setLoading(true);
     try {
       const user = await loginUser({ email, password });
@@ -29,6 +37,33 @@ export default function LoginPage() {
       setLoading(false);
     }
   }
+
+    function validate() {
+      const next: Record<string, string> = {};
+
+      if (!email.trim()) {
+        next.email = "Email is required.";
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        next.email = "Please enter a valid email.";
+      }
+
+      if (!password.trim()) {
+        next.password = "Password is required.";
+      } else if (password.length < 8) {
+        next.password = "Password must be at least 8 characters.";
+      }
+
+      return next;
+    }
+
+    function clearFieldError(field: string) {
+      if (errors[field]) {
+        setErrors((prev) => ({
+          ...prev,
+          [field]: "",
+        }));
+      }
+    }
 
   return (
     <div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 py-12 bg-gray-50">
@@ -53,24 +88,50 @@ export default function LoginPage() {
                 <label className="block text-[12px] font-semibold text-[#292560] mb-1.5">Email address</label>
                 <input
                   type="email"
-                  required
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                    clearFieldError("email");
+                  }}
                   placeholder="you@example.com"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-[13px] text-[#292560] placeholder-gray-400 focus:outline-none focus:border-[#3d9e5f] focus:ring-1 focus:ring-[#3d9e5f] transition-colors"
+                  className={`w-full border rounded-lg px-3 py-2.5 text-[13px]
+                  ${
+                    errors.email
+                      ? "border-red-400 focus:ring-red-400 focus:border-red-400"
+                      : "border-gray-300 focus:border-[#3d9e5f] focus:ring-[#3d9e5f]"
+                  }
+                  text-[#292560] placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors`}
                 />
+                {errors.email && (
+                  <p className="mt-1 text-xs text-red-500">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               <div>
                 <label className="block text-[12px] font-semibold text-[#292560] mb-1.5">Password</label>
                 <input
                   type="password"
-                  required
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setPassword(e.target.value)
+                    clearFieldError("password");
+                  }}
                   placeholder="••••••••"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-[13px] text-[#292560] placeholder-gray-400 focus:outline-none focus:border-[#3d9e5f] focus:ring-1 focus:ring-[#3d9e5f] transition-colors"
+                  className={`w-full border rounded-lg px-3 py-2.5 text-[13px]
+                  ${
+                    errors.password
+                      ? "border-red-400 focus:ring-red-400 focus:border-red-400"
+                      : "border-gray-300 focus:border-[#3d9e5f] focus:ring-[#3d9e5f]"
+                  }
+                  text-[#292560] placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors`}
                 />
+                {errors.password && (
+                  <p className="mt-1 text-xs text-red-500">
+                    {errors.password}
+                  </p>
+                )}
               </div>
 
               <button

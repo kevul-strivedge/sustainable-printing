@@ -28,7 +28,7 @@ const aboutLinks = [
   { label: "Reducing Waste", href: "/reducing-waste" },
   { label: "Green Power", href: "/greenpower" },
   { label: "Recycled Paper", href: "/recycled-paper" },
-  { label: "Melbourne Printers", href: "/contact" },
+  { label: "Melbourne Printers", href: "/melbourne-printers" },
 ];
 
 const helpLinks = [

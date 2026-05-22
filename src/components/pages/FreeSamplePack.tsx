@@ -209,6 +209,7 @@ const FreeSamplePack = () => {
                 }}
                 placeholder="-- Select One --"
                 hasError={!!errors.state}
+                className="!border-[#C4C4C4]"
               />
               {errors.state && <p className="mt-1 text-xs text-red-500">{errors.state}</p>}
             </div>

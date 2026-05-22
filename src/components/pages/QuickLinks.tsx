@@ -75,12 +75,13 @@ const quickLinksData: QuickLinkCategoryType[] = [
 const QuickLinks = ({
   items = quickLinksData,
   className = "",
+  title = "Quick Links",
 }: QuickLinksProps) => {
   return (
     <section className={`w-full bg-[#faf7f2] sm:py-20 py-10 ${className}`}>
       <div className="max-w-6xl mx-auto lg:px-6 md:px-20 px-6">
-        <h2 className="text-[#292560] text-2xl font-bold mb-6">Quick Links</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <h2 className="text-[#292560] text-2xl font-bold mb-6">{title}</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((item, index) => (
             <QuickLinkCard key={index} {...item} />
           ))}

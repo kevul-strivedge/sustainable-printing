@@ -598,7 +598,7 @@ const CustomQuote = () => {
               placeholder="For example, a brochure for an event"
               value={formData.nameOfItem}
               onChange={handleChange}
-              inputClassName="w-full !py-8 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
+              inputClassName="w-full !py-8 !bg-[#c4c4c41a] border-[#c4c4c41a]"
             />
             <Input
               label="Describe your item"
@@ -607,7 +607,7 @@ const CustomQuote = () => {
               placeholder="Do you need rounded edges, scoring, folding, binding etc."
               value={formData.describeItem}
               onChange={handleChange}
-              inputClassName="w-full !py-8 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
+              inputClassName="w-full !py-8 !bg-[#c4c4c41a] border-[#c4c4c41a]"
             />
           </div>
 
@@ -622,15 +622,18 @@ const CustomQuote = () => {
               placeholder="For example;DL folded brochure'or A4 Brochure"
               value={formData.size}
               onChange={handleChange}
-              inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
+              inputClassName="w-full !py-5 !bg-[#c4c4c41a] border-[#c4c4c41a]"
             />
-            <p className="text-[#292560] font-medium text-lg mb-2">How many designs/kinds</p>
+            <div className="w-full">
+            <label className="text-[#292560] font-medium text-lg mb-2 block">How many designs/kinds</label>
             <CustomSelect
               value={formData.designs}
               options={DESIGNS_OPTIONS}
               onChange={(v) => setFormData((prev) => ({ ...prev, designs: v }))}
               placeholder="How many designs/kinds"
+              className="!bg-[#c4c4c41a] border-[#c4c4c41a] !py-5"
             />
+            </div>
           </div>
 
           <hr className="border-[#e0e0e0]" />
@@ -651,7 +654,7 @@ const CustomQuote = () => {
                 placeholder="Business Name"
                 value={formData.businessName}
                 onChange={handleChange}
-                inputClassName="w-full !py-5 !bg-[#c4c4c41a] !border-[#c4c4c41a]"
+                inputClassName="w-full !py-5 !bg-[#c4c4c41a] border-[#c4c4c41a]"
               />
               <div>
                 <Input
@@ -660,7 +663,7 @@ const CustomQuote = () => {
                   placeholder="Name *"
                   value={formData.name}
                   onChange={handleChange}
-                  inputClassName={`w-full !py-5 !bg-[#c4c4c41a] ${errors.name ? "!border-red-400" : "!border-[#c4c4c41a]"}`}
+                  inputClassName={`w-full !py-5 bg-[#c4c4c41a] ${errors.name ? "!border-red-400" : "border-[#c4c4c41a]"}`}
                 />
                 {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
               </div>
@@ -671,7 +674,7 @@ const CustomQuote = () => {
                   placeholder="Email *"
                   value={formData.email}
                   onChange={handleChange}
-                  inputClassName={`w-full !py-5 !bg-[#c4c4c41a] ${errors.email ? "!border-red-400" : "!border-[#c4c4c41a]"}`}
+                  inputClassName={`w-full !py-5 bg-[#c4c4c41a] ${errors.email ? "!border-red-400" : "border-[#c4c4c41a]"}`}
                 />
                 {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
               </div>
@@ -682,7 +685,7 @@ const CustomQuote = () => {
                   placeholder="Phone *"
                   value={formData.phone}
                   onChange={handleChange}
-                  inputClassName={`w-full !py-5 !bg-[#c4c4c41a] ${errors.phone ? "!border-red-400" : "!border-[#c4c4c41a]"}`}
+                  inputClassName={`w-full !py-5 bg-[#c4c4c41a] ${errors.phone ? "!border-red-400" : "border-[#c4c4c41a]"}`}
                 />
                 {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
               </div>
