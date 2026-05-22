@@ -84,11 +84,12 @@ export function mergeApiConfig(
   if (hasSingleSided) printingTypes.push({ id: 'single-sided', label: 'Single sided', description: 'Full colour front only' });
 
   const pricingTable = (api.pricing_table ?? []).map((r) => ({
-    kind:     r.kind,
-    quantity: r.quantity,
-    formatId: String(r.formatId),
-    stockId:  String(r.stockId),
-    price:    r.price,
+    kind:            r.kind,
+    quantity:        r.quantity,
+    formatId:        String(r.formatId),
+    stockId:         String(r.stockId),
+    price:           r.price,
+    estimatedWeight: r.estimatedWeight,
   }));
 
   return {

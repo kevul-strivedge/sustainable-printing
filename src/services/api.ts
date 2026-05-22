@@ -39,12 +39,13 @@ export interface ApiFinishPrice {
   price: number;
 }
 
-export interface ApiPricingRow {
+export interface ApiConfigPricingTableRow {
   kind: number;
   quantity: number;
   formatId: number;
   stockId: number;
   price: number;
+  estimatedWeight?: number;
 }
 
 export interface ApiConfiguratorConfig {
@@ -57,7 +58,7 @@ export interface ApiConfiguratorConfig {
   quantity: { kind: number; formatId: number; stockId: number; frontInkId: number; backInkId: number }[];
   design_options: { kind: number }[];
   quantity_options: { quantity: number }[];
-  pricing_table: ApiPricingRow[];
+  pricing_table: ApiConfigPricingTableRow[];
 }
 
 export interface ApiPricingRow {
@@ -302,6 +303,18 @@ export async function attachArtworkToQuote(
   });
   const json = await res.json();
   if (!res.ok || !json.success) throw new Error(json.message ?? 'Failed to attach artwork.');
+}
+
+// ─── Delivery ────────────────────────────────────────────────────────────────
+
+export async function fetchDeliveryPrice(postcode: string, weight: number): Promise<number> {
+  const res = await fetch(
+    `${BASE}/delivery/price?postcode=${encodeURIComponent(postcode)}&weight=${encodeURIComponent(weight)}`,
+    { cache: 'no-store' }
+  );
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Postcode not found');
+  return json.data.deliveryPrice as number;
 }
 
 // ─── My Orders ───────────────────────────────────────────────────────────────

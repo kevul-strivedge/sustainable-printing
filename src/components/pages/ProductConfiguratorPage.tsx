@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProductConfiguratorData } from "@/src/types/configurator.types";
 import { useConfigurator } from "@/src/hooks/useConfigurator";
 import { submitQuote, processPayment } from "@/src/services/api";
@@ -26,6 +26,7 @@ import BannerComponent from "@/src/components/pages/BannerComponent";
 import QuantitySelector from "../configurator/form/QuantitySelector";
 import OrderConfirmationPage from "@/src/components/pages/OrderConfirmationPage";
 import { Spinner } from "@/src/components/ui/Spinner";
+import PostcodeModal from "@/src/components/ui/PostcodeModal";
 
 interface Props {
   config: ProductConfiguratorData;
@@ -41,6 +42,48 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [quoteId, setQuoteId] = useState<number | null>(null);
+  const [showPostcodeModal, setShowPostcodeModal] = useState(false);
+  // When true, confirming the postcode modal also advances from step 1 → step 2
+  const [advanceAfterPostcode, setAdvanceAfterPostcode] = useState(false);
+
+  // On mount: read saved postcode from localStorage; show modal if none saved
+  useEffect(() => {
+    const saved = localStorage.getItem("spc_postcode");
+    if (saved && /^\d{4}$/.test(saved)) {
+      dispatch({ type: "SET_DELIVERY_FIELD", field: "deliveryPostcode", value: saved });
+    } else {
+      setShowPostcodeModal(true);
+    }
+  }, []);
+
+  function handlePostcodeConfirm(postcode: string) {
+    localStorage.setItem("spc_postcode", postcode);
+    dispatch({ type: "SET_DELIVERY_FIELD", field: "deliveryPostcode", value: postcode });
+    setShowPostcodeModal(false);
+    if (advanceAfterPostcode) {
+      dispatch({ type: "NEXT_STEP" });
+      setAdvanceAfterPostcode(false);
+    }
+  }
+
+  function handlePostcodeSkip() {
+    setShowPostcodeModal(false);
+    setAdvanceAfterPostcode(false);
+  }
+
+  // Gate: pressing "Continue to Artwork" from step 1 requires a saved postcode.
+  // If missing, open the modal first and advance only after confirm.
+  function handleStep1Next() {
+    const saved = typeof window !== "undefined" ? localStorage.getItem("spc_postcode") : null;
+    const hasValidPostcode =
+      /^\d{4}$/.test(state.deliveryPostcode) || (saved !== null && /^\d{4}$/.test(saved));
+    if (hasValidPostcode) {
+      dispatch({ type: "NEXT_STEP" });
+    } else {
+      setAdvanceAfterPostcode(true);
+      setShowPostcodeModal(true);
+    }
+  }
 
   async function handleSubmit(cardDetails?: CardDetails) {
     setSubmitting(true);
@@ -127,6 +170,12 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
 
   return (
     <>
+      {showPostcodeModal && (
+        <PostcodeModal
+          onConfirm={handlePostcodeConfirm}
+          onSkip={handlePostcodeSkip}
+        />
+      )}
       {submitting && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-3 bg-white/70 backdrop-blur-sm">
           <Spinner size={40} />
@@ -173,7 +222,7 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
 
                 <ExtrasSelector state={state} dispatch={dispatch} extras={config.extras} />
 
-                <StepFooter priceBreakdown={priceBreakdown} state={state} dispatch={dispatch} />
+                <StepFooter priceBreakdown={priceBreakdown} state={state} dispatch={dispatch} onNext={handleStep1Next} />
               </div>
             )}
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducer, useMemo } from "react";
+import { useReducer, useMemo, useEffect } from "react";
 import {
   ConfiguratorState,
   ConfiguratorAction,
@@ -9,6 +9,7 @@ import {
   ProductConfiguratorData,
   InitialOrder,
 } from "@/src/types/configurator.types";
+import { fetchDeliveryPrice } from "@/src/services/api";
 
 function configuratorReducer(
   state: ConfiguratorState,
@@ -54,6 +55,10 @@ function configuratorReducer(
     }
     case "REMOVE_SPLIT_ROW":
       return { ...state, splitRows: state.splitRows.filter((_, i) => i !== action.index) };
+    case "SET_DELIVERY_PRICE":
+      return { ...state, deliveryPrice: action.price, deliveryFetching: false };
+    case "SET_DELIVERY_FETCHING":
+      return { ...state, deliveryFetching: action.fetching };
     default:
       return state;
   }
@@ -111,7 +116,7 @@ export function calculatePrice(
     0
   );
   const totalUnits = allRows.reduce((s, r) => s + r.numDesigns * r.qty, 0);
-  const delivery = config.deliveryPrice;
+  const delivery = state.deliveryPrice;
   const gst = (totalSubtotal + delivery) * config.gstRate;
   const total = totalSubtotal + delivery + gst;
   const perUnit = totalUnits > 0 ? totalSubtotal / totalUnits : 0;
@@ -174,9 +179,34 @@ export function useConfigurator(
     deliveryPhone:     initialDelivery?.phone     ?? "",
     deliveryEmail:     initialDelivery?.email     ?? "",
     paymentMethodId: config.paymentMethods[0].id,
+    deliveryPrice:   0,
+    deliveryFetching: false,
   };
 
   const [state, dispatch] = useReducer(configuratorReducer, initialState);
+
+  // Fetch delivery price whenever postcode or weight-affecting config changes
+  useEffect(() => {
+    const postcode = state.deliveryPostcode;
+    if (!/^\d{4}$/.test(postcode)) {
+      dispatch({ type: "SET_DELIVERY_PRICE", price: 0 });
+      return;
+    }
+    const row = config.pricingTable.find(
+      (r) =>
+        r.kind === state.numDesigns &&
+        r.quantity === state.quantityPerDesign &&
+        (state.sizeId === "" || r.formatId === state.sizeId) &&
+        (state.paperId === "" || r.stockId === state.paperId)
+    );
+    const weight = (row?.estimatedWeight && row.estimatedWeight > 0) ? row.estimatedWeight : 0.5;
+    let cancelled = false;
+    dispatch({ type: "SET_DELIVERY_FETCHING", fetching: true });
+    fetchDeliveryPrice(postcode, weight)
+      .then((price) => { if (!cancelled) dispatch({ type: "SET_DELIVERY_PRICE", price }); })
+      .catch(() => { if (!cancelled) dispatch({ type: "SET_DELIVERY_PRICE", price: 0 }); });
+    return () => { cancelled = true; };
+  }, [state.deliveryPostcode, state.numDesigns, state.quantityPerDesign, state.paperId, state.sizeId]);
 
   const priceBreakdown = useMemo(() => calculatePrice(state, config), [state, config]);
   const splitBreakdowns = useMemo(() => calculateSplitBreakdowns(state, config), [state, config]);

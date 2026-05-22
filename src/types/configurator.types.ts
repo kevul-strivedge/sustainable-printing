@@ -39,6 +39,7 @@ export interface PricingTableRow {
   formatId: string;
   stockId: string;
   price: number;
+  estimatedWeight?: number;
 }
 
 export interface FAQ {
@@ -102,7 +103,7 @@ export interface ProductConfiguratorData {
   extras: ExtraOption[];
   pricingTiers: PricingTier[];
   pricingTable: PricingTableRow[];
-  deliveryPrice: number;
+  deliveryPrice?: number;
   gstRate: number;
   relatedProductSlugs: string[];
 }
@@ -130,6 +131,8 @@ export interface ConfiguratorState {
   deliveryPhone: string;
   deliveryEmail: string;
   paymentMethodId: string;
+  deliveryPrice: number;
+  deliveryFetching: boolean;
 }
 
 export interface PriceBreakdown {
@@ -161,7 +164,9 @@ export type ConfiguratorAction =
   | { type: "SET_PAYMENT_METHOD"; id: string }
   | { type: "ADD_SPLIT_ROW"; numDesigns: number; qty: number }
   | { type: "SET_SPLIT_ROW"; index: number; numDesigns: number; qty: number }
-  | { type: "REMOVE_SPLIT_ROW"; index: number };
+  | { type: "REMOVE_SPLIT_ROW"; index: number }
+  | { type: "SET_DELIVERY_PRICE"; price: number }
+  | { type: "SET_DELIVERY_FETCHING"; fetching: boolean };
 
 export interface InitialDelivery {
   firstName: string;

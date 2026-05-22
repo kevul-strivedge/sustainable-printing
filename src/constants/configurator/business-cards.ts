@@ -213,7 +213,6 @@ export const businessCardsConfig: ProductConfiguratorData = {
     { minQty: 5000, maxQty: 99999,pricePerUnit: 0.031 },
   ],
   pricingTable: [],
-  deliveryPrice: 9.90,
   gstRate: 0.10,
   relatedProductSlugs: ["adhesive-labels", "greeting-cards", "swing-tags", "brochures"],
   artworkOptions: [
