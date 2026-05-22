@@ -9,18 +9,32 @@ export function mergeApiConfig(
   base: ProductConfiguratorData,
   api: ApiConfiguratorConfig,
 ): ProductConfiguratorData {
-  const seenStocks = new Set<number>();
+  // One paper entry per (productId, stockId) pair. paper.id stays plain (stockId);
+  // the cardVariantSelector handles which product variant is active and PaperSelector
+  // filters its list by that variant before rendering — so stockId is unique within
+  // any one variant.
+  const seenPairs = new Set<string>();
   const papers = api.paper_type
     .filter((p) => {
-      if (seenStocks.has(p.stockId)) return false;
-      seenStocks.add(p.stockId);
+      const key = `${p.productId ?? 0}-${p.stockId}`;
+      if (seenPairs.has(key)) return false;
+      seenPairs.add(key);
       return true;
     })
     .map((p) => ({
       id: String(p.stockId),
       label: p.paperName,
       basePriceMultiplier: 1.0,
+      productId: p.productId,
     }));
+
+  // Build the card-variant list — one per portfolio (sibling product). Mirrors
+  // Laravel's "Choose your card" tile selector that appears above "Choose your paper".
+  const cardVariants = (api.portfolios ?? []).map((pf) => ({
+    id: String(pf.productId),
+    label: pf.title || pf.title2 || `Variant ${pf.productId}`,
+    productId: pf.productId,
+  }));
 
   // Deduplicate by formatId — paper_size has one row per kind per format
   const seenFormats = new Set<number>();
@@ -88,6 +102,7 @@ export function mergeApiConfig(
     quantity:        r.quantity,
     formatId:        String(r.formatId),
     stockId:         String(r.stockId),
+    productId:       r.productId,
     price:           r.price,
     estimatedWeight: r.estimatedWeight,
   }));
@@ -101,5 +116,7 @@ export function mergeApiConfig(
     quantityOptions: quantityOptions.length > 0 ? quantityOptions : base.quantityOptions,
     printingTypes,
     pricingTable: pricingTable.length > 0 ? pricingTable : base.pricingTable,
+    portfolios: api.portfolios,
+    cardVariants,
   };
 }

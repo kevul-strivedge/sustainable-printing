@@ -22,6 +22,11 @@ function configuratorReducer(
       return { ...state, quantityPerDesign: action.value };
     case "SET_PAPER":
       return { ...state, paperId: action.id };
+    case "SET_CARD_VARIANT":
+      // Switching variant invalidates paperId — caller passes the new variant id;
+      // ProductConfiguratorPage will re-dispatch SET_PAPER with a valid paper for the
+      // new variant (the first one in that variant's paper list).
+      return { ...state, cardVariantId: action.id };
     case "SET_SIZE":
       return { ...state, sizeId: action.id };
     case "SET_PRINTING_TYPE":
@@ -69,11 +74,13 @@ function calcSplitSubtotal(
   numDesigns: number,
   qty: number,
   paperId: string,
+  cardVariantId: string,
   sizeId: string,
   selectedExtras: string[],
   config: ProductConfiguratorData
 ): number {
   let base = 0;
+  const variantPid = cardVariantId ? Number(cardVariantId) : undefined;
   if (config.pricingTable.length > 0) {
     const byKindQty = config.pricingTable.filter(
       (r) => r.kind === numDesigns && r.quantity === qty
@@ -81,7 +88,10 @@ function calcSplitSubtotal(
 
     // Try most-specific match first, relax constraints if nothing found
     const exact = byKindQty.filter(
-      (r) => (sizeId === '' || r.formatId === sizeId) && (paperId === '' || r.stockId === paperId)
+      (r) =>
+        (sizeId === '' || r.formatId === sizeId) &&
+        (paperId === '' || r.stockId === paperId) &&
+        (variantPid === undefined || r.productId === undefined || r.productId === variantPid)
     );
     const bySize  = exact.length  ? exact  : byKindQty.filter((r) => sizeId === '' || r.formatId === sizeId);
     const matches = bySize.length ? bySize : byKindQty;
@@ -112,7 +122,7 @@ export function calculatePrice(
     ...state.splitRows,
   ];
   const totalSubtotal = allRows.reduce(
-    (sum, r) => sum + calcSplitSubtotal(r.numDesigns, r.qty, state.paperId, state.sizeId, state.selectedExtras, config),
+    (sum, r) => sum + calcSplitSubtotal(r.numDesigns, r.qty, state.paperId, state.cardVariantId, state.sizeId, state.selectedExtras, config),
     0
   );
   const totalUnits = allRows.reduce((s, r) => s + r.numDesigns * r.qty, 0);
@@ -133,7 +143,7 @@ export function calculateSplitBreakdowns(
   ].map((r) => ({
     numDesigns: r.numDesigns,
     qty:        r.qty,
-    subtotal:   calcSplitSubtotal(r.numDesigns, r.qty, state.paperId, state.sizeId, state.selectedExtras, config),
+    subtotal:   calcSplitSubtotal(r.numDesigns, r.qty, state.paperId, state.cardVariantId, state.sizeId, state.selectedExtras, config),
   }));
 }
 
@@ -143,11 +153,27 @@ export function useConfigurator(
   initialDelivery?: { firstName: string; lastName: string; email: string; company: string; street: string; suburb: string; state: string; postcode: string; phone: string },
   initialArtwork?: { fileUrl: string; fileName: string },
   initialOrder?: InitialOrder,
+  /** Optional ?variant=NNN from the URL — picks which sibling product is active on load. */
+  initialVariantId?: string,
 ) {
   const uploadMethod = config.artworkOptions.find(o => o.id === 'upload-pdf')?.id ?? config.artworkOptions[0].id;
 
   // Resolve step-1 values from a prior order by matching stored labels/IDs back to config entries
-  const initPaper    = initialOrder ? (config.papers.find(p => p.label === initialOrder.stock) ?? config.papers[0]) : config.papers[0];
+  // Variant resolution order:
+  //   1. Explicit ?variant=NNN query param (footer "Quick Links" deep-link here)
+  //   2. Slug's own dbId (so /square-stickers opens with productId=26, not whichever
+  //      product the backend listed first)
+  //   3. First variant in the list
+  const requestedVariantPid = initialVariantId ? Number(initialVariantId) : undefined;
+  const initVariant = (requestedVariantPid
+    ? config.cardVariants?.find(v => v.productId === requestedVariantPid)
+    : undefined)
+    ?? config.cardVariants?.find(v => v.productId === config.dbId)
+    ?? config.cardVariants?.[0];
+  // Default paper = first paper of the active variant, falling back to first overall.
+  const initPaper = initialOrder
+    ? (config.papers.find(p => p.label === initialOrder.stock) ?? config.papers[0])
+    : (config.papers.find(p => p.productId === initVariant?.productId) ?? config.papers[0]);
   const initSize     = initialOrder ? (config.sizes.find(s => s.label === initialOrder.format) ?? config.sizes[0]) : config.sizes[0];
   const initPrinting = initialOrder ? (config.printingTypes.find(pt => pt.id === initialOrder.ink) ?? config.printingTypes[0]) : config.printingTypes[0];
   const initExtras   = initialOrder?.finish && !initialOrder.finish.toLowerCase().includes("straight")
@@ -161,6 +187,7 @@ export function useConfigurator(
     numDesigns:        initDesigns,
     quantityPerDesign: initQty,
     splitRows:         initialOrder?.splits ?? [],
+    cardVariantId: initVariant?.id ?? '',
     paperId:        initPaper?.id    ?? '',
     sizeId:         initSize?.id     ?? '',
     printingTypeId: initPrinting?.id ?? '',
@@ -192,12 +219,14 @@ export function useConfigurator(
       dispatch({ type: "SET_DELIVERY_PRICE", price: 0 });
       return;
     }
+    const variantPid = state.cardVariantId ? Number(state.cardVariantId) : undefined;
     const row = config.pricingTable.find(
       (r) =>
         r.kind === state.numDesigns &&
         r.quantity === state.quantityPerDesign &&
         (state.sizeId === "" || r.formatId === state.sizeId) &&
-        (state.paperId === "" || r.stockId === state.paperId)
+        (state.paperId === "" || r.stockId === state.paperId) &&
+        (variantPid === undefined || r.productId === undefined || r.productId === variantPid)
     );
     const weight = (row?.estimatedWeight && row.estimatedWeight > 0) ? row.estimatedWeight : 0.5;
     let cancelled = false;
@@ -206,7 +235,7 @@ export function useConfigurator(
       .then((price) => { if (!cancelled) dispatch({ type: "SET_DELIVERY_PRICE", price }); })
       .catch(() => { if (!cancelled) dispatch({ type: "SET_DELIVERY_PRICE", price: 0 }); });
     return () => { cancelled = true; };
-  }, [state.deliveryPostcode, state.numDesigns, state.quantityPerDesign, state.paperId, state.sizeId]);
+  }, [state.deliveryPostcode, state.numDesigns, state.quantityPerDesign, state.paperId, state.cardVariantId, state.sizeId]);
 
   const priceBreakdown = useMemo(() => calculatePrice(state, config), [state, config]);
   const splitBreakdowns = useMemo(() => calculateSplitBreakdowns(state, config), [state, config]);

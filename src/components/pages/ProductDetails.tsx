@@ -10,13 +10,14 @@ interface Props {
   initialDelivery?: InitialDelivery;
   initialArtwork?: InitialArtwork;
   initialOrder?: InitialOrder;
+  initialVariantId?: string;
 }
 
-export default function ProductDetails({ product, configuratorConfig, initialStep, initialDelivery, initialArtwork, initialOrder }: Props) {
+export default function ProductDetails({ product, configuratorConfig, initialStep, initialDelivery, initialArtwork, initialOrder, initialVariantId }: Props) {
   // If a full configurator config exists for this product, render the rich configurator.
   // Otherwise fall back to a simple info page (for products not yet fully configured).
   if (configuratorConfig) {
-    return <ProductConfiguratorPage config={configuratorConfig} initialStep={initialStep} initialDelivery={initialDelivery} initialArtwork={initialArtwork} initialOrder={initialOrder} />;
+    return <ProductConfiguratorPage config={configuratorConfig} initialStep={initialStep} initialDelivery={initialDelivery} initialArtwork={initialArtwork} initialOrder={initialOrder} initialVariantId={initialVariantId} />;
   }
 
   // Simple fallback for products without a configurator yet

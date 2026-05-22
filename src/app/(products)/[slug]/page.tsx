@@ -9,13 +9,17 @@ import type { InitialDelivery, InitialArtwork, InitialOrder } from "@/src/types/
 
 type Props = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ startStep?: string; quoteId?: string }>;
+  searchParams: Promise<{ startStep?: string; quoteId?: string; variant?: string }>;
 };
 
 export default async function ProductPage({ params, searchParams }: Props) {
   const { slug } = await params;
-  const { startStep, quoteId } = await searchParams;
+  const { startStep, quoteId, variant } = await searchParams;
   const initialStep = startStep ? Math.min(4, Math.max(1, Number(startStep))) : undefined;
+  // ?variant=17 → start the configurator with that sibling product pre-selected.
+  // Footer "Quick Links" use this to deep-link e.g. /business-cards?variant=17 for
+  // the Brown-Kraft variant, mirroring Laravel's separate URLs for each variant.
+  const initialVariantId = variant && /^\d+$/.test(variant) ? variant : undefined;
   const product = products.find((p) => p.slug === slug);
 
   if (!product) notFound();
@@ -96,12 +100,16 @@ export default async function ProductPage({ params, searchParams }: Props) {
   // Enrich with live data from the backend (papers, sizes, finishing options).
   let configuratorConfig = baseConfig;
   if (baseConfig && product.dbId) {
-    const apiConfig = await getProductConfig(product.dbId);
+    const apiConfig = await getProductConfig(product.dbId, product.siblingDbIds);
     if (apiConfig) {
       configuratorConfig = mergeApiConfig(baseConfig, apiConfig);
     }
     if (configuratorConfig) {
-      configuratorConfig = { ...configuratorConfig, dbId: product.dbId };
+      configuratorConfig = {
+        ...configuratorConfig,
+        dbId: product.dbId,
+        variantSelectorLabel: product.variantSelectorLabel ?? configuratorConfig.variantSelectorLabel,
+      };
     }
   }
 
@@ -113,6 +121,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
       initialDelivery={initialDelivery}
       initialArtwork={initialArtwork}
       initialOrder={initialOrder}
+      initialVariantId={initialVariantId}
     />
   );
 }

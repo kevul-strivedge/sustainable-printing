@@ -12,6 +12,7 @@ import ProductPageHeader from "@/src/components/configurator/ProductPageHeader";
 import StepProgressBar from "@/src/components/configurator/StepProgressBar";
 import OrderSummary from "@/src/components/configurator/summary/OrderSummary";
 import PaperSelector from "@/src/components/configurator/form/PaperSelector";
+import CardVariantSelector from "@/src/components/configurator/form/CardVariantSelector";
 import SizeSelector from "@/src/components/configurator/form/SizeSelector";
 import PrintingTypeSelector from "@/src/components/configurator/form/PrintingTypeSelector";
 import ExtrasSelector from "@/src/components/configurator/form/ExtrasSelector";
@@ -34,10 +35,37 @@ interface Props {
   initialDelivery?: InitialDelivery;
   initialArtwork?: InitialArtwork;
   initialOrder?: InitialOrder;
+  initialVariantId?: string;
 }
 
-export default function ProductConfiguratorPage({ config, initialStep, initialDelivery, initialArtwork, initialOrder }: Props) {
-  const { state, dispatch, priceBreakdown, splitBreakdowns } = useConfigurator(config, initialStep, initialDelivery, initialArtwork, initialOrder);
+// Extract bullet-list items from the pt_portfolio.description2 HTML and strip tags.
+// Source data sometimes contains the same <li> twice (e.g. A4 Self Cover Booklets
+// has "100% post-consumer recycled paper" duplicated) — dedupe so React keys stay unique.
+function extractFeatures(html: string | null | undefined): string[] {
+  if (!html) return [];
+  const items: string[] = [];
+  const seen = new Set<string>();
+  const re = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html)) !== null) {
+    const text = m[1].replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+    if (text && !seen.has(text)) {
+      seen.add(text);
+      items.push(text);
+    }
+  }
+  return items;
+}
+
+// Strip surrounding <p>/<a> tags but keep the inner text so the description
+// renders cleanly in our themed component.
+function stripHtmlToText(html: string | null | undefined): string {
+  if (!html) return '';
+  return html.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+export default function ProductConfiguratorPage({ config, initialStep, initialDelivery, initialArtwork, initialOrder, initialVariantId }: Props) {
+  const { state, dispatch, priceBreakdown, splitBreakdowns } = useConfigurator(config, initialStep, initialDelivery, initialArtwork, initialOrder, initialVariantId);
   const { user } = useAuth();
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -45,6 +73,66 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
   const [showPostcodeModal, setShowPostcodeModal] = useState(false);
   // When true, confirming the postcode modal also advances from step 1 → step 2
   const [advanceAfterPostcode, setAdvanceAfterPostcode] = useState(false);
+
+  // Active card variant (sibling DB product the user picked via "Choose your card").
+  // Falls back to the productId attached to the selected paper for products without
+  // an explicit variant list (single-product slugs).
+  const activeVariantPid = state.cardVariantId
+    ? Number(state.cardVariantId)
+    : config.papers.find((p) => p.id === state.paperId)?.productId;
+  const selectedPortfolio = activeVariantPid
+    ? config.portfolios?.find((p) => p.productId === activeVariantPid)
+    : undefined;
+  const portfolioFeatures = extractFeatures(selectedPortfolio?.description2);
+  const activePortfolio = {
+    title:       selectedPortfolio?.title       || config.descriptionTitle || `Premium ${config.title}`,
+    description: stripHtmlToText(selectedPortfolio?.description) || config.description,
+    features:    portfolioFeatures.length > 0 ? portfolioFeatures : config.features,
+  };
+
+  // Papers belonging to the active variant — what "Choose your paper" lists.
+  const papersForVariant = activeVariantPid
+    ? config.papers.filter((p) => p.productId === activeVariantPid)
+    : config.papers;
+  const hasMultipleVariants = (config.cardVariants?.length ?? 0) > 1;
+
+  // Sizes that actually have pricing rows for the active (variant, paper) combo.
+  // Laravel only shows sizes valid for the chosen paper — without this filter we
+  // were showing the union across all sibling products (e.g. 8 sizes for circle
+  // stickers when product 26 + Matt Uncoated only has 3).
+  const validFormatIds = new Set(
+    config.pricingTable
+      .filter((r) =>
+        (activeVariantPid === undefined || r.productId === undefined || r.productId === activeVariantPid) &&
+        (state.paperId === "" || r.stockId === state.paperId)
+      )
+      .map((r) => r.formatId)
+  );
+  const sizesForCombo = validFormatIds.size > 0
+    ? config.sizes.filter((s) => validFormatIds.has(s.id))
+    : config.sizes;
+
+  // If the currently selected size isn't valid for the new variant+paper, reset it
+  // to the first valid size so the price/preview reflect a real combination.
+  useEffect(() => {
+    if (sizesForCombo.length === 0) return;
+    if (!sizesForCombo.find((s) => s.id === state.sizeId)) {
+      dispatch({ type: "SET_SIZE", id: sizesForCombo[0].id });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.cardVariantId, state.paperId, sizesForCombo.length]);
+
+  // Switching the variant must also reset the paper to a valid one for that variant,
+  // otherwise the price/portfolio lookups will fall back to whatever pricing row
+  // matches loosely and the UI drifts out of sync.
+  function handleVariantChange(newVariantId: string) {
+    dispatch({ type: "SET_CARD_VARIANT", id: newVariantId });
+    const newPid = Number(newVariantId);
+    const firstPaperForVariant = config.papers.find((p) => p.productId === newPid);
+    if (firstPaperForVariant) {
+      dispatch({ type: "SET_PAPER", id: firstPaperForVariant.id });
+    }
+  }
 
   // On mount: read saved postcode from localStorage; show modal if none saved
   useEffect(() => {
@@ -204,12 +292,22 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
                   pricingTable={config.pricingTable}
                 />
 
-                {config.papers.length > 0 && (
-                  <PaperSelector state={state} dispatch={dispatch} papers={config.papers} />
+                {hasMultipleVariants && (
+                  <CardVariantSelector
+                    state={state}
+                    dispatch={dispatch}
+                    variants={config.cardVariants ?? []}
+                    onVariantChange={handleVariantChange}
+                    label={config.variantSelectorLabel}
+                  />
                 )}
 
-                {config.sizes.length > 0 && (
-                  <SizeSelector state={state} dispatch={dispatch} sizes={config.sizes} />
+                {papersForVariant.length > 0 && (
+                  <PaperSelector state={state} dispatch={dispatch} papers={papersForVariant} />
+                )}
+
+                {sizesForCombo.length > 0 && (
+                  <SizeSelector state={state} dispatch={dispatch} sizes={sizesForCombo} />
                 )}
 
                 {config.printingTypes.length > 0 && (
@@ -253,9 +351,9 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
             )}
 
             <ProductDescription
-              title={config.descriptionTitle ?? `Premium ${config.title}`}
-              description={config.description}
-              features={config.features}
+              title={activePortfolio.title}
+              description={activePortfolio.description}
+              features={activePortfolio.features}
               aboutParagraphs={config.aboutParagraphs}
             />
           </div>

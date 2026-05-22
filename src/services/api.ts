@@ -4,6 +4,16 @@ export interface ApiPaperType {
   stockId: number;
   paperName: string;
   formatId: number;
+  productId?: number;
+}
+
+export interface ApiPortfolio {
+  productId: number;
+  title: string | null;
+  title2: string | null;
+  description: string | null;
+  description1: string | null;
+  description2: string | null;
 }
 
 export interface ApiPaperSize {
@@ -44,6 +54,7 @@ export interface ApiConfigPricingTableRow {
   quantity: number;
   formatId: number;
   stockId: number;
+  productId?: number;
   price: number;
   estimatedWeight?: number;
 }
@@ -59,6 +70,7 @@ export interface ApiConfiguratorConfig {
   design_options: { kind: number }[];
   quantity_options: { quantity: number }[];
   pricing_table: ApiConfigPricingTableRow[];
+  portfolios?: ApiPortfolio[];
 }
 
 export interface ApiPricingRow {
@@ -235,8 +247,11 @@ export async function registerUser(payload: {
 
 // ─── Products ────────────────────────────────────────────────────────────────
 
-export function getProductConfig(productId: number) {
-  return apiFetch<ApiConfiguratorConfig>(`/configurator/${productId}/config`);
+export function getProductConfig(productId: number, siblingDbIds?: number[]) {
+  const qs = siblingDbIds && siblingDbIds.length > 0
+    ? `?siblings=${siblingDbIds.join(',')}`
+    : '';
+  return apiFetch<ApiConfiguratorConfig>(`/configurator/${productId}/config${qs}`);
 }
 
 export function getProductPrice(

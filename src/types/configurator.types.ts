@@ -7,6 +7,25 @@ export interface PaperOption {
   id: string;
   label: string;
   basePriceMultiplier: number;
+  /** DB productId this paper belongs to — used to find the matching portfolio
+      (title/description) when the user selects this paper. */
+  productId?: number;
+}
+
+export interface PortfolioEntry {
+  productId: number;
+  title: string | null;
+  title2: string | null;
+  description: string | null;
+  description1: string | null;
+  description2: string | null;
+}
+
+export interface CardVariant {
+  /** Stringified productId — used as the id in state.cardVariantId. */
+  id: string;
+  label: string;
+  productId: number;
 }
 
 export interface SizeOption {
@@ -38,6 +57,9 @@ export interface PricingTableRow {
   quantity: number;
   formatId: string;
   stockId: string;
+  /** DB product this row belongs to — used to disambiguate when sibling products
+      share the same paper stock (e.g. postcards 18 and 48 both use stock 30). */
+  productId?: number;
   price: number;
   estimatedWeight?: number;
 }
@@ -106,6 +128,15 @@ export interface ProductConfiguratorData {
   deliveryPrice?: number;
   gstRate: number;
   relatedProductSlugs: string[];
+  /** Per-product-variant marketing copy from the pt_portfolio table.
+      The page swaps title/description/features when the paper selection changes. */
+  portfolios?: PortfolioEntry[];
+  /** "Choose your card" variants — one per sibling DB product (>= 2 entries triggers
+      the variant tile selector to render). Empty/single-entry → only the paper selector. */
+  cardVariants?: CardVariant[];
+  /** Label for the variant selector — defaults to "Choose your card".
+      Stickers use "Choose your shape" to match Laravel. */
+  variantSelectorLabel?: string;
 }
 
 export interface ConfiguratorState {
@@ -113,6 +144,7 @@ export interface ConfiguratorState {
   numDesigns: number;
   quantityPerDesign: number;
   splitRows: { numDesigns: number; qty: number }[];
+  cardVariantId: string;
   paperId: string;
   sizeId: string;
   printingTypeId: string;
@@ -153,6 +185,7 @@ export type ConfiguratorAction =
   | { type: "SET_DESIGNS"; value: number }
   | { type: "SET_QTY_PER_DESIGN"; value: number }
   | { type: "SET_PAPER"; id: string }
+  | { type: "SET_CARD_VARIANT"; id: string }
   | { type: "SET_SIZE"; id: string }
   | { type: "SET_PRINTING_TYPE"; id: string }
   | { type: "TOGGLE_EXTRA"; id: string }
