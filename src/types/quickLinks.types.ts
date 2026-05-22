@@ -13,4 +13,5 @@ export interface QuickLinkCategoryType {
 export interface QuickLinksProps {
   items?: QuickLinkCategoryType[];
   className?: string;
+   title?: string;
 }

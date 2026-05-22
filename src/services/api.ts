@@ -4,6 +4,16 @@ export interface ApiPaperType {
   stockId: number;
   paperName: string;
   formatId: number;
+  productId?: number;
+}
+
+export interface ApiPortfolio {
+  productId: number;
+  title: string | null;
+  title2: string | null;
+  description: string | null;
+  description1: string | null;
+  description2: string | null;
 }
 
 export interface ApiPaperSize {
@@ -37,14 +47,19 @@ export interface ApiFinishPrice {
   finishId: number;
   quantity: number;
   price: number;
+  /** pt_finish_prices.id — keeps insertion order for Laravel's first-appearance
+      tier lookup (later rows overwrite earlier ones). */
+  id?: number;
 }
 
-export interface ApiPricingRow {
+export interface ApiConfigPricingTableRow {
   kind: number;
   quantity: number;
   formatId: number;
   stockId: number;
+  productId?: number;
   price: number;
+  estimatedWeight?: number;
 }
 
 export interface ApiConfiguratorConfig {
@@ -57,7 +72,8 @@ export interface ApiConfiguratorConfig {
   quantity: { kind: number; formatId: number; stockId: number; frontInkId: number; backInkId: number }[];
   design_options: { kind: number }[];
   quantity_options: { quantity: number }[];
-  pricing_table: ApiPricingRow[];
+  pricing_table: ApiConfigPricingTableRow[];
+  portfolios?: ApiPortfolio[];
 }
 
 export interface ApiPricingRow {
@@ -234,8 +250,11 @@ export async function registerUser(payload: {
 
 // ─── Products ────────────────────────────────────────────────────────────────
 
-export function getProductConfig(productId: number) {
-  return apiFetch<ApiConfiguratorConfig>(`/configurator/${productId}/config`);
+export function getProductConfig(productId: number, siblingDbIds?: number[]) {
+  const qs = siblingDbIds && siblingDbIds.length > 0
+    ? `?siblings=${siblingDbIds.join(',')}`
+    : '';
+  return apiFetch<ApiConfiguratorConfig>(`/configurator/${productId}/config${qs}`);
 }
 
 export function getProductPrice(
@@ -302,6 +321,18 @@ export async function attachArtworkToQuote(
   });
   const json = await res.json();
   if (!res.ok || !json.success) throw new Error(json.message ?? 'Failed to attach artwork.');
+}
+
+// ─── Delivery ────────────────────────────────────────────────────────────────
+
+export async function fetchDeliveryPrice(postcode: string, weight: number): Promise<number> {
+  const res = await fetch(
+    `${BASE}/delivery/price?postcode=${encodeURIComponent(postcode)}&weight=${encodeURIComponent(weight)}`,
+    { cache: 'no-store' }
+  );
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Postcode not found');
+  return json.data.deliveryPrice as number;
 }
 
 // ─── My Orders ───────────────────────────────────────────────────────────────

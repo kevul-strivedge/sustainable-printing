@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={product.shopHref}>
-    <article className="flex flex-col group">
+    <article className="flex flex-col h-full group">
       {/* Image */}
       <div className={`relative w-full aspect-[4/3] overflow-hidden rounded-sm mb-5 ${product.containerClassName} `}>
         <Image
@@ -35,7 +35,7 @@ export default function ProductCard({ product }: { product: Product }) {
           text-[#4CCC88] hover:underline
           text-md font-medium
           transition-colors duration-150
-          group
+          group mt-auto
         "
       >
         {product.shopLabel}
