@@ -106,8 +106,22 @@ function calcSplitSubtotal(
   const extras = selectedExtras.reduce((sum, id) => {
     const extra = config.extras.find((e) => e.id === id);
     if (!extra) return sum;
-    const tier = extra.priceTiers.find((t) => t.quantity === qty);
-    return sum + (tier?.price ?? 0) * numDesigns;
+    // Mirror Laravel ProductController.php:1589-1597 — build qty→price map in insertion
+    // order (sorted by pt_finish_prices.id, later rows overwrite earlier ones), then
+    // pick the LAST tier whose quantity ≤ target qty (NOT the highest tier ≤ qty —
+    // because PHP foreach iterates keys in first-appearance order).
+    const sorted = [...extra.priceTiers].sort((a, b) => (a.id ?? 0) - (b.id ?? 0));
+    const priceMap = new Map<number, number>();
+    const insertionOrder: number[] = [];
+    for (const t of sorted) {
+      if (!priceMap.has(t.quantity)) insertionOrder.push(t.quantity);
+      priceMap.set(t.quantity, t.price);
+    }
+    let finis = 0;
+    for (const q of insertionOrder) {
+      if (qty >= q) finis = priceMap.get(q) ?? 0;
+    }
+    return sum + finis;
   }, 0);
   return base + extras;
 }
@@ -127,7 +141,10 @@ export function calculatePrice(
   );
   const totalUnits = allRows.reduce((s, r) => s + r.numDesigns * r.qty, 0);
   const delivery = state.deliveryPrice;
-  const gst = (totalSubtotal + delivery) * config.gstRate;
+  // Laravel applies 10% GST only to weight_price (delivery) — pt_product_pricing
+  // prices are already stored GST-inclusive, so we'd double-charge if we apply it
+  // to the subtotal too. See docs/sustainable-master/public/js/custom-current.js:1823-1839.
+  const gst = delivery * config.gstRate;
   const total = totalSubtotal + delivery + gst;
   const perUnit = totalUnits > 0 ? totalSubtotal / totalUnits : 0;
   return { subtotal: totalSubtotal, delivery, gst, total, perUnit };

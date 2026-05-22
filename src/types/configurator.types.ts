@@ -43,7 +43,7 @@ export interface PrintingType {
 export interface ExtraOption {
   id: string;
   label: string;
-  priceTiers: { quantity: number; price: number }[];
+  priceTiers: { quantity: number; price: number; id?: number }[];
 }
 
 export interface PricingTier {

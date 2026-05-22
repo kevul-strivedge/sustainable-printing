@@ -47,6 +47,9 @@ export interface ApiFinishPrice {
   finishId: number;
   quantity: number;
   price: number;
+  /** pt_finish_prices.id — keeps insertion order for Laravel's first-appearance
+      tier lookup (later rows overwrite earlier ones). */
+  id?: number;
 }
 
 export interface ApiConfigPricingTableRow {

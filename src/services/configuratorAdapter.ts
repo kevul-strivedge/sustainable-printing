@@ -60,9 +60,11 @@ export function mergeApiConfig(
     .map((f) => ({
       id: String(f.finishId),
       label: f.finishName,
+      // Keep the pt_finish_prices.id so calcSplitSubtotal can iterate tiers in
+      // insertion order (matches Laravel's first-appearance algorithm).
       priceTiers: api.finish_prices
         .filter((p) => p.finishId === f.finishId)
-        .map((p) => ({ quantity: p.quantity, price: p.price })),
+        .map((p) => ({ quantity: p.quantity, price: p.price, id: p.id })),
     }));
 
   const seenKinds = new Set<number>();

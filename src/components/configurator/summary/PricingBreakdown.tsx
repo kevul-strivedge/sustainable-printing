@@ -31,7 +31,7 @@ export default function PricingBreakdown({ priceBreakdown, state }: Props) {
         )}
       </div>
 
-      <Row label="GST (10%)" value={`$${priceBreakdown.gst.toFixed(2)}`} />
+      <Row label="GST (on delivery)" value={`$${priceBreakdown.gst.toFixed(2)}`} />
 
       <div className="flex items-center justify-between pt-2.5 mt-1.5 border-t border-gray-300">
         <span className="text-[18px] font-bold text-[#292560]">Total</span>
