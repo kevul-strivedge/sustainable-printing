@@ -4,9 +4,10 @@ interface Props {
   priceBreakdown: PriceBreakdown;
   state: ConfiguratorState;
   dispatch: React.Dispatch<ConfiguratorAction>;
+  onNext?: () => void;
 }
 
-export default function StepFooter({ priceBreakdown, state, dispatch }: Props) {
+export default function StepFooter({ priceBreakdown, state, dispatch, onNext }: Props) {
   const totalQty = state.numDesigns * state.quantityPerDesign;
 
   return (
@@ -30,7 +31,7 @@ export default function StepFooter({ priceBreakdown, state, dispatch }: Props) {
       {/* Right: CTA button */}
       <button
         type="button"
-        onClick={() => dispatch({ type: "NEXT_STEP" })}
+        onClick={() => (onNext ? onNext() : dispatch({ type: "NEXT_STEP" }))}
         className="inline-flex items-center gap-2.5 sm:px-7 px-3 py-3.5 bg-[#1e4620] text-white text-[14px] font-semibold rounded-lg hover:bg-[#163318] transition-colors duration-150 whitespace-nowrap"
       >
         Continue to Artwork

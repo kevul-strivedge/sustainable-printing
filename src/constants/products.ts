@@ -9,6 +9,13 @@ export interface ProductData {
   slug: string;
   /** Numeric ID from pt_products in the backend DB — used to fetch live config */
   dbId?: number;
+  /** Other DB product IDs whose papers/sizes/prices should ALSO appear in this product's
+      dropdowns. Mirrors the old Laravel pt_portfolio.parent_product_id sibling lookup,
+      so e.g. business-cards (15) can show papers from kraft business-cards (17) too. */
+  siblingDbIds?: number[];
+  /** Label for the variant selector ("Choose your card" by default).
+      Laravel uses "Choose your shape" for sticker products with shape variants. */
+  variantSelectorLabel?: string;
   title: string;
   shortDescription: string;
   description: string;
@@ -24,6 +31,9 @@ export const products: ProductData[] = [
   {
     slug: "business-cards",
     dbId: 15,
+    // Pull paper/size/price data from the kraft business cards (DB id 17) too,
+    // so the paper dropdown lists both EcoStar Uncoated and Brown Kraft.
+    siblingDbIds: [17],
     title: "Business Cards",
     shortDescription:
       "Eco-friendly business cards printed on 100% recycled paper.",
@@ -50,6 +60,8 @@ export const products: ProductData[] = [
   {
     slug: "postcards",
     dbId: 18,
+    // Laravel /premium-postcards shows 3 tiles: 18 (Premium), 19 (Kraft), 48 (Save the Date).
+    siblingDbIds: [19, 48],
     title: "Postcards",
     shortDescription:
       "Premium recycled postcards for marketing and personal use.",
@@ -228,6 +240,8 @@ export const products: ProductData[] = [
   {
     slug: "greeting-cards",
     dbId: 20,
+    // Laravel /standard-a6-gift-cards shows 2 tiles: 20 (A6), 22 (Square).
+    siblingDbIds: [22],
     title: "Greeting Cards",
     shortDescription: "Beautiful recycled greeting cards for every occasion.",
     description:
@@ -677,6 +691,8 @@ export const products: ProductData[] = [
   {
     slug: "christmas-cards",
     dbId: 43,
+    // Laravel /folded-a6-christmas-cards shows 2 tiles: 43 (A6), 44 (Square).
+    siblingDbIds: [44],
     title: "Christmas Cards",
     shortDescription: "Sustainable Christmas cards for your festive season.",
     description:
@@ -1221,6 +1237,8 @@ export const products: ProductData[] = [
   },
   {
     slug: "wrapping-paper",
+    // Laravel /a2-wrapping-paper → portfolio 21 → product_id 39 ("100gsm White 100% Recycled").
+    dbId: 39,
     title: "Wrapping Paper",
     shortDescription: "Sustainable custom-printed wrapping paper.",
     description:
@@ -1579,6 +1597,8 @@ export const products: ProductData[] = [
   {
     slug: "swing-tags",
     dbId: 23,
+    // Laravel pt_portfolio parent=5: products 23 (Premium) + 24 (Kraft Swing Tags).
+    siblingDbIds: [24],
     title: "Swing Tags",
     shortDescription:
       "100% recycled swing tags for sustainable product packaging.",
@@ -1889,6 +1909,9 @@ export const products: ProductData[] = [
   {
     slug: "circle-stickers",
     dbId: 25,
+    // Laravel /circle-adhesive-labels shows 2 tiles: 25 (Adhesive Labels), 26 (Square Stickers).
+    siblingDbIds: [26],
+    variantSelectorLabel: "Choose your shape",
     title: "Circle Stickers",
     shortDescription: "Perfectly round eco-friendly stickers for any use.",
     description:
@@ -2058,6 +2081,9 @@ export const products: ProductData[] = [
   {
     slug: "square-stickers",
     dbId: 26,
+    // Laravel /square-stickers shows 2 tiles: 25 (Adhesive Labels), 26 (Square Stickers).
+    siblingDbIds: [25],
+    variantSelectorLabel: "Choose your shape",
     title: "Square Stickers",
     shortDescription: "Eco-friendly square stickers for a clean modern look.",
     description:
@@ -2404,6 +2430,8 @@ export const products: ProductData[] = [
   {
     slug: "books",
     dbId: 29,
+    // Laravel pt_portfolio parent=7: 29 (A4 Self), 30 (A4 Plus), 31 (A5 Self), 33 (A5 Plus).
+    siblingDbIds: [30, 31, 33],
     title: "Books",
     shortDescription: "Sustainable books, magazines, and annual reports.",
     description:
@@ -3155,6 +3183,8 @@ export const products: ProductData[] = [
   {
     slug: "save-the-date-cards",
     dbId: 48,
+    // Laravel /save-the-date-cards shows 3 tiles: 18 (Premium Postcards), 19 (Kraft Postcards), 48 (Save the Date).
+    siblingDbIds: [18, 19],
     title: "Save The Date Cards",
     shortDescription: "Eco-friendly save the date cards for your special day.",
     description:

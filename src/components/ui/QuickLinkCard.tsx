@@ -1,5 +1,6 @@
 // components/ui/QuickLinkCard.tsx
 
+import Link from "next/link";
 import { QuickLinkCategoryType } from "@/src/types/quickLinks.types";
 
 const LeafIcon = ({ size = 14, color = "#3d9e5f" }) => (
@@ -13,14 +14,14 @@ const QuickLinkCard = ({ category, links }: QuickLinkCategoryType) => {
     <div className="flex flex-col gap-2">
       <h3 className="text-[#292560] text-xl font-bold mb-1">{category}</h3>
       {links.map((link, i) => (
-        <a
+        <Link
           key={i}
           href={link.href}
           className="flex items-center gap-2 text-[#292560] text-md hover:underline ps-5"
         >
           <LeafIcon size={18}  color="#36af7c" />
           {link.label}
-        </a>
+        </Link>
       ))}
     </div>
   );
