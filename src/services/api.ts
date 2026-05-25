@@ -378,6 +378,67 @@ export async function submitCustomQuote(formData: FormData): Promise<void> {
   }
 }
 
+// ─── Profile ──────────────────────────────────────────────────────────────────
+
+export interface LookupOption {
+  id: number;
+  name: string;
+}
+
+export interface ProfileData {
+  id: number;
+  firstName: string;
+  lastName: string;
+  businessname: string;
+  address: string;
+  suburb: string;
+  state: string;
+  postcode: string;
+  email: string;
+  website: string;
+  phone: string;
+  mobile: string;
+  businessTypeId: number | null;
+  heardFromId: number | null;
+  businessTypes: LookupOption[];
+  heardFromList: LookupOption[];
+}
+
+export interface ProfileUpdatePayload {
+  firstName: string;
+  lastName: string;
+  businessname: string;
+  address: string;
+  suburb: string;
+  state: string;
+  postcode: string;
+  website: string;
+  phone: string;
+  mobile: string;
+  businessTypeId: number | null;
+  heardFromId: number | null;
+}
+
+export async function fetchProfile(token: string): Promise<ProfileData> {
+  const res = await fetch(`${BASE}/auth/me`, {
+    headers: { Authorization: `Bearer ${token}` },
+    cache: 'no-store',
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Failed to fetch profile');
+  return json.data as ProfileData;
+}
+
+export async function updateProfile(payload: ProfileUpdatePayload, token: string): Promise<void> {
+  const res = await fetch(`${BASE}/auth/me`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify(payload),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) throw new Error(json.message ?? 'Failed to update profile');
+}
+
 export async function fetchMyOrders(token: string, page = 1): Promise<MyOrdersResponse | null> {
   try {
     const res = await fetch(`${BASE}/quotes/my-orders?page=${page}&limit=5`, {

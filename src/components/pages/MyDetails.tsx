@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import PageHeader from "@/src/components/ui/PageHeader";
 import Input from "@/src/components/ui/Input";
 import CustomSelect from "@/src/components/ui/CustomSelect";
 import Link from "next/link";
+import { useAuth } from "@/src/context/AuthContext";
+import { fetchProfile, updateProfile, type LookupOption } from "@/src/services/api";
 
 export interface ProfileForm {
   firstName: string;
@@ -18,38 +21,11 @@ export interface ProfileForm {
   website: string;
   phone: string;
   mobile: string;
-  businessCategory: string;
-  heardFrom: string;
+  businessTypeId: string;
+  heardFromId: string;
 }
 
-export interface SelectOption {
-  value: string;
-  label: string;
-}
-
-export const businessCategories: SelectOption[] = [
-  { value: "graphic-designer", label: "Graphic Designer" },
-  { value: "b2b-business", label: "B2B Business" },
-  { value: "green-business", label: "Green Business" },
-  { value: "not-for-profit", label: "Not For Profit" },
-  { value: "natural-health", label: "Natural Health" },
-  { value: "other", label: "Other" },
-];
-
-export const heardFromOptions: SelectOption[] = [
-  { value: "google", label: "Google" },
-  { value: "advertising", label: "Advertising" },
-  { value: "word-of-mouth", label: "Word of mouth" },
-  { value: "facebook", label: "Facebook" },
-  { value: "twitter", label: "Twitter" },
-  { value: "linkedin", label: "LinkedIn" },
-  { value: "trade-show", label: "Trade Show" },
-  { value: "festival", label: "Festival" },
-  { value: "other", label: "Other" },
-  { value: "instagram", label: "Instagram" },
-];
-
-export const australianStates: SelectOption[] = [
+export const australianStates = [
   { value: "NSW", label: "New South Wales" },
   { value: "VIC", label: "Victoria" },
   { value: "QLD", label: "Queensland" },
@@ -60,7 +36,14 @@ export const australianStates: SelectOption[] = [
   { value: "NT", label: "Northern Territory" },
 ];
 
+function toSelectOptions(items: LookupOption[]) {
+  return items.map((item) => ({ value: String(item.id), label: item.name }));
+}
+
 export const MyDetails = () => {
+  const { user, hydrated } = useAuth();
+  const router = useRouter();
+
   const [form, setForm] = useState<ProfileForm>({
     firstName: "",
     surname: "",
@@ -73,16 +56,93 @@ export const MyDetails = () => {
     website: "",
     phone: "",
     mobile: "",
-    businessCategory: "",
-    heardFrom: "",
+    businessTypeId: "",
+    heardFromId: "",
   });
+
+  const [businessTypeOptions, setBusinessTypeOptions] = useState<{ value: string; label: string }[]>([]);
+  const [heardFromOptions, setHeardFromOptions] = useState<{ value: string; label: string }[]>([]);
+  const [userId, setUserId] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    if (!hydrated) return;
+    if (!user) {
+      router.replace("/login");
+      return;
+    }
+
+    fetchProfile(user.token)
+      .then((data) => {
+        setUserId(data.id);
+        setForm({
+          firstName: data.firstName ?? "",
+          surname: data.lastName ?? "",
+          businessName: data.businessname ?? "",
+          address: data.address ?? "",
+          city: data.suburb ?? "",
+          state: data.state ?? "",
+          postcode: data.postcode ?? "",
+          email: data.email ?? "",
+          website: data.website ?? "",
+          phone: data.phone ?? "",
+          mobile: data.mobile ?? "",
+          businessTypeId: data.businessTypeId ? String(data.businessTypeId) : "",
+          heardFromId: data.heardFromId ? String(data.heardFromId) : "",
+        });
+        setBusinessTypeOptions(toSelectOptions(data.businessTypes));
+        setHeardFromOptions(toSelectOptions(data.heardFromList));
+      })
+      .catch(() => setErrorMsg("Failed to load profile. Please refresh and try again."))
+      .finally(() => setLoading(false));
+  }, [hydrated, user, router]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit() {
-    console.log("Form submitted:", form);
+  async function handleSubmit() {
+    setSuccessMsg("");
+    setErrorMsg("");
+    setSubmitting(true);
+    try {
+      await updateProfile(
+        {
+          firstName: form.firstName,
+          lastName: form.surname,
+          businessname: form.businessName,
+          address: form.address,
+          suburb: form.city,
+          state: form.state,
+          postcode: form.postcode,
+          website: form.website,
+          phone: form.phone,
+          mobile: form.mobile,
+          businessTypeId: form.businessTypeId ? Number(form.businessTypeId) : null,
+          heardFromId: form.heardFromId ? Number(form.heardFromId) : null,
+        },
+        user!.token
+      );
+      setSuccessMsg("Profile details updated successfully.");
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : "Failed to update profile.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  if (!hydrated || loading) {
+    return (
+      <>
+        <PageHeader title="Edit Profile" />
+        <div className="bg-[#FEFAF3] sm:py-16 py-10 flex justify-center">
+          <p className="text-[#292560] text-lg">Loading profile…</p>
+        </div>
+      </>
+    );
   }
 
   return (
@@ -91,7 +151,7 @@ export const MyDetails = () => {
       <div className="bg-[#FEFAF3] sm:py-16 py-10">
         <div className="max-w-6xl mx-auto px-6 space-y-10">
           {/* Referral card */}
-          <div className="rounded-md shadow-[0_2px_10px_rgb(0_0_0_/_25%)] sm:px-8 px-6 py-8 bg-white space-y-4">
+          <div className="rounded-md shadow-[0_2px_10px_rgb(0_0_0/25%)] sm:px-8 px-6 py-8 bg-white space-y-4">
             <h2 className="text-[#292560] text-2xl font-medium">
               Reduce your printing and design costs
             </h2>
@@ -107,7 +167,7 @@ export const MyDetails = () => {
                 href="#"
                 className="text-[#292560] underline break-all cursor-pointer"
               >
-                https://www.sustainableprintingco.com.au/ref/17411/
+                {`https://www.sustainableprintingco.com.au/ref/${userId ?? ""}/`}
               </Link>
             </p>
             <button
@@ -127,8 +187,20 @@ export const MyDetails = () => {
             </button>
           </div>
 
+          {/* Status messages */}
+          {successMsg && (
+            <div className="bg-green-50 border border-green-300 text-green-800 rounded-md px-5 py-3 text-sm">
+              {successMsg}
+            </div>
+          )}
+          {errorMsg && (
+            <div className="bg-red-50 border border-red-300 text-red-700 rounded-md px-5 py-3 text-sm">
+              {errorMsg}
+            </div>
+          )}
+
           {/* Contact details card */}
-          <div className="rounded-md shadow-[0_2px_10px_rgb(0_0_0_/_25%)] sm:px-8 px-6 py-10 bg-white space-y-6">
+          <div className="rounded-md shadow-[0_2px_10px_rgb(0_0_0/25%)] sm:px-8 px-6 py-10 bg-white space-y-6">
             <h2 className="text-[#292560] text-2xl font-semibold">
               Contact details
             </h2>
@@ -188,7 +260,7 @@ export const MyDetails = () => {
                   value={form.state}
                   options={australianStates}
                   onChange={(val) => setForm({ ...form, state: val })}
-                  className=" !border-[#C4C4C4]"
+                  className=" border-[#C4C4C4]!"
                 />
               </div>
 
@@ -240,12 +312,10 @@ export const MyDetails = () => {
                 </label>
                 <CustomSelect
                   placeholder="-- Select One --"
-                  value={form.businessCategory}
-                  options={businessCategories}
-                  onChange={(val) =>
-                    setForm({ ...form, businessCategory: val })
-                  }
-                  className=" !border-[#C4C4C4]"
+                  value={form.businessTypeId}
+                  options={businessTypeOptions}
+                  onChange={(val) => setForm({ ...form, businessTypeId: val })}
+                  className=" border-[#C4C4C4]!"
                 />
               </div>
 
@@ -255,10 +325,10 @@ export const MyDetails = () => {
                 </label>
                 <CustomSelect
                   placeholder="-- Select One --"
-                  value={form.heardFrom}
+                  value={form.heardFromId}
                   options={heardFromOptions}
-                  onChange={(val) => setForm({ ...form, heardFrom: val })}
-                  className=" !border-[#C4C4C4]"
+                  onChange={(val) => setForm({ ...form, heardFromId: val })}
+                  className=" border-[#C4C4C4]!"
                 />
               </div>
 
@@ -275,17 +345,17 @@ export const MyDetails = () => {
           <button
             type="button"
             onClick={handleSubmit}
-            className="bg-[#292560] cursor-pointer hover:bg-[#1e1a4a] text-white font-medium px-6 py-3 rounded-md transition-colors duration-200"
+            disabled={submitting}
+            className="bg-[#292560] cursor-pointer hover:bg-[#1e1a4a] disabled:opacity-60 text-white font-medium px-6 py-3 rounded-md transition-colors duration-200"
           >
-            Submit
+            {submitting ? "Saving…" : "Submit"}
           </button>
-          <button
-            type="button"
-            onClick={() => console.log("Cancelled")}
+          <Link
+            href="/order"
             className="border cursor-pointer border-[#292560] text-[#292560] font-medium px-6 py-3 rounded-md hover:bg-[#292560] hover:text-white transition-colors duration-200"
           >
             Cancel
-          </button>
+          </Link>
         </div>
       </div>
     </>
