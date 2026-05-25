@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/src/context/AuthContext";
 import { fetchMyOrders, reQuoteOrder, MyOrder } from "@/src/services/api";
 import { products } from "@/src/constants/products";
+import { getNavHref } from "@/src/constants/seoMeta";
 import { PageLoader } from "@/src/components/ui/Spinner";
 
 const STATUS_STYLES: Record<string, string> = {
@@ -38,15 +39,60 @@ function ChevronDown() {
 
 const BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000/api/v1';
 
+// Resolve the configurator slug for an order.
+//
+// Primary: match `pt_quotes.product_type` against `products[].dbId`.
+// Fallback (for legacy Laravel orders that store `product_type = 0`): keyword-
+// match the `details` text (built from `productName || product || stock+format`)
+// against known product names. Returns undefined if neither succeeds.
+function deriveProductSlug(productType: number | null | undefined, details: string | null | undefined): string | undefined {
+  if (productType) {
+    const exact = products.find((p) => p.dbId === productType);
+    if (exact) return exact.slug;
+  }
+  const t = (details ?? '').toLowerCase();
+  if (!t) return undefined;
+  // Order matters — longer / more-specific keywords first.
+  if (/save.{0,4}the.{0,4}date/.test(t))               return 'save-the-date-cards';
+  if (/birth.{0,4}announcement/.test(t))               return 'birth-announcement-cards';
+  if (/appointment\s*card/.test(t))                    return 'appointment-cards';
+  if (/loyalty\s*card/.test(t))                        return 'loyalty-cards';
+  if (/discount\s*card/.test(t))                       return 'discount-cards';
+  if (/christmas/.test(t))                             return 'christmas-cards';
+  if (/thank.{0,4}you.{0,4}card/.test(t))              return 'thank-you-cards';
+  if (/invitation/.test(t))                            return 'invitations';
+  if (/greeting\s*card|gift\s*card/.test(t))           return 'greeting-cards';
+  if (/business\s*card/.test(t))                       return 'business-cards';
+  if (/post\s*card/.test(t))                           return 'postcards';
+  if (/swing\s*tag/.test(t))                           return 'swing-tags';
+  if (/bookmark/.test(t))                              return 'bookmarks';
+  if (/compliment\s*slip/.test(t))                     return 'compliment-slips';
+  if (/letterhead/.test(t))                            return 'letterhead';
+  if (/wrapping\s*paper/.test(t))                      return 'wrapping-paper';
+  if (/brochure|fold.{0,4}(brochure|page)|6\s*page/.test(t)) return 'brochures';
+  if (/flyer/.test(t))                                 return 'flyers';
+  if (/poster/.test(t))                                return 'posters';
+  if (/circle\s*(sticker|adhesive)/.test(t))           return 'circle-stickers';
+  if (/square\s*(sticker|adhesive)/.test(t))           return 'square-stickers';
+  if (/rectangle\s*(sticker|adhesive)/.test(t))        return 'rectangle-stickers';
+  if (/sticker|adhesive\s*label/.test(t))              return 'circle-stickers';
+  if (/booklet|report/.test(t))                        return 'books';
+  if (/calend/.test(t))                                return 'calendars';
+  if (/book/.test(t))                                  return 'books';
+  return undefined;
+}
+
 function ActionDropdown({
   orderId,
   productType,
+  details,
   paymentStatus,
   token,
   onReQuoteSuccess,
 }: {
   orderId: number;
   productType: number | null;
+  details: string;
   paymentStatus: string;
   token: string;
   onReQuoteSuccess: (msg: string) => void;
@@ -82,9 +128,15 @@ function ActionDropdown({
       return;
     }
     if (action === "Order Now" || action === "Pay Now") {
-      const slug = products.find((p) => p.dbId === productType)?.slug;
+      const slug = deriveProductSlug(productType, details);
       if (slug) {
-        router.push(`/${slug}?startStep=4&quoteId=${orderId}`);
+        // Use the Laravel-matching URL so the URL bar stays consistent with the
+        // rest of the site (e.g. /uncoated-business-cards rather than /business-cards).
+        router.push(`${getNavHref(slug)}?startStep=4&quoteId=${orderId}`);
+      } else {
+        // Legacy order whose product can't be derived — send the user to the
+        // product picker so they can choose a matching configurator manually.
+        router.push('/products');
       }
       return;
     }
@@ -362,6 +414,7 @@ function MyHistoryPageContent() {
                   <ActionDropdown
                     orderId={order.id}
                     productType={order.productType}
+                    details={order.details}
                     paymentStatus={order.paymentStatus}
                     token={user.token}
                     onReQuoteSuccess={(msg) => {

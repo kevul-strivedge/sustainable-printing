@@ -11,7 +11,7 @@ const products: Product[] = [
     description:
       "Our Eco-Friendly Adhesive stickers and labels are great for handouts and print vibrantly. Choose from our range of Adhesive stickers and labels, customised shapes and sizes for your best fit/application.",
     shopLabel: "Shop Adhesive Labels",
-    shopHref: "/products/adhesive-labels",
+    shopHref: "/circle-adhesive-labels",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const products: Product[] = [
     description:
       "A beautiful range of recycled papers to help you showcase your artwork and illustrations. 100% recycled post consumer waste white, earthy brown or off-white....take your pick",
     shopLabel: "Shop Greeting Cards",
-    shopHref: "/products/greeting-cards",
+    shopHref: "/standard-a6-gift-cards",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const products: Product[] = [
     description:
       "Make your products stand apart from the competition with 100% recycled swing tags. Sturdy, eco-friendly and available in a range of sizes. Printed in Australia with love.",
     shopLabel: "Shop Swing Tags",
-    shopHref: "/products/swing-tags",
+    shopHref: "/premium-swing-tags",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const products: Product[] = [
     description:
       "Great for any business wanting to share their message with the world. These folded brochures are available in 100% recycled, post consumer waste papers, with a uncoated or a silk finish.",
     shopLabel: "Shop Brochures",
-    shopHref: "/products/brochures",
+    shopHref: "/brochures-printing",
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const products: Product[] = [
     description:
       "We produce books, magazines, annual reports and more on 100% recycled papers. Choose a self cover book or a book with a heavier cover for a higher quality feel. Saddle stitch, perfect bound or wiro bound to create a great look.",
     shopLabel: "Shop Books",
-    shopHref: "/products/books",
+    shopHref: "/books",
   },
   {
     id: 6,
@@ -61,7 +61,7 @@ const products: Product[] = [
     description:
       "Draw attention to your business and brand and communicate your commitment to being sustainable and eco-friendly. These business cards are printed on 100% recycled post consumer waste paper.",
     shopLabel: "Shop Business Cards",
-    shopHref: "/products/business-cards",
+    shopHref: "/uncoated-business-cards",
   },
 ];
 export default function ProductCardsComponent() {

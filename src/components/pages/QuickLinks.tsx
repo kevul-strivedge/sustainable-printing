@@ -21,64 +21,64 @@ const quickLinksData: QuickLinkCategoryType[] = [
   {
     category: "Business Cards",
     links: [
-      { label: "Brown-Kraft Business Cards", href: "/business-cards?variant=17" },
-      { label: "100% Recycled Uncoated", href: "/business-cards?variant=15" },
+      { label: "Brown-Kraft Business Cards", href: "/brown-kraft-business-cards" },
+      { label: "100% Recycled Uncoated", href: "/uncoated-business-cards" },
     ],
   },
   {
     category: "Swing Tags",
     links: [
-      { label: "Premium Swing Tags", href: "/swing-tags?variant=23" },
-      { label: "Kraft Swing tags", href: "/swing-tags?variant=24" },
+      { label: "Premium Swing Tags", href: "/premium-swing-tags" },
+      { label: "Kraft Swing tags", href: "/kraft-swing-tags" },
     ],
   },
   {
     category: "Flyers & Posters",
     links: [
-      { label: "Flyers", href: "/flyers" },
-      { label: "Posters", href: "/posters" },
+      { label: "Flyers", href: "/flyers-printing" },
+      { label: "Posters", href: "/posters-printing" },
     ],
   },
   {
     category: "Postcards",
     links: [
-      { label: "Premium Postcards", href: "/postcards?variant=18" },
-      { label: "Kraft Postcards", href: "/postcards?variant=19" },
+      { label: "Premium Postcards", href: "/premium-postcards" },
+      { label: "Kraft Postcards", href: "/kraft-postcards" },
     ],
   },
   {
     category: "Adhesive Label / Stickers",
     links: [
-      { label: "Circle Adhesive Labels", href: "/circle-stickers" },
+      { label: "Circle Adhesive Labels", href: "/circle-adhesive-labels" },
       { label: "Square Adhesive Labels", href: "/square-stickers" },
     ],
   },
   {
     category: "Brochures Folded",
-    links: [{ label: "Brochures", href: "/brochures" }],
+    links: [{ label: "Brochures", href: "/brochures-printing" }],
   },
   {
     category: "Greeting Cards",
     links: [
-      { label: "Standard A6 Greeting Cards", href: "/greeting-cards?variant=20" },
-      { label: "Square Greeting Cards", href: "/greeting-cards?variant=22" },
+      { label: "Standard A6 Greeting Cards", href: "/standard-a6-gift-cards" },
+      { label: "Square Greeting Cards", href: "/square-gift-cards" },
     ],
   },
   {
     category: "Booklets / Reports",
     links: [
-      { label: "A4 Self Cover Booklets", href: "/books?variant=29" },
-      { label: "A4 Plus Cover Booklets", href: "/books?variant=30" },
-      { label: "A5 Plus Cover Booklets", href: "/books?variant=33" },
-      { label: "A5 Self Cover Booklets", href: "/books?variant=31" },
+      { label: "A4 Self Cover Booklets", href: "/a4-self-cover-booklets" },
+      { label: "A4 Plus Cover Booklets", href: "/a4-plus-cover-booklets" },
+      { label: "A5 Plus Cover Booklets", href: "/a5-plus-cover-booklets" },
+      { label: "A5 Self Cover Booklets", href: "/a5-self-cover-booklets" },
     ],
   },
   {
     category: "Stationery",
     links: [
-      { label: "Letterhead", href: "/letterhead" },
+      { label: "Letterhead", href: "/letterhead-printing" },
       { label: "Compliment Slips", href: "/compliment-slips" },
-      { label: "A2 Wrapping Paper", href: "/wrapping-paper" },
+      { label: "A2 Wrapping Paper", href: "/a2-wrapping-paper" },
     ],
   },
 ];

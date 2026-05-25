@@ -89,7 +89,7 @@ export default function CustomSelect({
       </button>
 
       {open && (
-        <div className="absolute left-0 right-0 top-[calc(100%+4px)] bg-white border border-[#3d9e5f] rounded-lg shadow-lg z-50 overflow-hidden min-w-[120px]">
+        <div className="absolute left-0 right-0 top-[calc(100%+4px)] bg-white border border-[#3d9e5f] rounded-lg shadow-lg z-40 overflow-hidden min-w-[120px]">
           {placeholder && (
             <button
               type="button"
