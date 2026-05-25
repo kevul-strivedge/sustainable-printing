@@ -258,10 +258,14 @@ export default function Navbar() {
               </div>
             </>
           ) : (
-            <>
-              <Link href="/login" className="text-[14px] text-gray-500 border-b-2 border-transparent hover:text-[#3d9e5f] hover:border-[#3d9e5f] transition-colors duration-150 pb-0.5">Login</Link>
-              <Link href="/register" className="text-[14px] font-semibold text-white bg-[#004E24] hover:bg-[#003a1b] px-4 py-1.5 rounded-full transition-colors duration-150">Register</Link>
-            </>
+            // Single "Account" button that opens the login page. (No public
+            // self-registration flow — accounts are provisioned out of band.)
+            <Link
+              href="/login"
+              className="text-[14px] font-semibold text-white bg-[#004E24] hover:bg-[#003a1b] px-4 py-1.5 rounded-full transition-colors duration-150"
+            >
+              Login
+            </Link>
           )}
         </div>
 
@@ -473,14 +477,15 @@ export default function Navbar() {
                 )}
               </div>
             ) : (
-              <>
-                <div className="border-b border-gray-200">
-                  <Link href="/login" onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Login</Link>
-                </div>
-                <div className="border-b border-gray-200">
-                  <Link href="/register" onClick={() => setMobileOpen(false)} className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150">Register</Link>
-                </div>
-              </>
+              <div className="border-b border-gray-200">
+                <Link
+                  href="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-5 py-4 text-[15px] font-semibold text-[#3d9e5f] hover:text-[#2d7a47] transition-colors duration-150"
+                >
+                  Account
+                </Link>
+              </div>
             )}
           </div>
         </>

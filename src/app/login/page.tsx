@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/src/services/api";
 import { useAuth } from "@/src/context/AuthContext";
@@ -144,12 +143,8 @@ export default function LoginPage() {
               </button>
             </form>
 
-            <p className="text-center text-[13px] text-gray-500 mt-6">
-              Don&apos;t have an account?{" "}
-              <Link href="/register" className="text-[#3d9e5f] font-semibold hover:underline">
-                Create one
-              </Link>
-            </p>
+            {/* No public self-registration — accounts are provisioned out of band
+                (existing Laravel users log in here with their existing credentials). */}
           </div>
         </div>
       </div>
