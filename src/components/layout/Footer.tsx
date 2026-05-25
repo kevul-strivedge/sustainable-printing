@@ -1,24 +1,24 @@
 import Link from "next/link";
 import React from "react";
 
-// Footer options
+// Footer options — URLs match the Laravel site exactly (sourced from live nav scrape).
 const productsCol1 = [
   { label: "All Products", href: "/products" },
-  { label: "Business Cards", href: "/business-cards" },
-  { label: "Postcards", href: "/postcards" },
-  { label: "Flyers", href: "/flyers" },
-  { label: "Posters", href: "/posters" },
-  { label: "Stickers", href: "/circle-stickers" },
-  { label: "Adhesive Labels", href: "/adhesive-labels" },
+  { label: "Business Cards", href: "/uncoated-business-cards" },
+  { label: "Postcards", href: "/premium-postcards" },
+  { label: "Flyers", href: "/flyers-printing" },
+  { label: "Posters", href: "/posters-printing" },
+  { label: "Stickers", href: "/circle-adhesive-labels" },
+  { label: "Adhesive Labels", href: "/circle-adhesive-labels" },
 ];
 
 const productsCol2 = [
-  { label: "Brochures", href: "/brochures" },
-  { label: "Wrapping Paper", href: "/wrapping-paper" },
-  { label: "Booklets", href: "/booklets" },
+  { label: "Brochures", href: "/brochures-printing" },
+  { label: "Wrapping Paper", href: "/a2-wrapping-paper" },
+  { label: "Booklets", href: "/a4-self-cover-booklets" },
   { label: "Books", href: "/books" },
-  { label: "Greeting Cards", href: "/greeting-cards" },
-  { label: "Bookmarks", href: "/bookmarks" },
+  { label: "Greeting Cards", href: "/standard-a6-gift-cards" },
+  { label: "Bookmarks", href: "/bookmarks-printing" },
 ];
 
 const aboutLinks = [

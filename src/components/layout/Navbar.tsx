@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/src/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { getNavHref } from "@/src/constants/seoMeta";
 
 const megaDropdownCategories = [
   {
@@ -290,7 +291,7 @@ export default function Navbar() {
                     {items.map((item) => (
                       <Link
                         key={item.slug}
-                        href={`/${item.slug}`}
+                        href={getNavHref(item.slug)}
                         className="text-[13px] text-gray-600 hover:text-[#3d9e5f] transition-colors duration-150 block"
                       >
                         {item.label}
@@ -397,7 +398,7 @@ export default function Navbar() {
                                 {items.map((item) => (
                                   <Link
                                     key={item.slug}
-                                    href={`/${item.slug}`}
+                                    href={getNavHref(item.slug)}
                                     className="border-t border-gray-200 block px-10 py-3 text-[13px] text-gray-700 hover:text-[#3d9e5f] bg-[#f5f0e8] transition-colors duration-150"
                                     onClick={() => setMobileOpen(false)}
                                   >

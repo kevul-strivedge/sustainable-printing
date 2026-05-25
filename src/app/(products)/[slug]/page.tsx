@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { products } from "@/src/constants/products";
 import { getConfiguratorConfig } from "@/src/constants/configurator";
 import { createDefaultConfig } from "@/src/constants/configurator/defaultConfig";
@@ -5,12 +6,23 @@ import ProductDetails from "@/src/components/pages/ProductDetails";
 import { notFound } from "next/navigation";
 import { getProductConfig, fetchOrderById } from "@/src/services/api";
 import { mergeApiConfig } from "@/src/services/configuratorAdapter";
+import { productMetadata } from "@/src/constants/seoMeta";
 import type { InitialDelivery, InitialArtwork, InitialOrder } from "@/src/types/configurator.types";
 
 type Props = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ startStep?: string; quoteId?: string; variant?: string }>;
+  searchParams: Promise<{ startStep?: string; quoteId?: string; variant?: string; seo?: string }>;
 };
+
+// SEO — every product URL (including Laravel-style aliases routed here via rewrites)
+// emits the exact <title>/<meta description>/<meta keywords> from docs/sustainable-master/meta.xlsx.
+// Resolution order: ?seo=<laravel-slug> (rewrites for category pages) > (slug + ?variant=) > slug fallback.
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const { variant, seo } = await searchParams;
+  const variantPid = variant && /^\d+$/.test(variant) ? Number(variant) : undefined;
+  return productMetadata(slug, variantPid, seo);
+}
 
 export default async function ProductPage({ params, searchParams }: Props) {
   const { slug } = await params;
