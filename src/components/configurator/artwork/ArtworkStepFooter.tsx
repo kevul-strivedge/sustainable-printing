@@ -18,7 +18,7 @@ export default function ArtworkStepFooter({ dispatch }: Props) {
       <button
         type="button"
         onClick={() => dispatch({ type: "NEXT_STEP" })}
-        className="py-2.5 bg-[#004E24] text-white text-[14px] font-semibold rounded-lg hover:bg-[#003a1b] transition-colors duration-150"
+        className="py-2.5 px-2 bg-[#004E24] text-white text-[14px] font-semibold rounded-lg hover:bg-[#003a1b] transition-colors duration-150"
       >
         Continue to Delivery
       </button>

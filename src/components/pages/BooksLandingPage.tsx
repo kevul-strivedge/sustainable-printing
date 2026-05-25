@@ -22,12 +22,11 @@ const PAPER_STOCKS = [
 ];
 
 const BINDING_STYLES = [
-  { title: "Saddle Stitch", image: "/images/books/binding-saddle-stitch.jpg" },
-  { title: "Perfect Bound", image: "/images/books/binding-perfect-bound.jpg" },
-  { title: "Wiro Bound",    image: "/images/books/binding-wiro-bound.jpg" },
+  { title: "Saddle Stitch", image: "/images/books/binding-saddle-stitch.png" },
+  { title: "Perfect Bound", image: "/images/books/binding-perfect-bound.png" },
+  { title: "Wiro Bound",    image: "/images/books/binding-wiro-bound.png" },
 ];
 
-const SIZE_OPTIONS = ["A4, A5 or Other", "A4", "A5", "A3", "Custom"];
 
 const FAQS = [
   { q: "What types of book printing services do you offer?",
@@ -117,7 +116,7 @@ export default function BooksLandingPage() {
       fd.append("email",        form.email);
       fd.append("phone",        form.phone);
 
-      const res = await fetch(`${BASE}/custom-quote`, { method: "POST", body: fd });
+      const res = await fetch(`${BASE}/custom-quotes`, { method: "POST", body: fd });
       const json = await res.json();
       if (!res.ok || !json.success) throw new Error(json.message ?? "Submission failed");
       setSubmitted("ok");
@@ -135,31 +134,23 @@ export default function BooksLandingPage() {
 
   return (
     <>
-      {/* ─── 1. Green hero band ─────────────────────────────────────────── */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          background: "linear-gradient(180deg, #cce4c8 0%, #b9dab2 100%)",
-        }}
-      >
-        <div className="max-w-275 mx-auto px-6 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <h1 className="text-[34px] md:text-[42px] font-bold text-[#292560] leading-[1.1]">
+      {/* ─── 1. Hero banner — full-width image with text overlay ─────── */}
+      <section className="relative w-full overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/books/hero-catalog.png"
+          alt="Books, booklets and reports printed on recycled paper"
+          className="w-full h-auto block"
+        />
+
+        {/* Text sits at roughly the left-centre of the banner */}
+        <div className="absolute inset-0 flex items-center">
+          <h1
+            className="ml-[8%] text-[clamp(28px,4.5vw,52px)] font-extrabold leading-[1.15]"
+            style={{ color: "#1a3a1a" }}
+          >
             Books,<br />booklets,<br />reports...
           </h1>
-          <div className="flex items-center justify-center gap-3 md:gap-5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/books/hero-catalog.jpg"
-              alt="Sustainable Printing Co. printed catalog"
-              className="w-[55%] max-w-[280px] shadow-lg rounded-sm"
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/books/hero-book.jpg"
-              alt="Printed book — Yarning about polycystic ovary syndrome"
-              className="w-[35%] max-w-[180px] shadow-lg rounded-sm"
-            />
-          </div>
         </div>
       </section>
 
@@ -224,7 +215,7 @@ export default function BooksLandingPage() {
 
             <h3 className="text-[18px] font-bold text-[#292560] mb-5">Quote Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-              <SelectField label="Size"   value={form.size} onChange={(v) => update("size", v)} options={SIZE_OPTIONS} />
+              <Field label="Size" placeholder="Size" value={form.size} onChange={(v) => update("size", v)} />
               <Field label="Quantity Required" placeholder="Quantity" value={form.quantity}   onChange={(v) => update("quantity", v)} />
               <Field label="Page Count"        placeholder="Page Count" value={form.page_count} onChange={(v) => update("page_count", v)} />
             </div>
@@ -370,31 +361,6 @@ function Field({
         placeholder={placeholder}
         className="w-full border border-gray-300 rounded px-3 py-2 text-[13px] text-[#292560] placeholder-gray-400 focus:border-[#3d9e5f] focus:outline-none focus:ring-1 focus:ring-[#3d9e5f]"
       />
-    </div>
-  );
-}
-
-function SelectField({
-  label, value, onChange, options,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  options: string[];
-}) {
-  return (
-    <div>
-      <label className="block text-[13px] font-semibold text-[#292560] mb-1.5">{label}</label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full border border-gray-300 rounded px-3 py-2 text-[13px] text-[#292560] bg-white focus:border-[#3d9e5f] focus:outline-none focus:ring-1 focus:ring-[#3d9e5f]"
-      >
-        <option value="">Select size</option>
-        {options.map((o) => (
-          <option key={o} value={o}>{o}</option>
-        ))}
-      </select>
     </div>
   );
 }

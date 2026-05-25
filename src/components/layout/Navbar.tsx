@@ -343,9 +343,9 @@ export default function Navbar() {
         >
           {[
             { label: "My History", href: "/my-history" },
-            { label: "My Details", href: "#" },
-            { label: "Request New Quote", href: "#" },
-            { label: "Request Free Sample", href: "#" },
+            { label: "My Details", href: "/myprofile" },
+            { label: "Request New Quote", href: "/custom-quote" },
+            { label: "Request Free Sample", href: "/requestsample" },
           ].map((item) => (
             <Link key={item.label}
               href={item.href}
@@ -455,9 +455,9 @@ export default function Navbar() {
                   <ul>
                     {[
                       { label: "My History", href: "/my-history" },
-                      { label: "My Details", href: "#" },
-                      { label: "Request New Quote", href: "#" },
-                      { label: "Request Free Sample", href: "#" },
+                      { label: "My Details", href: "/myprofile" },
+                      { label: "Request New Quote", href: "/custom-quote" },
+                      { label: "Request Free Sample", href: "/requestsample" },
                     ].map((item) => (
                       <Link key={item.label}
                         href={item.href}
