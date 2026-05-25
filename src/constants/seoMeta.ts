@@ -186,15 +186,20 @@ const navHrefBySlug: Record<string, string> = {
   'flyers':                   '/flyers-printing',
   'posters':                  '/posters-printing',
   'swing-tags':               '/premium-swing-tags',
-  // Laravel sends ALL sticker menu items to /circle-adhesive-labels (category landing).
+  // Stickers — each navbar item goes to its own configurator page so the user
+  // lands on the variant they clicked. (Laravel sends all four to
+  // /circle-adhesive-labels, but we have dedicated routes per sticker shape
+  // and the shared destination felt broken to users.)
   'adhesive-labels':          '/circle-adhesive-labels',
   'circle-stickers':          '/circle-adhesive-labels',
-  'square-stickers':          '/circle-adhesive-labels',
-  'rectangle-stickers':       '/circle-adhesive-labels',
-  // Laravel sends Books / Calendars / Annual Reports to /books, but Booklets / Reports to /a4-self-cover-booklets.
+  'square-stickers':          '/square-stickers',
+  'rectangle-stickers':       '/rectangle-stickers',
+  // All five Books-section navbar items open the /books category landing page
+  // (matches Laravel — every Books / Booklets / Reports / Calendars / Annual Reports
+  // nav link there opens /books, which is the books-and-booklets quote landing).
   'books':                    '/books',
-  'booklets':                 '/a4-self-cover-booklets',
-  'reports':                  '/a4-self-cover-booklets',
+  'booklets':                 '/books',
+  'reports':                  '/books',
   'calendars':                '/books',
   'annual-reports':           '/books',
   'save-the-date-cards':      '/save-the-date-cards',
