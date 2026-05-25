@@ -20,7 +20,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Draw attention and communicate your commitment to being sustainable and eco-friendly. These business cards are printed on 100% recycled post consumer waste paper.",
         shopLabel: "Shop Business Cards",
-        shopHref: "/business-cards",
+        shopHref: "/uncoated-business-cards",
       },
       {
         id: 102,
@@ -30,7 +30,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Perfect for communicating that special message. High quality print and 100% recycled, sturdy paper ensures they are a great retail item if you are an artist or on-seller.",
         shopLabel: "Shop Greeting Cards",
-        shopHref: "/greeting-cards",
+        shopHref: "/standard-a6-gift-cards",
       },
       {
         id: 103,
@@ -40,7 +40,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Our Recycled Postcards are perfect for gifts, to print your illustrations, and to use as hand outs. Choose from our recycled paper options below for a unique look and feel.",
         shopLabel: "Shop Postcards",
-        shopHref: "/postcards",
+        shopHref: "/premium-postcards",
       },
       {
         id: 104,
@@ -50,7 +50,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Sturdy, 100% recycled bookmarks with great colour printability. Perfect for artists or on-sellers to promote your message or brand.",
         shopLabel: "Shop Bookmarks",
-        shopHref: "/bookmarks",
+        shopHref: "/bookmarks-printing",
       },
     ],
   },
@@ -65,7 +65,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Our Eco-Friendly Adhesive stickers and labels are great for handouts and print vibrantly. Choose from our range of Adhesive stickers and labels, customised shapes and sizes for your best fit/application.",
         shopLabel: "Shop Adhesive Labels",
-        shopHref: "/adhesive-labels",
+        shopHref: "/circle-adhesive-labels",
       },
     ],
   },
@@ -81,7 +81,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Printed on white 100% recycled, post consumer waste paper. Professional and sharp. This letterhead makes businesses look the goods.",
         shopLabel: "Shop Letterheads",
-        shopHref: "/letterhead",
+        shopHref: "/letterhead-printing",
       },
       {
         id: 302,
@@ -101,7 +101,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Wrapping paper printed on white, 100gsm 100% Recycled, post consumer waste paper.",
         shopLabel: "Shop Wrapping Paper",
-        shopHref: "/wrapping-paper",
+        shopHref: "/a2-wrapping-paper",
       },
       {
         id: 304,
@@ -111,7 +111,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Fantastic way to showcase your artwork, promote your brand or to give out to friends. Printed on 100% recycled papers.",
         shopLabel: "Shop Calendars",
-        shopHref: "/calendars",
+        shopHref: "/books",
       },
       {
         id: 305,
@@ -121,7 +121,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "We have a range of poster and flyer sizes to suit your every need. Browse our range below.",
         shopLabel: "Shop Flyers",
-        shopHref: "/flyers",
+        shopHref: "/flyers-printing",
       },
       {
         id: 306,
@@ -131,7 +131,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "We have a range of poster and flyer sizes to suit your every need. Browse our range below.",
         shopLabel: "Shop Posters",
-        shopHref: "/posters",
+        shopHref: "/posters-printing",
       },
     ],
   },
@@ -156,7 +156,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Our Eco-Friendly booklets are great for handouts and print vibrantly.",
         shopLabel: "Shop Booklets",
-        shopHref: "/booklets",
+        shopHref: "/a4-self-cover-booklets",
       },
       {
         id: 403,
@@ -166,7 +166,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Too much information for a 2 page flyer? Try one of our folded brochures on for size.",
         shopLabel: "Shop Reports",
-        shopHref: "/reports",
+        shopHref: "/a4-self-cover-booklets",
       },
       {
         id: 404,
@@ -176,7 +176,7 @@ const SECTIONS: { title: string; products: Product[]; showCustomCard?: boolean }
         description:
           "Draw attention to your business and brand and communicate your commitment to being sustainable and eco-friendly.",
         shopLabel: "Shop Brochures",
-        shopHref: "/brochures",
+        shopHref: "/brochures-printing",
       },
     ],
   },

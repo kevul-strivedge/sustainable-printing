@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface Props {
   title: string;
   description: string;
@@ -20,15 +22,14 @@ export default function ProductDescription({ title, description, features, about
       <h2 className="text-[20px] font-bold text-[#1D1A52] mb-3">{title}</h2>
       <p className="text-[14px] text-[#292560] leading-relaxed mb-1 max-w-3xl">{description}</p>
       <p className="text-[14px] text-[#292560] leading-relaxed mb-5">
-        Contact us for a different quantity or custom quote.{" "}
-        <a href="mailto:sales@sustainableprintingco.com.au" className="text-[#3d9e5f] hover:underline font-medium">
-          sales@sustainableprintingco.com.au
-        </a>{" "}
-        or call{" "}
-        <a href="tel:1300727177" className="text-[#3d9e5f] hover:underline font-medium">
-          1300 727 177
-        </a>
-        .
+        <Link href="/contact" className="text-[#3d9e5f] hover:underline font-medium">
+          Contact us
+        </Link>{" "}
+        for a different quantity or{" "}
+        <Link href="/custom-quote" className="text-[#3d9e5f] hover:underline font-medium">
+          custom quote
+        </Link>
+        .{" "}
       </p>
       <ul className="flex flex-col gap-2.5 mb-8">
         {features.map((f) => (

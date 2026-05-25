@@ -64,6 +64,12 @@ function stripHtmlToText(html: string | null | undefined): string {
   return html.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+// Mirror PHP ucwords() — title-case every word. Laravel's banner template wraps
+// the portfolio title with this (so "Save the Date Cards" → "Save The Date Cards").
+function ucwords(s: string): string {
+  return s.replace(/\b[a-z]/g, (c) => c.toUpperCase());
+}
+
 export default function ProductConfiguratorPage({ config, initialStep, initialDelivery, initialArtwork, initialOrder, initialVariantId }: Props) {
   const { state, dispatch, priceBreakdown, splitBreakdowns } = useConfigurator(config, initialStep, initialDelivery, initialArtwork, initialOrder, initialVariantId);
   const { user } = useAuth();
@@ -84,10 +90,16 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
     ? config.portfolios?.find((p) => p.productId === activeVariantPid)
     : undefined;
   const portfolioFeatures = extractFeatures(selectedPortfolio?.description2);
+  // Two separate description strings to match the Laravel layout exactly:
+  //   - bannerDescription = pt_portfolio.description (short pitch, shown under the H1)
+  //   - cardDescription   = pt_portfolio.description1 (long marketing paragraph, shown
+  //                          inside the white description card below the form)
+  // See live HTML on /uncoated-business-cards — these are two different fields.
   const activePortfolio = {
-    title:       selectedPortfolio?.title       || config.descriptionTitle || `Premium ${config.title}`,
-    description: stripHtmlToText(selectedPortfolio?.description) || config.description,
-    features:    portfolioFeatures.length > 0 ? portfolioFeatures : config.features,
+    title:             ucwords(selectedPortfolio?.title || config.descriptionTitle || `Premium ${config.title}`),
+    bannerDescription: stripHtmlToText(selectedPortfolio?.description)  || config.subtitle,
+    cardDescription:   stripHtmlToText(selectedPortfolio?.description1) || config.description,
+    features:          portfolioFeatures.length > 0 ? portfolioFeatures : config.features,
   };
 
   // Papers belonging to the active variant — what "Choose your paper" lists.
@@ -272,7 +284,7 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
       )}
       <div className="max-w-275 mx-auto px-6 py-5">
         {/* Header */}
-        <ProductPageHeader title={config.title} subtitle={config.subtitle} />
+        <ProductPageHeader title={activePortfolio.title} subtitle={activePortfolio.bannerDescription} />
 
         {/* Step progress bar */}
         <StepProgressBar currentStep={state.currentStep} />
@@ -352,9 +364,9 @@ export default function ProductConfiguratorPage({ config, initialStep, initialDe
 
             <ProductDescription
               title={activePortfolio.title}
-              description={activePortfolio.description}
+              description={activePortfolio.cardDescription}
               features={activePortfolio.features}
-              aboutParagraphs={config.aboutParagraphs}
+              aboutParagraphs={selectedPortfolio ? undefined : config.aboutParagraphs}
             />
           </div>
 
