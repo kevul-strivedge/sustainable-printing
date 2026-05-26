@@ -40,7 +40,7 @@ export default function FAQAccordion({ faqs }: Props) {
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                className={`w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-150`}
+                className={`w-full flex items-center justify-between cursor-pointer gap-4 px-5 py-4 text-left transition-colors duration-150`}
               >
                 <span
                   className={`text-[18px] font-semibold text-[#292560] ${
