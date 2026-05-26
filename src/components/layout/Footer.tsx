@@ -68,43 +68,44 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
     );
 }
 
-//Social Icons
 function InstagramIcon() {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-6 h-6"
-            aria-hidden="true"
-        >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-            <circle cx="12" cy="12" r="4" />
-            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
-        </svg>
-    );
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="w-8 h-8"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle
+        cx="17.2"
+        cy="6.8"
+        r="1.2"
+        fill="currentColor"
+        stroke="none"
+      />
+    </svg>
+  );
 }
 
 function FacebookIcon() {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-6 h-6"
-            aria-hidden="true"
-        >
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-    );
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="w-8 h-8"
+      aria-hidden="true"
+    >
+      <path d="M24 12a12 12 0 1 0-13.88 11.85v-8.39H7.08V12h3.04V9.36c0-3 1.79-4.67 4.52-4.67 1.31 0 2.68.23 2.68.23v2.95H15.8c-1.5 0-1.96.93-1.96 1.89V12h3.33l-.53 3.46h-2.8v8.39A12 12 0 0 0 24 12z" />
+    </svg>
+  );
 }
 
 // Main Footer
@@ -220,7 +221,7 @@ export default function Footer() {
             {/* ── Bottom bar ── */}
             <div className="max-w-[1100px] mx-auto px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <p className="text-white/70 text-sm font-bold">
-                    © 2021 All Rights. Reserved. Sustainable Printing Co.
+                    © 2021 All Rights. Reserved. <Link href={"/"} className="hover:text-green-600 hover:underline">Sustainable Printing Co.</Link> 
                 </p>
 
                 {/* Social icons */}

@@ -116,7 +116,7 @@ function ChevronDown({ className = "" }: { className?: string }) {
 function HamburgerIcon() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
     </svg>
   );
 }
@@ -184,7 +184,7 @@ export default function Navbar() {
 
   return (
     <header ref={headerRef} className="bg-white border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-12 h-[70px] lg:h-[120px] flex items-center justify-between gap-4">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-12 h-[70px] xl:h-[120px] flex items-center justify-between gap-4">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
@@ -193,12 +193,12 @@ export default function Navbar() {
             alt="Sustainable Printing Co."
             width={180}
             src={'/images/logo.png'}
-            className="w-[120px] lg:w-[180px] h-auto"
+            className="w-[120px] xl:w-[180px] h-auto"
           />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7 ml-10">
+        <nav className="hidden xl:flex items-center gap-7 ml-10">
           {navLinks.map(({ label, dropdownType,href }) =>
             dropdownType ? (
               <div
@@ -230,7 +230,7 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop auth */}
-        <div className="hidden lg:flex items-center gap-5 ml-auto shrink-0">
+        <div className="hidden xl:flex items-center gap-5 ml-auto shrink-0">
           {user ? (
             <>
               <button
@@ -271,7 +271,13 @@ export default function Navbar() {
 
         {/* Hamburger toggle */}
         <button
-          className="lg:hidden ml-auto p-2 text-gray-700 hover:text-[#3d9e5f] transition-colors"
+          className="xl:hidden ml-auto w-11 h-11 flex items-center justify-center rounded-md
+          border border-[#dfdfdf]
+          hover:border-[#3d9e5f]
+          hover:text-[#3d9e5f]
+          bg-white
+          transition-all
+          duration-300"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -282,21 +288,21 @@ export default function Navbar() {
       {/* Desktop mega dropdown — centered */}
       {activeDropdown && activeLink?.dropdownType === "mega" && (
         <div
-          className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-full bg-white border-t border-gray-100 shadow-lg z-50 w-[90vw] max-w-225"
+          className="hidden xl:block absolute left-1/2 -translate-x-1/2 top-full bg-white border border-gray-100 shadow-lg z-50 w-[90vw] max-w-5xl"
           onMouseEnter={() => handleMouseEnter(activeDropdown, "mega")}
           onMouseLeave={scheduleClose}
         >
-          <div className="px-6 py-8">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
               {megaDropdownCategories.map(({ title, items }) => (
                 <div key={title}>
-                  <p className="font-semibold text-gray-900 text-[13px] mb-3">{title}</p>
-                  <ul className="space-y-2.5">
+                  <p className="font-medium text-gray-900 text-[14px] mb-3 bg-[#fefaf2] px-6 py-2">{title}</p>
+                  <ul className="space-y-2.5 px-6 pb-4">
                     {items.map((item) => (
                       <Link
                         key={item.slug}
                         href={getNavHref(item.slug)}
-                        className="text-[13px] text-gray-600 hover:text-[#3d9e5f] transition-colors duration-150 block"
+                        className="text-[14px] text-gray-600 hover:text-[#3d9e5f] transition-colors duration-150 block"
                       >
                         {item.label}
                       </Link>
@@ -312,7 +318,7 @@ export default function Navbar() {
       {/* Desktop simple dropdown — aligned under its nav button */}
       {activeDropdown && activeLink?.dropdownType === "simple" && activeLink.dropdownItems && (
         <ul
-          className="hidden lg:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-55 py-2"
+          className="hidden xl:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-55 py-2"
           style={{ left: simpleDropdownLeft }}
           onMouseEnter={() => handleMouseEnter(activeDropdown, "simple")}
           onMouseLeave={scheduleClose}
@@ -336,8 +342,8 @@ export default function Navbar() {
       {/* Desktop user account dropdown */}
       {activeDropdown === "__user__" && (
         <ul
-          className="hidden lg:block absolute top-full bg-white border border-gray-100 shadow-lg z-50 min-w-55 py-2"
-          style={{ left: simpleDropdownLeft }}
+          className="hidden xl:block absolute top-full overflow-hidden bg-white border border-gray-100 shadow-lg z-50 min-w-50 py-2"
+          style={{ left: simpleDropdownLeft, transform: "translateX(-20%)" }}
           onMouseEnter={() => handleMouseEnter("__user__", "simple")}
           onMouseLeave={scheduleClose}
         >
@@ -354,14 +360,14 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <li className="border-t border-gray-100 mt-1 pt-1">
+          {/* <li className="border-t border-gray-100 mt-1 pt-1">
             <button
               onClick={handleLogout}
               className="w-full text-left block px-5 py-2.5 text-[14px] text-gray-500 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
             >
               Logout
             </button>
-          </li>
+          </li> */}
         </ul>
       )}
 
@@ -369,10 +375,10 @@ export default function Navbar() {
       {mobileOpen && (
         <>
           <div
-            className="lg:hidden fixed inset-0 top-17.5 z-30 bg-black/40"
+            className="xl:hidden fixed inset-0 top-17.5 z-30 bg-black/40"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="lg:hidden fixed left-0 top-17.5 bottom-0 z-40 w-1/2 min-w-70 overflow-y-auto bg-[#faf6f0]">
+          <div className="xl:hidden fixed left-0 top-17.5 bottom-0 z-40 w-1/2 min-w-70 overflow-y-auto bg-[#faf6f0]">
 
             {navLinks.map(({ label, href, hasMobileChevron, dropdownItems, dropdownType }) => (
               <div key={label} className="border-b border-gray-200">

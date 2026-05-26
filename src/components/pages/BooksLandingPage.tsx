@@ -75,6 +75,73 @@ export default function BooksLandingPage() {
   const [activePaper,   setActivePaper]   = useState(0);
   const [activeBinding, setActiveBinding] = useState(0);
   const [openFaq,       setOpenFaq]       = useState<number | null>(0);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  function clearFieldError(field: string) {
+  if (errors[field]) {
+    setErrors((prev) => ({
+      ...prev,
+      [field]: "",
+    }));
+  }
+}
+
+  function validate() {
+    const next: Record<string, string> = {};
+
+    if (!form.business_name.trim()) {
+      next.business_name = "Business name is required.";
+    }
+
+    if (!form.fname.trim()) {
+      next.fname = "Name is required.";
+    }
+
+    if (!form.email.trim()) {
+      next.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      next.email = "Please enter a valid email.";
+    }
+
+    if (!form.phone.trim()) {
+      next.phone = "Phone is required.";
+    } else {
+      const cleanedPhone = form.phone.replace(/\D/g, "");
+
+      if (cleanedPhone.length < 9 || cleanedPhone.length > 15) {
+        next.phone = "Phone number must be between 9 and 15 digits.";
+      }
+    }
+
+    if (!form.delivery_location.trim()) {
+      next.delivery_location = "Delivery location is required.";
+    }
+
+    if (!form.size.trim()) {
+      next.size = "Size is required.";
+    }
+
+    if (!form.quantity.trim()) {
+      next.quantity = "Quantity is required.";
+    } else if (isNaN(Number(form.quantity))) {
+      next.quantity = "Quantity must be a number.";
+    }
+
+    if (!form.page_count.trim()) {
+      next.page_count = "Page count is required.";
+    } else if (isNaN(Number(form.page_count))) {
+      next.page_count = "Page count must be a number.";
+    }
+
+    if (!form.binding_method.trim()) {
+      next.binding_method = "Binding method is required.";
+    }
+
+    if (!form.other_notes.trim()) {
+      next.other_notes = "Other notes are required.";
+    }
+
+    return next;
+  }
 
   const [form, setForm] = useState({
     business_name: "", fname: "", email: "", phone: "",
@@ -90,10 +157,13 @@ export default function BooksLandingPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!form.email || !form.phone || !form.fname) {
-      setSubmitted("err");
-      return;
-    }
+    const fieldErrors = validate();
+
+  if (Object.keys(fieldErrors).length) {
+    setErrors(fieldErrors);
+    setSubmitted("err");
+    return;
+  }
     setSubmitting(true);
     setSubmitted(null);
     try {
@@ -146,7 +216,7 @@ export default function BooksLandingPage() {
         {/* Text sits at roughly the left-centre of the banner */}
         <div className="absolute inset-0 flex items-center">
           <h1
-            className="ml-[8%] text-[clamp(28px,4.5vw,52px)] font-extrabold leading-[1.15]"
+            className="ml-[9%] text-[clamp(28px,4.5vw,64px)] font-extrabold leading-[1.15]"
             style={{ color: "#1a3a1a" }}
           >
             Books,<br />booklets,<br />reports...
@@ -155,8 +225,8 @@ export default function BooksLandingPage() {
       </section>
 
       {/* ─── 2. Intro paragraphs ────────────────────────────────────────── */}
-      <section className="max-w-225 mx-auto px-6 py-10 md:py-14 text-center">
-        <div className="text-[13.5px] text-[#444] leading-relaxed space-y-4">
+      <section className="max-w-6xl mx-auto px-6 py-10 md:py-14 text-center">
+        <div className="text-[16px] text-[#292560] leading-relaxed space-y-4">
           <p>
             At Sustainable Printing Co. Australia, we specialise in high-quality custom book printing for creators,
             publishers, and businesses who value both craftsmanship and eco-consciousness. Whether you&apos;re looking
@@ -201,35 +271,136 @@ export default function BooksLandingPage() {
       <section className="max-w-275 mx-auto px-6 py-10">
         <div className="border-t border-gray-200 pt-10">
           <form onSubmit={handleSubmit}>
-            <h3 className="text-[18px] font-bold text-[#292560] mb-5">Business Name</h3>
+            <h3 className="text-[24px] font-bold text-[#292560] mb-5">Business Name</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-              <Field label="Business Name" placeholder="Business Name" value={form.business_name} onChange={(v) => update("business_name", v)} />
-              <Field label="Name"          placeholder="Name"          value={form.fname}         onChange={(v) => update("fname", v)} required />
-              <Field label="Email"         placeholder="Email *"       value={form.email}         onChange={(v) => update("email", v)} required type="email" />
+              <Field
+                label="Business Name"
+                placeholder="Business Name"
+                value={form.business_name}
+                onChange={(v) => {
+                  update("business_name", v);
+                  clearFieldError("business_name");
+                }}
+                error={errors.business_name}
+              />
+              <Field
+              label="Name"
+              placeholder="Name"
+              value={form.fname}
+              onChange={(v) => {
+                update("fname", v);
+                clearFieldError("fname");
+              }}
+              error={errors.fname}
+            />
+              <Field
+                label="Email"
+                placeholder="Email *"
+                value={form.email}
+                onChange={(v) => {
+                  update("email", v);
+                  clearFieldError("email");
+                }}
+                type="email"
+                error={errors.email}
+              />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-              <Field label="Phone"             placeholder="Phone *"           value={form.phone}             onChange={(v) => update("phone", v)} required />
-              <Field label="Delivery Location" placeholder="Delivery Location" value={form.delivery_location} onChange={(v) => update("delivery_location", v)} />
+              <Field
+                label="Phone"
+                placeholder="Phone *"
+                value={form.phone}
+                onChange={(v) => {
+                  update("phone", v);
+                  clearFieldError("phone");
+                }}
+                error={errors.phone}
+              />
+              <Field
+                label="Delivery Location"
+                placeholder="Delivery Location"
+                value={form.delivery_location}
+                onChange={(v) => {
+                  update("delivery_location", v);
+                  clearFieldError("delivery_location");
+                }}
+                error={errors.delivery_location}
+              />
               <div />
             </div>
 
-            <h3 className="text-[18px] font-bold text-[#292560] mb-5">Quote Details</h3>
+            <h3 className="text-[24px] font-bold text-[#292560] mb-5">Quote Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-              <Field label="Size" placeholder="Size" value={form.size} onChange={(v) => update("size", v)} />
-              <Field label="Quantity Required" placeholder="Quantity" value={form.quantity}   onChange={(v) => update("quantity", v)} />
-              <Field label="Page Count"        placeholder="Page Count" value={form.page_count} onChange={(v) => update("page_count", v)} />
+              <Field
+                label="Size"
+                placeholder="Size"
+                value={form.size}
+                onChange={(v) => {
+                  update("size", v);
+                  clearFieldError("size");
+                }}
+                error={errors.size}
+              />
+              
+              <Field
+                label="Quantity Required"
+                placeholder="Quantity"
+                value={form.quantity}
+                onChange={(v) => {
+                  update("quantity", v);
+                  clearFieldError("quantity");
+                }}
+                error={errors.quantity}
+              />
+              
+              <Field
+                label="Page Count"
+                placeholder="Page Count"
+                value={form.page_count}
+                onChange={(v) => {
+                  update("page_count", v);
+                  clearFieldError("page_count");
+                }}
+                error={errors.page_count}
+              />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-              <Field label="Binding Method" placeholder="Binding Method" value={form.binding_method} onChange={(v) => update("binding_method", v)} />
+              
+              <Field
+                label="Binding Method"
+                placeholder="Binding Method"
+                value={form.binding_method}
+                onChange={(v) => {
+                  update("binding_method", v);
+                  clearFieldError("binding_method");
+                }}
+                error={errors.binding_method}
+              />
               <div className="md:col-span-2">
-                <label className="block text-[13px] font-semibold text-[#292560] mb-1.5">Other Notes</label>
+                <label className="block text-[18px] font-semibold text-[#292560] mb-1.5">Other Notes</label>
+                
                 <textarea
                   value={form.other_notes}
-                  onChange={(e) => update("other_notes", e.target.value)}
+                  onChange={(e) => {
+                    update("other_notes", e.target.value);
+                    clearFieldError("other_notes");
+                  }}
                   rows={3}
                   placeholder="Other notes"
-                  className="w-full border border-gray-300 rounded px-3 py-2 text-[13px] text-[#292560] placeholder-gray-400 focus:border-[#3d9e5f] focus:outline-none focus:ring-1 focus:ring-[#3d9e5f]"
+                  className={`w-full rounded-sm px-3 py-4 text-[14px] bg-[#f9f9f9]
+                  ${
+                    errors.other_notes
+                      ? "focus:border-[#4CCC88] focus:ring-2 focus:ring-[#4CCC88]"
+                      : "border-[#c4c4c41a]  focus:border-[#4CCC88] focus:ring-2 focus:ring-[#4CCC88]"
+                  }
+                  text-[#292560] placeholder-gray-400 focus:outline-none focus:ring-1`}
                 />
+
+                {errors.other_notes && (
+                  <p className="mt-1 text-xs text-red-500">
+                    {errors.other_notes}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -237,7 +408,7 @@ export default function BooksLandingPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="bg-[#f5a623] hover:bg-[#dc9319] disabled:opacity-60 text-white text-[14px] font-semibold px-10 py-3 rounded transition-colors"
+                className="bg-[#f6cf22] cursor-pointer hover:bg-[#dc9319] disabled:opacity-60 text-[#292560] text-[14px] font-semibold px-10 py-3 rounded transition-colors"
               >
                 {submitting ? "Sending…" : "Get a Custom Quote"}
               </button>
@@ -250,22 +421,21 @@ export default function BooksLandingPage() {
 
       {/* ─── 6. FAQ Accordion ───────────────────────────────────────────── */}
       <section className="max-w-275 mx-auto px-6 py-10">
-        <h3 className="text-[20px] font-bold text-[#292560] mb-5">Frequently Asked Questions</h3>
-        <div className="divide-y divide-gray-200 border-y border-gray-200">
+        <h3 className="text-[24px] font-bold text-[#292560] mb-5">Frequently Asked Questions</h3>
+        <div className="">
           {FAQS.map((item, i) => {
             const open = openFaq === i;
             return (
-              <div key={i} className="py-3.5">
+              <div key={i} className={`p-4 rounded-md ${open ? "bg-[#f9f9f9]" :""}`}>
                 <button
                   type="button"
                   onClick={() => setOpenFaq(open ? null : i)}
-                  className="w-full text-left flex items-start justify-between gap-3 text-[14px] font-semibold text-[#292560] hover:text-[#3d9e5f] transition-colors"
+                  className="w-full text-left flex items-start justify-between gap-3 text-[18px] font-semibold text-[#292560] cursor-pointer transition-colors"
                 >
                   <span>Q: {item.q}</span>
-                  <span className="text-[#3d9e5f] text-[18px] leading-none shrink-0">{open ? "−" : "+"}</span>
                 </button>
                 {open && (
-                  <p className="mt-3 text-[13.5px] text-gray-700 leading-relaxed">{item.a}</p>
+                  <p className="mt-3 text-[16px] text-[#292560] leading-relaxed">{item.a}</p>
                 )}
               </div>
             );
@@ -277,7 +447,7 @@ export default function BooksLandingPage() {
       <section className="w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/books/showcase-annual-reports.jpg"
+          src="/images/books/showcase-annual-reports.png"
           alt="Eucalyptus branch and BWX Annual Report books printed on recycled paper"
           className="w-full h-auto block"
         />
@@ -287,7 +457,7 @@ export default function BooksLandingPage() {
       <section className="w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/books/showcase-magazine.jpg"
+          src="/images/books/showcase-magazine.png"
           alt="Open art-book magazine spread on a teal background"
           className="w-full h-auto block"
         />
@@ -319,16 +489,16 @@ function TileSection({
               onClick={() => onSelect(i)}
               className={`rounded-lg overflow-hidden bg-white text-left transition-shadow border-2 ${
                 selected
-                  ? "border-[#3d9e5f] shadow-md"
-                  : "border-gray-200 hover:border-gray-300 hover:shadow-sm"
+                  ? "border-[#4CCC88] shadow-md"
+                  : "border-none hover:shadow-md"
               }`}
             >
-              <div className="aspect-square bg-gray-50 overflow-hidden">
+              <div className="aspect-square overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={it.image} alt={it.title} className="w-full h-full object-cover" />
+                <img src={it.image} alt={it.title} className="w-full h-full object-cover p-4" />
               </div>
               <div className="px-4 py-3">
-                <p className="text-[14px] font-semibold text-[#292560]">{it.title}</p>
+                <p className="text-[18px] font-semibold text-[#00000]">{it.title}</p>
               </div>
             </button>
           );
@@ -339,7 +509,7 @@ function TileSection({
 }
 
 function Field({
-  label, value, onChange, required, type = "text", placeholder,
+  label, value, onChange, required, type = "text", placeholder, error,
 }: {
   label: string;
   value: string;
@@ -347,10 +517,11 @@ function Field({
   required?: boolean;
   type?: string;
   placeholder?: string;
+  error?: string;
 }) {
   return (
     <div>
-      <label className="block text-[13px] font-semibold text-[#292560] mb-1.5">
+      <label className="block text-[18px] font-semibold text-[#292560] mb-1.5">
         {label}{required && <span className="text-red-500"> *</span>}
       </label>
       <input
@@ -359,8 +530,13 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         required={required}
         placeholder={placeholder}
-        className="w-full border border-gray-300 rounded px-3 py-2 text-[13px] text-[#292560] placeholder-gray-400 focus:border-[#3d9e5f] focus:outline-none focus:ring-1 focus:ring-[#3d9e5f]"
+        className="w-full border border-[#c4c4c41a] bg-[#f9f9f9] rounded-sm px-3 py-4 text-[14px] text-[#292560] placeholder-gray-400 focus:border-[#4CCC88] focus:outline-none focus:ring-1 focus:ring-[#4CCC88]"
       />
+       {error && (
+        <p className="mt-1 text-xs text-red-500">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
