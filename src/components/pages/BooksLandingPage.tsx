@@ -76,6 +76,7 @@ export default function BooksLandingPage() {
   const [activeBinding, setActiveBinding] = useState(0);
   const [openFaq,       setOpenFaq]       = useState<number | null>(0);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [backendError, setBackendError] = useState<string | null>(null);
   function clearFieldError(field: string) {
   if (errors[field]) {
     setErrors((prev) => ({
@@ -162,6 +163,7 @@ export default function BooksLandingPage() {
   if (Object.keys(fieldErrors).length) {
     setErrors(fieldErrors);
     setSubmitted("err");
+    setBackendError(null);
     return;
   }
     setSubmitting(true);
@@ -187,8 +189,25 @@ export default function BooksLandingPage() {
       fd.append("phone",        form.phone);
 
       const res = await fetch(`${BASE}/custom-quotes`, { method: "POST", body: fd });
+         // ← 404/500 might return HTML not JSON — check first
+      const contentType = res.headers.get("content-type");
+      
+        if (!contentType?.includes("application/json")) {
+          setBackendError(`Server error (${res.status}). Please try again later.`);
+          setSubmitted("err");
+          return;
+        }
+
       const json = await res.json();
-      if (!res.ok || !json.success) throw new Error(json.message ?? "Submission failed");
+
+        if (!res.ok || !json.success) {
+            console.log(json.message)
+            setBackendError(
+              json.message ?? `Server error (${res.status}). Please try again later.`
+            );
+            setSubmitted("err");
+            return;
+          }
       setSubmitted("ok");
       setForm({
         business_name: "", fname: "", email: "", phone: "",
@@ -196,6 +215,7 @@ export default function BooksLandingPage() {
         binding_method: "", other_notes: "",
       });
     } catch {
+      setBackendError("Unable to connect to server. Please try again later.");
       setSubmitted("err");
     } finally {
       setSubmitting(false);
@@ -412,8 +432,13 @@ export default function BooksLandingPage() {
               >
                 {submitting ? "Sending…" : "Get a Custom Quote"}
               </button>
-              {submitted === "ok"  && <p className="mt-3 text-[13px] text-[#3d9e5f] font-medium">Thanks — we&apos;ll be in touch shortly.</p>}
-              {submitted === "err" && <p className="mt-3 text-[13px] text-red-600 font-medium">Please complete the required fields and try again.</p>}
+                {submitted === "err" && (
+                  <p className="mt-3 text-[13px] text-red-600 font-medium">
+                    {backendError
+                      ? backendError
+                      : "Please complete the required fields and try again."}
+                  </p>
+                )}
             </div>
           </form>
         </div>
