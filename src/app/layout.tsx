@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     template: "%s | Sustainable Printing Co.",
   },
   description: "Modern sustainable printing platform.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
