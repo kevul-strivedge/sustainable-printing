@@ -227,14 +227,18 @@ export default function Footer() {
                 {/* Social icons */}
                 <div className="flex items-center gap-5">
                     <Link
-                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.instagram.com/sustainableprintingco"
                         aria-label="Instagram"
                         className="text-white/80 hover:text-white transition-colors duration-150"
                     >
                         <InstagramIcon />
                     </Link>
                     <Link
-                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.facebook.com/sustainableprintingco/?modal=admin_todo_tour"
                         aria-label="Facebook"
                         className="text-white/80 hover:text-white transition-colors duration-150"
                     >

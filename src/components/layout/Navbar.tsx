@@ -303,7 +303,8 @@ export default function Navbar() {
                         key={item.slug}
                         href={getNavHref(item.slug)}
                         className="text-[14px] text-gray-600 hover:text-[#3d9e5f] transition-colors duration-150 block"
-                      >
+                        onClick={() => setActiveDropdown(null)}
+                     >
                         {item.label}
                       </Link>
                     ))}
@@ -327,11 +328,15 @@ export default function Navbar() {
             const isPdf = item.href.endsWith(".pdf");
             const className = "block px-5 py-2.5 text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap";
             return isPdf ? (
-              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className={className}>
+              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className={className}
+               onClick={() => setActiveDropdown(null)}
+              >
                 {item.label}
               </a>
             ) : (
-              <Link key={item.label} href={item.href} className={className}>
+              <Link key={item.label} href={item.href} className={className}
+               onClick={() => setActiveDropdown(null)}
+              >
                 {item.label}
               </Link>
             );
@@ -356,6 +361,7 @@ export default function Navbar() {
             <Link key={item.label}
               href={item.href}
               className="block px-5 py-2.5 text-[14px] text-gray-700 hover:text-[#3d9e5f] hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap"
+             onClick={() => setActiveDropdown(null)}
             >
               {item.label}
             </Link>
