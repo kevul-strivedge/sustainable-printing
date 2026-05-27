@@ -2,9 +2,20 @@
 
 import PageHeader from "@/src/components/ui/PageHeader";
 import { blogData } from "@/src/constants/blog.data";
+import { pageMetadata } from "@/src/constants/seoMeta";
 import { BlogContentBlock } from "@/src/types/blog.types";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+// Add this function above the default export
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;  
+  return pageMetadata(`blogs/${slug}`);
+}
 
 const renderBlock = (block: BlogContentBlock, i: number) => {
   switch (block.type) {

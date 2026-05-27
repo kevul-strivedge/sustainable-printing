@@ -7,6 +7,7 @@ import { fetchMyOrders, reQuoteOrder, MyOrder } from "@/src/services/api";
 import { products } from "@/src/constants/products";
 import { getNavHref } from "@/src/constants/seoMeta";
 import { PageLoader } from "@/src/components/ui/Spinner";
+import PageHeader from "@/src/components/ui/PageHeader";
 
 const STATUS_STYLES: Record<string, string> = {
   quotedOnline:  "text-[#3d9e5f]",
@@ -340,6 +341,8 @@ function MyHistoryPageContent() {
   if (!hydrated || !user) return null;
 
   return (
+    <>
+     <PageHeader title="Your Order" titleClassName="text-3xl max-w-6xl" />
     <main className="min-h-screen bg-[#faf9f7] py-10 px-4">
       <div className="max-w-275 mx-auto">
         <h1 className="text-[20px] font-bold text-[#292560] mb-6">Quote / Order History</h1>
@@ -435,6 +438,7 @@ function MyHistoryPageContent() {
         />
       </div>
     </main>
+    </>
   );
 }
 
