@@ -11,9 +11,9 @@ export default function EcoInks() {
       <div className="max-w-6xl mx-auto px-6 lg:px-10 sm:py-16 py-8 space-y-12">
         {/* Vegetable Based Inks */}
         <div className="space-y-4 pt-6">
-          <h2 className="text-[#292560] text-2xl font-semibold">
+          <h3 className="text-[#292560] text-2xl font-semibold">
             Vegetable Based Inks
-          </h2>
+          </h3>
           <p className="text-[#292560] text-base leading-6">
             Vegetable based inks are used in our offset printing and are the
             eco-friendlier alternative to petroleum based inks. Our soy and
@@ -42,17 +42,17 @@ export default function EcoInks() {
             where waste is reused and recycled. We also reuse unused inks for
             future jobs.
           </p>
-          <p className="text-[#292560] text-xl leading-6 font-bold">
+          <h4 className="text-[#292560] text-xl leading-6 font-bold">
             Sustainable Printing Co uses vegetable based inks for its offset
             printing.
-          </p>
+          </h4>
         </div>
 
         {/* Digital Printing Toner */}
         <div className="space-y-4 py-6">
-          <h2 className="text-[#292560] text-2xl font-semibold">
+          <h3 className="text-[#292560] text-2xl font-semibold">
             Digital Printing Toner
-          </h2>
+          </h3>
           <p className="text-[#292560] text-base leading-6">
             Digital printing differs from traditional offset printing because
             digital printing machines do not require printing plates. Our

@@ -19,9 +19,9 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
 
       {/* Title */}
-      <h3 className={`text-[#1a1a1a] font-bold text-[1.05rem] leading-snug ${product.titleClassName}`}>
+      <h4 className={`text-[#1a1a1a] font-bold text-[1.05rem] leading-snug ${product.titleClassName}`}>
         {product.title}
-      </h3>
+      </h4>
 
       {/* Description */}
       <p className="text-[#444] text-sm leading-relaxed mb-5 flex-1">

@@ -60,9 +60,9 @@ const renderBlock = (block: BlogContentBlock, i: number) => {
       );
     case "heading":
       return (
-        <h2 key={i} className="text-[#292560] text-xl font-semibold pt-2">
+        <h4 key={i} className="text-[#292560] text-xl font-semibold pt-2">
           {block.text}
-        </h2>
+        </h4>
       );
     case "list":
       return (

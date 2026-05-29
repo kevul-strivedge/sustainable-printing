@@ -18,7 +18,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Eco Friendly Printing is no longer just an alternative option. It is a conscious branding decision that speaks volumes about responsibility, quality, and long term thinking. Businesses that embrace sustainable practices are not only reducing environmental impact but also building stronger connections with modern audiences.",
         boldWords: [
-          { word: "Eco Friendly Printing", href: "/eco-friendly-printing" },
+          { word: "Eco Friendly Printing", href: "/" },
         ],
       },
       {
@@ -91,7 +91,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "https://www.sustainableprintingco.com.au/products",
-            href: "#",
+            href: "/products",
           },
         ],
       },
@@ -138,7 +138,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "People remember how a brand makes them feel. When your business chooses Eco Friendly Printing, it creates a positive emotional response.",
-        boldWords: [{ word: "Eco Friendly Printing", href: "#" }],
+        boldWords: [{ word: "Eco Friendly Printing", href: "/" }],
       },
       {
         type: "paragraph",
@@ -219,7 +219,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choosing Recycled Business Cards goes beyond aesthetics. It signals thoughtfulness, awareness, and a genuine commitment to responsible practices. When someone receives your card, they are not only reading your name. They are forming an opinion about your business.",
-        boldWords: [{ word: "Recycled Business Cards" }],
+        boldWords: [{ word: "Recycled Business Cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "heading",
@@ -264,7 +264,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Recycled Business Cards add depth to your branding. They tell a story without needing explanation. When someone holds your card, they experience your values in a physical form.",
-        boldWords: [{ word: "Recycled Business Cards" }],
+        boldWords: [{ word: "Recycled Business Cards",href:"/uncoated-business-cards" }],
       },
       {
         type: "paragraph",
@@ -352,7 +352,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
         ],
       },
@@ -427,7 +427,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "This is where Sustainable Printing becomes more than just a choice. It becomes a defining part of your brand story. From packaging inserts to branded materials, the way you print speaks volumes about your business values.",
-        boldWords: [{ word: "Sustainable Printing" }],
+        boldWords: [{ word: "Sustainable Printing", href:"/" }],
       },
       {
         type: "heading",
@@ -472,7 +472,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "There are multiple areas within an e commerce business where Custom Printing Services can play a role. Each of these touchpoints offers an opportunity to reinforce your brand message.",
-        boldWords: [{ word: "Custom Printing Services" }],
+        boldWords: [{ word: "Custom Printing Services"  }],
       },
       {
         type: "richList",
@@ -566,7 +566,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Switching to Recycled Paper Printing for your most frequently used materials is a great first step. From there, you can expand to other areas as your business grows.",
-        boldWords: [{ word: "Recycled Paper Printing" }],
+        boldWords: [{ word: "Recycled Paper Printing", href:"/products"  }],
       },
       {
         type: "paragraph",
@@ -584,7 +584,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "We print all types of books and would love to talk to you about your next project. Explore our full range of solutions here: https://www.sustainableprintingco.com.au/products",
         boldWords: [
-          { word: "https://www.sustainableprintingco.com.au/products" },
+          { word: "https://www.sustainableprintingco.com.au/products", href:"/products"  },
         ],
       },
       {
@@ -658,7 +658,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "One of the most common questions companies ask today is whether Recycled Paper For Printing performs as well as traditional paper. Is the quality the same? Is it better for the environment? And how does it affect your brand image?",
-        boldWords: [{ word: "Recycled Paper For Printing" }],
+        boldWords: [{ word: "Recycled Paper For Printing", href:"/products" }],
       },
       {
         type: "paragraph",
@@ -699,7 +699,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When businesses choose Recycled Paper For Printing, they support a circular system where paper is reused rather than discarded. The fibres can often be recycled several times before reaching the end of their lifecycle.",
-        boldWords: [{ word: "Recycled Paper For Printing" }],
+        boldWords: [{ word: "Recycled Paper For Printing", href:"/products" }],
       },
       {
         type: "paragraph",
@@ -728,7 +728,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "For businesses seeking Environmentally Friendly Printing, recycled paper is one of the most effective choices available.",
-        boldWords: [{ word: "Environmentally Friendly Printing" }],
+        boldWords: [{ word: "Environmentally Friendly Printing", href:"/products" }],
       },
       {
         type: "heading",
@@ -769,7 +769,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Consumers today appreciate businesses that make conscious decisions about their environmental impact. Choosing Environmentally Friendly Printing can therefore become a meaningful part of a company's brand identity.",
-        boldWords: [{ word: "Environmentally Friendly Printing" }],
+        boldWords: [{ word: "Environmentally Friendly Printing", href:"/products" }],
       },
       {
         type: "heading",
@@ -799,7 +799,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "All Products: https://www.sustainableprintingco.com.au/products",
         boldWords: [
-          { word: "https://www.sustainableprintingco.com.au/products" },
+          { word: "https://www.sustainableprintingco.com.au/products", href:"/products" },
         ],
       },
       {
@@ -837,7 +837,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Their expertise in Eco Friendly Printing ensures that businesses receive high quality printed materials while contributing to a healthier planet.",
-        boldWords: [{ word: "Eco Friendly Printing" }],
+        boldWords: [{ word: "Eco Friendly Printing",href:"/products" }],
       },
       {
         type: "paragraph",
@@ -863,7 +863,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -906,7 +906,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "This is where Sustainable Label Printing becomes important. By choosing environmentally responsible printing methods, brands can present their products professionally while reducing environmental impact.",
-        boldWords: [{ word: "Sustainable Label Printing" }],
+        boldWords: [{ word: "Sustainable Label Printing", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
@@ -928,7 +928,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choosing Sustainable Label Printing allows businesses to reduce their environmental footprint while maintaining attractive and durable packaging.",
-        boldWords: [{ word: "Sustainable Label Printing" }],
+        boldWords: [{ word: "Sustainable Label Printing", href:"/" }],
       },
       {
         type: "paragraph",
@@ -941,7 +941,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Brands today want packaging that communicates both quality and environmental care. This shift has driven the popularity of Eco Friendly Product Labels.",
-        boldWords: [{ word: "Eco Friendly Product Labels" }],
+        boldWords: [{ word: "Eco Friendly Product Labels", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
@@ -1024,7 +1024,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "These principles apply across the company's Label Printing Services, ensuring businesses receive printing solutions that reflect genuine environmental care.",
-        boldWords: [{ word: " Label Printing Services", href: "#" }],
+        boldWords: [{ word: " Label Printing Services", href:"/circle-adhesive-labels"}],
       },
       {
         type: "heading",
@@ -1037,7 +1037,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Reliable Label Printing Services ensure that businesses receive labels that are durable, visually appealing, and aligned with their brand identity.",
-        boldWords: [{ word: "Label Printing Services" }],
+        boldWords: [{ word: "Label Printing Services", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
@@ -1054,7 +1054,7 @@ export const blogData: BlogPost[] = [
       {
         type: "link",
         text: "https://www.sustainableprintingco.com.au/products",
-        href: "https://www.sustainableprintingco.com.au/products",
+        href: "/products",
       },
       {
         type: "heading",
@@ -1126,7 +1126,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -1151,7 +1151,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Through the expertise of Sustainable Printing Co., eco conscious brands can produce high quality labels that align with their sustainability goals and contribute to a more responsible future for printing.",
-        boldWords: [{ word: "Sustainable Printing Co.", href: "#" }],
+        boldWords: [{ word: "Sustainable Printing Co.", href: "/" }],
       },
     ],
   },
@@ -1165,7 +1165,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Businesses today are no longer judged only by the quality of their products or services. Customers also care about the values a brand represents. One of the most effective ways to demonstrate environmental responsibility is through printing choices. By partnering with an Eco Friendly Printing Company, brands can reduce their environmental footprint while still maintaining premium print quality.",
-        boldWords: [{ word: "Eco Friendly Printing Company" }],
+        boldWords: [{ word: "Eco Friendly Printing Company", href:"/products" }],
       },
       {
         type: "paragraph",
@@ -1186,7 +1186,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Working with a Sustainable Printing Company ensures that your printed materials are produced using processes that minimise environmental impact while maintaining professional standards.",
-        boldWords: [{ word: "Sustainable Printing Company" }],
+        boldWords: [{ word: "Sustainable Printing Company", href:"/" }],
       },
       {
         type: "paragraph",
@@ -1301,7 +1301,7 @@ export const blogData: BlogPost[] = [
       {
         type: "link",
         text: "https://www.sustainableprintingco.com.au/products",
-        href: "https://www.sustainableprintingco.com.au/products",
+        href: "products",
       },
       {
         type: "heading",
@@ -1339,7 +1339,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Working with a trusted Sustainable Printing Company ensures that every printed item contributes to a more responsible supply chain.",
-        boldWords: [{ word: "Sustainable Printing Company" }],
+        boldWords: [{ word: "Sustainable Printing Company", href:"/" }],
       },
       {
         type: "paragraph",
@@ -1385,7 +1385,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -1441,8 +1441,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "This shift is driving a strong move towards Eco Friendly Printing Services, where recycled materials, responsible production, and thoughtful sourcing work together to reduce environmental impact. At Sustainable Printing Co., we've seen firsthand how recycled printing is helping Aussie businesses align their communication with their values without compromising on quality or presentation.",
         boldWords: [
-          { word: "Eco Friendly Printing Services" },
-          { word: "Sustainable Printing Co." },
+          { word: "Eco Friendly Printing Services", href:"/products" },
+          { word: "Sustainable Printing Co." , href:"/" },
         ],
       },
       {
@@ -1481,7 +1481,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "This is what makes modern Recycled Printing Services both practical and impactful.",
-        boldWords: [{ word: "Recycled Printing Services" }],
+        boldWords: [{ word: "Recycled Printing Services", href:"/" }],
       },
       {
         type: "heading",
@@ -1541,7 +1541,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "https://www.sustainableprintingco.com.au/products",
-            href: "#",
+            href: "/products",
           },
         ],
       },
@@ -1587,7 +1587,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choosing Eco Friendly Printing Services sends a clear message. It shows your organisation values sustainable practices and understands its role in protecting shared resources.",
-        boldWords: [{ word: "Eco Friendly Printing Services" }],
+        boldWords: [{ word: "Eco Friendly Printing Services", href:"/" }],
       },
       {
         type: "paragraph",
@@ -1630,7 +1630,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., sustainability isn't a marketing phrase it's the foundation of everything we do. We're committed to helping Australian businesses print responsibly while maintaining exceptional standards.",
-        boldWords: [{ word: "Sustainable Printing Co.", href: "#" }],
+        boldWords: [{ word: "Sustainable Printing Co.", href: "/" }],
       },
       {
         type: "paragraph",
@@ -1667,7 +1667,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -1739,8 +1739,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "At Sustainable Printing Co., we work closely with organisations that want their printed materials to reflect not only their brand identity but also their environmental values. Choosing thoughtful, responsible print methods especially options like eco friendly calendar printing helps businesses connect with customers while contributing to a healthier planet.",
         boldWords: [
-          { word: "eco friendly calendar printing" },
-          { word: "Sustainable Printing Co.", href: "#" },
+          { word: "eco friendly calendar printing", href:"/products" },
+          { word: "Sustainable Printing Co.", href: "/" },
         ],
       },
       {
@@ -1804,7 +1804,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "All Products: https://www.sustainableprintingco.com.au/products",
-            href: "#",
+            href: "/products",
           },
         ],
       },
@@ -1823,7 +1823,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our Custom Printing Services allow you to create tailored stationery while maintaining environmental integrity.",
-        boldWords: [{ word: "Custom Printing Services" }],
+        boldWords: [{ word: "Custom Printing Services", href:"/" }],
       },
       {
         type: "paragraph",
@@ -1860,7 +1860,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Through our Green Printing Solutions, businesses can produce: ",
-        boldWords: [{ word: "Green Printing Solutions" }],
+        boldWords: [{ word: "Green Printing Solutions", href:"/" }],
       },
       {
         type: "list",
@@ -1890,7 +1890,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our Green Printing Services Australia support retail brands, product manufacturers, and service providers in producing packaging materials that reflect environmental responsibility without sacrificing design quality.",
-        boldWords: [{ word: "Green Printing Services Australia", href: "#" }],
+        boldWords: [{ word: "Green Printing Services Australia", href: "/" }],
       },
       {
         type: "heading",
@@ -2002,7 +2002,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -2059,7 +2059,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "By choosing recycled materials, responsible production, and experienced partners like Sustainable Printing Co., Aussie businesses can maintain exceptional print quality while contributing to environmental protection.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "paragraph",
@@ -2082,7 +2082,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Printing has long been a part of how businesses communicate, promote, and connect with people. From brochures and books to packaging and calendars, printed materials shape how brands present themselves. However, traditional printing methods come with hidden environmental consequences. Today, more organisations are recognising the value of switching to responsible alternatives such as eco friendly calendar printing, which offers both environmental and business advantages.",
-        boldWords: [{ word: "eco friendly calendar printing" }],
+        boldWords: [{ word: "eco friendly calendar printing", href:"/products" }],
       },
       {
         type: "paragraph",
@@ -2147,7 +2147,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At its core, Eco Friendly Printing involves using recycled paper, safe inks, and energy-efficient production methods to minimise environmental harm.",
-        boldWords: [{ word: "Eco Friendly Printing" }],
+        boldWords: [{ word: "Eco Friendly Printing", href:"/" }],
       },
       {
         type: "paragraph",
@@ -2200,7 +2200,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., every calendar is produced using 100% recycled and responsibly sourced paper. This ensures that your business materials reflect both professionalism and environmental care.",
-        boldWords: [{ word: "At Sustainable Printing Co.", href: "#" }],
+        boldWords: [{ word: "At Sustainable Printing Co.", href: "/" }],
       },
       {
         type: "paragraph",
@@ -2208,7 +2208,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "https://www.sustainableprintingco.com.au/products",
-            href: "#",
+            href: "/products",
           },
         ],
       },
@@ -2326,7 +2326,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "https://www.sustainableprintingco.com.au/products",
-            href: "#",
+            href: "/products",
           },
         ],
       },
@@ -2407,7 +2407,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -2438,7 +2438,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Eco friendly calendar printing represents a simple yet powerful step towards responsible business practices.",
-        boldWords: [{ word: "Eco friendly calendar printing" }],
+        boldWords: [{ word: "Eco friendly calendar printing", href:"/" }],
       },
       {
         type: "paragraph",
@@ -2465,17 +2465,12 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's competitive marketplace, your product's packaging can speak volumes about your brand. Adhesive Labels Printing is no longer just about functionality it's about creating a strong, sustainable impression. With growing awareness around environmental impact, choosing Eco Friendly Labels has become a priority for Australian businesses committed to sustainability.",
         boldWords: [
-          { word: "Adhesive Labels Printing" },
-          { word: "Eco Friendly Labels" },
+          { word: "Adhesive Labels Printing", href:"/circle-adhesive-labels" },
         ],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we specialise in producing high-quality, eco-conscious labels that align with your brand values. From Eco Friendly Stickers Australia to Eco Friendly Custom Labels, we offer a wide range of solutions that combine premium aesthetics with environmental responsibility.",
-        boldWords: [
-          { word: "Eco Friendly Stickers Australia" },
-          { word: "Eco Friendly Custom Labels" },
-        ],
       },
       {
         type: "heading",
@@ -2484,7 +2479,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Traditional labels often rely on virgin paper, synthetic adhesives, and chemical-intensive inks. Opting for Sustainable Labels not only reduces environmental impact but also enhances your brand's reputation. Consumers today are increasingly eco-conscious and prefer products that reflect responsible choices.",
-        boldWords: [{ word: "Sustainable Labels" }],
+        boldWords: [{ word: "Sustainable Labels", href:"/" }],
       },
       {
         type: "paragraph",
@@ -2534,7 +2529,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Selecting the right Eco Friendly Label Printing service begins with understanding the materials and types available. Here's a breakdown:",
-        boldWords: [{ word: "Eco Friendly Label Printing" }],
+        boldWords: [{ word: "Eco Friendly Label Printing", href:"/circle-adhesive-labels" }],
       },
       {
         type: "heading",
@@ -2710,12 +2705,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choosing Eco Friendly Label Printing is a smart business decision. It combines quality, aesthetics, and sustainability, allowing your brand to stand out while reducing environmental impact. From Eco Friendly Stickers Australia to Sustainable Labels and Eco Friendly Custom Labels, our solutions are designed for businesses committed to a greener future.",
-        boldWords: [
-          { word: "Eco Friendly Label Printing" },
-          { word: "Eco Friendly Stickers Australia" },
-          { word: "Sustainable Labels" },
-          { word: "Eco Friendly Custom Labels" },
-        ],
       },
       {
         type: "paragraph",
@@ -2749,7 +2738,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Explore all options:",
             linkText: "All Products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
         ],
@@ -2766,7 +2755,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's world, first impressions matter more than ever. And nothing introduces your business better than a thoughtfully designed business card. But for brands committed to sustainability, Eco Friendly Business Cards are not just a trend they're a statement. They communicate care for the environment while reflecting professionalism and style.",
-        boldWords: [{ word: "Eco Friendly Business Cards" }],
+        boldWords: [{ word: "Eco Friendly Business Cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "paragraph",
@@ -2813,7 +2802,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "These cards are made from natural fibres and eco-conscious inks. They often feature textures and finishes that highlight the natural materials, giving your card a tactile, distinctive feel. Organic Business Cards are ideal for brands in sustainability, wellness, or creative industries that want to stand out subtly but meaningfully.",
-        boldWords: [{ word: "Organic Business Cards" }],
+        boldWords: [{ word: "Organic Business Cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "heading",
@@ -2878,7 +2867,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "A modular approach to design ensures your cards reflect your brand's personality. With Custom Made Business Cards, you can adjust size, colour palette, and paper textures to suit your audience. Whether you're choosing Organic Business Cards or recycled options, personalised touches make your card memorable.",
-        boldWords: [{ word: "Organic Business Cards" }],
+        boldWords: [{ word: "Organic Business Cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "heading",
@@ -2937,12 +2926,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "For queries or personal assistance, reach out via email: sales@sustainableprintingco.com.au or contact us directly through our online form: Contact Us.",
-        boldWords: [{ word: "sales@sustainableprintingco.com.au", href: "#" }],
+        boldWords: [{ word: "sales@sustainableprintingco.com.au", href: "mailto:sales@sustainableprintingco.com.au" }],
       },
       {
         type: "paragraph",
         text: "You can also call us on (03)94822222 for immediate support.",
-        boldWords: [{ word: "(03)94822222", href: "#" }],
+        boldWords: [{ word: "(03)94822222", href: "tel:0394822222" }],
       },
       {
         type: "heading",
@@ -2984,7 +2973,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Explore our full range of sustainable options: ",
             linkText: "All Products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
         ],
@@ -2996,7 +2985,7 @@ export const blogData: BlogPost[] = [
     ],
   },
   {
-    id: 12,
+    id: 12, 
     slug: "how-to-select-the-best-eco-friendly-postcard-printing-service",
     image: "/images/blogimages/blogImg12.png",
     imageAlt: "How to Select the Best Eco Friendly Postcard Printing Service",
@@ -3009,7 +2998,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we specialise in delivering premium, sustainable printing services for postcards, business cards, invitations, books, and more. Whether you're planning a direct mail campaign, sending seasonal greetings, or designing promotional material, selecting the right Eco Friendly Postcard Printing service can make all the difference.",
-        boldWords: [{ word: "Eco Friendly Postcard Printing" }],
+        boldWords: [{ word: "Eco Friendly Postcard Printing",href:"/premium-postcards" }],
       },
       {
         type: "heading",
@@ -3018,7 +3007,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Traditional printing methods often rely heavily on virgin paper, chemical-intensive inks, and energy-consuming processes. By choosing Eco Friendly Postcards, you reduce your carbon footprint and signal to your customers that your brand values sustainability.",
-        boldWords: [{ word: "Eco Friendly Postcards" }],
       },
       {
         type: "paragraph",
@@ -3076,7 +3064,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Recycled Postcards Printing uses post-consumer or pre-consumer waste to create paper that is sturdy, visually appealing, and sustainable. These postcards maintain excellent print quality while supporting responsible resource use.",
-        boldWords: [{ word: "Recycled Postcards Printing" }],
+        boldWords: [{ word: "Recycled Postcards Printing", href:"/premium-postcards" }],
       },
       {
         type: "paragraph",
@@ -3089,7 +3077,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Organic Postcards are crafted from naturally sourced materials and inks, often with unique textures and finishes that give your mailings a distinctive tactile feel. These are perfect for brands that want to convey creativity, quality, and environmental awareness.",
-        boldWords: [{ word: "Organic Postcards" }],
       },
       {
         type: "heading",
@@ -3098,7 +3085,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Even standard Postcard Printing services can offer eco-conscious alternatives. Look for providers that use recycled paper, energy-efficient printing technologies, and sustainable inks. This ensures your postcards look professional while reducing environmental harm.",
-        boldWords: [{ word: "Postcard Printing" }],
       },
       {
         type: "heading",
@@ -3308,7 +3294,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Explore all options:",
             linkText: "All Products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
         ],
@@ -3339,8 +3325,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "At Sustainable Printing Co., we believe quality and sustainability should work together, not compete. Eco-conscious choices no longer mean rough finishes, faded colours, or limited design options. Today's Friendly Business Cards are refined, professional, and aligned with modern brand values.",
         boldWords: [
-          { word: " Friendly Business Cards", href: "#" },
-          { word: "Sustainable Printing Co.", href: "#" },
+          { word: " Friendly Business Cards", href: "/uncoated-business-cards" },
+          { word: "Sustainable Printing Co.", href: "/" },
         ],
       },
       {
@@ -3367,7 +3353,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Modern Eco-Friendly Business Cards focus on recycled and responsibly sourced paper stocks, cleaner production methods, reduced waste and emissions, and thoughtful, minimal finishes.",
-        boldWords: [{ word: "Eco-Friendly Business Cards" }],
+        boldWords: [{ word: "Eco-Friendly Business Cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "list",
@@ -3389,6 +3375,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "One of the most common concerns we hear is whether recycled paper looks less professional. In reality, high-quality Business Cards offer texture, weight, and finish that rival — and often exceed — conventional stocks.",
+        boldWords: [{ word: "Business Cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "paragraph",
@@ -3445,7 +3432,7 @@ export const blogData: BlogPost[] = [
           {
             label: "All Products page:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "#",
+            href: "/products",
             boldLabel: true,
             boldLink: true,
           },
@@ -3475,7 +3462,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we take time to understand how your cards will be used, who they're for, and what they need to communicate. Sustainability works best when it's practical and honest, not forced or over-explained.",
-        boldWords: [{ word: "Sustainable Printing Co.", href: "#" }],
+        boldWords: [{ word: "Sustainable Printing Co.", href: "/" }],
       },
       {
         type: "paragraph",
@@ -3517,7 +3504,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -3542,7 +3529,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "As a Sustainable Printing Company, we see this shift every day. Custom print projects are becoming more thoughtful, more transparent, and more aligned with ethical production. At Sustainable Printing Co., sustainability is not a trend we follow — it's the foundation of how we operate.",
-        boldWords: [{ word: "Sustainable Printing Company" }],
+        boldWords: [{ word: "Sustainable Printing Company", href:"/" }],
       },
       {
         type: "paragraph",
@@ -3605,7 +3592,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "One of the most important shifts in sustainable print is the use of Recycled Printers and recycled paper stocks. Printing on recycled paper offers clear environmental advantages, especially when those materials are sourced and processed responsibly.",
-        boldWords: [{ word: "sustainable print" }],
+        boldWords: [{ word: "sustainable print", href:"/" }],
       },
       {
         type: "paragraph",
@@ -3665,7 +3652,7 @@ export const blogData: BlogPost[] = [
       {
         type: "link",
         text: "All Products page: https://www.sustainableprintingco.com.au/products",
-        href: "https://www.sustainableprintingco.com.au/products",
+        href: "/products",
       },
       {
         type: "paragraph",
@@ -3719,7 +3706,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -3741,7 +3728,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In retail, packaging is often the first physical interaction a customer has with your brand. Before a garment is worn or a product is used, the swing tag is seen, touched, and read. For businesses that value responsibility as much as presentation, choosing the right Swing Tags Printing Services has become an important part of brand storytelling.",
-        boldWords: [{ word: "Swing Tags" }],
+        boldWords: [{ word: "Swing Tags", href:"/premium-swing-tags" }],
       },
       {
         type: "paragraph",
@@ -3770,6 +3757,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Traditional swing tags often rely on virgin paper stocks, heavy coatings, and short-term use. Sustainable printing challenges this approach by focusing on materials that have a lower environmental footprint and can be reused or recycled after use.",
+        boldWords: [{ word: "swing tag", href:"/premium-swing-tags" }],
       },
       {
         type: "paragraph",
@@ -3811,7 +3799,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "For businesses looking for a balance between structure and sustainability, Custom Kraft Hang Tags provide flexibility in size, shape, and layout. Kraft paper offers strength and character, making it suitable for a wide range of products, from clothing to homewares.",
-        boldWords: [{ word: "Custom Kraft Hang Tags" }],
+        boldWords: [{ word: "Custom Kraft Hang Tags", href:"/premium-swing-tags" }],
       },
       {
         type: "paragraph",
@@ -3848,7 +3836,7 @@ export const blogData: BlogPost[] = [
       {
         type: "link",
         text: "All Products page: https://www.sustainableprintingco.com.au/products",
-        href: "https://www.sustainableprintingco.com.au/products",
+        href: "/products",
       },
       {
         type: "heading",
@@ -3902,7 +3890,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -3928,7 +3916,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "This is exactly why custom book printing Australia is thriving more than ever. Authors, illustrators, photographers, educators, and small brands still want their work printed in a form that feels personal and lasting. And at Sustainable Printing Co., we get to see the joy on people's faces when their ideas finally become a physical book — something they can touch, share, and keep for years.",
-        boldWords: [{ word: "custom book printing Australia" }],
+        boldWords: [{ word: "custom book printing Australia", href:"/books" }],
       },
       {
         type: "paragraph",
@@ -4010,14 +3998,14 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "The publishing world has undergone massive changes, but one of the most positive is the rise of eco friendly book printing. More authors and brands want to print sustainably, and for good reason.",
-        boldWords: [{ word: "eco friendly book printing" }],
+        boldWords: [{ word: "eco friendly book printing", href:"/" }],
       },
       {
         type: "paragraph",
         text: "When you choose recycled paper, carbon-neutral materials, and non-toxic printing processes, you reduce waste, cut energy consumption, and help protect forests. And the best part? Sustainable printing doesn't mean sacrificing quality. In fact, recycled papers often have beautiful textures that give books more character.",
       },
       {
-        type: "paragraph",
+        type: "paragraph",  
         text: "At Sustainable Printing Co., we use:",
       },
       {
@@ -4149,7 +4137,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "https://www.sustainableprintingco.com.au/contact",
-            href: "#",
+            href: "/contact",
           },
         ],
       },
@@ -4163,7 +4151,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "https://www.sustainableprintingco.com.au/products",
-            href: "#",
+            href: "/products",
           },
         ],
       },
@@ -4462,7 +4450,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "https://www.sustainableprintingco.com.au/contact",
         boldWords: [
-          { word: "https://www.sustainableprintingco.com.au/contact" },
+          { word: "https://www.sustainableprintingco.com.au/contact", href:"/contact" },
         ],
       },
       {
@@ -4473,7 +4461,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "https://www.sustainableprintingco.com.au/products",
         boldWords: [
-          { word: "https://www.sustainableprintingco.com.au/products" },
+          { word: "https://www.sustainableprintingco.com.au/products",href:"products" },
         ],
       },
       {
@@ -4514,7 +4502,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's business landscape, sustainability is no longer optional—it's a vital consideration for brands looking to make a meaningful impact. Marketing materials like Flyers And Posters Printing and Recycled Paper Booklet Printing are more than just tools for promotion—they are statements about your brand's values. At Sustainable Printing Co., we help businesses combine effective marketing with eco-conscious practices through high-quality, sustainable printing solutions.",
-        boldWords: [{ word: "Posters Printing" }],
+        boldWords: [{ word: "Posters Printing", href:"/posters-printing" }],
       },
       {
         type: "paragraph",
@@ -4531,7 +4519,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Recycled Paper Booklet Printing and Flyers And Posters Printing Services ensure that your marketing materials have minimal environmental impact. Here's why:",
-        boldWords: [{ word: "Posters Printing Services" }],
+        boldWords: [{ word: "Posters Printing Services", href:"/posters-printing" }],
       },
       {
         type: "richList",
@@ -4651,8 +4639,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "There are countless ways to use Flyers And Posters Printing Services and Recycled Paper Booklet Printing to boost brand awareness while demonstrating eco-responsibility:",
         boldWords: [
-          { word: "Flyers And Posters Printing Services" },
-          { word: "Recycled Paper Booklet Printing" },
+          { word: "Recycled Paper Booklet Printing", href:"/posters-printing" },
         ],
       },
       {
@@ -4699,7 +4686,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Recycled Paper Booklet Printing goes beyond sustainability. It offers practical advantages for both your business and your audience:",
-        boldWords: [{ word: "Recycled Paper Booklet Printing" }],
       },
       {
         type: "richList",
@@ -4739,8 +4725,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "A multi-format marketing approach is often the most effective. Flyers And Posters Printing, paired with Recycled Paper Booklet Printing, provides multiple touchpoints for your audience.",
         boldWords: [
-          { word: "Flyers And Posters Printing" },
-          { word: "Recycled Paper Booklet Printing" },
+          { word: "Recycled Paper Booklet Printing",href:"/posters-printing" },
         ],
       },
       {
@@ -4800,7 +4785,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choosing sustainable printing solutions like Poster Printing Services, Flyers And Posters Printing, and Recycled Paper Booklet Printing is a strategic move for modern businesses. Not only do these materials enhance your marketing campaigns, but they also communicate your dedication to the environment.",
-        boldWords: [{ word: "Flyers And Posters Printing" }],
+        boldWords: [{ word: "Flyers And Posters Printing", href:"/posters-printing" }],
       },
       {
         type: "paragraph",
@@ -4832,13 +4817,13 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
           {
             label: "Browse all products:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
         ],
@@ -4868,7 +4853,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In a world where digital messages are quick and disposable, there's something beautifully personal about receiving a physical card — one that you can hold, display, and keep. But what if that gesture of care could also be kind to the planet? That's the essence of Recycled Greeting Card Printing — a meaningful balance between creativity, connection, and conscious living.",
-        boldWords: [{ word: "Recycled Greeting Card Printing" }],
+        boldWords: [{ word: "Recycled Greeting Card Printing", href:"/standard-a6-gift-cards" }],
       },
       {
         type: "paragraph",
@@ -4908,7 +4893,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "To explore our complete range of eco-friendly print products, visit our All Products page.",
-        boldWords: [{ word: "All Products", href: "#" }],
+        boldWords: [{ word: "All Products", href: "/products" }],
       },
       {
         type: "heading",
@@ -4937,8 +4922,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "If you’d like to chat about your next project, reach out to us at sales@sustainableprintingco.com.au or call (03) 9482 2222. We’d love to hear your ideas.",
         boldWords: [
-          { word: "sales@sustainableprintingco.com.au", href: "#" },
-          { word: "(03) 9482 2222.", href: "#" },
+          { word: "sales@sustainableprintingco.com.au", href: "mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href: "tel:394822222" },
         ],
       },
       {
@@ -5013,7 +4998,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We print all types of books, cards, and stationery — and we’d love to talk about your next idea. Have a look at what we offer, then get in touch for a chat.",
-        boldWords: [{ word: "get in touch ", href: "#" }],
+        boldWords: [{ word: "get in touch ", href: "/contact" }],
       },
       {
         type: "heading",
@@ -5122,7 +5107,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Explore our range of sustainable print products at All Products and discover how thoughtful design can make a greener world possible — one recycled card at a time.",
-        boldWords: [{ word: "All Products", href: "#" }],
+        boldWords: [{ word: "All Products", href: "/'products" }],
       },
     ],
   },
@@ -5145,6 +5130,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "These booklets not only look refined but also communicate your brand's commitment to quality and attention to detail. Whether you're presenting at a conference, pitching a proposal, or distributing company portfolios, A4 Self Cover Booklets Printing Services offer a tangible edge that screens simply can't replicate.",
+        boldWords: [{ word: "A4 Self Cover Booklets Printing", href: "/booklet-report" }],     
       },
       {
         type: "heading",
@@ -5157,7 +5143,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we craft these booklets using 100% recycled paper, processed without chlorine compounds. This ensures your project not only looks stunning but also aligns with responsible, sustainable practices.You can explore our complete range of eco-friendly print options through our All Products page.",
-        boldWords: [{ word: "All Products page", href: "#" }],
+        boldWords: [{ word: "All Products page", href: "/products" }],
       },
       {
         type: "heading",
@@ -5190,7 +5176,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "From minimalist corporate designs to vibrant product catalogues, these booklets adapt effortlessly to your creative direction. At Sustainable Printing Co., we offer tailored A4 Self Cover Booklets Printing Services that ensure every page reflects your brand's personality.",
-        boldWords: [{ word: "A4 Self Cover Booklets Printing Services" }],
+        boldWords: [{ word: "A4 Self Cover Booklets Printing Services", href:"/booklet-report" }],
       },
       {
         type: "paragraph",
@@ -5200,7 +5186,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When compared to A4 Plus Cover Booklets, self-cover options provide a sleek, affordable alternative without compromising on quality. You get professional results that are both eco-conscious and cost-effective.",
-        boldWords: [{ word: "A4 Plus Cover Booklets" }],
+        boldWords: [{ word: "A4 Plus Cover Booklets", href:"/booklet-report" }],
       },
       {
         type: "paragraph",
@@ -5414,7 +5400,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "If you’re ready to discuss your next project, email us at sales@sustainableprintingco.com.au or visit our Contact Page.",
         boldWords: [
-          { word: "sales@sustainableprintingco.com.au", href: "#" },
+          { word: "sales@sustainableprintingco.com.au", href: "mailto:sales@sustainableprintingco.com.au" },
           { word: " Contact Page.", href: "/contact" },
         ],
       },
@@ -5433,7 +5419,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Explore our eco-friendly booklet options today at All Products or speak with our team at (03) 9482 2222 — because professional presentations deserve a professional, sustainable touch.",
-        boldWords: [{ word: "(03) 9482 2222 ", href: "#" }],
+        boldWords: [{ word: "(03) 9482 2222 ", href: "tel:+61394822222" }],
       },
     ],
   },
@@ -5451,7 +5437,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In an era where smartphones and digital planners dominate, the humble wall calendar still holds its own. There's something grounding about glancing up and seeing the months unfold on a beautifully designed page — an element of presence that screens can't replicate. At Sustainable Printing Co., we've seen a resurgence in requests for A4 wall calendars printed with care, creativity, and conscience.",
-        boldWords: [{ word: " A4 wall calendars", href: "#" }],
+        boldWords: [{ word: " A4 wall calendars", href: "/calenders" }],
       },
       {
         type: "paragraph",
@@ -5480,7 +5466,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we believe design should be beautiful and responsible. Our eco friendly calendar printing service ensures that every calendar you produce not only looks stunning but also contributes to a greener planet.",
-        boldWords: [{ word: "eco friendly calendar printing" }],
+        boldWords: [{ word: "eco friendly calendar printing", href:"/calenders" }],
       },
       {
         type: "paragraph",
@@ -5501,7 +5487,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When it comes to calendar printing A4, the format offers the perfect combination of practicality and style.",
-        boldWords: [{ word: "calendar printing A4" }],
       },
       {
         type: "paragraph",
@@ -5590,7 +5575,7 @@ export const blogData: BlogPost[] = [
         text: "If you’d like to discuss your next calendar project, get in touch via our Contact Page or call us directly at (03) 9482 2222.",
         boldWords: [
           { word: "Contact Page", href: "/contact" },
-          { word: "(03) 9482 2222.", href: "#" },
+          { word: "(03) 9482 2222.", href: "tel:+61394822222" },
         ],
       },
       {
@@ -5609,8 +5594,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "We print all types of books, calendars, and stationery — and we’d love to talk to you about your next project.Email us at sales@sustainableprintingco.com.au or give us a call at (03) 9482 2222 to start planning.",
         boldWords: [
-          { word: "sales@sustainableprintingco.com.au", href: "/contact" },
-          { word: "(03) 9482 2222", href: "#" },
+          { word: "sales@sustainableprintingco.com.au", href: "mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href: "tel:+61394822222" },
         ],
       },
       {
@@ -5628,12 +5613,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we take pride in crafting calendars that tell stories — stories of mindful design, meaningful impact, and modern aesthetics. Whether you're ordering a recycled paper calendar for your team, clients, or as part of a marketing campaign, you're choosing a timeless format with a positive purpose.",
-        boldWords: [{ word: "recycled paper calendar ", href: "#" }],
+        boldWords: [{ word: "recycled paper calendar ", href: "/calenders" }],
       },
       {
         type: "paragraph",
         text: "So, as the next year approaches, consider adding a sustainable touch to your office space or brand identity. Explore our eco-conscious range of printed products at All Products and discover why the classic A4 wall calendar remains a true essential in modern office design.",
-        boldWords: [{ word: " All Products", href: "#" }],
+        boldWords: [{ word: " All Products", href: "/products" }],
       },
     ],
   },
@@ -5651,7 +5636,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In an era where every business is looking for ways to be more environmentally responsible, the little things you do can make a big difference. One of the simplest yet most effective ways to show your commitment to sustainability is by switching to sustainable gift cards. Whether you're a café, boutique, or large retailer, your choice of materials and printing process says a lot about your values — and customers notice.",
-        boldWords: [{ word: "sustainable gift cards" }],
+        boldWords: [{ word: "sustainable gift cards", href:"/standard-a6-gift-cards" }],
       },
       {
         type: "paragraph",
@@ -5664,7 +5649,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Gift cards are a reflection of your brand. When you hand one to a customer, it becomes a physical representation of your business ethos. By choosing sustainable gift cards, you're sending a clear message that you care about more than just profit — you care about people and the planet.",
-        boldWords: [{ word: "sustainable gift cards" }],
       },
       {
         type: "paragraph",
@@ -5720,8 +5704,8 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We're proud to offer recycled gift card printing that uses 100% recycled paper stocks, processed without chlorine or chlorine derivatives. This means your gift cards not only look fantastic but also contribute to a cleaner, healthier planet.",
-        boldWords: [{ word: "recycled gift card printing" }],
-      },
+        boldWords: [{ word: "recycled gift card printing", href:"/standard-a6-gift-cards" }],
+      },  
       {
         type: "paragraph",
         text: "Recycled printing has immense benefits:",
@@ -5768,7 +5752,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Gift cards often go hand in hand with greeting cards. Our greeting cards printing services use the same high-quality, eco-friendly materials to deliver beautiful results with a reduced environmental footprint.",
-        boldWords: [{ word: "greeting cards printing services" }],
       },
       {
         type: "paragraph",
@@ -5781,7 +5764,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "From small local businesses to nationwide retailers, eco friendly gift cards printing is becoming the preferred choice. We work closely with you to ensure every detail — from the stock selection to the ink colours — aligns with your sustainability goals.",
-        boldWords: [{ word: "eco friendly gift cards printing" }],
+        boldWords: [{ word: "eco friendly gift cards printing", href:"/standard-a6-gift-cards" }],
       },
       {
         type: "richList",
@@ -5892,7 +5875,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "All Products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
           { word: "Contact Us", href: "/contact" },
         ],
@@ -5952,7 +5935,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Switching to sustainable gift cards is a small change with a big impact. It shows your customers you care about the environment while giving them a high-quality product they'll love to use and share.",
-        boldWords: [{ word: "sustainable gift cards" }],
+        boldWords: [{ word: "sustainable gift cards", href:"/standard-a6-gift-cards" }],
       },
       {
         type: "paragraph",
@@ -5976,7 +5959,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact Us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -6001,7 +5984,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we believe that making a memorable impression should go hand in hand with making responsible choices. Our ecofriendly business cards are designed to help businesses showcase their professionalism while staying aligned with sustainability values.",
-        boldWords: [{ word: "ecofriendly business cards" }],
+        boldWords: [{ word: "ecofriendly business cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "heading",
@@ -6060,7 +6043,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When it comes to business card printing, we go beyond just putting ink on paper. At Sustainable Printing Co., our process is designed to minimise waste, conserve energy, and use materials that are gentle on the environment.",
-        boldWords: [{ word: "business card printing" }],
+        boldWords: [{ word: "business card printing", href:"/uncoated-business-cards" }],
       },
       {
         type: "richList",
@@ -6090,6 +6073,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We print all types of business materials, books, and cards — and we would love to talk to you about your next project.",
+        boldWords: [{ word: "All Products", href:"/products" }],
       },
       {
         type: "heading",
@@ -6177,7 +6161,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our recycled paper business cards are crafted from premium stock that is smooth, durable, and perfect for full-colour printing. They offer the same quality as standard cards but with the added advantage of being better for the environment.",
-        boldWords: [{ word: "recycled paper business cards" }],
+        boldWords: [{ word: "recycled paper business cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "paragraph",
@@ -6264,7 +6248,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Learn more about us on our About Us page or Contact Us to discuss your next order.",
-        boldWords: [{ word: "Contact Us" }],
+        boldWords: [{ word: "Contact Us",href:"/contact" }],
       },
       {
         type: "heading",
@@ -6297,7 +6281,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact Us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -6322,7 +6306,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Labels are far more than just stickers — they are small but powerful brand storytellers. From product packaging to shipping labels, they deliver information, style, and personality. For businesses wanting to stand out while staying true to their environmental values, adhesive labels printing offers a versatile, sustainable solution.",
-        boldWords: [{ word: "adhesive labels printing" }],
+        boldWords: [{ word: "adhesive labels printing", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
@@ -6382,7 +6366,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our eco friendly stickers are printed on recycled or sustainably sourced stock, reducing waste and helping you meet your green business goals.",
-        boldWords: [{ word: "eco friendly stickers" }],
       },
       {
         type: "paragraph",
@@ -6425,7 +6408,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "As an eco friendly label maker, we take pride in our end-to-end process. From selecting carbon-neutral papers to using non-toxic inks, every step is designed to minimise environmental impact.",
-        boldWords: [{ word: "eco friendly label maker" }],
       },
       {
         type: "richList",
@@ -6463,7 +6445,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our recycled sticker printing service transforms waste into functional and beautiful products. By choosing recycled stock, you're helping keep valuable fibres in circulation while reducing demand for virgin materials.",
-        boldWords: [{ word: "recycled sticker printing" }],
+        boldWords: [{ word: "recycled sticker printing", href:"/circle-adhesive-labels" }],
       },
       {
         type: "richList",
@@ -6499,7 +6481,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We don't just stop at stickers. Our label printing services cater to a wide range of business needs, from small-batch artisan products to large-scale retail operations.",
-        boldWords: [{ word: "label printing services" }],
       },
       {
         type: "richList",
@@ -6537,7 +6518,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "All Products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
         ],
       },
@@ -6552,7 +6533,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "You can Contact Us to discuss your label project, request a quote, or get advice from our friendly team.",
-        boldWords: [{ word: "Contact Us" }],
+        boldWords: [{ word: "Contact Us", href:"/contact" }],
       },
       {
         type: "richList",
@@ -6636,15 +6617,11 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "The right label can turn ordinary packaging into something memorable. By choosing adhesive labels printing that's sustainable, you create more than just a sticker — you create a statement of your values.",
-        boldWords: [{ word: "adhesive labels printing" }],
+        boldWords: [{ word: "adhesive labels printing", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we're here to help you make that statement bold, clear, and environmentally responsible. Whether you need eco friendly stickers, custom shapes, or large-scale label printing services, we can bring your vision to life.",
-        boldWords: [
-          { word: "eco friendly stickers" },
-          { word: "label printing services" },
-        ],
       },
       {
         type: "richList",
@@ -6664,7 +6641,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact Us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -6689,14 +6666,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In a world increasingly conscious of environmental impacts, businesses are seeking innovative ways to align their marketing efforts with sustainable practices. One surprisingly effective method is through Recycled Paper Postcards. These eco-friendly marketing tools not only communicate your message but also demonstrate your commitment to environmental responsibility, helping your brand stand out in a cluttered marketplace.",
-        boldWords: [{ word: "Recycled Paper Postcards" }],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we specialise in Postcard Printing Services that combine quality, creativity, and sustainability. With a focus on Eco Friendly Postcards, our goal is to help businesses make a positive impression—both on their audience and on the planet.",
         boldWords: [
-          { word: "Postcard Printing Services" },
-          { word: "Eco Friendly Postcards" },
+          { word: "Postcard Printing Services", href:"/premium-postcards" },
         ],
       },
       {
@@ -6706,7 +6681,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Traditional paper production often involves cutting down trees, consuming vast amounts of water, and using chemicals that can harm ecosystems. Printing on recycled paper, however, dramatically reduces these impacts. By choosing Recycled Paper Postcards, businesses contribute to:",
-        boldWords: [{ word: "Recycled Paper Postcards" }],
       },
       {
         type: "richList",
@@ -6737,7 +6711,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "With Sustainable Printing Co., every project is a step towards a greener future. Our house stock is carbon neutral, contains the highest possible percentages of recycled content, and is sourced from sustainably harvested forests. When you print with us, your Eco Postcard not only conveys your message but also your values.",
-        boldWords: [{ word: "Eco Postcard" }],
       },
       {
         type: "heading",
@@ -6746,7 +6719,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Marketing today demands creativity and authenticity. While digital campaigns dominate, Postcard Printing remains a tangible, personal, and effective way to reach customers. Recycled paper postcards combine the tactile appeal of physical mail with environmental consciousness.",
-        boldWords: [{ word: "Postcard Printing" }],
+        boldWords: [{ word: "Postcard Printing", href:"/premium-postcards" }],
       },
       {
         type: "paragraph",
@@ -6782,7 +6755,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "By integrating Recycled Paper Postcards into your marketing strategy, you're not just sending a message—you're making a statement.",
-        boldWords: [{ word: "Recycled Paper Postcards" }],
       },
       {
         type: "heading",
@@ -6825,16 +6797,14 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Whether you require a batch of Eco Postcards for a marketing push or high-volume mailers for an ongoing campaign, our team provides guidance from concept to delivery.",
-        boldWords: [{ word: "Eco Postcards" }],
       },
       {
         type: "heading",
         text: "Creative Uses for Recycled Paper Postcards",
       },
       {
-        type: "paragraph",
+        type: "paragraph",  
         text: "The versatility of Recycled Paper Postcards means they can be used in numerous ways to amplify your marketing:",
-        boldWords: [{ word: "Recycled Paper Postcards" }],
       },
       {
         type: "richList",
@@ -6880,7 +6850,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Consumers increasingly factor environmental responsibility into their purchasing decisions. Companies that demonstrate genuine commitment to sustainability are more likely to attract and retain loyal customers. By choosing Recycled Paper Postcards, you are actively showcasing your corporate responsibility while engaging audiences in a meaningful, tangible way.",
-        boldWords: [{ word: "Recycled Paper Postcards" }],
+        boldWords: [{ word: "Recycled Paper Postcards", href:"/premium-postcards" }],
       },
       {
         type: "paragraph",
@@ -6893,11 +6863,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we specialise in transforming your ideas into high-quality, eco-conscious products. Our expertise spans Postcard Printing, brochures, books, and more. With our focus on Recycled Paper Postcards and Eco Friendly Postcards, your business can confidently combine professional aesthetics with environmental responsibility.",
-        boldWords: [
-          { word: "Postcard Printing" },
-          { word: "Recycled Paper Postcards" },
-          { word: "Eco Friendly Postcards" },
-        ],
       },
       {
         type: "paragraph",
@@ -6909,14 +6874,14 @@ export const blogData: BlogPost[] = [
           {
             label: "Browse our range of products:",
             linkText: "All Products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLabel: true,
             boldLink: true,
           },
           {
             label: "Discuss your project with our friendly team:",
             linkText: "Contact us or call us on (03) 9482 2222",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -6940,10 +6905,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Incorporating Recycled Paper Postcards into your marketing strategy is more than a trend—it's a smart, ethical, and effective choice. With Eco Friendly Postcards, you can:",
-        boldWords: [
-          { word: "Recycled Paper Postcards" },
-          { word: "Eco Friendly Postcards" },
-        ],
       },
       {
         type: "richList",
@@ -6972,12 +6933,10 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Sustainability doesn't have to come at the expense of quality or creativity. With the right Postcard Printing Services, your brand can deliver professional, impactful, and eco-conscious communications that resonate.",
-        boldWords: [{ word: "Postcard Printing Services" }],
       },
       {
         type: "paragraph",
         text: "Choose Sustainable Printing Co. as your partner in creating high-quality, environmentally responsible postcards. Let's craft Eco Postcards that leave a lasting impression on your audience—while taking care of the planet at the same time.",
-        boldWords: [{ word: "Eco Postcards" }],
       },
       {
         type: "paragraph",
@@ -6995,13 +6954,13 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
           {
             label: "Browse all products:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
           {
@@ -7015,7 +6974,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "With Sustainable Printing Co., your next marketing campaign can be both remarkable and responsible. Make the switch to Recycled Paper Postcards and lead the way in sustainable, innovative marketing.",
-        boldWords: [{ word: "Recycled Paper Postcards" }],
       },
     ],
   },
@@ -7034,14 +6992,12 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's business landscape, sustainability is no longer optional—it's a vital consideration for brands looking to make a meaningful impact. Marketing materials like Flyers And Posters Printing and Recycled Paper Booklet Printing are more than just tools for promotion—they are statements about your brand's values. At Sustainable Printing Co., we help businesses combine effective marketing with eco-conscious practices through high-quality, sustainable printing solutions.",
         boldWords: [
-          { word: "Flyers And Posters Printing" },
-          { word: "Recycled Paper Booklet Printing" },
+          { word: "Posters Printing", href:"/posters-printing" },
         ],
       },
       {
         type: "paragraph",
         text: "With the right Poster Printing Services, companies can create vibrant, attention-grabbing visuals that communicate messages clearly while maintaining a commitment to the environment.",
-        boldWords: [{ word: "Poster Printing Services" }],
       },
       {
         type: "heading",
@@ -7055,8 +7011,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Recycled Paper Booklet Printing and Flyers And Posters Printing Services ensure that your marketing materials have minimal environmental impact. Here's why:",
         boldWords: [
-          { word: "Recycled Paper Booklet Printing" },
-          { word: "Flyers And Posters Printing Services" },
+          { word: "Posters Printing Services", href:"/posters-printing" },
         ],
       },
       {
@@ -7131,10 +7086,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Similarly, Flyers And Posters Printing and Recycled Paper Booklet Printing allow for versatility. Flyers are perfect for events or promotions, while booklets provide detailed information about products, services, or campaigns. Each medium complements the other, creating a cohesive marketing strategy.",
-        boldWords: [
-          { word: "Flyers And Posters Printing" },
-          { word: "Recycled Paper Booklet Printing" },
-        ],
       },
       {
         type: "heading",
@@ -7143,7 +7094,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Not all printing solutions are created equal. Selecting a provider who prioritises both quality and sustainability is essential. Our Flyer And Poster Printing Options are tailored to meet diverse business needs while adhering to eco-friendly principles.",
-        boldWords: [{ word: "Flyer And Poster Printing Options" }],
       },
       {
         type: "paragraph",
@@ -7178,7 +7128,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Whether you're planning a local promotion or a large-scale campaign, our Poster Printing Services offer flexibility, quality, and a sustainable approach.",
-        boldWords: [{ word: "Poster Printing Services" }],
       },
       {
         type: "heading",
@@ -7188,8 +7137,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "There are countless ways to use Flyers And Posters Printing Services and Recycled Paper Booklet Printing to boost brand awareness while demonstrating eco-responsibility:",
         boldWords: [
-          { word: "Flyers And Posters Printing Services" },
-          { word: "Recycled Paper Booklet Printing" },
+          { word: "Recycled Paper Booklet Printing", href:"/posters-printing" },
         ],
       },
       {
@@ -7237,7 +7185,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Recycled Paper Booklet Printing goes beyond sustainability. It offers practical advantages for both your business and your audience:",
-        boldWords: [{ word: "Recycled Paper Booklet Printing" }],
       },
       {
         type: "richList",
@@ -7277,8 +7224,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "A multi-format marketing approach is often the most effective. Flyers And Posters Printing, paired with Recycled Paper Booklet Printing, provides multiple touchpoints for your audience.",
         boldWords: [
-          { word: "Flyers And Posters Printing" },
-          { word: "Recycled Paper Booklet Printing" },
+          { word: "Flyers And Posters Printing", href:"/posters-printing" },
         ],
       },
       {
@@ -7359,9 +7305,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Choosing sustainable printing solutions like Poster Printing Services, Flyers And Posters Printing, and Recycled Paper Booklet Printing is a strategic move for modern businesses. Not only do these materials enhance your marketing campaigns, but they also communicate your dedication to the environment.",
         boldWords: [
-          { word: "Poster Printing Services" },
-          { word: "Flyers And Posters Printing" },
-          { word: "Recycled Paper Booklet Printing" },
+          { word: "Flyers And Posters Printing", href:"/posters-printing" },
         ],
       },
       {
@@ -7389,13 +7333,13 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
           {
             label: "Browse all products:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
           {
@@ -7409,7 +7353,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "With Sustainable Printing Co., your marketing is effective, professional, and environmentally responsible. Transform your campaigns with Poster Printing Services and sustainable printing solutions today.",
-        boldWords: [{ word: "Poster Printing Services" }],
       },
     ],
   },
@@ -7427,7 +7370,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In the world of retail and product branding, first impressions matter. Small details like tags, labels, and packaging can make a significant impact on how customers perceive your brand. Among these, Swing Tags Printing has become an essential element for businesses striving to combine style, functionality, and sustainability. At Sustainable Printing Co., we specialise in providing a range of options from Custom Kraft Hang Tags to Premium Swing Tags, helping businesses communicate quality and responsibility through thoughtful packaging.",
-        boldWords: [{ word: "Swing Tags Printing" }],
+        boldWords: [{ word: "Swing Tags Printing", href:"/premium-swing-tags" }],
       },
       {
         type: "heading",
@@ -7466,7 +7409,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's environmentally aware market, integrating Sustainable Swing Tags into your packaging strategy is more than a design choice—it's a statement.",
-        boldWords: [{ word: "Sustainable Swing Tags" }],
       },
       {
         type: "heading",
@@ -7475,12 +7417,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "One of the most popular choices for businesses focused on sustainability is Custom Kraft Hang Tags. These tags are made from unbleached, natural kraft paper, providing a rustic and authentic feel while being completely recyclable.",
-        boldWords: [{ word: "Custom Kraft Hang Tags" }],
+        boldWords: [{ word: "Custom Kraft Hang Tags", href:"/premium-swing-tags" }],
       },
       {
         type: "paragraph",
         text: "Benefits of Custom Kraft Hang Tags include:",
-        boldWords: [{ word: "Custom Kraft Hang Tags" }],
+        boldWords: [{ word: "Benefits of Custom Kraft Hang Tags include:" }],
       },
       {
         type: "richList",
@@ -7511,7 +7453,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our Swing Tags Printing service ensures that these tags are not only eco-friendly but also visually striking. You can include your logo, product details, or unique messaging that reinforces your brand's story.",
-        boldWords: [{ word: "Swing Tags Printing" }],
       },
       {
         type: "heading",
@@ -7520,7 +7461,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Beyond kraft, Recycled Brown Paper Tags offer another sustainable option for businesses. These tags are crafted from post-consumer recycled paper, often processed without chlorine or harmful chemicals, which minimises environmental impact.",
-        boldWords: [{ word: "Recycled Brown Paper Tags" }],
       },
       {
         type: "paragraph",
@@ -7555,7 +7495,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we use carbon-neutral stock containing the highest possible percentage of recycled content. This ensures your Eco Friendly Hang Tags make an impact without compromising quality or sustainability.",
-        boldWords: [{ word: "Eco Friendly Hang Tags" }],
       },
       {
         type: "heading",
@@ -7569,7 +7508,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Features of Premium Swing Tags:",
-        boldWords: [{ word: "Premium Swing Tags" }],
+        boldWords: [{ word: "Features of Premium Swing Tags" }],
       },
       {
         type: "richList",
@@ -7600,7 +7539,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Whether it's a high-end fashion item or a boutique product, Premium Swing Tags allow you to communicate sophistication and eco-awareness simultaneously.",
-        boldWords: [{ word: "Premium Swing Tags" }],
       },
       {
         type: "heading",
@@ -7609,7 +7547,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Not every product requires the same tag, which is why we offer diverse Flyer And Poster Printing Options adapted for swing tags:",
-        boldWords: [{ word: "Flyer And Poster Printing Options" }],
       },
       {
         type: "richList",
@@ -7639,7 +7576,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our team at Sustainable Printing Co. will guide you through the entire Swing Tags Printing process, ensuring that your tags are visually appealing, informative, and sustainable.",
-        boldWords: [{ word: "Swing Tags Printing" }],
       },
       {
         type: "heading",
@@ -7648,7 +7584,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Sustainability is more than just a trend; it's a responsibility. Eco Friendly Hang Tags communicate to your customers that your brand prioritises the planet without compromising quality.",
-        boldWords: [{ word: "Eco Friendly Hang Tags" }],
+        boldWords: [{ word: "Eco Friendly Hang Tags", href:"/premium-swing-tags" }],
       },
       {
         type: "richList",
@@ -7686,7 +7622,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Effective branding extends beyond logos and product design. Sustainable Swing Tags help you:",
-        boldWords: [{ word: "Sustainable Swing Tags" }],
       },
       {
         type: "richList",
@@ -7725,7 +7660,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we understand that your brand deserves both quality and responsibility. Here's why businesses across Australia trust us for Swing Tags Printing:",
-        boldWords: [{ word: "Swing Tags Printing" }],
       },
       {
         type: "richList",
@@ -7763,12 +7697,11 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We print all types of books and would love to talk to you about your next project. Have a look at the examples of what we offer and get in touch with us for a chat.",
-        boldWords: [{ word: "get in touch with us for a chat." }],
+        boldWords: [{ word: "get in touch with us for a chat.", href:"/contact" }],
       },
       {
         type: "paragraph",
         text: "Contact Information:",
-        boldWords: [{ word: "Contact Information:" }],
       },
       {
         type: "richList",
@@ -7788,7 +7721,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Browse all products:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
         ],
@@ -7825,7 +7758,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In an age where environmental consciousness and authentic branding go hand in hand, marketers are rethinking how they print, package, and present their messages. One of the most overlooked yet powerful tools in this space is the brochure—and more specifically, Eco Friendly Brochures Printing. cheap while still maintaining a professional look is not just possible—it's essential for businesses, creatives, and community groups alike. Whether you're preparing an event program, a community zine, or a full company catalogue, there's a smart way to go about it that won't break the bank or compromise the planet.",
-        boldWords: [{ word: "Eco Friendly Brochures Printing" }],
       },
       {
         type: "paragraph",
@@ -7838,7 +7770,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Let's start with what it actually means. Eco Friendly Brochures Printing involves the use of recycled papers, non-toxic inks, and sustainable production methods that reduce environmental impact. But it's not just about materials—it's a full commitment to mindful printing.",
-        boldWords: [{ word: "Eco Friendly" }, { word: "Brochures Printing" }],
+        boldWords: [ { word: "Brochures Printing" }],
       },
       {
         type: "paragraph",
@@ -7859,7 +7791,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In fact, Brochures Printing is making a quiet comeback. In-person events, local businesses, education providers, and eco-conscious brands are all embracing printed brochures as a tangible, informative, and visually compelling medium.",
-        boldWords: [{ word: "Brochures Printing" }],
+        boldWords: [{ word: "Brochures Printing", href:"/brochures-printing" }],
       },
       {
         type: "paragraph",
@@ -7885,7 +7817,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Looking for ideas? Browse all our brochure options here.",
         boldWords: [
-          { word: "Browse all our brochure options here.", href: "#" },
+          { word: "Browse all our brochure options here.", href: "/products" },
         ],
       },
       {
@@ -7931,7 +7863,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Here's what makes Sustainable Printing Co. the go-to partner for Brochures Printing in Australia:",
-        boldWords: [{ word: "Brochures Printing" }],
       },
       {
         type: "richList",
@@ -7973,7 +7904,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Want to see what we've done before? Explore our product range here.",
-        boldWords: [{ word: "Explore our product range here.", href: "#" }],
+        boldWords: [{ word: "Explore our product range here.", href: "/products" }],
       },
       {
         type: "heading",
@@ -8058,7 +7989,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -8078,7 +8009,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Let's create something meaningful together. Explore our full product range here and reach out for a personalised quote.",
-        boldWords: [{ word: "our full product range here", href: "#" }],
+        boldWords: [{ word: "our full product range here", href: "/products" }],
       },
     ],
   },
@@ -8096,7 +8027,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's fast-paced, brand-conscious world, printing booklets cheap while still maintaining a professional look is not just possible—it's essential for businesses, creatives, and community groups alike. Whether you're preparing an event program, a community zine, or a full company catalogue, there's a smart way to go about it that won't break the bank or compromise the planet.",
-        boldWords: [{ word: "printing booklets cheap" }],
+        boldWords: [{ word: "printing booklets", href:"/books" }],
       },
       {
         type: "paragraph",
@@ -8110,7 +8041,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Despite the digital takeover, there's something tactile and lasting about a printed booklet. Whether it's for marketing, storytelling, or documentation, a printed piece still holds weight—literally and figuratively. But many hesitate because of the presumed cost. Here's the good news: printing booklets cheap doesn't mean skimping on design or eco-conscious materials.",
-        boldWords: [{ word: "printing booklets cheap" }],
+        boldWords: [{ word: "printing booklets cheap", href:"/books" }],
       },
       {
         type: "heading",
@@ -8211,6 +8142,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We don't just print—we print with purpose. Whether you're printing a book, a zine, a school project or a marketing brochure, we'll help you do it in the most eco-conscious way possible.",
+        boldWords: [{ word: "we print with purpose" },{ word: "printing a book", href:"/books" }],
       },
       {
         type: "richList",
@@ -8271,7 +8203,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "Have a look at the kinds of books we offer and let's chat.",
-            href: "#",
+            href: "/products",
           },
         ],
       },
@@ -8341,7 +8273,7 @@ export const blogData: BlogPost[] = [
           {
             label: "",
             linkText: "Talk to us today",
-            href: "#",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -8373,14 +8305,14 @@ export const blogData: BlogPost[] = [
           {
             label: "",
             linkText: "Browse all products:",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLabel: true,
             boldLink: true,
           },
           {
             label: "",
             linkText: "Request a quote or chat with our friendly team",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -8407,12 +8339,11 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In a world where climate concerns and ethical consumption are top of mind, brands are increasingly rethinking how they package their products. Labels—though often overlooked—play a surprisingly vital role in this transformation. At Sustainable Printing Co., we believe that label printing services shouldn't just serve function—they should reflect your brand's values too.",
-        boldWords: [{ word: "label printing services" }],
+        boldWords: [{ word: "label printing services", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
         text: "From sticker labels to rectangle stickers, our approach is simple: no plastic, no waste, and no compromises on quality.",
-        boldWords: [{ word: "sticker labels" }, { word: "rectangle stickers" }],
       },
       {
         type: "heading",
@@ -8437,15 +8368,11 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our plastic free labels are designed with the future in mind. We use papers made from 100% recycled materials, non-toxic glues, and biodegradable finishes to ensure every label can return to the earth without causing harm. And yes—they still look brilliant.",
-        boldWords: [{ word: "plastic free labels" }],
+        boldWords: [{ word: "plastic free labels", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
         text: "Whether you need rustic recycled brown paper tags or sleek, professional rectangle stickers, going plastic-free doesn't mean dull. It means intentional. It means better for your brand and even better for the planet.",
-        boldWords: [
-          { word: "recycled brown paper tags" },
-          { word: "rectangle stickers" },
-        ],
       },
       {
         type: "heading",
@@ -8454,7 +8381,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we don't just offer generic label printing services. Every print job is a partnership. We take time to understand your brand, your packaging, and your eco-values, then offer sustainable options that align with all three.",
-        boldWords: [{ word: "label printing services" }],
+        boldWords: [{ word: "label printing services", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
@@ -8522,7 +8449,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Want to explore our full sustainable product range? Check it out here.",
-        boldWords: [{ word: "Check it out here.", href: "#" }],
+        boldWords: [{ word: "Check it out here.", href: "/products" }],
       },
       {
         type: "heading",
@@ -8631,14 +8558,14 @@ export const blogData: BlogPost[] = [
           {
             label: "Explore Our Products:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLabel: true,
             boldLink: true,
           },
           {
             label: "Contact Us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLabel: true,
             boldLink: true,
           },
@@ -8671,7 +8598,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we're proud to offer sticker printing that aligns with your environmental values. Our recyclable sticker options are designed for forward-thinking businesses that care about the planet as much as they care about presentation. Whether you're shipping out products, labelling jars, or branding packaging, our eco stickers do the job—without costing the earth.",
-        boldWords: [{ word: "recyclable sticker" }],
+        boldWords: [{ word: "recyclable sticker", href:"/circle-adhesive-labels" }],
       },
       {
         type: "heading",
@@ -8692,6 +8619,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Not all stickers are created equal. Traditional labels often have plastic linings or synthetic adhesives that can't be recycled alongside regular paper or cardboard. Our recyclable stickers, on the other hand, are printed on 100% recycled paper stock, with non-toxic adhesives and eco-conscious finishes that allow them to break down naturally or be recycled with their packaging.",
+       boldWords: [{ word: "100% recycled paper", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
@@ -8717,12 +8645,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We also offer biodegradable shipping labels for ecommerce brands looking to reduce their packaging footprint, along with eco friendly fragile stickers to replace traditional glossy plastic ones.",
-        boldWords: [{ word: "eco friendly fragile stickers", href: "#" }],
+        boldWords: [{ word: "eco friendly fragile stickers", href: "/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
         text: "You can explore our full range of products here.",
-        boldWords: [{ word: "products here.", href: "#" }],
+        boldWords: [{ word: "products here.", href: "/products" }],
       },
       {
         type: "heading",
@@ -8751,7 +8679,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We can help with:",
-        boldWords: [{ word: "We can help with:", href: "" }],
+        boldWords: [{ word: "We can help with:", href: "/contact" }],
       },
       {
         type: "list",
@@ -8841,13 +8769,13 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact us",
             linkText: "here",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
           {
             label: "Explore all products:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
         ],
@@ -8872,7 +8800,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's eco-conscious world, your business card can be more than just a pocket-sized billboard—it can be a statement of your values. At Sustainable Printing Co., we believe that business card printing should reflect not only your brand's personality but also your commitment to a greener planet. That's why we offer affordable business card printing services with sustainable options that don't compromise on quality, creativity, or impact.",
-        boldWords: [{ word: "business card printing", href: "#" }],
+        boldWords: [{ word: "business card printing", href: "/uncoated-business-cards" }],
       },
       {
         type: "paragraph",
@@ -8897,7 +8825,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: 'We\'ve heard it before—"eco-friendly printing probably limits design." Not true. At Sustainable Printing Co., sustainability enhances creativity. Our range of eco business cards is printed on 100% recycled, chlorine-free, carbon-neutral stock. Each piece we produce is part of a closed-loop system, meaning it can be recycled again, reducing waste and environmental harm.',
-        boldWords: [{ word: "eco business cards " }],
+        boldWords: [{ word: "eco business cards", href:"/uncoated-business-cards" }],
       },
       {
         type: "paragraph",
@@ -8928,6 +8856,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Every business is unique, and our business card printing services are designed to match that individuality.",
+        boldWords: [
+          {
+            word: " business card printing services ",
+            href: "/uncoated-business-cards",
+          },
+        ],
       },
       {
         type: "heading",
@@ -8953,7 +8887,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "browse all our products here",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
         ],
       },
@@ -9011,7 +8945,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact us",
             linkText: "here",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -9039,7 +8973,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "product page",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
         ],
       },
@@ -9071,14 +9005,14 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In an age where sustainability is no longer a buzzword but a business imperative, the way we brand, package, and communicate is undergoing a transformation. Among the many tools at our disposal, eco-friendly custom stickers are emerging as powerful, versatile, and responsible choices for modern brands.",
-        boldWords: [{ word: "eco-friendly custom stickers", href: "#" }],
+        boldWords: [{ word: "eco-friendly custom stickers", href: "/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we're proud to be part of this green wave. With a focus on custom book printing using 100% recycled paper, our mission is to make printing smarter, greener, and genuinely beautiful.",
         boldWords: [
-          { word: "Sustainable Printing Co.", href: "#" },
-          { word: "custom book printing", href: "#" },
+          { word: "Sustainable Printing Co."},
+          { word: "custom book printing"},
         ],
       },
       {
@@ -9088,6 +9022,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "It's easy to overlook the footprint of something as small as a sticker. However, traditional adhesive stickers are often made with plastic films, harsh adhesives, and chemical-laden coatings. These materials not only take decades to break down, but they also contribute to pollution and harm to ecosystems.",
+        boldWords: [{ word: "adhesive stickers", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
@@ -9096,7 +9031,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Eco-friendly adhesive stickers are created with sustainably sourced paper, water-based adhesives, and biodegradable materials. They're just as durable and vibrant as conventional options—but without the environmental baggage.",
-        boldWords: [{ word: "eco-friendly adhesive stickers", href: "#" }],
+        boldWords: [{ word: "eco-friendly adhesive stickers" }],
       },
       {
         type: "heading",
@@ -9144,6 +9079,9 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., all our products, including rectangle stickers, are printed on 100% recycled papers. Our house stock is carbon-neutral and processed without chlorine or chlorine derivatives—ensuring a cleaner printing process and safer outcomes for the planet.",
+        boldWords: [
+          { word: "rectangle stickers,"},
+        ],
       },
       {
         type: "heading",
@@ -9157,8 +9095,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "That's why eco-conscious brands across Australia are opting for custom book printing and eco-friendly custom stickers that reflect a deeper commitment to people and the planet.",
         boldWords: [
-          { word: "custom book printing", href: "#" },
-          { word: "eco-friendly custom stickers", href: "#" },
+          { word: "custom book printing" },
+          { word: "eco-friendly custom stickers"},
         ],
       },
       {
@@ -9168,7 +9106,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our clients use our adhesive labels for:",
-        boldWords: [{ word: "adhesive labels", href: "#" }],
+        boldWords: [{ word: "adhesive labels" }],
       },
       {
         type: "list",
@@ -9186,7 +9124,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "our range",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
         ],
       },
@@ -9286,13 +9224,13 @@ export const blogData: BlogPost[] = [
           {
             label: "",
             linkText: "Browse our full product range",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
           {
             label: "",
             linkText: "Reach out here",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -9335,7 +9273,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In recent years, there has been a notable shift in how Australians approach publishing and printing. A growing awareness around climate change and sustainable business practices has sparked a movement towards more environmentally responsible choices, especially in the world of publishing. One trend that stands out is the rise of recycled paper book printing—an eco-conscious alternative that's no longer a niche option, but a growing preference among authors, publishers, and readers a like.",
-        boldWords: [{ word: "recycled paper book printing" }],
+        boldWords: [{ word: "recycled paper book printing", href:"/books" }],
       },
       {
         type: "paragraph",
@@ -9361,7 +9299,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., all our custom book printing projects use house stock that's manufactured carbon neutral. Our papers are sourced from post-consumer waste and are processed without chlorine or its derivatives, contributing to a significantly lower ecological footprint.",
-        boldWords: [{ word: "custom book printing" }],
+        boldWords: [{ word: "custom book printing", href:"/books" }],
       },
       {
         type: "heading",
@@ -9400,7 +9338,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Whether you're an independent author or a publishing house, moving toward printing of books on recycled paper sends a strong, clear message of responsibility and quality.",
-        boldWords: [{ word: "printing of books" }],
+        boldWords: [{ word: "printing of books", href:"/books" }],
       },
       {
         type: "heading",
@@ -9414,12 +9352,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We print all types of books and would love to talk to you about your next project. Have a look at the examples of what we offer and get in touch with us for a chat. Whether you're after a limited edition run or a full print job, we tailor every aspect—paper stock, binding, size, and finish—to suit your goals.",
-        boldWords: [{ word: "examples of what we offer", href: "#" }],
+        boldWords: [{ word: "examples of what we offer", href: "/products" }],
       },
       {
         type: "paragraph",
         text: "From bold coffee table books to beautifully bound short-run novels, printing a book has never been more flexible or sustainable.",
-        boldWords: [{ word: "printing a book", href: "#" }],
+        boldWords: [{ word: "printing a book"}],
       },
       {
         type: "heading",
@@ -9433,7 +9371,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We at Sustainable Printing Co. are Melbourne-based and proud to serve clients across Australia. By choosing a local partner for your printing books needs, you're reducing shipping emissions and supporting the domestic economy.",
-        boldWords: [{ word: "printing book", href: "#" }],
+        boldWords: [{ word: "printing book" }],
       },
       {
         type: "heading",
@@ -9463,13 +9401,13 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact us online:",
             linkText: "Get in touch here",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
           {
             label: "Explore all products:",
             linkText: "See our full range",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
           {
@@ -9495,7 +9433,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we believe every page should tell a story—not just the words on it, but the story of how it was made. Let's work together to write the next chapter in sustainable publishing.",
-        boldWords: [{ word: "Sustainable Printing Co.", href: "#" }],
+        boldWords: [{ word: "Sustainable Printing Co.", href: "/" }],
       },
     ],
   },
@@ -9513,7 +9451,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In a time where sustainability is no longer optional but essential, more Australian authors, publishers, and businesses are turning to eco-friendly book printing as a smarter, greener alternative. At Sustainable Printing Co., we believe great books deserve to be printed in ways that honour both creativity and the environment.",
-        boldWords: [{ word: "eco-friendly book printing" }],
+        boldWords: [{ word: "eco-friendly book printing", href:"/books" }],
       },
       {
         type: "heading",
@@ -9535,7 +9473,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At its core, eco-friendly book printing is about making conscious choices throughout the entire printing process. At Sustainable Printing Co., that means:",
-        boldWords: [{ word: "eco-friendly book printing" }],
+        boldWords: [{ word: "eco-friendly book printing", href:"/books" }],
       },
       {
         type: "list",
@@ -9622,7 +9560,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "Browse all products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
         ],
       },
@@ -9633,7 +9571,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Your project is unique—and your printing should be too. With our custom book printing Australia services, we work closely with you to get every detail right. Paper texture, binding type, colour matching, layout consultation—we've got it all covered.",
-        boldWords: [{ word: "custom book printing Australia" }],
+        boldWords: [{ word: "custom book printing Australia", href:"/books" }],
       },
       {
         type: "paragraph",
@@ -9684,12 +9622,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In an increasingly digital world, printed materials still hold a unique place in branding—and few formats are as versatile and impactful as the humble booklet. Whether you're showcasing your products, telling your brand story, or offering valuable information to your customers, professionally crafted booklet printing can leave a strong, lasting impression.",
-        boldWords: [{ word: "booklet printing" }],
+        boldWords: [{ word: "booklet printing", href:"/books" }],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we take a fresh, environmentally conscious approach to all things print. From paper to binding, we provide quality-driven, eco-responsible booklet printing in Australia designed to elevate your brand while minimising your environmental footprint.",
-        boldWords: [{ word: "booklet printing in Australia" }],
+        boldWords: [{ word: "booklet printing in Australia" },{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -9729,6 +9667,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our team uses 100% recycled paper, plant-based inks, and carbon-neutral production processes to ensure your marketing is both beautiful and responsible. We print all types of books and would love to talk to you about your next project—have a look at our products and get in touch for a chat.",
+        boldWords: [{ word: "100% recycled paper" }, { word: "have a look at our products", href:"/products" }, { word: "get in touch", href:"/contact" }],
       },
       {
         type: "heading",
@@ -9824,11 +9763,11 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "full product range",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
           {
             word: "contact us",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
           },
         ],
       },
@@ -9865,9 +9804,9 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we understand the importance of aligning your business with eco-friendly values. That’s why we offer high-quality, sustainable solutions for calendar printing using recycled materials and eco-conscious processes. This blog explores why eco-friendly calendar printing matters for your brand, the benefits of using recycled paper calendars, and how you can incorporate sustainability into your branding through thoughtful printing choices.",
-        boldWords: [{ word: "eco-friendly calendar printing" }],
+        boldWords: [{ word: "eco-friendly calendar printing", href:"/calenders" }],
       },
-      {
+      { 
         type: "heading",
         text: "The Growing Demand for Eco-Friendly Printing",
       },
@@ -9933,7 +9872,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "A calendar is a long-term marketing tool—your brand will be in front of your audience for an entire year. By choosing eco-friendly calendar printing, you reinforce the message that sustainability is a core value of your business.",
-                boldWords: [{ word: "Eco-friendly calendars", href: "#" }],
+                boldWords: [{ word: "Eco-friendly calendars",  href:"/calenders" }],
               },
             ],
 
@@ -9998,6 +9937,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we are committed to reducing our environmental footprint through innovative printing solutions. Here's how we ensure that our calendar printing services remain eco-friendly and effective:",
+        boldWords: [{ word: "calendar printing services ", href:"/calenders" }],
       },
       {
         type: "richList",
@@ -10088,13 +10028,13 @@ export const blogData: BlogPost[] = [
           {
             label: "Explore Our Products:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
           {
             label: "Contact Us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -10132,10 +10072,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In an era where environmental consciousness is becoming increasingly important, sustainable book printing is rapidly gaining traction. As more businesses and individuals seek eco-friendly solutions, the demand for eco-friendly book printing has grown significantly. At Sustainable Printing Co., we take pride in offering high-quality, environmentally responsible book printing services that help reduce the carbon footprint while maintaining exceptional quality.",
-        boldWords: [
-          { word: "sustainable book printing" },
-          { word: "eco-friendly book printing" },
-        ],
       },
       {
         type: "paragraph",
@@ -10156,7 +10092,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When you choose sustainable book printing, you are not only reducing your environmental footprint but also contributing to a more sustainable future for the publishing industry.",
-        boldWords: [{ word: "sustainable book printing" }],
+        boldWords: [{ word: "sustainable book printing", href:"/books" }],
       },
       {
         type: "heading",
@@ -10350,7 +10286,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "product page",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
         ],
       },
@@ -10396,7 +10332,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Sustainable book printing is not just a choice—it's a responsibility. As environmental awareness continues to grow, businesses and individuals have the opportunity to make a positive impact by choosing eco-friendly printing solutions.",
-        boldWords: [{ word: "Sustainable book printing" }],
       },
       {
         type: "paragraph",
@@ -10405,7 +10340,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Make the switch today and experience the benefits of eco-friendly book printing—because the future of publishing is sustainable.",
-        boldWords: [{ word: "eco-friendly book printing" }],
       },
     ],
   },
@@ -10423,15 +10357,11 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In a world dominated by digital marketing, the power of a tangible, beautifully crafted postcard remains unmatched. A well-designed postcard isn't just a piece of paper—it's a direct connection between your brand and your customers. Whether you're running a business promotion, announcing an event, or sending a heartfelt message, high-quality postcard printing plays a vital role in making a lasting impression.",
-        boldWords: [{ word: "postcard printing" }],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we specialise in premium postcard printing with an emphasis on sustainability. From recycled paper postcards to kraft postcard printing, we ensure that your marketing materials are both high-quality and environmentally responsible.",
-        boldWords: [
-          { word: "premium postcard printing" },
-          { word: "kraft postcard printing" },
-        ],
+        boldWords: [{ word: "postcard printing", href:"/premium-postcards" }],
       },
       {
         type: "heading",
@@ -10502,7 +10432,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "If your brand embraces a natural, earthy aesthetic, kraft postcard printing is an excellent choice. The rich, brown tone of kraft paper provides a rustic charm that stands out from traditional white postcards. Perfect for artisanal brands, organic businesses, and eco-conscious companies, kraft postcards offer a raw yet sophisticated appeal.",
-        boldWords: [{ word: "kraft postcard printing" }],
       },
       {
         type: "paragraph",
@@ -10548,7 +10477,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Browse All Products:",
             linkText: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLink: true,
           },
           {
@@ -10566,7 +10495,7 @@ export const blogData: BlogPost[] = [
           {
             label: "Contact Us:",
             linkText: "https://www.sustainableprintingco.com.au/contact",
-            href: "https://www.sustainableprintingco.com.au/contact",
+            href: "/contact",
             boldLink: true,
           },
         ],
@@ -10576,11 +10505,11 @@ export const blogData: BlogPost[] = [
   {
     id: 40,
 
-    slug: "why-eco-cards-are-the-future-of-sustainable-gift-giving",
+    slug: "why-eco-cards-are-the-future-o-sustainable-gift-giving",
 
     image: "/images/blogimages/blogImg40.png",
 
-    imageAlt: "Eco Friendly Greeting Cards",
+    imageAlt: "Why Eco Cards Are the Future of Sustainable Gift-Giving",
 
     title: "Why Eco Cards Are the Future of Sustainable Gift-Giving",
 
@@ -10602,10 +10531,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "high-quality greeting card printing services",
-          },
-
-          {
-            word: "eco greeting card printing",
+            href:"/standard-a6-gift-cards"
           },
         ],
       },
@@ -10618,14 +10544,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Greeting cards have long been a staple in personal gifting, whether it's for birthdays, holidays, or special occasions. However, as consumers grow more aware of the impact their purchasing decisions have on the planet, the demand for eco friendly greeting cards has soared. These sustainable cards are made using recycled materials, environmentally friendly inks, and sustainable processes that minimise waste and energy consumption.",
-
-        boldWords: [
-          {
-            word: "eco friendly greeting cards",
-          },
-        ],
       },
-
       {
         type: "richList",
 
@@ -10878,7 +10797,8 @@ export const blogData: BlogPost[] = [
 
         boldWords: [
           {
-            word: "eco greeting card printing",
+            word: "Sustainable Printing Co.,",
+            href:"/"
           },
         ],
       },
@@ -10925,10 +10845,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "Swing Tags Printing",
-          },
-
-          {
-            word: "Sustainable Swing Tags",
+            href:"/swing-tags"
           },
         ],
       },
@@ -10945,10 +10862,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "Sustainable Swing Tags",
-          },
-
-          {
-            word: "Recycled Brown Paper Tags",
+            href:"/swing-tags"
           },
         ],
       },
@@ -10972,12 +10886,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "There are several compelling reasons why Sustainable Swing Tags are becoming a staple in modern packaging solutions. Let's dive into a few of them:",
-
-        boldWords: [
-          {
-            word: "Sustainable Swing Tags",
-          },
-        ],
       },
 
       {
@@ -11050,6 +10958,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "Swing Tags Printing Australia",
+            href:"/swing-tags"
           },
         ],
       },
@@ -11060,15 +10969,8 @@ export const blogData: BlogPost[] = [
 
         boldWords: [
           {
-            word: "Swing Tags Printing",
-          },
-
-          {
             word: "Recycled Brown Paper Tags",
-          },
-
-          {
-            word: "Sustainable Swing Tags",
+            href:"/swing-tags"
           },
         ],
       },
@@ -11084,15 +10986,8 @@ export const blogData: BlogPost[] = [
 
         boldWords: [
           {
-            word: "Swing Tags Printing",
-          },
-
-          {
             word: "Premium Swing Tags",
-          },
-
-          {
-            word: "Kraft Swing Tags",
+            href:"/swing-tags"
           },
         ],
       },
@@ -11100,12 +10995,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Whether you're looking for Sustainable Swing Tags for a new product launch or want to upgrade your existing packaging to more eco-friendly options, we have the expertise and resources to bring your vision to life. We pride ourselves on delivering affordable, high-quality solutions without compromising on sustainability. Plus, our customer service is second to none, ensuring a smooth and hassle-free experience from start to finish.",
-
-        boldWords: [
-          {
-            word: "Sustainable Swing Tags",
-          },
-        ],
       },
 
       {
@@ -11146,19 +11035,7 @@ export const blogData: BlogPost[] = [
 
         boldWords: [
           {
-            word: "Swing Tags Printing",
-          },
-
-          {
-            word: "Sustainable Swing Tags",
-          },
-
-          {
             word: "Recycled Brown Paper Tags",
-          },
-
-          {
-            word: "Kraft Swing Tags",
           },
         ],
       },
@@ -11190,17 +11067,14 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's fast-paced, environmentally conscious world, businesses are constantly seeking ways to improve their sustainability efforts. One area that holds significant potential for making a positive environmental impact is Recycled Paper Printing. When you opt for Recycled Printing Services, you're not only making a difference for the planet, but you're also aligning your brand with the growing demand for eco-friendly solutions. As more consumers embrace sustainability, your business can thrive by showing a genuine commitment to the environment.",
         boldWords: [
-          { word: "Recycled Paper Printing" },
-          { word: "Recycled Printing Services" },
+          { word: "Recycled Paper Printing", href:"/recycled-paper" },
         ],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we understand the importance of Eco Friendly Printing solutions and how they can elevate your brand. In this blog, we'll explore how Recycled Printing Services can boost your brand's sustainability, increase consumer loyalty, and support a greener future.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Eco Friendly Printing" },
-          { word: "Recycled Printing Services" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
       {
@@ -11210,27 +11084,17 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When it comes to sustainable printing, Recycled Paper Printingis one of the most effective methods for reducing your business's environmental footprint. Traditional printing processes can be wasteful, using up valuable resources like trees, water, and energy. However, printing on Recycled Paper can significantly reduce these negative impacts.",
-        boldWords: [
-          { word: "Recycled Paper Printing" },
-          { word: "Recycled Paper" },
-        ],
       },
       {
         type: "paragraph",
         text: "By choosing Recycled Paper Printing, you're helping to reduce the demand for virgin paper, which, in turn, reduces deforestation and the destruction of natural habitats. In addition, the production of Recycled Paperrequires less energy and water than making paper from virgin wood pulp. This means fewer greenhouse gases are released into the atmosphere, making Recycled Printing Services a key part of any business's strategy to reduce its carbon footprint.",
         boldWords: [
-          { word: "Recycled Paper Printing" },
-          { word: "Recycled Paper" },
-          { word: "Recycled Printing Services" },
+          { word: "Recycled Printing Services", href:"/recycled-paper" },
         ],
       },
       {
         type: "paragraph",
         text: "When you chooseRecycled Paper Printing with Sustainable Printing Co., you're investing in high-quality prints that not only look great but also contribute to a more sustainable world. All of our products are made with carbon-neutral materials and feature the highest possible percentage of recycled content. Plus, the production process is free from chlorine or chlorine derivatives, reducing pollution and promoting a cleaner environment.",
-        boldWords: [
-          { word: "Recycled Paper Printing" },
-          { word: "Sustainable Printing Co." },
-        ],
       },
       {
         type: "heading",
@@ -11248,8 +11112,7 @@ export const blogData: BlogPost[] = [
               {
                 text: "In fact, studies have shown that 66% of consumers are willing to pay more for sustainable products. By incorporating Eco Friendly Printing into your business's strategy, you can attract more environmentally conscious customers who want to support businesses that align with their values. Whether it's Recycled Paper Printing for brochures, packaging, or promotional materials, showing your commitment to sustainability will enhance your brand's reputation.",
                 boldWords: [
-                  { word: "Eco Friendly Printing" },
-                  { word: "Recycled Paper Printing" },
+                  { word: "Eco Friendly Printing", href:"/recycled-paper" },
                 ],
               },
             ],
@@ -11264,7 +11127,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Using Recycled Printing Services Australia also allows your business to comply with industry standards and environmental regulations. As the demand for greener practices grows, staying ahead of the curve can give your company a competitive edge, making it easier to attract environmentally-conscious clients and partners.",
-                boldWords: [{ word: "Recycled Printing Services Australia" }],
+                boldWords: [{ word: "Recycled Printing Services Australia", href:"/recycled-paper" }],
               },
             ],
             linkText: "",
@@ -11278,11 +11141,6 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "UAt Sustainable Printing Co., we're committed to providing affordable and high-quality Eco Friendly Printing options that suit your budget. We offer a range of products made from Recycled Paper, including books, business cards, and promotional materials, all at competitive prices without sacrificing quality.",
-                boldWords: [
-                  { word: "Sustainable Printing Co." },
-                  { word: "Eco Friendly Printing" },
-                  { word: "Recycled Paper" },
-                ],
               },
             ],
             linkText: "",
@@ -11298,11 +11156,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we're passionate about helping businesses embrace sustainability without compromising on quality. Our Recycled Printing Services are designed to meet the needs of businesses looking to reduce their environmental impact while delivering high-quality prints. Whether you need Recycled Paper Printing for brochures, flyers, or books, we've got you covered with our extensive range of sustainable options.",
-        boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Recycled Printing Services" },
-          { word: "Recycled Paper Printing" },
-        ],
       },
       {
         type: "richList",
@@ -11365,13 +11218,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choosing Recycled Printing Services is more than just a trend—it's a movement toward a more sustainable and eco-conscious world. By embracing Recycled Paper Printing, you can reduce your brand's environmental impact, attract loyal customers, and gain a competitive edge in the market. At Sustainable Printing Co., we're here to support your journey toward a greener future with high-quality, eco-friendly printing solutions that make a real difference.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "paragraph",
         text: "If you're ready to elevate your brand's sustainability efforts, Sustainable Printing Co. is your trusted partner in Recycled Printing Services. Contact us today to start printing with purpose.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
           { word: "Recycled Printing Services" },
         ],
       },
@@ -11392,8 +11244,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Advertising has always been about capturing attention and making a memorable impression. Posters, with their bold visuals and informative appeal, remain a timeless tool for this purpose. However, the evolution of advertising has called for more thoughtful, eco-friendly approaches to printing. That's where Sustainable Printing Co steps in, providing Poster Printing Services Australia with a perfect balance of quality, creativity, and sustainability.",
         boldWords: [
-          { word: "Sustainable Printing Co" },
-          { word: "Poster Printing Services Australia" },
+          { word: "Sustainable Printing Co", href:"/" },
+          { word: "Poster Printing Services Australia", href:"/posters-printing" },
         ],
       },
       {
@@ -11407,7 +11259,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we understand that a well-designed poster is more than just an advertisement; it's a reflection of your brand's values. From Poster Printing Melbourne to Posters Printing Collingwood, we offer localised solutions tailored to your needs, ensuring your message reaches the right audience.",
-        boldWords: [{ word: "Poster Printing Melbourne" }],
+        boldWords: [{ word: "Poster Printing Melbourne", href:"/posters-printing" }],
       },
       {
         type: "heading",
@@ -11420,7 +11272,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "For businesses in Poster Printing Richmond and beyond, this means you can showcase your commitment to sustainability while delivering high-impact advertising. Not only do our eco-friendly posters leave a smaller carbon footprint, but they also resonate with audiences who value ethical practices.",
-        boldWords: [{ word: "Poster Printing Richmond" }],
       },
       {
         type: "heading",
@@ -11429,13 +11280,13 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "One size doesn't fit all, especially when it comes to advertising. That's why we offer custom poster printing services designed to align perfectly with your brand's unique requirements. Whether you need A4, A3, or A2 sizes, we provide the flexibility to bring your vision to life.",
-        boldWords: [{ word: "poster printing services" }],
+        boldWords: [{ word: "poster printing services", href:"/posters-printing" }],
       },
       {
         type: "paragraph",
         text: "Our expertise extends to creating posters for various purposes, from in-store promotions to large-scale campaigns. Need a different quantity or a custom quote? Contact us at (03) 9482 2222 or email us at sales@sustainableprintingco.com.au.",
         boldWords: [
-          { word: "Contact us" },
+          { word: "Contact us", href:"/contact" },
           { word: "(03) 9482 2222", href: "tel:0394822222" },
           {
             word: "sales@sustainableprintingco.com.au",
@@ -11450,7 +11301,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our Poster Printing Melbourne services are designed for businesses that need fast, reliable, and high-quality printing. Located in the heart of Australia's vibrant business hubs, we ensure your advertising materials are produced with precision and care. For clients in Posters Printing Collingwood and nearby areas, we offer seamless delivery and local support to make your advertising effortless.",
-        boldWords: [{ word: "Poster Printing Melbourne" }],
       },
       {
         type: "paragraph",
@@ -11467,7 +11317,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we help businesses create impactful advertising materials that align with their values. Explore our full range of sustainable printing solutions at All Products and see how we can bring your campaigns to life.",
-        boldWords: [{ word: "All Products" }],
+        boldWords: [{ word: "All Products", href:"/products" }],
       },
       {
         type: "heading",
@@ -11480,7 +11330,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our focus on poster printing services Australia ensures that you receive high-quality, eco-friendly products tailored to your specific needs. Whether you're in Melbourne, Collingwood, or Richmond, our expertise and dedication to sustainability make us the ideal partner for your advertising efforts.",
-        boldWords: [{ word: "poster printing services Australia" }],
+        boldWords: [{ word: "poster printing services Australia", href:"/posters-printing" }],
       },
       {
         type: "heading",
@@ -11510,7 +11360,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In an age where sustainability and meaningful communication matter more than ever, greeting cards remain a timeless way to express gratitude, celebrate milestones, or promote your business. Choosing the right printing partner can make all the difference, and if you're looking for A6 Greeting Card Printing Services in Australia, you're on the right track. At Sustainable Printing Co, we specialise in creating premium, eco-friendly greeting cards that leave a lasting impression without leaving a large environmental footprint.",
         boldWords: [
-          { word: "A6 Greeting Card Printing Services in Australia" },
+          { word: "A6 Greeting Card Printing Services in Australia", href:"/standard-a6-gift-cards" },
         ],
       },
       {
@@ -11528,7 +11378,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Additionally, A6 cards conveniently fit into standard C6 envelopes, making them easy to mail or distribute. This practical size ensures your cards remain affordable while retaining a professional and polished look. At Sustainable Printing Co, we take this format to the next level with high-quality printing and vibrant finishes that enhance every design.",
-                boldWords: [{ word: "Sustainable Printing Co" }],
+                boldWords: [{ word: "Sustainable Printing Co", href:"/" }],
               },
             ],
             linkText: "",
@@ -11542,7 +11392,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Unlike traditional printing methods, which often rely on virgin paper and chemical-heavy inks, our processes are designed to have minimal environmental impact. By choosing A6 Greeting Card Printing, you can showcase your eco-conscious values to clients, customers, and loved ones, reinforcing a positive brand image while caring for the planet.",
-                boldWords: [{ word: "A6 Greeting Card Printing" }],
+                boldWords: [{ word: "A6 Greeting Card Printing", href:"/standard-a6-gift-cards" }],
               },
               {
                 text: "We're passionate about making sustainability accessible, which is why we offer no minimum order quantities. Whether you need ten cards for a small gathering or thousands for a marketing campaign, we've got you covered.",
@@ -11559,7 +11409,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Our standard greeting card printing process delivers sharp, vibrant designs that make your cards stand out. Whether you're an artist wanting to showcase your illustrations or a business aiming to impress your clients, we provide the tools to make your vision a reality.",
-                boldWords: [{ word: "standard greeting card printing" }],
+                boldWords: [{ word: "standard greeting card printing", href:"/standard-a6-gift-cards" }],
               },
               {
                 text: "If you have a specific idea or need assistance with design, our team is always ready to help. Simply contact us, and we'll ensure your project is tailored to perfection.",
@@ -11594,7 +11444,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "We believe in building lasting relationships with our clients, which is why we go above and beyond to provide exceptional customer service. Whether you're ordering greeting cards, business cards, or brochures, our team is dedicated to ensuring your satisfaction at every step.",
-                boldWords: [{ word: "greeting cards" }, { word: "brochures" }],
+                boldWords: [{ word: "greeting cards", href:"/standard-a6-gift-cards" }, { word: "brochures", href:"/brochures-printing" }],
               },
             ],
             linkText: "",
@@ -11610,7 +11460,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our commitment to sustainability, quality, and customer satisfaction sets us apart. When you choose A6 Greeting Card Printing Services Australia, you're not just printing cards—you're making a conscious choice to support the environment and a local business that shares your values.",
-        boldWords: [{ word: "A6 Greeting Card Printing Services" }],
+        boldWords: [{ word: "A6 Greeting Card Printing Services", href:"/standard-a6-gift-cards" }],
       },
       {
         type: "paragraph",
@@ -11641,7 +11491,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we're here to bring your ideas to life with eco-friendly materials, exceptional quality, and unmatched customer service. Whether you're an artist, a business, or simply someone with a heartfelt message to share, our A6 greeting cards are the perfect choice.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
+        boldWords: [{ word: "Sustainable Printing Co", href:"/" }],
       },
       {
         type: "paragraph",
@@ -11665,8 +11515,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Sustainability has become a key factor in defining successful businesses, offering your brand a unique opportunity to shine by adopting eco-friendly practices. At Sustainable Printing Co, we offer sticker printing in Melbourne that blends creative design, exceptional quality, and eco-conscious materials. Whether you're a small startup or a large enterprise, our custom sustainable stickers and labels help elevate your brand while reducing its environmental impact.",
         boldWords: [
-          { word: "Sustainable Printing Co" },
-          { word: "sticker printing in Melbourne" },
+          { word: "Sustainable Printing Co", href:"/" },
+          { word: "sticker printing in Melbourne", href:"/label-stickers" },
         ],
       },
       {
@@ -11680,7 +11530,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Incorporating sustainability into your business is no longer just a choice—it's a responsibility. At Sustainable Printing Co, we understand this and provide eco-friendly sticker printing options that align with your brand's values.",
-        boldWords: [{ word: "eco-friendly sticker printing" }],
+        boldWords: [{ word: "eco-friendly sticker printing", href:"/label-stickers" }],
       },
       {
         type: "paragraph",
@@ -11694,7 +11544,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Every brand is unique, and your stickers should be too. Our custom stickers in Melbourne are designed to fit your specific requirements, whether you need bold, colourful designs for events or subtle, sophisticated labels for product packaging.",
-        boldWords: [{ word: "custom stickers in Melbourne" }],
+        boldWords: [{ word: "custom stickers in Melbourne", href:"/label-stickers" }],
       },
       {
         type: "paragraph",
@@ -11711,7 +11561,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Whether it's for food packaging, beauty products, or promotional giveaways, our labels are designed to meet the needs of diverse industries. Using sticker paper Australia, we create durable, eye-catching labels that enhance your brand's appeal without harming the planet.",
-        boldWords: [{ word: "sticker paper Australia" }],
+        boldWords: [{ word: "sticker paper Australia", href:"/label-stickers" }],
       },
       {
         type: "heading",
@@ -11720,7 +11570,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we understand that different industries require different solutions. That's why our sustainable product labels are highly versatile and fully customisable.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
+        boldWords: [{ word: "Sustainable Printing Co", href:"/" }],
       },
       {
         type: "paragraph",
@@ -11782,15 +11632,15 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "It's time to elevate your brand with eco-friendly sticker printing in Melbourne. Whether you need custom stickers, recyclable labels, or sustainable product labels, Sustainable Printing Co is your partner for innovative, environmentally friendly printing solutions.",
         boldWords: [
-          { word: "eco-friendly sticker printing in Melbourne" },
-          { word: "sustainable product labels" },
+          { word: "eco-friendly sticker printing in Melbourne", href:"/label-stickers" },
+          { word: "sustainable product labels", href:"/label-stickers" },
         ],
       },
       {
         type: "paragraph",
         text: "Explore our full range of products on our All Products page. Have questions or need a quote? Visit our Contact Us page, email us at sales@sustainableprintingco.com.au, or call (03) 9482 2222.",
         boldWords: [
-          { word: "All Products" },
+          { word: "All Products", href:"/products" },
           { word: "Contact Us", href: "/contact" },
           {
             word: "sales@sustainableprintingco.com.au",
@@ -11816,8 +11666,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's competitive business landscape, the way you communicate your message speaks volumes about your brand values. For companies striving to stand out while staying environmentally conscious, recycled paper brochures printing services provide the perfect solution. At Sustainable Printing Co., we specialise in crafting eco-friendly brochures that not only captivate your audience but also reflect your commitment to sustainability.",
         boldWords: [
-          { word: "recycled paper brochures printing services" },
-          { word: "Sustainable Printing Co." },
+          { word: "recycled paper brochures printing services", href:"brochures-printing" },
+          { word: "Sustainable Printing Co.", href:"/"},
         ],
       },
       {
@@ -11835,7 +11685,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "One of the easiest yet impactful ways to integrate sustainability into your marketing efforts is by opting for eco-friendly brochures printing services. These brochures are visually appealing, professionally designed, and made using recycled materials, reducing your carbon footprint without compromising on quality.",
-        boldWords: [{ word: "eco-friendly brochures printing services" }],
+        boldWords: [{ word: "eco-friendly brochures printing services", href:"/brochures-printing" }],
       },
       {
         type: "heading",
@@ -11878,7 +11728,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we bring together innovation, creativity, and eco-consciousness to provide businesses with exceptional printing solutions.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "richList",
@@ -11992,7 +11842,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We've built a reputation for excellence and sustainability. Businesses trust us because we deliver high-quality eco-friendly brochures printing services that don't compromise on aesthetics or functionality.",
-        boldWords: [{ word: "eco-friendly brochures printing services" }],
+        boldWords: [{ word: "eco-friendly brochures printing services", href:"/brochures-printing" }],
       },
       {
         type: "paragraph",
@@ -12005,13 +11855,13 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we believe that small steps can lead to big changes. By choosing eco-friendly printing, you're contributing to a more sustainable future while elevating your brand.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
         text: "Let us help you make that transition. Explore our full range of products, give us a call on (03) 9482 2222, or email us at sales@sustainableprintingco.com.au to discuss your next project.",
         boldWords: [
           { word: "(03) 9482 2222", href: "tel:0394822222" },
+          { word: "range of products,", href:"/products" },
           {
             word: "sales@sustainableprintingco.com.au",
             href: "mailto:sales@sustainableprintingco.com.au",
@@ -12025,13 +11875,13 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Recycled paper brochures are more than just a marketing tool—they're a statement of your commitment to sustainability and innovation. By partnering with Sustainable Printing Co., you're not just investing in high-quality printing but also taking a step toward a greener future.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "paragraph",
         text: "Elevate your brand today with our brochures printing services Australia-wide. Visit our contact page to get started, or call us directly on (03) 9482 2222. Together, let's create something beautiful—and sustainable.",
         boldWords: [
-          { word: "brochures printing services Australia-wide" },
+          { word: "brochures printing services Australia-wide", href:"/brochures-printing" },
           { word: "(03) 9482 2222", href: "tel:0394822222" },
         ],
       },
@@ -12052,8 +11902,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In an age where sustainability and meaningful communication matter more than ever, greeting cards remain a timeless way to express gratitude, celebrate milestones, or promote your business. Choosing the right printing partner can make all the difference, and if you're looking for A6 Greeting Card Printing Services in Australia, you're on the right track. At Sustainable Printing Co, we specialise in creating premium, eco-friendly greeting cards that leave a lasting impression without leaving a large environmental footprint.",
         boldWords: [
-          { word: "A6 Greeting Card Printing Services in Australia" },
-          { word: "Sustainable Printing Co" },
+          { word: "A6 Greeting Card Printing Services in Australia", href:"/standard-a6-gift-cards" },
         ],
       },
       {
@@ -12070,7 +11919,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Additionally, A6 cards conveniently fit into standard C6 envelopes, making them easy to mail or distribute. This practical size ensures your cards remain affordable while retaining a professional and polished look. At Sustainable Printing Co, we take this format to the next level with high-quality printing and vibrant finishes that enhance every design.",
-                boldWords: [{ word: "Sustainable Printing Co" }],
+                boldWords: [{ word: "Sustainable Printing Co", href:"/" }],
               },
             ],
           },
@@ -12084,7 +11933,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Unlike traditional printing methods, which often rely on virgin paper and chemical-heavy inks, our processes are designed to have minimal environmental impact. By choosing A6 Greeting Card Printing, you can showcase your eco-conscious values to clients, customers, and loved ones, reinforcing a positive brand image while caring for the planet.",
-                boldWords: [{ word: "A6 Greeting Card Printing" }],
+                boldWords: [{ word: "A6 Greeting Card Printing", href:"/standard-a6-gift-cards" }],
               },
               {
                 text: "We're passionate about making sustainability accessible, which is why we offer no minimum order quantities. Whether you need ten cards for a small gathering or thousands for a marketing campaign, we've got you covered.",
@@ -12101,7 +11950,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Our standard greeting card printing process delivers sharp, vibrant designs that make your cards stand out. Whether you're an artist wanting to showcase your illustrations or a business aiming to impress your clients, we provide the tools to make your vision a reality.",
-                boldWords: [{ word: "standard greeting card printing" }],
+                boldWords: [{ word: "standard greeting card printing", href:"/standard-a6-gift-cards" }],
               },
             ],
           },
@@ -12119,7 +11968,6 @@ export const blogData: BlogPost[] = [
               },
               {
                 text: "Affordability is another reason to choose us. With no minimum order quantities, businesses, artists, and individuals alike can access high-quality A6 Greeting Card Printing Services without breaking the bank.",
-                boldWords: [{ word: "A6 Greeting Card Printing Services" }],
               },
             ],
           },
@@ -12133,7 +11981,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "We believe in building lasting relationships with our clients, which is why we go above and beyond to provide exceptional customer service. Whether you're ordering greeting cards, business cards, or brochures, our team is dedicated to ensuring your satisfaction at every step.",
-                boldWords: [{ word: "greeting cards" }, { word: "brochures" }],
+                boldWords: [{ word: "greeting cards", href:"/standard-a6-gift-cards" }, { word: "brochures", href:"/brochures-printing" }],
               },
             ],
           },
@@ -12152,15 +12000,15 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "We offer an extensive range of products, including business cards, flyers, postcards, and more, all crafted with the same eco-friendly principles. Ready to get started? Email us at sales@sustainableprintingco.com.au or visit our contact page for more information.",
         boldWords: [
-          { word: "products" },
-          { word: "business cards" },
-          { word: "flyers" },
-          { word: "postcards" },
+          { word: "products", href:"/products" },
+          { word: "business cards", href:"/uncoated-business-cards" },
+          { word: "flyers", href:"/flyers-printing" },
+          { word: "postcards",href:"/premium-postcards" },
           {
             word: "sales@sustainableprintingco.com.au",
             href: "mailto:sales@sustainableprintingco.com.au",
           },
-          { word: "contact page" },
+          { word: "contact page", href:"/contact" },
         ],
       },
       {
@@ -12171,13 +12019,13 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Greeting cards are more than just paper—they're a way to connect, express gratitude, and celebrate life's special moments. With A6 Greeting Card Printing Services in Australia, you can achieve all of this while staying true to your commitment to sustainability.",
         boldWords: [
-          { word: "A6 Greeting Card Printing Services in Australia" },
+          { word: "A6 Greeting Card Printing Services in Australia",href:"standard-a6-gift-cards" },
         ],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we're here to bring your ideas to life with eco-friendly materials, exceptional quality, and unmatched customer service. Whether you're an artist, a business, or simply someone with a heartfelt message to share, our A6 greeting cards are the perfect choice.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
+        boldWords: [{ word: "Sustainable Printing Co", href:"/" }],
       },
       {
         type: "paragraph",
@@ -12200,12 +12048,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "As the world moves towards more environmentally conscious choices, businesses are increasingly being evaluated not just on the quality of their products and services, but also on their sustainability practices. One simple yet significant way to demonstrate your company's commitment to sustainability is by opting for eco-friendly letterhead printing services. Not only does this decision showcase your business's environmental responsibility, but it also reflects your dedication to professionalism and innovation.",
-        boldWords: [{ word: "letterhead printing services" }],
+        boldWords: [{ word: "letterhead printing services", href:"/letterhead-printing" }],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we make it easy for businesses to switch to sustainable printing solutions that don't compromise on quality. Our letterhead printing services allow businesses across Australia to make a positive impact on the environment, while still maintaining sharp, professional communication materials.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
+        boldWords: [{ word: "Sustainable Printing Co", href:"/" }],
       },
       {
         type: "heading",
@@ -12218,7 +12066,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Eco-friendly printed materials show that your business cares about more than just profits. It demonstrates that you're forward-thinking and conscious of the environmental challenges we face today. By choosing letterhead printing services that use 100% recycled paper, you make an eco-conscious decision that speaks volumes about your values as a business.",
-        boldWords: [{ word: "letterhead printing services" }],
       },
       {
         type: "richList",
@@ -12261,7 +12108,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we use post-consumer waste paper for our letterheads, meaning we take what would otherwise end up in a landfill and give it a new life. This not only reduces the demand for virgin paper materials but also helps lower carbon emissions linked to paper production.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
       },
       {
         type: "heading",
@@ -12270,7 +12116,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we are passionate about providing businesses with high-quality, sustainable printing solutions. Our eco-friendly printing services span a wide range of products, including business cards, postcards, brochures, and of course, letterheads. Here's why we stand out:",
-        boldWords: [{ word: "Sustainable Printing Co" }],
       },
       {
         type: "list",
@@ -12318,16 +12163,16 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Now more than ever, businesses are looking for ways to reduce their environmental impact while maintaining their competitive edge. Eco-friendly letterhead printing services provide an excellent opportunity to enhance your brand's image while doing your part for the planet. At Sustainable Printing Co, we offer premium, environmentally responsible printing solutions that meet the unique needs of your business.",
         boldWords: [
-          { word: "Eco-friendly letterhead printing services" },
-          { word: "Sustainable Printing Co" },
+          { word: "Eco-friendly letterhead printing services", href:"/letterhead-printing" },
+          { word: "Sustainable Printing Co", href:"/" },
         ],
       },
       {
         type: "paragraph",
         text: "Whether you're a local Melbourne-based business or operate Australia-wide, our letterhead printing services can help you transition to a more sustainable approach without compromising on quality. Ready to make the switch? Contact us at (03) 9482 2222, email us at sales@sustainableprintingco.com.au, or get a custom quote today!",
         boldWords: [
-          { word: "letterhead printing services" },
-          { word: "Contact us" },
+          { word: "letterhead printing services", href:"/letterhead-printing" },
+          { word: "Contact us", href:"/contact" },
           { word: "(03) 9482 2222", href: "tel:0394822222" },
           {
             word: "sales@sustainableprintingco.com.au",
@@ -12338,7 +12183,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Let's make every letter count for the environment—choose Sustainable Printing Co for your eco-friendly printing needs.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
       },
     ],
   },
@@ -12357,14 +12201,12 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's world, sustainability is more than just a buzzword - it's a responsibility. For authors and publishers, making environmentally conscious choices is not only a step in the right direction but also an opportunity to align with readers who care about the planet. Eco-friendly book printing has become a viable and necessary option for those who want to reduce their environmental footprint without compromising on quality. At Sustainable Printing Co, we are dedicated to providing sustainable book printing solutions that allow you to publish your work while doing good for the environment.",
         boldWords: [
-          { word: "Eco-friendly book printing" },
-          { word: "Sustainable Printing Co" },
+          { word: "Eco-friendly book printing", href:"/books" },
         ],
       },
       {
         type: "paragraph",
         text: "Whether you're producing a novel, a set of brochures, or eco friendly reports printing, choosing a sustainable printing partner is the first step toward a greener future. In this blog, we'll explore why eco friendly book printing is crucial, how it benefits authors and publishers, and what makes Sustainable Printing Co the perfect choice for all your book printing services.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
       },
       {
         type: "heading",
@@ -12386,8 +12228,10 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "At Sustainable Printing Co, we pride ourselves on offering premium, environmentally friendly printing solutions. Using 100% recycled papers, we provide a wide range of book printing services that cater to authors, artists, businesses, and brands of all sizes. Whether you need business cards, brochures, stickers, or flyers, we offer eco friendly booklets printing and other products to suit your needs.",
         boldWords: [
-          { word: "Sustainable Printing Co" },
-          { word: "business cards" },
+          { word: "Sustainable Printing Co", href:"/uncoated-business-cards" },
+          { word: "business cards", href:"/uncoated-business-cards" },
+          { word: "brochures", href:"/brochures-printing" },
+          { word: "flyers", href:"/flyers-printing" },
         ],
       },
       {
@@ -12486,16 +12330,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Getting started with eco friendly book printing is easy. At Sustainable Printing Co, we've streamlined the process to ensure you can order online with ease. Simply visit our All Products page to browse our range of printing services. Once you've chosen your desired product, upload your artwork and select your preferred payment method. It only takes a few minutes to complete your order!",
-        boldWords: [
-          { word: "Sustainable Printing Co" },
-          { word: "All Products page" },
-        ],
       },
       {
         type: "paragraph",
         text: "If you'd like to discuss your project in more detail, we offer personalised service via phone or email. Our team is happy to guide you through the process, answer any questions, and provide custom quotes for larger or unique projects. Contact us today at sales@sustainableprintingco.com.au or give us a call on (03) 9482 2222 to get started.",
         boldWords: [
-          { word: "Contact us today" },
+          { word: "Contact us today", href:"/contact" },
           {
             word: "sales@sustainableprintingco.com.au",
             href: "mailto:sales@sustainableprintingco.com.au",
@@ -12511,15 +12351,15 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In a world that increasingly values sustainability, eco friendly book printing is a smart choice for authors and publishers who want to make a positive impact. By working with Sustainable Printing Co, you'll not only reduce your environmental footprint but also enjoy premium-quality book printing services that are both affordable and flexible. Our commitment to using 100% recycled paper, non-toxic inks, and low-energy processes ensures that every project—whether it's a book, flyer, or report—is crafted with care for the environment.",
         boldWords: [
-          { word: "eco friendly book printing" },
-          { word: "Sustainable Printing Co" },
+          { word: "eco friendly book printing", href:"/books" },
+          { word: "Sustainable Printing Co", href:"/" },
         ],
       },
       {
         type: "paragraph",
         text: "Ready to take the next step? Whether you're an author looking to print your latest novel or a business in need of eco friendly reports printing, we're here to help. Explore our range of sustainable book printing services today by visiting our All Products page, or contact us at sales@sustainableprintingco.com.au to discuss your project.",
         boldWords: [
-          { word: "All Products page" },
+          { word: "Products page", href:"/products" },
           {
             word: "sales@sustainableprintingco.com.au",
             href: "mailto:sales@sustainableprintingco.com.au",
@@ -12529,7 +12369,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Make a choice that matters for the planet. Choose Sustainable Printing Co for all your printing needs.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
       },
     ],
   },
@@ -12547,7 +12386,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's business landscape, sustainability is no longer an option but a necessity. Making eco-friendly choices can elevate your brand and connect you with a growing audience of environmentally conscious consumers. One excellent step toward sustainability is switching to A2 white recycled wrapping paper. At Sustainable Printing Co, we specialise in offering environmentally responsible packaging options that don't compromise on quality or aesthetic appeal.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
+        boldWords: [{ word: "Sustainable Printing Co", href:"/" }],
       },
       {
         type: "paragraph",
@@ -12579,7 +12418,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "At Sustainable Printing Co, we know that packaging is an essential part of your brand identity. That's why we offer a variety of customisation options for our A2 wrapping paper. The large A2 size (420mm x 594mm) allows for endless creative possibilities, whether you want to showcase your logo, a unique design, or a seasonal theme.",
-                boldWords: [{ word: "A2 wrapping paper" }],
+                boldWords: [{ word: "A2 wrapping paper", href:"/a2-wrapping-paper" }],
               },
               {
                 text: "Customisation helps reinforce your brand's personality and ensures that your products stand out. Our wrapping paper printing services are perfect for businesses looking to enhance their product presentation while maintaining a commitment to sustainability. Your customers will appreciate the attention to detail and the environmentally friendly touch.",
@@ -12628,7 +12467,7 @@ export const blogData: BlogPost[] = [
               },
               {
                 text: "Using recycled paper in your packaging promotes waste reduction and sends a message to your customers that you care about the environment. This can be a powerful branding tool, particularly in today's marketplace where sustainability is top of mind for many consumers. By choosing wrapping paper printing Australia, you can do your part in protecting the planet while enhancing your brand's image.",
-                boldWords: [{ word: "wrapping paper printing Australia" }],
+                boldWords: [{ word: "wrapping paper printing Australia", href:"/a2-wrapping-paper" }],
               },
             ],
           },
@@ -12669,7 +12508,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we are dedicated to helping businesses transition to sustainable packaging without sacrificing quality or style. Our wrapping paper printing services Australia provide a range of customisable, eco-friendly options that suit your brand's unique needs. With our focus on A2 wrapping paper made from 100% recycled materials, you can make a positive environmental impact while enhancing your product presentation.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
       },
       {
         type: "paragraph",
@@ -12688,13 +12526,13 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Get in touch with us today! Contact us at (03) 9482 2222 or email us at sales@sustainableprintingco.com.au to learn more about how our wrapping paper printing services can benefit your brand. You can also visit our All Products page to explore our full range of eco-friendly printing options.",
         boldWords: [
-          { word: "Contact us" },
+          { word: "Contact us", href:"/contact" },
           { word: "(03) 9482 2222", href: "tel:0394822222" },
           {
             word: "sales@sustainableprintingco.com.au",
             href: "mailto:sales@sustainableprintingco.com.au",
           },
-          { word: "All Products page" },
+          { word: "Products page", href:"/products" },
         ],
       },
     ],
@@ -12718,8 +12556,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "At Sustainable Printing Co, we provide brands with top-notch Adhesive Label Printing Services that are both eco-friendly and cost-effective. Our adhesive labels are a sustainable choice that balance quality, design, and environmental responsibility. Here's why choosing eco-friendly adhesive labels is the smart move for your brand.",
         boldWords: [
-          { word: "Sustainable Printing Co" },
-          { word: "Adhesive Label Printing Services" },
+          { word: "Sustainable Printing Co", href:"/" },
         ],
       },
       {
@@ -12734,7 +12571,6 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Switching to sustainable materials doesn't need to break the bank. At Sustainable Printing Co, we ensure that eco-friendly printing solutions are affordable and accessible for businesses of all sizes. Our Adhesive Label Printing Services are not only cost-effective but also help reduce waste and resource consumption, ensuring you leave a smaller carbon footprint.",
-                boldWords: [{ word: "Adhesive Label Printing Services" }],
               },
               {
                 text: "With no minimum order quantities, we make it easy for businesses—whether large or small—to switch to eco-friendly labels. This flexibility ensures that you can enjoy the benefits of sustainable printing without the burden of high-volume orders. Our adhesive labels are produced using environmentally friendly materials that meet the demands of modern, conscious consumers.",
@@ -12749,7 +12585,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "One of the standout features of our Adhesive Label Printing Australia service is the flexibility we offer in terms of customisation. We provide labels in a variety of shapes and sizes, including round, square, and custom shapes that are tailored to your specific needs. Whether you're looking for small labels for packaging or larger promotional stickers, we've got you covered with sizes ranging from 25mm to 90mm.",
-                boldWords: [{ word: "Adhesive Label Printing Australia" }],
+                boldWords: [{ word: "Adhesive Label Printing Australia", href:"/circle-adhesive-labels" }],
               },
               {
                 text: "Additionally, our eco-friendly labels are fully customisable to meet your brand's aesthetic and functional requirements. Whether you need labels for handouts, product packaging, or promotional purposes, we can provide the perfect fit for your business.",
@@ -12764,9 +12600,6 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "At Sustainable Printing Co, we offer a wide range of eco-friendly Adhesive Label Printing Services Australia. Our sustainable paper stocks include:",
-                boldWords: [
-                  { word: "Adhesive Label Printing Services Australia" },
-                ],
               },
               {
                 text: "• Uncoated Matt Adhesive: A smooth, natural finish that suits brands aiming for a clean, minimalist look.",
@@ -12793,7 +12626,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Choosing eco-friendly labels doesn't mean compromising on quality. Our Adhesive Label Printing Australia service ensures that every label is printed vibrantly, maintaining the integrity of your brand's colours and designs. Whether you're printing product labels, promotional materials, or branding stickers, our eco-friendly inks and processes guarantee high-quality results.",
-                boldWords: [{ word: "eco-friendly labels" }],
+                boldWords: [{ word: "eco-friendly labels", href:"/circle-adhesive-labels" }],
               },
               {
                 text: "At Sustainable Printing Co, we focus on delivering durable, long-lasting adhesive labels that withstand everyday wear and tear. Our labels not only look great from day one but also continue to represent your brand in the best possible light.",
@@ -12837,13 +12670,9 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "At Sustainable Printing Co, we make it easy to order and customise your eco-friendly adhesive labels. With just a few clicks, you can select your preferred shapes, sizes, and paper stocks to suit your branding needs. Need something specific? Contact us for custom quotes or different quantities, and we'll help tailor the perfect solution for your business.",
-                boldWords: [{ word: "Sustainable Printing Co" }],
               },
               {
                 text: "We're committed to making the transition to Adhesive Label Printing Services Australia as easy and seamless as possible. Our team is always on hand to assist with any queries or special requests, ensuring your printing experience is stress-free and efficient.",
-                boldWords: [
-                  { word: "Adhesive Label Printing Services Australia" },
-                ],
               },
             ],
           },
@@ -12860,7 +12689,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co, we offer a range of customisable options to suit businesses of all sizes. From small to large orders, we're ready to help your brand make the shift towards sustainable packaging solutions.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
       },
       {
         type: "paragraph",
@@ -12871,7 +12699,7 @@ export const blogData: BlogPost[] = [
             word: "sales@sustainableprintingco.com.au",
             href: "mailto:sales@sustainableprintingco.com.au",
           },
-          { word: "All Products page" },
+          { word: "Products page", href:"/products" },
         ],
       },
     ],
@@ -12891,8 +12719,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's market, where sustainability is no longer just a trend but a necessity, every detail of your business can contribute to your environmental impact. One often overlooked aspect is the choice of labels and stickers. At Sustainable Printing Co, we believe that something as small as a circle adhesive label can make a significant difference. In this blog, we will explore how custom small circle stickers can enhance your brand's sustainability efforts and why they are an essential element in creating a green, responsible business.",
         boldWords: [
-          { word: "Sustainable Printing Co" },
-          { word: "custom small circle stickers" },
+          { word: "Sustainable Printing Co", href:"/" },
+          { word: "custom small circle stickers", href:"/circle-adhesive-labels" },
         ],
       },
       {
@@ -12921,7 +12749,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "The impact of these small details is substantial. When customers see that your packaging includes custom small circle stickers made from sustainable materials, they immediately associate your brand with responsibility and care for the environment. This not only enhances your brand's image but also builds trust and loyalty among your customers.",
-        boldWords: [{ word: "custom small circle stickers" }],
+        boldWords: [{ word: "custom small circle stickers", href:"/circle-adhesive-labels" }],
       },
       {
         type: "heading",
@@ -12946,12 +12774,11 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Sustainable Printing Co. was founded with a clear mission: to provide eco-friendly printing solutions that don't compromise on quality or creativity. Our range of products includes everything from business cards to milestone cards, but today, we're focusing on the humble yet powerful circle adhesive label.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "paragraph",
         text: "When you choose our custom adhesive labels printing services, you're not just getting a label; you're getting a product that has been carefully crafted with the environment in mind. Our commitment to sustainability is evident in every aspect of our business, from the materials we use to the processes we follow.",
-        boldWords: [{ word: "custom adhesive labels printing services" }],
       },
       {
         type: "heading",
@@ -12968,7 +12795,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Furthermore, using sustainable materials like vellum labels not only reduces waste but also aligns with the growing consumer demand for eco-friendly products. By choosing our custom adhesive labels printing Australia, you're making a positive impact on the environment and your business.",
-        boldWords: [{ word: "custom adhesive labels printing Australia" }],
+        boldWords: [{ word: "custom adhesive labels printing Australia", href:"/circle-adhesive-labels" }],
       },
       {
         type: "heading",
@@ -12977,14 +12804,10 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Custom small circle stickers are incredibly versatile. They can be used in a variety of applications, from sealing envelopes and packaging to adding a decorative touch to your products. Their small size makes them ideal for branding without overwhelming the overall design of your packaging.",
-        boldWords: [{ word: "Custom small circle stickers" }],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we offer a wide range of sizes, including 25mm, 32mm, 45mm, 60mm, and 90mm, ensuring that you can find the perfect fit for your application. Whether you're looking for a subtle addition to your packaging or a bold statement piece, our custom adhesive labels printing services in Australia have you covered.",
-        boldWords: [
-          { word: "custom adhesive labels printing services in Australia" },
-        ],
       },
       {
         type: "paragraph",
@@ -12997,17 +12820,16 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Switching to sustainable printing is not just a trend; it's a responsibility that all businesses should consider. At Sustainable Printing Co., we make this switch easy and accessible, with no minimum order quantities and a wide range of products to choose from. Whether you need business cards, postcards, or custom small circle stickers, we have the eco-friendly options that will meet your needs.",
-        boldWords: [{ word: "custom small circle stickers" }],
+        boldWords: [{ word: "custom small circle stickers", href:"/circle-adhesive-labels" }],
       },
       {
         type: "paragraph",
         text: "Our commitment to sustainability doesn't end with our products. We are dedicated to providing excellent customer service and ensuring that our clients have all the information they need to make informed choices about their printing needs. If you have any questions or would like to learn more about our products, please don't hesitate to reach out.",
-        boldWords: [{ word: "reach out" }],
+        boldWords: [{ word: "reach out", href:"/contact" }],
       },
       {
         type: "paragraph",
         text: "For a full list of our products, visit our products page here. We’re proud to offer a range of options that allow you to maintain your brand’s commitment to sustainability without compromising on quality or design.",
-        boldWords: [{ word: "products page here" }],
       },
       {
         type: "heading",
@@ -13017,7 +12839,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Incorporating eco-friendly circle adhesive labels into your packaging is a small change that can make a big difference. Not only do these labels enhance your brand's sustainability efforts, but they also help you connect with customers who value environmental responsibility. At Sustainable Printing Co., we're here to help you make that change with our custom adhesive labels printing services Australia.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
+          { word: "Sustainable Printing Co.", href:"/" },
           { word: "custom adhesive labels printing services Australia" },
         ],
       },
@@ -13052,8 +12874,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's business landscape, where values and ethics play a significant role in shaping brand identity, choosing eco-friendly practices is more important than ever. One of the simplest yet most impactful changes a company can make is opting for sustainable business cards. Not only do they reflect your commitment to the environment, but they also set you apart in a world that’s increasingly aware of the need for sustainable practices. At Sustainable Printing Co., we've made it our mission to provide high-quality, eco-friendly business card printing services that align with your brand's values. Here are the top five reasons why you should consider making the switch to sustainable business cards for your company.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "business card printing services" },
+          { word: "business card printing services", href:"/business-cards" },
         ],
       },
       {
@@ -13068,11 +12889,9 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "In an era where consumers are becoming more conscious of environmental issues, businesses are expected to reflect these values in their operations. By choosing sustainable business cards, you're sending a clear message to your clients and customers: your company cares about the planet. Sustainable Printing Co. offers a range of recycled business cards, from 350gsm 100% recycled uncoated business cards to brown Kraft business cards, allowing you to choose a style that not only aligns with your brand aesthetic but also showcases your dedication to sustainability.",
-                boldWords: [{ word: "recycled business cards" }],
               },
               {
                 text: "Your business card is often the first tangible interaction someone has with your brand. Imagine the positive impression you'll make when you hand over a card that's not only beautifully designed but also eco-friendly. Our business card printing services are designed to help you make that powerful first impression, without compromising on quality or sustainability.",
-                boldWords: [{ word: "business card printing services" }],
               },
             ],
           },
@@ -13085,12 +12904,11 @@ export const blogData: BlogPost[] = [
               {
                 text: "One of the myths surrounding eco-friendly products is that they often compromise on quality. At Sustainable Printing Co., we're here to debunk that myth. Our business card printing services in Australia are not only sustainable but also of the highest quality. We use recycled materials that are robust, ensuring that your cards are durable and have a premium feel.",
                 boldWords: [
-                  { word: "business card printing services in Australia" },
+                  { word: "Our business card printing services in Australia ", href:"/business-cards" },
                 ],
               },
               {
                 text: "Whether you opt for our 350gsm recycled silk or our brown Kraft business cards, you can be assured that the end product will be something you're proud to hand out. We understand that first impressions count, and with our eco-friendly business card printing services, you don't have to choose between making a strong impression and protecting the environment.",
-                boldWords: [{ word: "business card printing services" }],
               },
             ],
           },
@@ -13102,11 +12920,9 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Choosing Sustainable Printing Co. means supporting a local business that values ethical practices. Based in Richmond, Victoria, we are proud to offer business card printing services that are not only eco-friendly but also locally produced. When you choose our services, you're not just investing in your brand's image; you're also supporting local jobs and contributing to the Australian economy.",
-                boldWords: [{ word: "Sustainable Printing Co." }],
               },
               {
                 text: "We believe that sustainability should be accessible to everyone, which is why we offer competitive prices and no minimum order quantities. Whether you're a small business just starting or a large corporation looking to make a switch, our business cards Richmond services are tailored to meet your needs without compromising your budget.",
-                boldWords: [{ word: "business cards Richmond" }],
               },
             ],
           },
@@ -13155,28 +12971,26 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "At Sustainable Printing Co., we're passionate about helping businesses make the switch to eco-friendly printing. Our range of products includes everything from business cards and appointment cards to postcards and greeting cards, all designed with sustainability in mind. With no minimum order quantities, it's never been easier to choose eco-friendly business card printing services for your company.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "business card printing services" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
       {
         type: "paragraph",
         text: "We believe in transparency and quality, which is why we only use recycled materials and environmentally friendly processes in our printing. Our commitment to sustainability is reflected in every aspect of our business, from the materials we use to the way we operate. Whether you're looking for business cards Richmond services or need business card printing in Australia, we're here to provide high-quality, eco-friendly solutions that meet your needs.",
         boldWords: [
-          { word: "business cards Richmond" },
-          { word: "business card printing in Australia" },
+          { word: "business card printing in Australia", href:"/business-cards" },
         ],
       },
       {
         type: "paragraph",
         text: "If you're ready to make the switch to sustainable business cards, we're here to help. Visit our contact page at Contact Us or email us at sales@sustainableprintingco.com.au to get started. You can also explore our full range of products at All Products to see how we can support your business's sustainable journey.",
         boldWords: [
-          { word: "Contact Us" },
+          { word: "Contact Us", href:"/contact" },
           {
             word: "sales@sustainableprintingco.com.au",
             href: "mailto:sales@sustainableprintingco.com.au",
           },
-          { word: "All Products" },
+          { word: "All Products", href:"/products" },
         ],
       },
       {
@@ -13202,8 +13016,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In the fast-paced world of business, the need for effective and eye-catching marketing materials cannot be overstated. Booklets are a versatile and impactful way to convey your message, and finding the right printing service in Australia is crucial to ensuring that your vision comes to life in a sustainable and professional manner. As a sustainable printing company based in Australia, Sustainable Printing Co. offers an array of eco-friendly printing solutions, including promotional booklets printing, booklet printing and binding services, and booklet and report printing services. In this blog, we will provide you with five essential tips for selecting the best booklet printing service in Australia.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "booklet printing service in Australia" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "booklet printing service in Australia", href:"/booklet-report" },
         ],
       },
 
@@ -13214,10 +13028,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When it comes to choosing a booklet printing service, quality and sustainability should be at the forefront of your decision-making process. At Sustainable Printing Co., we understand the significance of promoting sustainability through our practices. Our commitment to using 100% post-consumer recycled paper in our booklet and report printing services ensures that your marketing materials not only look impressive but also contribute to a healthier environment.",
-        boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "booklet and report printing services" },
-        ],
       },
 
       {
@@ -13227,7 +13037,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Sustainable Printing Co. acknowledges that each business has its unique needs and preferences when it comes to booklet printing. Whether it's A4 self-cover booklets, A4 plus cover booklets, A5 self-cover booklets, or A5 plus cover booklets, we offer a diverse range of options to cater to your specific requirements. Our dedication to providing sustainable options for booklet printing and binding services enables us to deliver tailored solutions that align with your brand's identity and eco-conscious ethos.",
-        boldWords: [{ word: "booklet printing and binding services" }],
+        boldWords: [{ word: "booklet printing and binding services", href:"/booklet-report" }],
       },
 
       {
@@ -13257,7 +13067,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's eco-conscious society, showcasing a commitment to environmental responsibility can greatly enhance your brand's reputation. By opting for our recycled booklet and report printing services, you demonstrate your dedication to sustainability and set a positive impression with your audience. The use of 100% recycled papers in our booklet and report printing ensures that your marketing collateral reflects your brand's values and contributes to a greener future.",
-        boldWords: [{ word: "booklet and report printing services" }],
       },
 
       {
@@ -13267,7 +13076,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we aim to offer a seamless and cost-effective experience for our clients. Our focus on providing environmentally friendly and budget-friendly booklet printing solutions enables you to enhance your marketing efforts without compromising on sustainability. Additionally, our dedication to using recycled materials does not mean sacrificing quality. It means you can obtain premium booklet printing and binding services that uphold sustainability without breaking the bank.",
-        boldWords: [{ word: "booklet printing and binding services" }],
       },
 
       {
@@ -13278,9 +13086,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "When it comes to choosing the best booklet printing service in Australia, it's essential to prioritise sustainability, quality, and personalised support. Sustainable Printing Co. stands as a committed ally in fulfilling these criteria, offering promotional booklets printing, booklet printing and binding services, and booklet and report printing services that align with your eco-friendly objectives.",
         boldWords: [
-          { word: "best booklet printing service in Australia" },
-          { word: "Sustainable Printing Co." },
-          { word: "booklet printing and binding services" },
+          { word: "best booklet printing service in Australia", href:"/booklet-report" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
 
@@ -13294,7 +13101,7 @@ export const blogData: BlogPost[] = [
           },
           {
             word: "https://www.sustainableprintingco.com.au/products",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
           },
         ],
       },
@@ -13313,15 +13120,13 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In the vibrant city of Melbourne, it's essential for businesses to stand out in the bustling marketplace. One impactful way to enhance your brand's visibility is through eye-catching sticker printing. However, in today's environmentally conscious landscape, it's crucial to align your branding efforts with sustainable practices. This is where Sustainable Printing Co. comes in, offering top-tier sticker printing services that not only captivate attention but also embody environmental responsibility, setting your brand apart as a conscious leader in your industry.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "sticker printing services" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
 
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we take pride in our commitment to sustainability, offering a selection of eco-friendly printing solutions that cater to the unique needs of businesses and individuals across Melbourne. Our range includes biodegradable sticker printing, recycled sticker printing, and other sustainable sticker printing options, providing you with the opportunity to promote your brand with a clear conscience.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -13331,7 +13136,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "With a core focus on environmental integrity, Sustainable Printing Co. champions the use of 100% recycled materials, ensuring that our sticker printing services reflect your brand's commitment to eco-consciousness. Our comprehensive approach to sustainability extends to every aspect of the printing process, from the selection of materials to the efficiency of our operations.",
-        boldWords: [{ word: "sticker printing services" }],
+        boldWords: [{ word: "sticker printing services", href:"/label-stickers" }],
       },
 
       {
@@ -13341,10 +13146,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When it comes to branding, it's crucial to find ways to authentically connect with your audience. The power of custom sticker printing lies in its ability to create memorable, tangible touchpoints for your brand. Imagine captivating designs and vibrant colors, now imagine them being environmentally friendly. With Sustainable Printing Co., this becomes a reality. Our custom sticker printing services are tailored to your unique vision and brand identity, ensuring that every sticker not only leaves a lasting impression but also reflects your dedication to sustainable practices.",
-        boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "custom sticker printing services" },
-        ],
       },
 
       {
@@ -13355,8 +13156,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Melbourne, a city known for its passion for creativity and sustainability, serves as an ideal backdrop for businesses that are committed to making a positive environmental impact. Sustainable Printing Co. embraces this ethos by providing Melbourne-based businesses with access to premium sustainable sticker printing services that align with the city's eco-conscious culture. By choosing Sustainable Printing Co., you're not only elevating your brand but also contributing to the local sustainable printing movement.",
         boldWords: [
-          { word: "sustainable sticker printing services" },
-          { word: "Sustainable Printing Co." },
+          { word: "sustainable sticker printing services", href:"/label-stickers" },
         ],
       },
 
@@ -13367,7 +13167,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When you partner with Sustainable Printing Co., you're not just opting for sticker printing; you're choosing a sustainable ethos that runs through every print produced. Our dedication to environmental responsibility is evident in our extensive range of products and services. From biodegradable sticker printing to recycled sticker printing, we offer you the opportunity to promote your brand with materials that align with your values.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -13377,7 +13176,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In addition to sustainable sticker printing, Sustainable Printing Co. offers a wide array of eco-friendly printing options to meet your diverse needs. From business cards and postcards to brochures and flyers, we've got your sustainable printing requirements covered. We use 100% recycled papers to produce green printing services that reflect your brand's commitment to environmental sustainability.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -13388,8 +13186,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In the bustling city of Melbourne, where creativity and sustainability converge, Sustainable Printing Co. stands as your partner in eco-conscious branding. Our commitment to offering premium quality, environmentally friendly printing services is unwavering, and we believe in fostering a community of conscious businesses that prioritize sustainability. Take the first step toward elevating your brand with eco-friendly sticker printing in Melbourne.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "sticker printing in Melbourne" },
+          { word: "sticker printing in Melbourne", href:"/label-stickers" },
         ],
       },
 
@@ -13397,8 +13194,9 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Contact us at (03)94822222 to discuss your print project, or explore our range of sustainable printing products at our online store.",
         boldWords: [
-          { word: "(03)94822222" },
-          { word: "sustainable printing products" },
+          { word: "Contact us", href:"/contact" },
+          { word: "(03)94822222", href:"tel:+61394822222" },
+          { word: "sustainable printing products", href:"/products" },
         ],
       },
 
@@ -13418,7 +13216,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In a rapidly evolving world where sustainability is paramount, your brand can make a meaningful statement through eco-friendly sticker printing. Partner with Sustainable Printing Co. and bring your brand's sustainable journey to the forefront, one eye-catching sticker at a time.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
     ],
   },
@@ -13433,8 +13231,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Choosing the perfect greeting card can be a daunting task, especially when you want to make an environmentally conscious choice. At Sustainable Printing Co., we specialise in Recycled Postcard Printing and offer a wide range of options to suit any occasion. Our mission is to provide high-quality, eco-friendly greeting cards that make a lasting impression while preserving our planet.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Recycled Postcard Printing" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
 
@@ -13447,8 +13244,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Recycled greeting cards are crafted from reused paper materials, significantly reducing waste and conserving natural resources. By opting for Recycled Card Paper, you contribute to a sustainable future without compromising on quality or aesthetics.",
         boldWords: [
-          { word: "Recycled greeting cards" },
-          { word: "Recycled Card Paper" },
+          { word: "Recycled greeting cards", href:"/gift-cards  " },
         ],
       },
 
@@ -13649,8 +13445,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "At Sustainable Printing Co., we are committed to sustainability without compromising on quality. Our state-of-the-art Recycled Postcard Printing ensures that every card you purchase not only looks great but also supports a greener planet.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Recycled Postcard Printing" },
+          { word: "Sustainable Printing Co.",href:"/" },
         ],
       },
 
@@ -13688,8 +13483,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Contact us at (03) 9482 2222 or email us at sales@sustainableprintingco.com.au.",
         boldWords: [
-          { word: "(03) 9482 2222", href: "#" },
-          { word: "sales@sustainableprintingco.com.au.", href: "#" },
+          { word: "(03) 9482 2222", href: "tel:+61394822222" },
+          { word: "sales@sustainableprintingco.com.au.", href: "mailto:sales@sustainableprintingco.com.au" },
         ],
       },
       {
@@ -13714,25 +13509,17 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Choosing Greeting Cards Recycled Paper from Sustainable Printing Co. is more than just a purchase; it's a statement of your commitment to the environment. Each card you send spreads a message of sustainability and care for our planet.",
         boldWords: [
-          { word: "Greeting Cards Recycled Paper" },
-          { word: "Sustainable Printing Co." },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
-
       {
         type: "paragraph",
         text: "Our mission is to produce environmentally friendly and affordable greeting cards. By using 100% recycled papers, we help reduce waste and promote a greener future. Our customers, including artists and retailers, appreciate the sturdy, high-quality print that our recycled cards offer.",
       },
-
       {
         type: "paragraph",
         text: "In conclusion, choosing the best recycled greeting cards involves considering the occasion, personalisation, print quality, and the environmental impact. At Sustainable Printing Co., we provide a range of eco-friendly options that cater to all your greeting card needs. Visit our Contact Us page for more information or to get a custom quote. Let's make every occasion special with sustainable, beautiful greeting cards.",
-        boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Visit our Contact Us page" },
-        ],
       },
-
       {
         type: "paragraph",
         text: "For more information, contact us at (03) 9482 2222 or email us at sales@sustainableprintingco.com.au. Explore our products and join us in making a positive impact on the environment, one card at a time.",
@@ -13756,13 +13543,13 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we believe that eco-friendly practices and eye-catching designs can go hand in hand. Our recycled postcard printing services offer the perfect blend of sustainability and aesthetics, ensuring that your promotional materials not only stand out but also make a positive impact on the environment. In this blog, we'll share our top design tips for creating captivating recycled postcards that reflect your commitment to sustainability.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
         type: "paragraph",
         text: "Understanding the Basics of Recycled Postcard Printing Before diving into design tips, it's essential to understand the foundations of recycled postcard printing. Our recycled postcards are perfect for various uses, from gifts to promotional handouts. We offer a range of recycled paper options, each with its unique look and feel:",
-        boldWords: [{ word: "Recycled Postcard Printing" }],
+        boldWords: [{ word: "Recycled Postcard Printing", href:"/postcards" }],
       },
 
       {
@@ -13861,9 +13648,9 @@ export const blogData: BlogPost[] = [
       },
 
       {
-        type: "paragraph",
+        type: "paragraph" ,
         text: "High-quality images and graphics are essential for creating visually appealing postcards. Ensure that your images are sharp and vibrant, even when printed on recycled paper. For our Premium Recycled Postcards, full-colour designs look fantastic, highlighting the natural texture of the paper. On our Brown Kraft Postcards, dark, bold colours like blacks work best to contrast with the earthy brown background.",
-        boldWords: [{ word: "Premium Recycled Postcards" }],
+        boldWords: [{ word: "Premium Recycled Postcards", href:"/postcards" }],
       },
 
       {
@@ -13895,8 +13682,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "One of the advantages of recycled paper is its unique texture. Our Premium Recycled Postcards offer a natural, uncoated finish that feels substantial and high-quality. This texture can enhance the tactile experience for the recipient. For a more rugged, organic feel, our Kraft Postcards provide a raw, unrefined look. Experiment with these textures to find the best fit for your brand's message.",
         boldWords: [
-          { word: "Premium Recycled Postcards" },
-          { word: "Kraft Postcards" },
+          { word: "Premium Recycled Postcards", href:"/postcards" },
         ],
       },
 
@@ -13958,7 +13744,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Designing eye-catching recycled postcards requires a balance of creativity, clarity, and sustainability. By following these tips, you can create postcards that not only stand out visually but also reinforce your commitment to eco-friendly practices. At Sustainable Printing Co., we are dedicated to providing high-quality, environmentally friendly printing solutions that help your business communicate its values effectively.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
@@ -13976,8 +13762,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Feel free to reach out to us at (03)94822222 for any inquiries or to discuss your specific printing needs. Together, let's create beautiful, sustainable postcards that leave a lasting impression while caring for our planet.",
         boldWords: [
-          { word: "(03)94822222" },
-          { word: "sustainable postcards" },
+          { word: "(03)94822222", href:"tel:+61394822222" },
+          { word: "sustainable postcards", href:"/postcards" },
         ],
       },
     ],
@@ -13993,8 +13779,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's fast-paced world, businesses need to find innovative and effective ways to stand out. One of the most tried and true methods is through the use of flyers printing service. Here at Sustainable Printing Co., we understand the power of a well-designed flyer and how it can attract new customers. Let’s explore how our Flyer Printing Services can help your business flourish.",
         boldWords: [
-          { word: "flyers printing service" },
-          { word: "Sustainable Printing Co." },
+          { word: "flyers printing service", href:"/flyers-printing" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
 
@@ -14127,9 +13913,9 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "We deliver Australia-wide on a daily basis and are always up for a challenge. Whether you have a standard order or require a custom quote, we're here to help. You can browse our full range of products on our website and get in touch with us through our contact page or via email at sales@sustainableprintingco.com.au.",
         boldWords: [
-          { word: "full range of products" },
-          { word: "contact page" },
-          { word: "sales@sustainableprintingco.com.au" },
+          { word: "full range of products", href:"/products" },
+          { word: "contact page", href:"/contact" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
         ],
       },
 
@@ -14202,17 +13988,17 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "At Sustainable Printing Co., we're dedicated to helping you gain new customers with custom flyers printing that not only look great but also reflect your commitment to sustainability. Explore our products and Contact us for a different quantity or custom quote. at (03) 9482 2222 or via email at sales@sustainableprintingco.com.au to get started.",
         boldWords: [
-          { word: "flyers printing" },
-          { word: "Contact us" },
-          { word: "(03) 9482 2222" },
-          { word: "sales@sustainableprintingco.com.au" },
+          { word: "flyers printing", href:"/flyers-printing" },
+          { word: "Contact us", href:"/contact" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
         ],
       },
 
       {
         type: "paragraph",
         text: "Invest in quality, eco-friendly flyers today and watch your business grow with Sustainable Printing Co.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
     ],
   },
@@ -14227,8 +14013,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's fast-paced, visually driven world, a well-designed poster can make all the difference in catching the eye and conveying your message. Whether you're promoting an event, launching a product, or decorating a space, ensuring your poster is printed to the highest standard is crucial. At Sustainable Printing Co., we pride ourselves on offering top-tier poster printing services that are both environmentally friendly and visually stunning. This guide will walk you through everything you need to know about professional poster printing services, from understanding resolution quality to selecting the perfect materials and sizes.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "poster printing services" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "poster printing services", href:"/posters-printing" },
         ],
       },
 
@@ -14496,15 +14282,8 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "For custom sizes or special projects, get a custom quote from our team.",
-        boldWords: [{ word: "get a custom quote" }],
+        boldWords: [{ word: "get a custom quote", href:"/contact" }],
       },
-
-      {
-        type: "link",
-        text: "get a custom quote",
-        href: "#",
-      },
-
       {
         type: "heading",
         text: "Quick Links",
@@ -14527,13 +14306,13 @@ export const blogData: BlogPost[] = [
           },
           {
             label: "Contact us",
-            linkText: "",
-            href: "/contact-us",
+            linkText: "Contact",
+            href: "/contact",
             boldLabel: true,
           },
           {
             label: "All Products",
-            linkText: "",
+            linkText: "All Products",
             href: "/products",
             boldLabel: true,
           },
@@ -14558,8 +14337,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In the bustling world of business, where connections are currency and impressions are everything, the humble business card remains a steadfast ambassador for your brand. At Sustainable Printing Co., we understand the pivotal role a well-crafted business card plays in your professional arsenal. That's why we're here to guide you through the intricate dance of design and printing, ensuring your business card printing leaves a lasting impression while championing sustainability every step of the way.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "business card printing" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "business card printing", href:"/business-cards" },
         ],
       },
 
@@ -14660,7 +14439,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In the fast-paced world of business, a well-designed and expertly printed business card can be your secret weapon for success. By following these ten simple yet essential tips, you can ensure your business card stands out from the crowd while championing sustainability every step of the way. Partner with Sustainable Printing Co. today and embark on a journey towards eco-friendly excellence.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
@@ -14677,12 +14456,12 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "For premium quality, environmentally friendly business card printing services in Australia, visit Sustainable Printing Co. Contact us for a different quantity or custom quote at sales@sustainableprintingco.com.au or give us a call at (03) 9482 2222 to discuss your printing needs. Explore our full range of products here.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Contact us" },
-          { word: "custom quote" },
-          { word: "sales@sustainableprintingco.com.au" },
-          { word: "(03) 9482 2222" },
-          { word: "here" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "Contact us", href:"/contact" },
+          { word: "custom quote", href:"/custom-quote" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
+          { word: "here", href:"/contact" },
         ],
       },
 
@@ -14739,8 +14518,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In a world where sustainability is no longer a buzzword but a way of life, finding eco-conscious solutions for every aspect of business becomes paramount. When it comes to printing, Sustainable Printing Co. stands tall as a beacon of environmental responsibility, offering premium Custom Printing Services Australia wide. Let's dive into the realm of sustainable printing and unveil how Sustainable Printing Co. is redefining the landscape of custom printing services in Australia.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Custom Printing Services Australia" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
 
@@ -14752,7 +14530,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we bring a unique blend of experience and innovation to the table. With a focus on premium quality and environmental stewardship, our custom printing services cater to businesses and individuals alike, delivering impeccable results while minimising our ecological footprint.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -14764,12 +14541,12 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Our expertise lies not only in the craft of printing but also in our commitment to sustainability. Utilising 100% recycled papers and eco-friendly inks, we offer a wide range of printing services, including business cards, postcards, brochures, stickers, and flyers. Moreover, our specialty lies in producing other bespoke products such as foiled invitations and personalised variable data printing, each crafted with precision and care.",
         boldWords: [
-          { word: "business cards" },
-          { word: "postcards" },
-          { word: "brochures" },
-          { word: "stickers" },
-          { word: "flyers" },
-          { word: "invitations" },
+          { word: "business cards", href:"/uncoated-business-cards" },
+          { word: "postcards", href:"/premium-postcards" },
+          { word: "brochures", href:"/brochures-printing" },
+          { word: "stickers", href:"/circle-adhesive-labels" },
+          { word: "flyers", href:"/flyers-printing" },
+          { word: "invitations", href:"/invitations" },
         ],
       },
 
@@ -14781,7 +14558,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "As pioneers in the field of eco-friendly printing, Sustainable Printing Co. stands as an authoritative figure in promoting sustainable practices within the printing industry. Our dedication to using sustainable stocks, eco inks, and green electricity sets a benchmark for responsible printing, inspiring others to follow suit in their endeavors.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -14792,7 +14568,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When you choose Sustainable Printing Co., you're not just opting for a printing service; you're forging a partnership built on trust and reliability. With no minimum order quantities, we ensure that even small businesses and brands can access sustainable printing solutions without compromising on quality or integrity.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
@@ -14804,12 +14580,12 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Embrace the future of printing with Sustainable Printing Co. Our eco-friendly adhesive labels, greeting cards, swing tags, folded brochures, books, and business cards are designed to elevate your brand while minimising environmental impact. Whether you're showcasing your artwork or sharing your business message, our range of recycled papers and sustainable printing techniques offer unparalleled versatility and vibrancy.",
         boldWords: [
-          { word: "adhesive labels" },
-          { word: "greeting cards" },
-          { word: "swing tags" },
-          { word: "folded brochures" },
-          { word: "books" },
-          { word: "business cards" },
+          { word: "adhesive labels", href:"/circle-adhesive-labels" },
+          { word: "greeting cards", href:"/standard-a6-gift-cards"  },
+          { word: "swing tags", href:"/premium-swing-tags"  },
+          { word: "folded brochures", href:"/brochures-printing"  },
+          { word: "books", href:"/books"  },
+          { word: "business cards", href:"/uncoated-business-cards"  },
         ],
       },
 
@@ -14830,6 +14606,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           {
             word: "Environmentally-Friendly Custom Printing Services Across Australia",
+            href:"/blogs/environmentally-friendly-custom-printing-services-across-australia"
           },
         ],
       },
@@ -14843,8 +14620,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Ready to embark on your sustainable printing journey? Contact us via email at sales@sustainableprintingco.com.au or give us a call at (03) 9482 2222 to discuss your print project.",
         boldWords: [
-          { word: "sales@sustainableprintingco.com.au" },
-          { word: "(03) 9482 2222" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
         ],
       },
 
@@ -14862,8 +14639,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Discover the full spectrum of eco-friendly printing solutions offered by Sustainable Printing Co. by visiting our website's Products page. From adhesive labels to folded brochures, we have everything you need to make a lasting impression with minimal environmental impact.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Products page" },
+          { word: "Products page", href:"/products" },
         ],
       },
 
@@ -14875,13 +14651,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In conclusion, Sustainable Printing Co. stands at the forefront of redefining custom printing services in Australia through its unwavering commitment to sustainability, quality, and innovation. Experience the eco-friendly edge with us and pave the way for a greener, more responsible future. Let's print without costing the earth!",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
         type: "paragraph",
         text: "Remember, when it comes to sustainable printing, the choice is clear – choose Sustainable Printing Co., where quality meets conscience.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -14897,7 +14672,7 @@ export const blogData: BlogPost[] = [
               "What sets Sustainable Printing Co. apart from traditional printing services?",
             content:
               "At Sustainable Printing Co., we prioritise environmental sustainability without compromising on quality. Our commitment to using 100% recycled papers, eco-friendly inks, and green electricity sets us apart from conventional printing services, ensuring that every print project contributes to a greener future.",
-            boldWords: [{ word: "Sustainable Printing Co." }],
+            boldWords: [{ word: "Sustainable Printing Co.",href:"/"  }],
           },
 
           {
@@ -14905,7 +14680,7 @@ export const blogData: BlogPost[] = [
               "Are there any minimum order quantities for custom printing services?",
             content:
               "No, there are no minimum order quantities required at Sustainable Printing Co. Whether you're a small business or a large corporation, we cater to all printing needs with flexibility and efficiency. Our goal is to make sustainable printing accessible to everyone, regardless of order size.",
-            boldWords: [{ word: "Sustainable Printing Co." }],
+            boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
           },
 
           {
@@ -14913,7 +14688,7 @@ export const blogData: BlogPost[] = [
               "How can I ensure that my print project aligns with sustainable practices?",
             content:
               "When you choose Sustainable Printing Co., you can rest assured that your print project will adhere to the highest standards of sustainability. From using recycled papers to eco-friendly inks, we offer transparent and eco-conscious printing solutions that minimise environmental impact without compromising on quality or creativity.",
-            boldWords: [{ word: "Sustainable Printing Co." }],
+            boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
           },
 
           {
@@ -14921,15 +14696,39 @@ export const blogData: BlogPost[] = [
             content:
               "We offer a comprehensive range of eco-friendly printing services, including business cards, postcards, brochures, stickers, flyers, invitations, personalised data printing, and more. Additionally, our specialty lies in producing bespoke products such as books, magazines, annual reports, and greeting cards, all crafted with sustainability in mind.",
             boldWords: [
-              { word: "business cards" },
-              { word: "postcards" },
-              { word: "brochures" },
-              { word: "stickers" },
-              { word: "flyers" },
-              { word: "invitations" },
-              { word: "books" },
-              { word: "greeting cards" },
-            ],
+                {
+                  word: "business cards",
+                  href: "/uncoated-business-cards",
+                },
+                {
+                  word: "postcards",
+                  href: "/premium-postcards",
+                },
+                {
+                  word: "brochures",
+                  href: "/brochures-printing",
+                },
+                {
+                  word: "stickers",
+                  href: "/circle-adhesive-labels",
+                },
+                {
+                  word: "flyers",
+                  href: "/flyers-printing",
+                },
+                {
+                  word: "invitations",
+                  href: "/invitations",
+                },
+                {
+                  word: "books",
+                  href: "/books",
+                },
+                {
+                  word: "greeting cards",
+                  href: "/standard-a6-gift-cards",
+                },
+              ],
           },
 
           {
@@ -14938,9 +14737,15 @@ export const blogData: BlogPost[] = [
             content:
               "Ordering with Sustainable Printing Co. is easy and convenient. You can place your order directly through our website or contact us via email at sales@sustainableprintingco.com.au or by phone at (03) 9482 2222 for personalised assistance. Our friendly team is always available to answer any questions you may have and guide you through the printing process with expertise and care.",
             boldWords: [
-              { word: "Sustainable Printing Co." },
-              { word: "sales@sustainableprintingco.com.au" },
-              { word: "(03) 9482 2222" },
+              { word: "Sustainable Printing Co.", href:"/" },
+              {
+                word: "sales@sustainableprintingco.com.au",
+                href: "mailto:sales@sustainableprintingco.com.au",
+              },
+              {
+                word: "(03) 9482 2222",
+                href: "tel:+61394822222",
+              },
             ],
           },
         ],
@@ -14958,7 +14763,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Welcome to Sustainable Printing Co., where ink meets imagination to redefine the landscape of booklet printing in Australia. In this vast land of creativity and innovation, we stand as pioneers in delivering sustainable printing solutions that not only captivate the eye but also nurture the environment.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
@@ -14969,7 +14774,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we pride ourselves on our expertise in providing premium quality, environmentally friendly printing services. With a commitment to sustainability, we utilise 100% recycled papers to bring your projects to life. From business cards to postcards, brochures to stickers and flyers, we offer a diverse range of green printing options to suit your needs.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -14990,7 +14794,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "As a leading advocate for sustainable printing practices, Sustainable Printing Co. is dedicated to reducing our environmental footprint while delivering exceptional results. By choosing us for your printing needs, you're not just investing in quality craftsmanship; you're making a conscious choice to support eco-friendly initiatives that benefit our planet.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15001,7 +14804,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Promotional booklets serve as powerful marketing tools, offering a dynamic platform to showcase your products, services, or brand story. At Sustainable Printing Co., we specialise in promotional booklet printing that commands attention and leaves a lasting impression. Whether you're launching a new product line, promoting an event, or sharing your company's journey, our booklet printing services are tailored to meet your unique requirements.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15022,7 +14824,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In a world inundated with digital noise, promotional booklets offer a tangible and immersive experience for your audience. Our promotional booklet printing services are tailored to make your message stand out from the crowd. From vibrant colors to premium finishes, we employ cutting-edge printing techniques to bring your booklet to life in stunning detail.",
-        boldWords: [{ word: "booklet printing services" }],
       },
 
       {
@@ -15033,7 +14834,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "As pioneers in the printing industry, Sustainable Printing Co. is committed to delivering excellence nationwide. With a network that spans across the vast expanse of Australia, we ensure that your printing needs are met with efficiency and precision. Whether you're in the heart of the city or the remotest corner of the Outback, our daily delivery service ensures that your projects reach you on time, every time.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15045,9 +14845,9 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Ready to embark on your printing journey with Sustainable Printing Co.? Contact us today to discuss your print project and experience the difference of sustainable printing solutions. Email us at sales@sustainableprintingco.com.au or give us a call at (03) 9482 2222. Our team is here to assist you every step of the way.",
         boldWords: [
-          { word: "Sustainable Printing Co.?" },
-          { word: "sales@sustainableprintingco.com.au" },
-          { word: "(03) 9482 2222" },
+          { word: "Sustainable Printing Co.?", href:"/" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
         ],
       },
 
@@ -15063,6 +14863,7 @@ export const blogData: BlogPost[] = [
           { word: "Sustainable Printing Co." },
           {
             word: "https://www.sustainableprintingco.com.au/products",
+            href:"/products"
           },
         ],
       },
@@ -15070,7 +14871,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Ink and imagination converge at Sustainable Printing Co., where every print is a testament to our commitment to quality, sustainability, and innovation. Join us in redefining the future of printing in the Land of Oz and beyond.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
     ],
   },
@@ -15086,13 +14886,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In the bustling world of commerce and creativity, where every brand vies for attention, one crucial aspect often gets overlooked – sustainability. As businesses, it's our responsibility to ensure our operations leave the lightest possible footprint on the planet. This ethos forms the cornerstone of Sustainable Printing Co., where we're not just printing stickers; we're pioneering a movement towards eco-consciousness in Australia.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we are driven by a singular passion – to provide premium quality, environmentally friendly printing solutions. Our commitment to sustainability isn't just a tagline; it's ingrained in every aspect of our operations. From the materials we use to the processes we employ, every decision is made with the planet in mind.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15109,8 +14908,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Enter eco-friendly sticker printing, a revolutionary approach that challenges the status quo. At Sustainable Printing Co., we've redefined sticker printing by leveraging sustainable materials and innovative techniques. Our stickers are not only visually striking but also gentle on the environment, allowing you to promote your brand with a clear conscience.",
         boldWords: [
-          { word: "eco-friendly sticker printing" },
-          { word: "Sustainable Printing Co." },
+          { word: "eco-friendly sticker printing", href:"/label-stickers" },
         ],
       },
 
@@ -15172,8 +14970,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Ready to make the switch to eco-friendly sticker printing? Ordering from Sustainable Printing Co. is easy and convenient. Simply visit our website at All Products to explore our full range of sustainable printing solutions. Once you've found the perfect sticker design for your brand, place your order online, upload your artwork, and select your preferred payment method. It's that simple!",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "All Products" },
+          { word: "All Products", href:"/products" },
         ],
       },
 
@@ -15181,8 +14978,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "For those who prefer a more personalised touch, don't hesitate to reach out to us directly. You can contact us via email at sales@sustainableprintingco.com.au or give us a call at (03) 9482 2222. Our friendly team is always on hand to assist you with any questions or special requests you may have.",
         boldWords: [
-          { word: "sales@sustainableprintingco.com.au" },
-          { word: "(03) 9482 2222" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
         ],
       },
 
@@ -15195,8 +14992,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In a world where sustainability is no longer just a buzzword but a necessity, it's time to take action. By choosing eco-friendly sticker printing from Sustainable Printing Co., you're not just investing in your brand – you're investing in the future of our planet. Together, let's redefine what it means to print responsibly and pave the way for a greener, more sustainable tomorrow.",
         boldWords: [
-          { word: "eco-friendly sticker printing" },
-          { word: "Sustainable Printing Co." },
+          { word: "eco-friendly sticker printing", href:"/label-stickers" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
 
@@ -15208,7 +15005,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Contact us today to learn more about our eco-friendly printing solutions and take the first step towards a brighter, more sustainable future.",
-        boldWords: [{ word: "Contact us" }],
+        boldWords: [{ word: "Contact us", href:"/contact" }],
       },
     ],
   },
@@ -15224,9 +15021,9 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Welcome to Sustainable Printing Co., your go-to destination for premium, eco-friendly printing services in Australia. As a leading sustainable printing company, we take pride in offering top-notch postcard printing services that not only make a lasting impression but also contribute to a greener planet. Join us on this journey as we delve into the world of sustainable printing, highlighting the benefits of our services, our commitment to the environment, and the wide array of postcard printing options we provide.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "eco-friendly printing services" },
-          { word: "postcard printing services" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "eco-friendly printing services", href:"/products" },
+          { word: "postcard printing services", href:"/premium-postcards" },
         ],
       },
 
@@ -15262,7 +15059,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "While postcard printing is our forte, we offer a diverse range of printing services to cater to all your business needs. Explore our specialty business cards, annual reports, foiled invitations, and personalised variable data printing options. At Sustainable Printing Co., we aim to be your one-stop-shop for all things sustainable and printing-related.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15273,7 +15069,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "We understand the importance of convenience in today's fast-paced world. That's why we've made it easy for you to place your orders online. Visit our website at Sustainable Printing Co. to explore our products, upload your artwork, and complete your order in just a few clicks. It's a hassle-free way to get your sustainable printing projects underway.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
@@ -15284,7 +15080,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "While online ordering is convenient, we also value personalised service. If you prefer a more hands-on approach, feel free to give us a Contact us at (03) 9482 2222. Our dedicated team is always ready to assist you, whether you have questions about our postcard printing services or need guidance on a custom print project.",
-        boldWords: [{ word: "Contact us" }, { word: "(03) 9482 2222" }],
+        boldWords: [{ word: "Contact us", href:"/contact" }, { word: "(03) 9482 2222", href:"tel:+61394822222" }],
       },
 
       {
@@ -15295,7 +15091,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "With Sustainable Printing Co., distance is not a barrier. We proudly offer nationwide delivery on a daily basis. No matter where you are in Australia, our sustainable prints can reach you promptly. We love a challenge, so whether you have a tight deadline or unique printing requirements, we're up for it.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15326,7 +15121,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Sustainable Printing Co. invests in cutting-edge, energy-efficient printing technologies to minimise our environmental impact. By using state-of-the-art equipment, we ensure that the printing process is as sustainable as the end product.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15337,7 +15131,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "As a customer of Sustainable Printing Co., you're not just getting exceptional postcard printing services – you're joining a movement towards a more sustainable future. Your choice to embrace eco-friendly printing contributes to a healthier planet and sets a positive example for others.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15349,9 +15142,9 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Ready to make a positive impact with your printing projects? Contact Sustainable Printing Co. today. Reach out to us at sales@sustainableprintingco.com.au or give us a call at (03) 9482 2222. Our team is eager to discuss your printing needs, answer any questions you may have, and guide you through the process of creating eco-friendly, eye-catching postcards and other printed materials.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "sales@sustainableprintingco.com.au" },
-          { word: "(03) 9482 2222" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
         ],
       },
 
@@ -15364,15 +15157,13 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Curious about the full range of sustainable printing options we offer? Visit our All Products page for a comprehensive overview. Whether you're looking for postcards, business cards, or other specialty prints, Sustainable Printing Co. has you covered.",
         boldWords: [
-          { word: "All Products" },
-          { word: "Sustainable Printing Co." },
+          { word: "All Products", href:"/products" },
         ],
       },
 
       {
         type: "paragraph",
         text: "In conclusion, Sustainable Printing Co. is your trusted partner for sustainable postcard printing services in Australia. By choosing us, you not only get top-quality prints but also contribute to a greener, more sustainable future. Join the eco-friendly printing revolution – choose Sustainable Printing Co. for all your printing needs.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
     ],
   },
@@ -15387,9 +15178,10 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In the world of business, every detail matters, and the choice of your printing partner is no exception. When it comes to creating adhesive labels for your products, the decision goes beyond just aesthetics. It's about finding a partner who not only meets your printing needs but also aligns with your values, especially in an era where sustainability is paramount. In this comprehensive guide, we'll explore the key factors to consider when choosing a printing partner for adhesive labels in Australia, with a special focus on Sustainable Printing Co.'s Adhesive Labels Printing Services.",
         boldWords: [
-          { word: "adhesive labels in Australia" },
+          { word: "adhesive labels in Australia", href:"/label-stickers" },
           {
-            word: "Sustainable Printing Co.'s Adhesive Labels Printing Services",
+            word: "Sustainable Printing Co.'s",
+            href:"/"
           },
         ],
       },
@@ -15402,7 +15194,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Adhesive labels play a crucial role in product branding and communication. They are the face of your product, conveying essential information to consumers and leaving a lasting impression. Choosing the right printing partner for your adhesive labels is a decision that can significantly impact your brand's image and the overall success of your products.",
-        boldWords: [{ word: "adhesive labels" }],
       },
 
       {
@@ -15494,8 +15285,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Ready to elevate your brand with premium adhesive labels from Sustainable Printing Co.? Ordering is easy:",
         boldWords: [
-          { word: "adhesive labels" },
-          { word: "Sustainable Printing Co." },
+          { word: "adhesive labels", href:"/label-stickers" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
 
@@ -15510,7 +15301,7 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Visit the All Products page to explore their extensive range.",
-                boldWords: [{ word: "All Products" }],
+                boldWords: [{ word: "All Products", href:"/products" }],
               },
             ],
           },
@@ -15522,9 +15313,9 @@ export const blogData: BlogPost[] = [
               {
                 text: "Contact them through sales@sustainableprintingco.com.au or via their Contact Us for a different quantity or custom quote.",
                 boldWords: [
-                  { word: "sales@sustainableprintingco.com.au" },
-                  { word: "Contact Us" },
-                  { word: "custom quote" },
+                  { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+                  { word: "Contact Us", href:"/contact" },
+                  { word: "custom quote", href:"/custom-quote" },
                 ],
               },
             ],
@@ -15547,7 +15338,6 @@ export const blogData: BlogPost[] = [
             paragraphs: [
               {
                 text: "Place your order online, upload your artwork, and select your payment method easily on their user-friendly website.",
-                boldWords: [{ word: "upload your artwork" }],
               },
             ],
           },
@@ -15557,10 +15347,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Make the sustainable choice for your adhesive labels with Sustainable Printing Co. – where quality meets conscience. Choose a partner that not only understands your printing needs but also shares your commitment to a greener future.",
-        boldWords: [
-          { word: "adhesive labels" },
-          { word: "Sustainable Printing Co." },
-        ],
       },
     ],
   },
@@ -15575,7 +15361,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In the vibrant landscape of Australian businesses, the call for eco-conscious practices resonates louder than ever. At Sustainable Printing Co., we stride ahead, championing a greener tomorrow through our premium custom printing services that blend innovation, quality, and sustainability seamlessly.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
@@ -15617,7 +15403,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In the heart of Castlemaine, our commitment to sustainable printing echoes loudly. As we cater to local businesses and individuals, our focus remains steadfast on delivering top-notch printing services that uphold environmental responsibility. Sustainable Printing Co. stands as a beacon of green practices within the Castlemaine community, offering not just prints, but a promise of a better, eco-conscious future.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15628,7 +15413,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "From the bustling cityscape of Sydney to the serene beauty of Perth, Sustainable Printing Co. takes pride in delivering our eco-friendly prints across the Australian terrain. Our daily nationwide deliveries ensure that your print materials reach your doorstep promptly, contributing to a greener world one shipment at a time.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15639,7 +15423,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Placing orders with Sustainable Printing Co. is as easy as it gets. Whether you prefer the convenience of online ordering or seek a more personalised touch, our team is dedicated to catering to your needs. Simply visit our website, explore our wide array of products on offer, upload your artwork, and proceed with a secure payment method—all within minutes.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15651,8 +15434,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Should you desire a more hands-on approach or have specific queries, our team is always here to assist. Reach out to us at (03) 9482 2222 or drop us an email at sales@sustainableprintingco.com.au for personalised guidance or to discuss your unique print project.",
         boldWords: [
-          { word: "(03) 9482 2222" },
-          { word: "sales@sustainableprintingco.com.au" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
         ],
       },
 
@@ -15665,8 +15447,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Curious to witness the finesse of our eco-friendly prints? Visit our 'All Products' page at Sustainable Printing Co. Products to delve into our diverse portfolio of green printing solutions.",
         boldWords: [
-          { word: "'All Products'" },
-          { word: "Sustainable Printing Co. Products" },
+          { word: "Sustainable Printing Co. Products", href:"/products" },
         ],
       },
 
@@ -15742,8 +15523,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In the ever-evolving landscape of business, sustainability has become more than just a trend—it's a responsibility. At Sustainable Printing Co., we understand the pivotal role of eco-conscious practices in the printing industry. With our commitment to environmental stewardship, we've cultivated a range of sustainable printing solutions, particularly focusing on labels and stickers in Australia.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "labels and stickers" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "labels and stickers", href:"/label-stickers" },
         ],
       },
 
@@ -15755,11 +15536,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., we redefine sticker printing services by intertwining innovation and eco-friendliness. Our ethos centers around providing premium-quality products while minimising our ecological footprint. With a diverse array of offerings, including biodegradable shipping labels, compostable shipping labels, and sticker paper sourced locally in Australia, we pave the way for businesses to make environmentally responsible choices without compromising on quality.",
-        boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "biodegradable shipping labels" },
-          { word: "compostable shipping labels" },
-        ],
       },
 
       {
@@ -15850,13 +15626,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Our dedication to sustainability doesn't stop at products; it's woven into our company's DNA. Through our commitment to ethical practices, we seek to inspire a broader movement toward environmentally responsible printing solutions. Visit our website to explore our range of products at All Products and discover the ease of ordering through our Label & Stickers section.",
-        boldWords: [{ word: "All Products" }, { word: "Label & Stickers" }],
+        boldWords: [{ word: "All Products", href:"/products" }, { word: "Label & Stickers", href:"/label-stickers" }],
       },
 
       {
         type: "paragraph",
         text: "In a world where every choice matters, choose Sustainable Printing Co. for your printing needs. Let's join hands in creating a greener, more sustainable future for businesses across Australia.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -15913,7 +15688,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In the professional world, the business card remains a fundamental tool, serving as a tangible symbol of networking and corporate identity. Despite the digital revolution, these small pieces of paper hold significant power in making lasting impressions. Concurrently, the corporate world is experiencing a paradigm shift towards sustainability, reflecting a global awareness of environmental responsibility. At the forefront of this eco-conscious movement in Australia is Sustainable Printing Co., a pioneering enterprise dedicated to offering environmentally friendly printing solutions. Their commitment to sustainability is not just a trend but a testament to their dedication to combining professionalism with planet-friendly practices.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "heading",
@@ -16011,7 +15786,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "An exploration of the sustainable methods and materials employed by Sustainable Printing Co.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -16020,7 +15794,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Incorporating testimonials and case studies, this section compares Sustainable Printing Co. with traditional counterparts.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -16045,12 +15818,10 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "The Design Assistance from Sustainable Printing Co.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
         text: "An overview of how Sustainable Printing Co. collaborates with clients in the design process.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -16120,10 +15891,10 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In conclusion, this article reiterates the significant role that Sustainable Printing Co. plays in revolutionising the business card printing industry with a focus on environmental stewardship. It encourages readers to consider the long-term benefits of choosing an eco-friendly path for their business card needs, positioning Sustainable Printing Co. as a leader in sustainable business card service in Australia. Contact us today to grow your brand awareness and watch it soar! Email us if you have any queries at sales@sustainableprintingco.com.au.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "business card service" },
-          { word: "Contact us today" },
-          { word: "sales@sustainableprintingco.com.au" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "business card service", href:"/uncoated-business-cards" },
+          { word: "Contact us today", href:"/contact" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
         ],
       },
     ],
@@ -16145,8 +15916,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's world, where sustainability is not just a choice but a necessity, we at Sustainable Printing Co. are proud to lead the charge in eco-friendly printing solutions in Australia. Our focus is on providing top-notch booklet printing services that not only meet your needs but also contribute positively to our environment. In this comprehensive guide, we'll delve into the world of sustainable booklet printing, highlighting why it's the best choice for your business and the planet.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "booklet printing services" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "booklet printing services", href:"/books" },
         ],
       },
       {
@@ -16257,7 +16028,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "By choosing Sustainable Printing Co. for your booklet printing needs, you're not just getting a product; you're supporting a process that cares for the environment every step of the way.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -16314,7 +16084,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Ready to make the switch to sustainable booklet printing? Contact us today to discuss your project. Our friendly team is here to provide you with the best solutions that align with your sustainability goals.",
-        boldWords: [{ word: "Contact us today" }],
       },
       {
         type: "heading",
@@ -16327,7 +16096,7 @@ export const blogData: BlogPost[] = [
           { word: "Sustainable Printing Co." },
           {
             word: "Tap here",
-            href: "https://www.sustainableprintingco.com.au",
+            href: "/why-we-print-sustainably",
           },
         ],
       },
@@ -16346,7 +16115,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choosing Sustainable Printing Co. for your booklet printing needs means choosing a partner who cares about your business and the planet. Our commitment to sustainability, combined with our expertise in printing, makes us the ideal choice for businesses across Australia. Let's work together to create stunning, eco-friendly booklets that make a lasting impression.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "richList",
@@ -16363,7 +16131,7 @@ export const blogData: BlogPost[] = [
             label: "All Products:",
             linkText:
               "Discover our full range of eco-friendly printing solutions here.",
-            href: "https://www.sustainableprintingco.com.au/products",
+            href: "/products",
             boldLabel: true,
             boldLink: false,
           },
@@ -16382,7 +16150,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In the land Down Under, where a warm and friendly culture thrives, the act of giving holds a special place in the hearts of Australians. Whether it's a gesture of gratitude, a token of celebration, or an expression of love, gift-giving is a cherished tradition that brings people closer. In this blog post, we'll dive into the importance of personalised gift cards in Australia, highlighting the role of Sustainable Printing Co. in major cities such as Melbourne, Brisbane, Sydney, Adelaide, and Perth in delivering exceptional gift card printing services.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
+          { word: "Sustainable Printing Co.", href:"/" },
           { word: "gift card printing services" },
         ],
       },
@@ -16433,7 +16201,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Australia is a nation that deeply values its stunning natural environment. In this context, Sustainable Printing Co. stands out as a beacon of environmental responsibility. Their commitment to sustainable practices ensures that your personalised gift cards are not only visually appealing but also eco-conscious.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -16466,7 +16233,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's fast-paced world, convenience matters. Personalised gift cards can be easily ordered online, making them a hassle-free and time-efficient gifting solution. Sustainable Printing Co. offers a seamless ordering process, ensuring that your personalised gift cards are delivered to your doorstep with ease.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -16483,7 +16249,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "As Australians become increasingly conscious of their environmental footprint, choosing sustainable options is a growing trend. Sustainable Printing Co. aligns perfectly with this mindset, offering gift card printing services that prioritise eco-friendly materials and practices.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -16496,14 +16261,14 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "For those seeking to create personalised gift cards in Melbourne, Brisbane, Sydney, Adelaide, or Perth, Sustainable Printing Co. is your trusted partner. Their commitment to quality, sustainability, and customisation ensures that your gift cards leave a lasting impression, contributing to the rich tapestry of gift-giving in Australia.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "paragraph",
         text: "Elevate your gifting experience and celebrate the essence of personalisation with Sustainable Printing Co.'s gift card printing services. In a world that values individuality and environmental responsibility, their offerings stand out as a true reflection of your thoughtfulness and care. Email us if you have any queries at sales@sustainableprintingco.com.au.",
         boldWords: [
-          { word: "gift card printing services" },
-          { word: "sales@sustainableprintingco.com.au" },
+          { word: "gift card printing services", href:"/standard-a6-gift-cards" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
         ],
       },
     ],
@@ -16643,27 +16408,24 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Sustainable Printing Co. - Your Partner in Business Card Excellence",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "paragraph",
         text: "Choosing the right business card printing service in Australia involves a careful balance of factors like quality, customisation, eco-friendliness, cost, and efficiency. Sustainable Printing Co. emerges as a leading choice, offering a blend of premium quality, eco-consciousness, and customisation options to meet your unique needs.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
         text: "In Melbourne, Brisbane, Sydney, Adelaide, and Perth, Sustainable Printing Co. serves as a trusted partner for businesses and professionals looking to make a lasting impression with their business cards. Whether you prioritise sustainability, design flexibility, or a combination of both, Sustainable Printing Co. is dedicated to delivering exceptional value while contributing to a greener future.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
         text: "Elevate your brand with business cards that reflect your values and professionalism. Choose Sustainable Printing Co. for business card printing services that go beyond ink and paper, delivering an eco-friendly, visually stunning, and memorable representation of your brand. Contact Us today at (03) 9482 2222 or Email us if you have any queries at sales@sustainableprintingco.com.au.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "business card printing services" },
+          { word: "business card printing services", href:"/business-cards" },
           { word: "Contact Us", href: "/contact" },
-          { word: "(03) 9482 2222" },
-          { word: "sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
         ],
       },
     ],
@@ -16679,12 +16441,12 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "In today's fast-paced era, it is vital for every business to upgrade their production, techniques, and methods according to the dynamic changing trends to stay ahead in the competitive market. With the world moving towards sustainability, it is essential to shift to Eco-Friendly Flyers & Posters Printing. They are an ideal and cost-effective way to promote your brand, products, or events.",
-        boldWords: [{ word: "Eco-Friendly Flyers & Posters Printing" }],
+        boldWords: [{ word: "Eco-Friendly Flyers & Posters Printing", href:"/flyers-printing" }],
       },
       {
         type: "paragraph",
         text: "Along with environmental awareness, these promotional printing materials not only support your business but also contribute to a greener future. In this blog, we will walk you through the benefits of Eco-Friendly Flyers and Posters for your business.",
-        boldWords: [{ word: "Eco-Friendly Flyers and Posters" }],
+        boldWords: [{ word: "Eco-Friendly Flyers and Posters", href:"/posters-printing" }],
       },
       {
         type: "heading",
@@ -16713,12 +16475,11 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Sustainable Printing Co. proudly offers Eco-Friendly Flyers and Posters Printing Services in Melbourne, Australia. Known for its vibrant art and culture, Melbourne provides the perfect backdrop to showcase your brand from a great perspective. By leveraging the power of local print services, you can leverage your city's strategy and spread your word in the community.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
       {
         type: "paragraph",
         text: "When your marketing materials are printed locally, you benefit from quicker turnaround times, personalized attention, and the opportunity to support local businesses. Sustainable Printing Co.'s presence in Melbourne ensures that your Eco-Friendly Flyers and Posters are not only environmentally friendly, but also relevant to the heart of city.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "heading",
@@ -16727,7 +16488,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "When delving into the realm of flyer and poster printing, look no further than Sustainable Printing Co. Our array of sustainable alternatives harmonizes seamlessly with your business's core values. From using eco-friendly inks to supplying only 100% recycled materials, we give you the freedom to choose to reduce your ecological impact while adhering to the highest standards.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "richList",
@@ -16791,14 +16551,13 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In a world where conscious consumerism is on the rise, businesses that embrace sustainability stand out as beacons of positive change. Sustainable Printing Co. empowers you to enhance your brand's visibility and impact through Eco-Friendly Flyers and Posters while contributing to a greener future. By choosing eco-friendly printing materials and supporting local businesses, you demonstrate your commitment to responsible practices and connect with environmentally conscious customers.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
-          { word: "Eco-Friendly Flyers and Posters" },
+          { word: "Sustainable Printing Co.", href:"/" },
+          { word: "Eco-Friendly Flyers and Posters", href:"/posters-printing" },
         ],
       },
       {
         type: "paragraph",
         text: "If you are exploring options for Eco-Friendly Printing Service Provider in Australia, Sustainable Printing Co. is your open-stop destination. Make a lasting impression, promote your business effectively, and incline toward a sustainable future with Sustainable Printing Co.'s range of printing services.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
@@ -16806,7 +16565,7 @@ export const blogData: BlogPost[] = [
         boldWords: [
           { word: "Recycled Paper Booklet Printing" },
           { word: "contacting us", href: "/contact" },
-          { word: "sales@sustainableprintingco.com.au" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
         ],
       },
     ],
@@ -16824,8 +16583,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "In today's speedy-paced international, in which sustainability and environmental focus are gaining prominence, making eco-friendly selections is more crucial than ever. One such choice is the usage of recycled greeting cards. As an eco-friendly green printing provider in Australia, Sustainable Printing Co. promotes using recycled paper to create sustainable greeting cards. In this article, we're going to delve into the numerous motives why the usage of recycled greeting cards is an extremely good desire for each people and organizations alike.",
         boldWords: [
-          { word: "recycled greeting cards" },
-          { word: "Sustainable Printing Co." },
+          { word: "recycled greeting cards", href:"/standard-a6-gift-cards" },
+          { word: "Sustainable Printing Co.", href:"/" },
         ],
       },
       {
@@ -16955,13 +16714,13 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Recycled greeting cards offer a myriad of benefits, from reducing environmental impact and conserving resources to showcasing your eco-friendly values and supporting local businesses. With customizable options, a wide range of designs, and the help of professional greeting card printing services like Sustainable Printing, making the switch to recycled paper cards is an easy, responsible choice.",
-        boldWords: [{ word: "Recycled greeting cards" }],
+        boldWords: [{ word: "Recycled greeting cards", href:"/standard-a6-gift-cards" }],
       },
       {
         type: "paragraph",
         text: "In a world focused on sustainability, using recycled greeting cards is a pivotal eco-conscious decision. Sustainable Printing Co., a prominent Australian green printing provider, champions this choice. By opting for recycled paper cards, we curb deforestation, conserve energy and water, and invigorate the demand for recycled paper. Moreover, these cards are cost-effective, reduce landfill waste, and endorse a circular economy. With Sustainable Printing's expertise, personalized recycled greeting cards create an enduring impact. Together, these choices echo a commitment to a verdant planet and a brighter future for all. Contact us at sales at sustainableprintingco.com.au to make a difference.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
+          { word: "Sustainable Printing Co.", href:"/" },
           { word: "Contact us", href: "/contact" },
           {
             word: "sustainableprintingco.com.au",
@@ -17098,8 +16857,8 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "As Melbourne's leading sustainable printers, we at Sustainable Printing firmly believe that the path to a greener future begins with responsible choices in every aspect of business operations. By choosing us, you not only receive high-quality printing services but also actively participate in the global effort to protect the environment.",
         boldWords: [
-          { word: "Melbourne's leading sustainable printers" },
-          { word: "Sustainable Printing" },
+          { word: "Melbourne's leading sustainable printers", href:"/melbourne-printers" },
+          { word: "Sustainable Printing", href:"/" },
         ],
       },
       {
@@ -17130,7 +16889,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Soy and vegetable-based inks are widely recognized as the environmentally friendly choice. At Sustainable Printing Co, we also implement a recycle and reuse program in our factory that see's 100% of all paper offcuts and printing plate either reused or recycled. This is another initiative our print staff drive to steer materials away from landfill and promote a circular business/economy where waste is reused and recycled. We also reuse unused inks for future jobs.",
-        boldWords: [{ word: "Sustainable Printing Co" }],
       },
       {
         type: "heading",
@@ -17288,7 +17046,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choose Sustainable Printing - For a Greener World.",
-        boldWords: [{ word: "Sustainable Printing" }],
+        boldWords: [{ word: "Sustainable Printing",href:"/" }],
       },
     ],
   },
@@ -17427,7 +17185,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Make a positive impact on the environment without compromising on quality. Choose SustainablePrintingCo.com.au as your trusted recycled greeting card printing service provider in Australia. Together, let's create a greener future, one card at a time.",
-        boldWords: [{ word: "SustainablePrintingCo.com.au" }],
       },
       {
         type: "heading",
@@ -17498,7 +17255,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Professional printing company Flyers Printing Services specialises in producing top-notch flyers. They provide a variety of alternatives for creating and printing flyers for a variety of uses, including advertising for businesses, events, and promotional efforts. They offer specialised design, vivid colour printing, and many paper options to meet various needs. Flyers Printing Services guarantees that customers receive eye-catching and powerful flyers to effectively express their message to the target audience with careful attention to detail and rapid turnaround times.",
-        boldWords: [{ word: "Flyers Printing Services" }],
       },
       {
         type: "heading",
@@ -17652,7 +17408,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "This shift has created growing demand for Sustainable Printing solutions across industries. From hospitality and retail to education and corporate sectors, businesses are actively searching for better ways to produce printed materials without creating unnecessary environmental impact.",
-        boldWords: [{ word: "Sustainable Printing solutions" }],
+        boldWords: [{ word: "Sustainable Printing solutions", href:"/" }],
       },
       {
         type: "paragraph",
@@ -17713,7 +17469,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Modern Recycled Paper Printing offers excellent durability, texture, print clarity, and visual appeal suitable for professional business use.",
-        boldWords: [{ word: "Recycled Paper Printing" }],
+        boldWords: [{ word: "Recycled Paper Printing", href:"/" }],
       },
       {
         type: "paragraph",
@@ -17803,7 +17559,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "One of the biggest reasons businesses avoided Sustainable Printing in the past was limited accessibility. Eco conscious printing was once considered expensive or difficult to organise.",
-        boldWords: [{ word: "Sustainable Printing" }],
+        boldWords: [{ word: "Sustainable Printing", href:"/" }],
       },
       {
         type: "paragraph",
@@ -17885,8 +17641,8 @@ export const blogData: BlogPost[] = [
         text: "Businesses interested in discussing their next project can contact the team directly through the Contact Us Page, email sales@sustainableprintingco.com.au, or call (03) 9482 2222 for personalised assistance.",
         boldWords: [
           { word: "Contact Us", href: "/contact" },
-          { word: "sales@sustainableprintingco.com.au" },
-          { word: "(03) 9482 2222" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
         ],
       },
       {
@@ -17926,7 +17682,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "For sustainable brands across Australia, packaging choices are becoming just as important as the products they sell. Businesses are moving away from glossy excess and leaning towards natural materials that feel authentic, responsible, and thoughtfully designed. This shift is one of the main reasons why Kraft Swing Tags Australia businesses use are becoming increasingly popular.",
-        boldWords: [{ word: "Kraft Swing Tags Australia" }],
+        boldWords: [{ word: "Kraft Swing Tags Australia", href:"/premium-swing-tags" }],
       },
       {
         type: "paragraph",
@@ -17989,7 +17745,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Many Australian businesses now use Premium Swing Tags to strengthen brand identity while keeping packaging aligned with sustainability values.",
-        boldWords: [{ word: "Premium Swing Tags" }],
       },
       {
         type: "paragraph",
@@ -18006,7 +17761,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., printing on recycled paper delivers important environmental benefits while maintaining professional quality. Businesses can feel confident knowing their packaging materials are produced using 100 percent recycled papers that can be recycled again after use.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
@@ -18015,7 +17769,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Businesses choosing Kraft Swing Tags Printing Australia solutions through sustainable production methods can strengthen environmental credibility while maintaining beautiful product presentation.",
-        boldWords: [{ word: "Kraft Swing Tags Printing Australia" }],
       },
       {
         type: "heading",
@@ -18058,6 +17811,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "A recycled kraft swing tag often creates a stronger emotional response than a glossy synthetic label because it feels intentional and environmentally conscious.",
+        boldWords: [{ word: "recycled kraft swing tag", href:"premium-swing-tags" }],
       },
       {
         type: "paragraph",
@@ -18097,7 +17851,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Businesses looking for tailored Kraft Swing Tags Printing Services can create custom solutions suited to their packaging style, industry, and branding goals.",
-        boldWords: [{ word: "Kraft Swing Tags Printing Services" }],
       },
       {
         type: "heading",
@@ -18136,7 +17889,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., businesses can access environmentally responsible printing solutions tailored to sustainable packaging and branded materials.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
@@ -18145,12 +17897,10 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Whether businesses require swing tags, packaging inserts, recycled marketing materials, or branded print assets, Sustainable Printing Co. offers practical and environmentally conscious solutions designed around modern sustainability expectations.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
         text: "Businesses can browse available options through the All Products page.",
-        boldWords: [{ word: "All Products", href: "/products" }],
       },
       {
         type: "heading",
@@ -18163,7 +17913,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "This is why Kraft Swing Tags Australia businesses use continue gaining popularity across retail, fashion, gifting, and artisan industries.",
-        boldWords: [{ word: "Kraft Swing Tags Australia" }],
       },
       {
         type: "paragraph",
@@ -18173,10 +17922,10 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "To discuss custom swing tag printing and sustainable packaging solutions, contact Sustainable Printing Co. through the Contact Us page, email sales@sustainableprintingco.com.au, or call (03) 9482 2222.",
         boldWords: [
-          { word: "Sustainable Printing Co." },
+          { word: "Sustainable Printing Co.", href:"/" },
           { word: "Contact Us", href: "/contact" },
-          { word: "sales@sustainableprintingco.com.au" },
-          { word: "(03) 9482 2222" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
         ],
       },
     ],
@@ -18199,12 +17948,11 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Today, brands are no longer judged solely on products or services. Customers also pay attention to how businesses operate behind the scenes. This includes packaging choices, paper sourcing, and environmental responsibility. That is exactly why Booklet Printing combined with sustainable production methods is becoming an essential part of modern brand marketing.",
-        boldWords: [{ word: "Booklet Printing" }],
       },
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., businesses can create visually impressive booklets while reducing environmental impact through responsible printing solutions and recycled paper options.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
+        boldWords: [{ word: "Sustainable Printing Co.", href:"/" }],
       },
 
       {
@@ -18235,7 +17983,7 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Unlike fleeting online advertisements, printed booklets remain visible in offices, homes, waiting rooms, and retail environments for extended periods.",
-        boldWords: [{ word: "printed booklets" }],
+        boldWords: [{ word: "printed booklets", href:"/books" }],
       },
       {
         type: "paragraph",
@@ -18293,7 +18041,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Many businesses now use Booklet Printing And Binding for premium brand communication because it creates a polished and professional appearance that digital documents often fail to replicate.",
-        boldWords: [{ word: "Booklet Printing And Binding" }],
       },
       {
         type: "paragraph",
@@ -18371,7 +18118,6 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "At Sustainable Printing Co., businesses can produce custom reports and publications while supporting environmentally responsible production methods that align with modern sustainability expectations.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
 
       {
@@ -18413,8 +18159,7 @@ export const blogData: BlogPost[] = [
         type: "paragraph",
         text: "Whether businesses require short run promotional booklets or large volume publications, Sustainable Printing Co. offers tailored solutions designed around both presentation quality and sustainability.",
         boldWords: [
-          { word: "promotional booklets" },
-          { word: "Sustainable Printing Co." },
+          { word: "promotional booklets", href:"/" },
         ],
       },
       {
@@ -18469,22 +18214,21 @@ export const blogData: BlogPost[] = [
       {
         type: "paragraph",
         text: "Choosing sustainable Booklet Printing allows Australian businesses to combine creative marketing with environmentally conscious production. It demonstrates professionalism while supporting long term environmental responsibility.",
-        boldWords: [{ word: "Booklet Printing" }],
+        boldWords: [{ word: "sustainable Booklet Printing", href:"/" }],
       },
       {
         type: "paragraph",
         text: "Sustainable Printing Co. helps businesses create high quality booklets, reports, and printed publications using recycled papers and environmentally responsible processes designed for modern Australian brands.",
-        boldWords: [{ word: "Sustainable Printing Co." }],
       },
       {
         type: "paragraph",
         text: "To discuss your next project, contact the team through the Contact Us Page, email sales@sustainableprintingco.com.au, or call (03) 9482 2222.",
         boldWords: [
           { word: "Contact Us Page", href: "/contact" },
-          { word: "sales@sustainableprintingco.com.au" },
-          { word: "(03) 9482 2222" },
+          { word: "sales@sustainableprintingco.com.au", href:"mailto:sales@sustainableprintingco.com.au" },
+          { word: "(03) 9482 2222", href:"tel:+61394822222" },
         ],
       },
     ],
   },
-];
+]; 

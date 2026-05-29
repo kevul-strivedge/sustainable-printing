@@ -12,4 +12,5 @@ export interface BannerProps {
   className?: string;
   contentClassName?: string;
   headingFont?:string;
+  alt?: string;
 }

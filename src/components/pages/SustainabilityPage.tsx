@@ -42,9 +42,9 @@ export default function SustainabilityPage() {
 
         {/* Reduce, Reuse & Recycle */}
         <div className="space-y-4 pt-6">
-          <h2 className="text-[#292560] text-2xl font-semibold">
+          <h3 className="text-[#292560] text-2xl font-semibold">
             Reduce, Reuse & Recycle
-          </h2>
+          </h3>
           <p className="text-[#292560] text-base leading-6">
             There are so many ways we can reduce the waste we produce. In our
             case, we reduce the amount of resources we use by investing in
@@ -78,7 +78,7 @@ export default function SustainabilityPage() {
 
         {/* Share The Love */}
         <div className="space-y-4 pt-6">
-          <h2 className="text-[#292560] text-2xl font-bold">Share The Love</h2>
+          <h3 className="text-[#292560] text-2xl font-bold">Share The Love</h3>
           <p className="text-[#292560] text-base leading-6">
             We work efficiently and sustainably by working collectively with our
             customers. We identify like-minded customers who have similar print

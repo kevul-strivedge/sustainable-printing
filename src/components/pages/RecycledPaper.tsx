@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageHeader from "../ui/PageHeader";
 
 export default function RecycledPaper() {
@@ -51,9 +52,9 @@ export default function RecycledPaper() {
 
         {/* Does Recycling Paper Use More Resources */}
         <div className="space-y-4 pt-3">
-          <h2 className="text-[#292560] text-2xl font-semibold">
+          <h3 className="text-[#292560] text-2xl font-semibold">
             Does Recycling Paper Use More Resources?
-          </h2>
+          </h3>
           <p className="text-[#292560] text-base leading-6">
             No, it does not. Recycled paper is better for the environment than
             virgin paper. It helps preserve forests because it reduces demand
@@ -71,9 +72,9 @@ export default function RecycledPaper() {
 
         {/* More About the Papers We Use */}
         <div className="space-y-4 pt-3">
-          <h2 className="text-[#292560] text-2xl font-semibold">
+          <h3 className="text-[#292560] text-2xl font-semibold">
             More About the Papers We Use
-          </h2>
+          </h3>
           <p className="text-[#292560] text-base leading-6">
             At Sustainable Printing Co we&apos;re pretty fond of recycled
             papers. We know using recycled paper has many benefits, like
@@ -84,9 +85,9 @@ export default function RecycledPaper() {
 
         {/* EcoStar 100% Recycled (white, uncoated) */}
         <div className="space-y-4 pt-3">
-          <h2 className="text-[#292560] text-2xl font-semibold">
+          <h3 className="text-[#292560] text-2xl font-semibold">
             EcoStar 100% Recycled (white, uncoated)
-          </h2>
+          </h3>
           <p className="text-[#292560] text-base leading-6">
             EcoStar 100% Recycled Uncoated is the Lamborghini of recycled
             papers. It&apos;s a bright white uncoated paper with outstanding
@@ -101,12 +102,14 @@ export default function RecycledPaper() {
           </p>
           <p className="text-[#292560] text-base leading-6">
             See how you can reduce your environmental impact by using this{" "}
-            <a
-              href="#"
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://c.environmentalpaper.org/individual.html"
               className="text-[#292560] font-semibold hover:underline"
             >
               environmental calculator
-            </a>
+            </Link>
           </p>
         </div>
 
@@ -132,12 +135,12 @@ export default function RecycledPaper() {
           </p>
           <p className="text-[#292560] text-base leading-6">
             See how you can reduce your environmental impact by using this{" "}
-            <a
-              href="#"
+            <Link
+              href="https://c.environmentalpaper.org/individual.html"
               className="text-[#292560] font-semibold hover:underline"
             >
               environmental calculator
-            </a>
+            </Link>
           </p>
         </div>
 
@@ -146,9 +149,9 @@ export default function RecycledPaper() {
           <h2 className="text-[#292560] text-2xl font-semibold">
             Envirocare - Off-white uncoated
           </h2>
-          <p className="text-[#292560] text-xl leading-6 font-bold">
+          <h4 className="text-[#292560] text-xl leading-6 font-bold">
             100% recycled (75% post-consumer & 25% pre-consumer waste)
-          </p>
+          </h4>
           <p className="text-[#292560] text-base leading-6">
             This bad boy looks more like a recycled paper with its natural
             off-white finish. This raw yet elegant paper is speckle free and
@@ -202,13 +205,13 @@ export default function RecycledPaper() {
 
         {/* Adhesive labels */}
         <div className="space-y-4 pt-3">
-          <h2 className="text-[#292560] text-2xl font-semibold">
+          <h3 className="text-[#292560] text-2xl font-semibold">
             Adhesive labels / stickers (uncoated, gloss and Kraft)
-          </h2>
-          <p className="text-[#292560] text-xl leading-6 font-bold">
+          </h3>
+          <h4 className="text-[#292560] text-xl leading-6 font-bold">
             Made from FSC (Forest Stewardship Council) certified plantation
             fibres
-          </p>
+          </h4>
           <p className="text-[#292560] text-base leading-6">
             Most of our white adhesives are not made from recycled fibres but
             made from certified FSC pulp sourced from managed forests. We can
@@ -223,9 +226,9 @@ export default function RecycledPaper() {
 
         {/* Paper Weight Guide */}
         <div className="space-y-4 pt-3 pb-6">
-          <h2 className="text-[#292560] text-2xl font-semibold">
+          <h3 className="text-[#292560] text-2xl font-semibold">
             Paper Weight Guide
-          </h2>
+          </h3>
           <ul className="list-disc list-outside space-y-2 text-[#000000] text-base leading-6 ps-8">
             <li>
               100gsm – Commonly used for letterhead, with compliments slips,

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import PageHeader from "../ui/PageHeader";
+import Link from "next/link";
 
 interface FaqItemProps {
   question: string;
@@ -61,9 +62,9 @@ const faqData = [
         question: "How do we provide artwork?",
         answer: (
           <>
-            <span className="font-bold hover:underline cursor-pointer">
+            <Link target="_blank" rel="noopener noreferrer" href={"/docs/artwork-specification-guide.pdf"} className="font-bold hover:underline cursor-pointer">
               Please click here
-            </span>{" "}
+            </Link>{" "}
             for a guide on how to best supply artwork. Simply put, we require a
             high resolution PDF with 3mm bleed and trim marks. Please feel free
             to let us know if you have any questions about this.
@@ -102,10 +103,10 @@ const faqData = [
           <>
             We require a high resolution PDF with 3mm bleed and trim marks. A
             FREE guide to how to supply artwork can be
-            <span className="font-bold hover:underline cursor-pointer">
+            <Link target="_blank" rel="noopener noreferrer" href={"/docs/artwork-specification-guide.pdf"} className="font-bold hover:underline cursor-pointer">
               {" "}
               downloaded here
-            </span>
+            </Link>
             .
           </>
         ),
@@ -115,9 +116,9 @@ const faqData = [
         answer: (
           <>
             Please contact us at{" "}
-            <span className="font-bold text-[#292560]">
+            <Link target="_blank" rel="noopener noreferrer" href="mailto:sales@sustainableprintingco.com.au" className="font-bold text-[#292560]">
               sales@sustainableprintingco.com.au
-            </span>{" "}
+            </Link>{" "}
             to discuss. Our prices do not include artwork touch ups and
             additional costs may be required where assistance is needed with
             artwork.
@@ -132,7 +133,7 @@ const faqData = [
             quote we will supply you with a reference number and a URL of where
             to upload your artwork. You’re also welcome to drop it off on a USB
             if convenient for you. Please also feel free to send via{" "}
-            <span className="font-semibold text-[#292560]">We Transfer</span>, a
+            <Link target="_blank" rel="noopener noreferrer" href="https://wetransfer.com/" className="font-semibold text-[#292560] hover:underline">We Transfer</Link>, a
             free online file transfer site.
           </>
         ),

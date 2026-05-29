@@ -12,7 +12,7 @@ export default function TrustedByItem({ logo }: { logo: trustedBy }) {
         >
             <Image
                 src={logo.src}
-                alt={logo.name}
+                alt={logo.alt || logo.name || "company logo"}
                 width={200}
                 height={logo.height ?? 44}
                 className="

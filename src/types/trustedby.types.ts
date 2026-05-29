@@ -5,4 +5,5 @@ export interface trustedBy {
   maxW?: string;
   /** Override height (px) so every logo reads at the right optical size */
   height?: number;
+  alt?: string;
 }

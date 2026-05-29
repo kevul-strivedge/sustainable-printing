@@ -554,9 +554,9 @@ const CustomQuote = () => {
             </div>
           )}
         {/* ── Category Selector ── */}
-        <h2 className="text-[#292560] text-xl font-semibold my-6">
+        <h3 className="text-[#292560] text-xl font-semibold my-6">
           What would you like a quote for?
-        </h2>
+        </h3>
 
         {/* Responsive: 2 cols mobile → 3 cols sm → 5 cols lg */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 place-items-center">

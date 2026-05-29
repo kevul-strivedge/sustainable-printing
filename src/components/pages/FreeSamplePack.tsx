@@ -107,7 +107,7 @@ const FreeSamplePack = () => {
           </div>
         )}
         <div>
-          <h2 className="text-[#292560] text-2xl font-semibold">Samples</h2>
+          <h3 className="text-[#292560] text-2xl font-semibold">Samples</h3>
           <p className="text-[#292560] text-md pt-4 pb-6">
             Please enter your details below to receive our recycled paper sample pack.
           </p>

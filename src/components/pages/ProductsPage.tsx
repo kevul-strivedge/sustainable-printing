@@ -251,6 +251,7 @@ export default function ProductsPage() {
         image="/images/bannerImage2.png"
         heading="Can't find what you're looking for?"
         className="h-75"
+        alt="Sustainable Printing Custom Quote Banner"
         buttons={[{ label: "Request a Custom Quote", href: "/custom-quote", variant: "primary" }]}
       />
     </>

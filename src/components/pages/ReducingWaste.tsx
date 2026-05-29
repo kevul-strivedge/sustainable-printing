@@ -45,14 +45,14 @@ export default function ReducingWaste() {
             </li>
           </ul>
 
-          <p className="text-[#292560] text-xl leading-6 font-medium pt-4">
+          <h4 className="text-[#292560] text-xl leading-6 font-medium pt-4">
             We take genuine interest and care in reducing our printing&apos;s
             environmental footprint.
-          </p>
-          <p className="text-[#292560] text-xl leading-6 font-medium pb-4">
+          </h4>
+          <h4 className="text-[#292560] text-xl leading-6 font-medium pb-4">
             We do all this while also working hard to offer cost effective
             printing.
-          </p>
+          </h4>
         </div>
       </div>
     </>
